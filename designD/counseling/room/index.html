@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<!-- JAICO-DEMO-GATE:BEGIN -->
+<script>/* 閲覧用ゲート（関係者限定デモ）。クライアントサイドの簡易ロックです。 */
+(function(){
+  var KEY='jaicoDemoGate2026', SIG='6c4a961c';
+  function hash(s){var v=5381;for(var i=0;i<s.length;i++){v=((v*33)^s.charCodeAt(i))>>>0;}return v.toString(16);}
+  try{ if(localStorage.getItem(KEY)===SIG) return; }catch(e){}
+  document.write('<style id="__gs">html{visibility:hidden!important}#__gate,#__gate *{visibility:visible!important}</style>');
+  function build(){
+    var w=document.createElement('div');
+    w.id='__gate';
+    w.setAttribute('style','position:fixed;inset:0;z-index:2147483647;background:linear-gradient(160deg,#f2f8f3,#e6f2e9);display:flex;align-items:center;justify-content:center;padding:20px;font-family:"Noto Sans JP","Yu Gothic UI",sans-serif');
+    w.innerHTML='<form id="__gf" style="background:#fff;border:1px solid #dbe7dc;border-radius:18px;box-shadow:0 14px 40px rgba(28,124,47,.14);padding:34px 32px;width:100%;max-width:380px;box-sizing:border-box">'
+      +'<div style="font-size:11px;font-weight:800;letter-spacing:.14em;color:#239b3b">CONFIDENTIAL</div>'
+      +'<h1 style="font-size:17px;margin:8px 0 6px;color:#243024;line-height:1.6">ご提案デモサイト<br>閲覧用ログイン</h1>'
+      +'<p style="font-size:12px;line-height:1.9;color:#5c6b63;margin:0 0 20px">関係者限定のプロトタイプです。<br>ご案内済みのID・パスワードを入力してください。</p>'
+      +'<label style="display:block;font-size:12px;font-weight:700;color:#243024;margin-bottom:5px">ID</label>'
+      +'<input id="__gi" type="text" autocomplete="username" autocapitalize="off" autocorrect="off" spellcheck="false" style="width:100%;box-sizing:border-box;font-size:15px;padding:11px 13px;border:1px solid #cfe0d3;border-radius:9px;margin-bottom:14px;font-family:inherit">'
+      +'<label style="display:block;font-size:12px;font-weight:700;color:#243024;margin-bottom:5px">パスワード</label>'
+      +'<input id="__gp" type="password" autocomplete="current-password" style="width:100%;box-sizing:border-box;font-size:15px;padding:11px 13px;border:1px solid #cfe0d3;border-radius:9px;font-family:inherit">'
+      +'<p id="__ge" style="display:none;font-size:12px;color:#c0392b;font-weight:700;margin:12px 0 0">IDまたはパスワードが違います。</p>'
+      +'<button type="submit" style="width:100%;margin-top:20px;background:#239b3b;color:#fff;border:0;border-radius:999px;font-size:15px;font-weight:800;padding:13px;cursor:pointer;font-family:inherit">閲覧する</button>'
+      +'<p style="font-size:10.5px;color:#8a988f;line-height:1.8;margin:16px 0 0">※ 本デモの内容・画面イメージの二次配布はご遠慮ください。</p>'
+      +'</form>';
+    document.body.appendChild(w);
+    var i=document.getElementById('__gi');
+    if(i) i.focus();
+    document.getElementById('__gf').addEventListener('submit',function(ev){
+      ev.preventDefault();
+      var id=(document.getElementById('__gi').value||'').trim();
+      var pw=document.getElementById('__gp').value||'';
+      if(hash(id+':'+pw)===SIG){
+        try{ localStorage.setItem(KEY,SIG); }catch(e){}
+        location.reload();
+      }else{
+        document.getElementById('__ge').style.display='block';
+        document.getElementById('__gp').value='';
+        document.getElementById('__gp').focus();
+      }
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',build); else build();
+})();
+</script>
+<!-- JAICO-DEMO-GATE:END -->
+
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>全国の相談室一覧｜日本産業カウンセラー協会（リニューアル構成デモ）</title>
+<meta name="description" content="全国13支部に、対面カウンセリングを受けられる相談室があります。お住まい・お勤めの地域からお選びください。">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+<div class="notice">リニューアル構成デモ｜リニューアル後の画面イメージ（プロトタイプ）— 文言・日程・数値にはサンプルを含みます</div>
+<div class="topbar"><div class="wrap">
+  <span class="tg">働く人と組織を支える 一般社団法人日本産業カウンセラー協会</span>
+  <span class="sp"><a href="../../about/link/">全国の支部サイト ↗</a><a href="../../soon.html#会員ログイン">会員ログイン</a><a href="../../access/">アクセス</a><a href="../../soon.html#English">English</a></span>
+</div></div>
+<header class="hd"><div class="wrap">
+  <a class="logo" href="../../index.html"><img src="../../../images/logo.png" alt="一般社団法人日本産業カウンセラー協会"></a>
+  <nav><ul><li><a href="../../counseling/" class="on">相談する</a><div class="mega"><div class="mg-side"><span class="t">相談する</span><span class="en">COUNSELING</span><a class="go" href="../../counseling/" aria-label="相談するトップへ">→</a></div><div class="mg-list"><a href="../../counseling/">相談・カウンセリング トップ</a><a href="../../counseling/first/">はじめての方へ</a><a href="../../counseling/hotline/">働く人の悩みホットライン</a><a href="../../counseling/sns/">SNS相談</a><a href="../../counseling/room/">全国の相談室</a><a href="../../counseling/reserve/">予約方法・担当</a><a href="../../counseling/entry/">相談のお申し込み</a><a href="../../counseling/for-company/">企業・団体の方</a></div><div class="mg-right"></div></div></li><li><a href="../../qualification/">資格・講座</a><div class="mega"><div class="mg-side"><span class="t">資格・講座</span><span class="en">QUALIFICATIONS</span><a class="go" href="../../qualification/" aria-label="資格・講座トップへ">→</a></div><div class="mg-list"><a href="../../qualification/">資格・講座トップ</a><div class="mg-item"><a class="mg-p" href="../../qualification/counselor/">産業カウンセラー養成講座</a><button class="mg-tgl" type="button" data-sub="qualification-counselor" aria-label="産業カウンセラー養成講座の下層を開閉">＋</button></div><div class="mg-item"><a class="mg-p" href="../../qualification/career/">キャリアコンサルタント</a><button class="mg-tgl" type="button" data-sub="qualification-career" aria-label="キャリアコンサルタントの下層を開閉">＋</button></div><div class="mg-item"><a class="mg-p" href="../../qualification/senior/">シニア産業カウンセラー</a><button class="mg-tgl" type="button" data-sub="qualification-senior" aria-label="シニア産業カウンセラーの下層を開閉">＋</button></div><a href="../../qualification/kokoro/">こころのアドバイザー</a><a href="../../qualification/calendar/">講座カレンダー</a><a href="../../qualification/training/">専門研修（フォローアップ）</a><a href="../../qualification/supervision/">スーパービジョン</a><a href="../../qualification/renewal/">資格更新のご案内</a><a href="../../qualification/voice/">受講者の声</a><a href="../../qualification/kyufukin/">教育訓練給付制度</a></div><div class="mg-right"><div class="mg-sub" data-panel="qualification-counselor"><a href="../../qualification/counselor/#schedule">日程・会場・お申し込み</a><a href="../../qualification/counselor/#fee">受講料・教育訓練給付金</a><a href="../../qualification/counselor/#style">受講スタイル（通学・オンライン）</a><a href="../../qualification/counselor/#area">エリア別 無料説明会</a></div><div class="mg-sub" data-panel="qualification-career"><a href="../../qualification/career/course/">養成講習</a><a href="../../qualification/career/renewal/">更新講習</a><a href="../../qualification/career/exam-prep/">試験対策</a><a href="../../qualification/career/moshi/">模擬試験</a></div><div class="mg-sub" data-panel="qualification-senior"><a href="../../qualification/senior/flow/">受験までの流れ・フォローアップ</a></div></div></div></li><li><a href="../../examination/">試験情報</a><div class="mega"><div class="mg-side"><span class="t">試験情報</span><span class="en">EXAMINATION</span><a class="go" href="../../examination/" aria-label="試験情報トップへ">→</a></div><div class="mg-list"><a href="../../examination/">試験情報トップ</a><div class="mg-item"><a class="mg-p" href="../../examination/grade2/">産業カウンセラー試験 2級</a><button class="mg-tgl" type="button" data-sub="examination-grade2" aria-label="産業カウンセラー試験 2級の下層を開閉">＋</button></div><a href="../../examination/grade1/">産業カウンセラー試験 1級</a><a href="../../examination/career/">キャリアコンサルタント国家試験</a><a href="../../examination/certificate/">合格証の発送・再発行（2級・1級）</a><a href="../../examination/faq/">よくある質問</a></div><div class="mg-right"><div class="mg-sub" data-panel="examination-grade2"><a href="../../examination/grade2/apply/">受検申請・受検上の配慮</a><a href="../../examination/grade2/results/">合否結果</a></div></div></div></li><li><a href="../../company/">法人向け</a><div class="mega"><div class="mg-side"><span class="t">法人向け</span><span class="en">FOR BUSINESS</span><a class="go" href="../../company/" aria-label="法人向けトップへ">→</a></div><div class="mg-list"><a href="../../company/">法人向けサービス トップ</a><a href="../../company/mental/">メンタルヘルス対策支援</a><a href="../../company/training/">企業研修</a><a href="../../company/stresscheck/">ストレスチェック</a><a href="../../company/eap/">外部相談窓口・EAP</a><a href="../../company/case/">導入事例</a><a href="../../company/contact/">法人お問い合わせ</a></div><div class="mg-right"></div></div></li><li><a href="../../member/">会員・入会</a><div class="mega"><div class="mg-side"><span class="t">会員・入会</span><span class="en">MEMBERSHIP</span><a class="go" href="../../member/" aria-label="会員・入会トップへ">→</a></div><div class="mg-list"><a href="../../member/">会員・入会 トップ</a><div class="mg-item"><a class="mg-p" href="../../member/join/">入会案内</a><button class="mg-tgl" type="button" data-sub="member-join" aria-label="入会案内の下層を開閉">＋</button></div><a href="../../member/benefit/">会員特典</a><a href="../../member/card/">会員証</a><a href="../../member/procedure/">各種手続き</a><a href="../../member/branch/">全国支部・拠点一覧</a><a href="../../member/mypage/">会員マイページ</a><a href="../../member/news/">会員向けお知らせ</a><a href="../../member/job/">求人情報</a></div><div class="mg-right"><div class="mg-sub" data-panel="member-join"><a href="../../member/join/entry/">入会手続き・申込フォーム</a></div></div></div></li><li><a href="../../about/">協会について</a><div class="mega"><div class="mg-side"><span class="t">協会について</span><span class="en">ABOUT US</span><a class="go" href="../../about/" aria-label="協会についてトップへ">→</a></div><div class="mg-list"><a href="../../about/">協会について トップ</a><a href="../../about/message/">会長メッセージ</a><a href="../../about/policy/">理念・行動指針</a><a href="../../about/activity/">3つの活動領域</a><a href="../../about/organization/">組織図</a><a href="../../about/adr/">ADR（紛争解決）</a><a href="../../about/conference/">全国研究大会</a><a href="../../about/disclosure/">情報公開</a><a href="../../about/link/">リンク集・関連団体</a><a href="../../about/recruit/">採用情報</a></div><div class="mg-right"></div></div></li><li><a href="../../news/">ニュース</a><div class="mega"><div class="mg-side"><span class="t">ニュース</span><span class="en">NEWS</span><a class="go" href="../../news/" aria-label="ニューストップへ">→</a></div><div class="mg-list"><a href="../../news/">お知らせ一覧</a><a href="../../news/important/">重要なお知らせ</a><a href="../../news/report/">活動報告</a><a href="../../news/archive/">年度別アーカイブ</a><a href="../../news/mailmagazine/">メールマガジン</a></div><div class="mg-right"></div></div></li><li><a href="../../library/">研究・刊行物</a><div class="mega"><div class="mg-side"><span class="t">研究・刊行物</span><span class="en">LIBRARY</span><a class="go" href="../../library/" aria-label="研究・刊行物トップへ">→</a></div><div class="mg-list"><a href="../../library/">研究・刊行物 トップ</a><div class="mg-item"><a class="mg-p" href="../../library/institute/">産業カウンセリング研究所</a><button class="mg-tgl" type="button" data-sub="library-institute" aria-label="産業カウンセリング研究所の下層を開閉">＋</button></div><a href="../../library/books/">書籍・教材</a><a href="../../library/column/">コラム</a><a href="../../library/movie/">動画ライブラリ</a><div class="mg-item"><a class="mg-p" href="../../library/magazine/">広報誌</a><button class="mg-tgl" type="button" data-sub="library-magazine" aria-label="広報誌の下層を開閉">＋</button></div><a href="../../library/kokorolab/">働く人の心ラボ</a></div><div class="mg-right"><div class="mg-sub" data-panel="library-institute"><a href="../../library/research/">調査・研究</a><a href="../../library/journal/">学術誌「産業カウンセリング研究」</a><a href="../../library/event/">イベント・セミナー</a></div><div class="mg-sub" data-panel="library-magazine"><a href="../../library/magazine/ad/">広告掲載のお申し込み</a></div></div></div></li></ul></nav>
+  <div class="cta">
+    <a class="srch" href="../../soon.html#サイト内検索" aria-label="サイト内検索"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg></a>
+    <a class="btn btn-y" href="../../member/join/">入会案内</a>
+    <a class="btn btn-g" href="../../contact/">お問い合わせ</a>
+  </div>
+  <button class="menu-btn" aria-label="メニュー"><span></span><span></span><span></span></button>
+</div></header>
+<div class="mnav"><button class="x">×</button><a href="../../counseling/">相談する</a><a href="../../qualification/">資格・講座</a><a href="../../examination/">試験情報</a><a href="../../company/">法人向け</a><a href="../../member/">会員・入会</a><a href="../../about/">協会について</a><a href="../../news/">ニュース</a><a href="../../library/">研究・刊行物</a>
+  <a href="../../member/join/">入会案内</a><a href="../../contact/">お問い合わせ</a>
+</div>
+
+<div class="crumb"><div class="wrap"><ol><li><a href="../../index.html">トップ</a></li><li><a href="../../counseling/">相談・カウンセリング</a></li><li>全国の相談室一覧</li></ol></div></div>
+<div class="p-hero"><div class="wrap"><span class="en">ROOMS</span><h1>全国の相談室一覧</h1><p class="ld">全国13支部に、対面カウンセリングを受けられる相談室があります。お住まい・お勤めの地域からお選びください。</p></div></div>
+<main class="sub"><div class="wrap prose"><p class="lead2">対面でのご相談は、全国13支部およびその事務所・相談室で承っています。お近くの拠点をご確認のうえ、ご予約ください。</p><h2 class="sec"><small>LOCATIONS</small>全国の相談拠点（支部・事務所・相談室）</h2><div class="blist"><div class="bitem"><div class="bh"><b>北海道支部</b><a href="https://hokkaido.counselor.or.jp/" target="_blank" rel="noopener">公式サイト ↗</a></div><div class="bmain"><span class="lb">本部</span>〒060-0004 北海道札幌市中央区北四条西7-1-5 札幌ホワイトビル３階　／　TEL 011-209-7000</div></div><div class="bitem"><div class="bh"><b>東北支部</b><a href="https://tohoku.counselor.or.jp/" target="_blank" rel="noopener">公式サイト ↗</a></div><div class="bmain"><span class="lb">本部</span>〒980-0014 宮城県仙台市青葉区本町2-6-15 チコウビル503号　／　TEL 022-715-8114</div></div><div class="bitem"><div class="bh"><b>上信越支部</b><a href="https://joshinetsu.counselor.or.jp/" target="_blank" rel="noopener">公式サイト ↗</a></div><div class="bmain"><span class="lb">本部</span>〒370-0006 群馬県高崎市問屋町3-10-3 問屋町センター第2ビル3階　／　TEL 027-365-2575</div><div class="boffs"><span class="boff"><span class="rm">事務所</span><b>新潟事務所</b>〒950-0911 新潟県新潟市中央区笹口2-12-10 アパ新潟駅南ビル5階　／　TEL 025-290-3883</span><span class="boff"><span class="rm">事務所</span><b>長野事務所</b>〒380-0836 長野県長野市南県町1041-3 新建新聞社第3ビル3階　／　TEL 026-237-2010</span></div></div><div class="bitem"><div class="bh"><b>北関東支部</b><a href="https://kitakanto.counselor.or.jp/" target="_blank" rel="noopener">公式サイト ↗</a></div><div class="bmain"><span class="lb">本部</span>〒330-0062 埼玉県さいたま市浦和区仲町3-5-1 埼玉県県民健康センター2階　／　TEL 048-823-7801</div><div class="boffs"><span class="boff"><span class="rm">事務所</span><b>栃木事務所</b>〒320-0033 栃木県宇都宮市本町10-3 TSビル6階　／　TEL 028-650-5661</span></div></div><div class="bitem"><div class="bh"><b>東関東支部</b><a href="https://www.co-higashikanto.jp/" target="_blank" rel="noopener">公式サイト ↗</a></div><div class="bmain"><span class="lb">本部</span>〒277-0005 千葉県柏市柏2-6-17 染谷エステートビル3階　／　TEL 04-7168-7160</div><div class="boffs"><span class="boff"><span class="rm">事務所</span><b>千葉事務所</b>〒260-0028 千葉県千葉市中央区新町18-12 第8東ビル501　／　TEL 043-204-8710</span><span class="boff"><span class="rm">事務所</span><b>茨城事務所</b>〒312-0045 茨城県ひたちなか市勝田中央14-8　／　TEL 029-353-5002</span></div></div><div class="bitem"><div class="bh"><b>東京支部</b><a href="https://www.counselor-tokyo.jp/" target="_blank" rel="noopener">公式サイト ↗</a></div><div class="bmain"><span class="lb">本部</span>〒164-0012 東京都中野区本町1-32-2　／　電話 03-6258-4410</div><div class="boffs"><span class="boff"><span class="rm">相談室</span><b>東京相談室</b>電話 03-6258-4414（予約受付）</span><span class="boff"><span class="rm">事務所</span><b>山梨事務所</b>〒400-0811 山梨県甲府市川田町アリア205 組合会館 2階　／　TEL 055-230-1331</span></div></div><div class="bitem"><div class="bh"><b>神奈川支部</b><a href="https://kanagawa.counselor.or.jp/" target="_blank" rel="noopener">公式サイト ↗</a></div><div class="bmain"><span class="lb">本部</span>〒231-0062　／　TEL 045-264-9521</div></div><div class="bitem"><div class="bh"><b>中部支部</b><a href="https://chubu.counselor.or.jp/" target="_blank" rel="noopener">公式サイト ↗</a></div><div class="bmain"><span class="lb">本部</span>愛知県名古屋市東区東桜1-9-26 IKKOパーク栄ビル4階　／　TEL 052-618-7830</div><div class="boffs"><span class="boff"><span class="rm">事務所</span><b>静岡事務所</b>〒420-0853 静岡県静岡市葵区追手町10-221-2 新中町ビル2階　／　TEL 054-254-5151</span><span class="boff"><span class="rm">事務所</span><b>三重事務所</b>〒514-0009 三重県津市羽所町513番地 サンヒルズ2階　／　TEL 059-213-6960</span><span class="boff"><span class="rm">事務所</span><b>北陸事務所</b>〒920-0022 石川県金沢市北安江3-4-2 北栄ビル2階　／　TEL 076-224-9303</span></div></div><div class="bitem"><div class="bh"><b>関西支部</b><a href="https://kansai.counselor.or.jp/" target="_blank" rel="noopener">公式サイト ↗</a></div><div class="bmain"><span class="lb">本部</span>〒540-0033 大阪府大阪市中央区石町2丁目5番3号 エル・おおさか南館3階　／　TEL 06-4963-2357</div><div class="boffs"><span class="boff"><span class="rm">事務所</span><b>京都事務所</b>〒600-8492 京都府京都市下京区月鉾町39-1 四条烏丸大西ビル7階　／　TEL 075-212-9100</span><span class="boff"><span class="rm">事務所</span><b>兵庫事務所</b>〒650-0012 兵庫県神戸市中央区北長狭通5-1-21 福建会館ビル5階　／　TEL 078-367-5815</span></div></div><div class="bitem"><div class="bh"><b>中国支部</b><a href="https://chugoku.counselor.or.jp/" target="_blank" rel="noopener">公式サイト ↗</a></div><div class="bmain"><span class="lb">本部</span>〒700-0815 岡山県岡山市北区野田屋町2丁目11-13 旧岡山あおば生命ビル4階　／　TEL 086-224-4050</div><div class="boffs"><span class="boff"><span class="rm">事務所</span><b>広島事務所</b>〒730-0016 広島県広島市中区幟町3-1 第3山県ビル5階　／　TEL 082-223-7470</span></div></div><div class="bitem"><div class="bh"><b>四国支部</b><a href="https://shikoku.counselor.or.jp/" target="_blank" rel="noopener">公式サイト ↗</a></div><div class="bmain"><span class="lb">本部</span>〒790-0814 愛媛県松山市味酒町1丁目3番地 四国ガス第3ビル7階　／　TEL 089-968-2800</div><div class="boffs"><span class="boff"><span class="rm">事務所</span><b>高知事務所</b>〒780-0870 高知県高知市本町3丁目6番22号レジデンス.リオ101号室　／　TEL／FAX 088-826-9880</span><span class="boff"><span class="rm">事務所</span><b>香川事務所</b>〒761-0301 香川県高松市林町2217-15　／　TEL 087-816-8040</span><span class="boff"><span class="rm">相談室</span><b>徳島相談室</b>〒770-0942 徳島県徳島市昭和町3丁目35－1 徳島県労働福祉会館　／　TEL 087-816-8040</span></div></div><div class="bitem"><div class="bh"><b>九州支部</b><a href="https://kyushu.counselor.or.jp/" target="_blank" rel="noopener">公式サイト ↗</a></div><div class="bmain"><span class="lb">本部</span>〒812-0016 福岡県福岡市博多区博多駅南1丁目2-15 事務機ビル6階　／　TEL 092-434-4433</div></div><div class="bitem"><div class="bh"><b>沖縄支部</b><a href="https://okinawa.counselor.or.jp/" target="_blank" rel="noopener">公式サイト ↗</a></div><div class="bmain"><span class="lb">本部</span>〒901-2131 沖縄県浦添市牧港5丁目6番8号　／　TEL 098-975-6061</div></div></div><div class="note">※ 所在地・連絡先は現行の協会公式サイトに基づく実データです。ご相談の予約方法は各拠点により異なります。オンライン・電話相談は<a href="../hotline/" style="color:var(--gd);font-weight:700;text-decoration:underline">働く人の悩みホットライン</a>・<a href="../sns/" style="color:var(--gd);font-weight:700;text-decoration:underline">SNS相談</a>もご利用いただけます。</div><div class="cta-box"><h3>まずはお気軽にご相談ください</h3><p>対面・電話・SNSから、あなたに合った方法をお選びいただけます。</p><div class="bs"><a class="btn btn-y btn-big" href="../entry/">相談を申し込む</a><a class="btn btn-w" href="../first/">はじめての方へ</a></div></div><div class="rel"><h3>RELATED ─ 関連ページ</h3><div class="lk"><a href="../">相談・カウンセリング</a><a href="../reserve/">予約方法</a><a href="../../member/branch/">支部一覧</a></div></div></div></main>
+
+<footer>
+ <div class="wrap ft-main">
+  <div class="ft-brand">
+    <img src="../../../images/foot_logo.png" alt="JAICO">
+    <p>一般社団法人日本産業カウンセラー協会<br>〒105-0004 東京都港区新橋六丁目17番17号 御成門センタービル6階</p>
+    <div class="pm"><img src="../../../images/pmark.png" alt="プライバシーマーク"><span>当協会はプライバシーマーク取得事業者です</span></div>
+  </div>
+  <div class="ft-col"><h4>相談する</h4>
+    <a href="../../counseling/hotline/">働く人の悩みホットライン</a>
+    <a href="https://harassment.counselor.or.jp/" target="_blank" rel="noopener" class="ex">JAICOハラスメント相談室</a>
+    <a href="../../counseling/sns/">JAICO SNS相談</a>
+    <a href="../../company/">法人向け相談サービス</a>
+  </div>
+  <div class="ft-col"><h4>学ぶ・資格を取る</h4>
+    <a href="../../qualification/counselor/">産業カウンセラー養成講座</a>
+    <a href="../../qualification/career/">キャリアコンサルタント</a>
+    <a href="../../qualification/senior/">シニア産業カウンセラー</a>
+    <a href="../../qualification/kokoro/">こころのアドバイザー</a>
+    <a href="../../examination/">産業カウンセラー試験</a>
+  </div>
+  <div class="ft-col"><h4>協会について</h4>
+    <a href="../../about/">協会概要・役員</a>
+    <a href="../../member/branch/">全国の支部一覧</a>
+    <a href="../../news/">ニュース・活動報告</a>
+    <a href="../../library/">研究・刊行物</a>
+    <a href="../../about/recruit/">採用情報</a>
+  </div>
+  <div class="ft-col"><h4>関連リンク</h4>
+    <a href="https://kokoro.mhlw.go.jp/" target="_blank" rel="noopener" class="ex">こころの耳（厚労省）</a>
+    <a href="../../qualification/kokoro/">こころのアドバイザー講座</a>
+    <a href="../../about/link/">関連団体・行政リンク</a>
+    <a href="../../about/policy/#privacy">プライバシーポリシー</a>
+    <a href="../../soon.html#サイトマップ">サイトマップ</a>
+  </div>
+ </div>
+ <div class="wrap ft-btm">
+   <span>© Japan Industrial Counselors Association（リニューアル構成デモ・プロトタイプ）</span>
+   <span class="lk"><a href="../../about/policy/#privacy">個人情報保護方針</a><a href="../../soon.html#特定商取引法">特定商取引法に基づく表記</a></span>
+ </div>
+</footer>
+
+<script src="../../assets/app.js"></script>
+<script src="../../assets/chatbot.js" defer></script>
+</body>
+</html>

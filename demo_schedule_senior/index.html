@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<!-- JAICO-DEMO-GATE:BEGIN -->
+<script>/* 閲覧用ゲート（関係者限定デモ）。クライアントサイドの簡易ロックです。 */
+(function(){
+  var KEY='jaicoDemoGate2026', SIG='6c4a961c';
+  function hash(s){var v=5381;for(var i=0;i<s.length;i++){v=((v*33)^s.charCodeAt(i))>>>0;}return v.toString(16);}
+  try{ if(localStorage.getItem(KEY)===SIG) return; }catch(e){}
+  document.write('<style id="__gs">html{visibility:hidden!important}#__gate,#__gate *{visibility:visible!important}</style>');
+  function build(){
+    var w=document.createElement('div');
+    w.id='__gate';
+    w.setAttribute('style','position:fixed;inset:0;z-index:2147483647;background:linear-gradient(160deg,#f2f8f3,#e6f2e9);display:flex;align-items:center;justify-content:center;padding:20px;font-family:"Noto Sans JP","Yu Gothic UI",sans-serif');
+    w.innerHTML='<form id="__gf" style="background:#fff;border:1px solid #dbe7dc;border-radius:18px;box-shadow:0 14px 40px rgba(28,124,47,.14);padding:34px 32px;width:100%;max-width:380px;box-sizing:border-box">'
+      +'<div style="font-size:11px;font-weight:800;letter-spacing:.14em;color:#239b3b">CONFIDENTIAL</div>'
+      +'<h1 style="font-size:17px;margin:8px 0 6px;color:#243024;line-height:1.6">ご提案デモサイト<br>閲覧用ログイン</h1>'
+      +'<p style="font-size:12px;line-height:1.9;color:#5c6b63;margin:0 0 20px">関係者限定のプロトタイプです。<br>ご案内済みのID・パスワードを入力してください。</p>'
+      +'<label style="display:block;font-size:12px;font-weight:700;color:#243024;margin-bottom:5px">ID</label>'
+      +'<input id="__gi" type="text" autocomplete="username" autocapitalize="off" autocorrect="off" spellcheck="false" style="width:100%;box-sizing:border-box;font-size:15px;padding:11px 13px;border:1px solid #cfe0d3;border-radius:9px;margin-bottom:14px;font-family:inherit">'
+      +'<label style="display:block;font-size:12px;font-weight:700;color:#243024;margin-bottom:5px">パスワード</label>'
+      +'<input id="__gp" type="password" autocomplete="current-password" style="width:100%;box-sizing:border-box;font-size:15px;padding:11px 13px;border:1px solid #cfe0d3;border-radius:9px;font-family:inherit">'
+      +'<p id="__ge" style="display:none;font-size:12px;color:#c0392b;font-weight:700;margin:12px 0 0">IDまたはパスワードが違います。</p>'
+      +'<button type="submit" style="width:100%;margin-top:20px;background:#239b3b;color:#fff;border:0;border-radius:999px;font-size:15px;font-weight:800;padding:13px;cursor:pointer;font-family:inherit">閲覧する</button>'
+      +'<p style="font-size:10.5px;color:#8a988f;line-height:1.8;margin:16px 0 0">※ 本デモの内容・画面イメージの二次配布はご遠慮ください。</p>'
+      +'</form>';
+    document.body.appendChild(w);
+    var i=document.getElementById('__gi');
+    if(i) i.focus();
+    document.getElementById('__gf').addEventListener('submit',function(ev){
+      ev.preventDefault();
+      var id=(document.getElementById('__gi').value||'').trim();
+      var pw=document.getElementById('__gp').value||'';
+      if(hash(id+':'+pw)===SIG){
+        try{ localStorage.setItem(KEY,SIG); }catch(e){}
+        location.reload();
+      }else{
+        document.getElementById('__ge').style.display='block';
+        document.getElementById('__gp').value='';
+        document.getElementById('__gp').focus();
+      }
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',build); else build();
+})();
+</script>
+<!-- JAICO-DEMO-GATE:END -->
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>標準CMS／シニア産業カウンセラー育成講座 科目・日程マスタDBデモ｜一般社団法人日本産業カウンセラー協会</title>
+<style>
+:root{--g:#239b3b;--gd:#1c7c2f;--y:#eab010;--ink:#243024;--sub:#5c6b63;--line:#dbe7dc;--bg:#f3f7f4;--navy:#131b2e;--side:#0f1626;--side2:#1c2946}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Noto Sans JP","Yu Gothic UI","Hiragino Kaku Gothic ProN",sans-serif;color:var(--ink);background:var(--bg);line-height:1.7}
+.topbar{background:#10241a;color:#fff;padding:10px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.topbar .brand{font-weight:800;background:#fff;color:var(--gd);border-radius:8px;padding:3px 10px;font-size:13px}
+.topbar .t{font-size:13px;opacity:.92}
+.mode{margin-left:auto;display:flex;gap:6px}
+.mode button{border:1.5px solid #4a6b55;background:none;color:#cfe3d4;border-radius:999px;padding:6px 16px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit}
+.mode button.on{background:#fff;color:var(--gd);border-color:#fff}
+.adminbar{display:none;background:#fff8e5;border-bottom:1px solid #eadfa8;color:#6b5b12;font-size:12px;padding:8px 20px;line-height:1.7}
+body.admin .adminbar{display:block}
+body.embed .topbar{display:none!important}
+body.embed .adminbar{display:none!important}
+.layout{display:flex;min-height:100vh}
+.side{display:none;flex:0 0 235px;background:var(--side);color:#cdd6e8;padding:18px 0 30px}
+body.admin .side{display:block}
+.side h4{font-size:10.5px;letter-spacing:.15em;color:#7f8db0;padding:12px 18px 6px}
+.sitem{display:flex;align-items:center;gap:9px;width:100%;text-align:left;background:none;border:none;color:#cdd6e8;padding:10px 18px;font-size:12.5px;cursor:pointer;font-family:inherit;border-left:3px solid transparent}
+.sitem:hover{background:var(--side2)}
+.sitem.on{background:var(--side2);border-left-color:var(--g);color:#fff;font-weight:700}
+.sitem.pub{background:#5c4a12;color:#ffe9a8;font-weight:800;margin-top:6px}
+.sitem.pub:hover{background:#6d5915}
+.sitem .n{margin-left:auto;background:#c2323a;color:#fff;border-radius:999px;font-size:10.5px;font-weight:800;padding:1px 8px}
+.sitem .n.zero{background:#3a4a6b}
+.sitem.dim{opacity:.55;cursor:default}
+.main{flex:1;min-width:0;padding:26px 22px 70px;max-width:1150px;margin:0 auto}
+.hero{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 24px;box-shadow:0 6px 20px rgba(28,124,47,.07)}
+.hero h1{font-size:20px;color:var(--gd)}
+.hero .sub{font-size:12.5px;color:var(--sub);margin-top:6px}
+.stats{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap}
+.st{background:#eef7f0;border:1px solid #d6e8dd;border-radius:12px;padding:8px 16px;font-size:11.5px;color:var(--sub)}
+.st b{display:block;font-size:19px;color:var(--gd)}
+.map{background:#f0f6ff;border:1px solid #cfdff5;border-radius:12px;padding:9px 14px;font-size:11.5px;color:#2c4a7a;margin-top:12px}
+/* 管理向けの解説は職員管理モードのみ表示 */
+.map{display:none}
+body.admin .map{display:block}
+body.admin .hero .sub{display:block}
+/* 利用者画面のファーストビュー（公開ページの体裁） */
+.uhero{background:linear-gradient(180deg,#f2fbf3 0%,#fff 100%);border:1px solid #d8ecd9;border-radius:16px;padding:32px 24px 24px;text-align:center;margin-bottom:14px}
+body:not(.admin) .hero{display:none}   /* 「科目マスタ管理」の見出しは職員管理のみ */
+.uhero .uh-t{font-size:30px;line-height:1.32;font-weight:900;color:var(--gd)}
+.uhero .uh-t2{display:block;font-size:.78em;margin-top:2px}
+.uhero .uh-st{margin-top:16px;font-size:20px;font-weight:900}
+.uhero .uh-st.open{color:var(--gd)} .uhero .uh-st.closed{color:#7a8a7c}
+.uhero .uh-band{display:block;margin:15px auto 0;max-width:720px;background:#FFF45A;border:1px solid #e6d94a;border-radius:8px;padding:12px 16px;font-size:14.5px;font-weight:800;color:#1b3a86;text-decoration:none;line-height:1.7}
+.uhero .uh-band .lk{text-decoration:underline;text-underline-offset:3px}
+.uhero .uh-rule{height:3px;background:var(--gd);border-radius:2px;max-width:860px;margin:22px auto 0}
+.uhero .uh-lead{font-size:13.5px;color:#43533f;margin-top:16px;line-height:1.9}
+.uhero .uh-sub{margin-top:8px;font-size:12.5px;color:var(--gd);font-weight:700}
+/* 職員管理側に出す「ここは編集できます」案内 */
+.editnote{display:none}
+body.admin .editnote{display:block;margin-top:10px;font-size:11.5px;color:#1f3f8a;background:#eef2fb;border:1px solid #d6e0f5;border-radius:8px;padding:7px 12px}
+/* 年間予定表 */
+.yplan{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:16px 0;box-shadow:0 4px 14px rgba(28,124,47,.05)}
+.yplan h2{font-size:19px;color:var(--gd);font-weight:900;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.yplan h2 .en{font-family:Consolas,monospace;font-size:11px;letter-spacing:.14em;color:#8aa793}
+.yplan .ylead{font-size:12.5px;color:var(--sub);margin:6px 0 12px;line-height:1.85}
+.yplan .ywrap{overflow-x:auto}
+.yplan table{width:100%;border-collapse:collapse;font-size:13px;min-width:560px}
+.yplan th,.yplan td{border:1px solid #e2ebe4;padding:9px 12px;text-align:left;vertical-align:top;line-height:1.8}
+.yplan thead th{background:#f2f9f4;color:var(--gd);font-weight:800;white-space:nowrap}
+.yplan tbody tr:nth-child(even) td{background:#fbfdfb}
+.yplan .yno{white-space:nowrap;font-weight:800;color:var(--gd);width:78px}
+.yplan .ylink{margin-top:12px;font-size:12.5px}
+.yplan .ylink a{color:var(--gd);font-weight:700;text-decoration:underline;text-underline-offset:2px}
+.yplan h2 .ycnt{margin-left:auto;font-size:11.5px;font-weight:800;color:#5f7a66;background:#eef6f0;border-radius:999px;padding:3px 12px}
+.yplan .ywrap{max-height:420px;overflow:auto}
+.yplan thead th{position:sticky;top:0;z-index:1}
+.yplan td{font-size:12.5px;white-space:nowrap}
+.yplan td.yteach{white-space:normal;min-width:220px;font-size:11.5px;line-height:1.7}
+table.yedit{width:100%;border-collapse:collapse;font-size:11.5px}
+table.yedit th{position:sticky;top:0;background:#f2f9f4;color:#1c7c2f;border:1px solid #e2ebe4;padding:5px 6px;white-space:nowrap;z-index:1}
+table.yedit td{border:1px solid #eef2ef;padding:2px}
+table.yedit td.rn{color:#8a938a;text-align:center;width:34px}
+table.yedit input{width:100%;min-width:70px;border:1px solid #dfe6e0;border-radius:5px;padding:4px 5px;font-size:11.5px;font-family:inherit}
+table.yedit input:focus{outline:2px solid var(--g);border-color:var(--g)}
+table.yedit button{border:1px solid #e4c0bd;background:#fff;color:#b3372f;border-radius:6px;padding:3px 7px;font-size:11px;cursor:pointer;font-family:inherit}
+.dtl .dnotice{color:#b3372f;font-weight:700;text-align:center;padding:12px 14px 0;font-size:12.5px;line-height:1.85}
+.dtl .dsrc{margin-top:10px;font-size:11px;color:#8a938a;line-height:1.7}
+.ytabs{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 10px}
+.ytab{border:1.5px solid #c9dccf;background:#fff;color:#38503f;border-radius:999px;padding:6px 16px;font-size:12.5px;font-weight:800;cursor:pointer;font-family:inherit}
+.ytab.on{background:var(--gd);border-color:var(--gd);color:#fff}
+.dtl .dst{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.dtl .dst .b.b2{background:#fff;color:var(--gd);border:2px solid var(--g)}
+.dtl .dst .b.dis.b2{background:#f2f5f2;color:#8fa093;border-color:#cdd7cf}
+.dtl .dst{align-items:flex-start}
+.dtl .bwrap{display:flex;flex-direction:column;align-items:center;gap:6px;max-width:290px}
+.dtl .bcap{font-size:11px;color:#6b7d70;line-height:1.7;text-align:center}
+.dtl .bhost{font-family:Consolas,monospace;font-size:10.5px;color:#8a938a}
+/* 科目の詳細（現行サイトの科目ページ相当） */
+.dtl table{width:100%;border-collapse:collapse;font-size:13px}
+.dtl th{background:#e8f3ea;color:#26402c;font-weight:800;width:150px;border:1px solid #cfe0d3;padding:10px 12px;text-align:left;vertical-align:top}
+.dtl td{border:1px solid #cfe0d3;padding:10px 12px;line-height:1.9;white-space:pre-wrap}
+.dtl .dhd{background:var(--gd);color:#fff;font-weight:900;font-size:16px;padding:14px 16px;border-radius:10px 10px 0 0;text-align:center;line-height:1.6}
+.dtl .dst{text-align:center;padding:14px}
+.dtl .dst .b{display:inline-block;border-radius:8px;padding:11px 30px;font-weight:800;color:#fff;background:var(--g);text-decoration:none}
+.dtl .dst .b.dis{background:#a8b3aa;cursor:default}
+.abtn2{display:block;margin-top:8px;text-align:center;border:1.5px solid var(--g);color:var(--gd);background:#f2faf4;border-radius:10px;padding:9px;font-size:13px;font-weight:800;cursor:pointer;font-family:inherit;width:100%}
+.abtn2:hover{background:#e6f4ea}
+@media(max-width:640px){
+  .uhero{padding:22px 14px 18px}
+  .uhero .uh-t{font-size:21px}
+  .uhero .uh-st{font-size:16px}
+  .dtl th{width:auto;display:block;border-bottom:0}
+  .dtl td{display:block}
+}
+.filters{display:flex;gap:8px;margin:20px 0 4px;flex-wrap:wrap;align-items:center}
+.filters .lb{font-size:12px;font-weight:700;color:var(--sub)}
+.chip{border:1.5px solid #c9dccf;background:#fff;border-radius:999px;padding:5px 13px;font-size:12px;cursor:pointer;font-family:inherit;color:#38503f;font-weight:600}
+.chip.on{background:var(--g);border-color:var(--g);color:#fff}
+select.chip{padding:5px 10px}
+.cnt{margin:8px 2px;font-size:12px;color:var(--sub)}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:900px){.cards{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px 17px;box-shadow:0 4px 14px rgba(28,124,47,.06)}
+.card .hd{display:flex;align-items:flex-start;gap:8px}
+.card .area{flex:0 0 auto;background:#eef7f0;color:var(--gd);font-size:11px;font-weight:800;border-radius:6px;padding:3px 8px;margin-top:2px}
+.card h3{font-size:14px;flex:1;line-height:1.55}
+.pill{flex:0 0 auto;font-size:11px;font-weight:800;border-radius:999px;padding:4px 12px}
+.pill.ok{background:#e2f2e4;color:var(--gd)}
+.pill.few{background:#fff3c4;color:#7a5d00}
+.pill.end{background:#eceff0;color:#6a7680}
+.drow{display:flex;gap:8px;align-items:center;background:#f6faf7;border:1px solid #e2eee5;border-radius:9px;padding:7px 11px;margin:10px 0 4px;font-size:12px}
+.drow b{color:var(--gd);flex:0 0 auto}
+.drow input{flex:1;border:none;background:none;font-size:12px;font-family:inherit;color:var(--ink);font-weight:700;min-width:0}
+.drow input:focus{outline:2px solid var(--g);border-radius:5px;background:#fff}
+.meta{font-size:11px;color:var(--sub);margin-top:7px;line-height:1.8}
+.meta b{color:var(--ink)}
+.mbadge{display:inline-block;font-size:10px;font-weight:800;background:#eef2fb;color:#2b4bab;border-radius:6px;padding:2px 8px;margin-right:6px}
+.abtn{display:block;text-align:center;margin-top:11px;background:var(--g);color:#fff;border-radius:10px;padding:9px;font-size:13px;font-weight:800;text-decoration:none}
+.abtn.dis{background:#c6cfc9;pointer-events:none}
+.admbtns{display:none;gap:7px;margin-top:10px;flex-wrap:wrap}
+body.admin .admbtns{display:flex}
+body.admin .abtn{display:none}
+.admbtns button{border:1px solid #ccd6cc;background:#fff;color:#445548;border-radius:9px;padding:7px 12px;font-size:11.5px;font-weight:700;cursor:pointer;font-family:inherit}
+.admbtns button.st3{border-color:#c9d4ec;background:#f3f6fd;color:#2b4bab}
+.admbtns button.del{color:#b3372f;border-color:#e4c0bd}
+.card.draft{outline:2px dashed var(--y);outline-offset:2px}
+.card.deleted{opacity:.45}
+.card.deleted h3{text-decoration:line-through}
+.dbadge{display:none;font-size:10.5px;font-weight:800;color:#7a5d00;background:#fff3c4;border-radius:6px;padding:2px 8px;margin-left:6px}
+.card.draft .dbadge{display:inline-block}
+.newbadge{font-size:10.5px;font-weight:800;color:#1e5aa8;background:#e3edfb;border-radius:6px;padding:2px 8px;margin-left:6px}
+.note{margin-top:24px;font-size:11px;color:var(--sub);border-top:1px dashed #c9dbc9;padding-top:12px;line-height:1.9}
+.toast{position:fixed;right:18px;bottom:18px;background:#10241a;color:#fff;border-radius:12px;padding:12px 18px;font-size:12.5px;box-shadow:0 10px 30px rgba(0,0,0,.3);opacity:0;transition:.25s;pointer-events:none;max-width:340px;line-height:1.7;z-index:60}
+.toast.show{opacity:1}
+.mwrap{position:fixed;inset:0;background:rgba(10,16,30,.5);display:none;align-items:center;justify-content:center;z-index:50}
+.mwrap.show{display:flex}
+.modal{background:#fff;border-radius:16px;width:min(560px,94vw);max-height:92vh;overflow-y:auto;padding:24px 26px;box-shadow:0 24px 70px rgba(0,0,0,.35)}
+.modal h3{font-size:16px;color:var(--navy);margin-bottom:4px}
+.modal .ms{font-size:11.5px;color:var(--sub);margin-bottom:14px}
+.modal textarea{width:100%;border:1.5px solid #cfd8cf;border-radius:8px;padding:8px 10px;font-size:13px;font-family:inherit;line-height:1.7;resize:vertical}
+.modal label{display:block;font-size:11.5px;font-weight:700;color:#345;margin:11px 0 4px}
+.modal input,.modal select{width:100%;border:1.5px solid #cfd8cf;border-radius:9px;padding:8px 11px;font-size:13px;font-family:inherit}
+.mrow{display:flex;gap:10px}
+.mrow>div{flex:1}
+.mbtns{display:flex;gap:10px;justify-content:flex-end;margin-top:18px}
+.mbtns .cancel{border:1px solid #ccc;background:#fff;color:#666;border-radius:9px;padding:9px 20px;font-size:13px;cursor:pointer;font-family:inherit}
+.mbtns .save{border:none;background:#2b4bab;color:#fff;border-radius:9px;padding:9px 24px;font-size:13px;font-weight:800;cursor:pointer;font-family:inherit}
+.mode{display:none!important}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span class="brand">標準CMS デモ</span>
+  <span class="t">シニア産業カウンセラー育成講座｜科目・日程マスタDB（2026年度・現行サイトの実データ）</span>
+  <div class="mode">
+    <button id="mUser" class="on">👁 利用者画面</button>
+    <button id="mAdmin">🔧 職員管理</button>
+  </div>
+</div>
+<div class="adminbar">🔧 職員管理モード（WordPress管理画面のイメージ）— 本デモの<b>登録・編集・受付状況切替・日程修正・下書き→公開はAIなしで動く標準WordPress機能</b>です。変更は下書きに保存され、左メニューの「🌐 更新を公開」で利用者画面（Webサイト）に反映されます。</div>
+
+<div class="layout">
+  <aside class="side">
+    <h4>科目管理</h4>
+    <button class="sitem on">📚 科目マスタ（この画面）</button>
+    <button class="sitem" id="btnAdd">＋ 新規科目登録</button>
+    <button class="sitem" id="btnImp">📥 Excel取込（一括登録）</button>
+    <button class="sitem" id="btnBulk">🈵 東京支部を一括締切</button>
+    <button class="sitem" id="btnHero">🖼 ファーストビュー編集</button>
+    <button class="sitem" id="btnYear">📅 年間予定表の編集</button>
+    <button class="sitem pub" id="btnPub">🌐 更新を公開<span class="n zero" id="pubN">0</span></button>
+    <h4>その他のマスタ（参考）</h4>
+    <button class="sitem dim">📆 開催回マスタ（LP連動）</button>
+    <button class="sitem dim">📢 お知らせ管理</button>
+    <button class="sitem dim">📄 固定ページ管理</button>
+    <button class="sitem dim">✅ 承認待ち<span class="n">2</span></button>
+    <h4>　</h4>
+    <button class="sitem dim">⚙ 設定・権限</button>
+  </aside>
+
+  <div class="main">
+    <!-- 利用者向けファーストビュー（職員管理の「🖼 ファーストビュー編集」で更新） -->
+    <div class="uhero" id="uhero"></div>
+
+    <div class="hero">
+      <h1>科目マスタ管理　— シニア産業カウンセラー育成講座（2026年度）</h1>
+      <div class="sub">1科目ごとに支部が主催し、月別に募集する運用（応募期間・抽選・Zoom/教室開催）。<b>現行LP（counselor.or.jp/portals/0/senior/）掲載の実データを読み込んでいます。</b></div>
+      <div class="stats" id="stats"></div>
+      <div class="map">💡 <b>現行サイトとの対応：</b>現行LPの「募集中の講座」（募集月ごと・支部ごとの長い表）が、リニューアル後はこの<b>科目・日程マスタDB</b>に統合されます。産業カウンセラー養成講座・キャリコン養成講習と<b>同じ管理仕様</b>（サイドバー・新規登録・Excel取込・一括操作・下書き→公開）です。</div>
+    </div>
+
+    <div class="filters"><span class="lb">主催支部：</span><select class="chip" id="fShibu"></select>
+      <span class="lb">募集月：</span><select class="chip" id="fMonth"></select></div>
+    <div class="filters"><span class="lb">受付状況：</span><div id="fSt" style="display:flex;gap:6px;flex-wrap:wrap"></div></div>
+    <div class="cnt" id="cnt"></div>
+    <div class="cards" id="cards"></div>
+
+    <!-- 年間予定表（現行サイトと同じく、募集中の科目の下に置く。職員管理の「📅 年間予定表の編集」で更新） -->
+    <div class="yplan" id="yplan"></div>
+
+    <p class="note">※ 本デモは操作イメージ確認用です。科目・日程・受付状況は現行サイト（2026年7月時点）の掲載内容を読み込んだもので、以後の変更は反映されていません。申込ボタンの飛び先は<b>職員が「申込URL」欄に貼り付けた先</b>（現行運用では会員申込システム member.counselor.or.jp 等）で、<b>未入力の科目はボタンが自動で無効化</b>されます。<br>
+    ※ 登録・編集・受付状況切替・日程修正・下書き→公開は、AIオプションなしで動く<b>標準WordPress機能</b>のイメージです。</p>
+  </div>
+</div>
+
+<!-- Excel取込モーダル -->
+<div class="mwrap" id="iwrap">
+  <div class="modal" style="width:min(680px,94vw)">
+    <h3>📥 Excel取込（一括登録）</h3>
+    <div class="ms">取込テンプレート形式のExcelを読み込み、<b>自動検証してから一括登録（下書き）</b>します。支部名・受付状況の誤りは行番号つきでお知らせします。<br>
+    📄 <a href="./取込テンプレート_サンプル_シニア.xlsx" download style="color:#2b4bab;font-weight:700">取込テンプレート（サンプル）をダウンロード</a>（正常5行＋わざと誤り1行入り・検証デモ用）</div>
+    <div id="idrop" style="border:2px dashed #b9c8bd;border-radius:12px;padding:26px;text-align:center;font-size:13px;color:#5c6b63;cursor:pointer;background:#f8fbf9">
+      ここにExcelファイルをドラッグ＆ドロップ<br>またはクリックして選択
+      <input type="file" id="ifile" accept=".xlsx,.xls" style="display:none">
+    </div>
+    <div id="ires" style="margin-top:14px;font-size:12px;line-height:1.8;max-height:280px;overflow-y:auto"></div>
+    <div class="mbtns">
+      <button class="cancel" id="iCancel">閉じる</button>
+      <button class="save" id="iReg" style="display:none">0件を一括登録（下書き）</button>
+    </div>
+  </div>
+</div>
+
+<!-- 科目 登録/編集モーダル -->
+<div class="mwrap" id="mwrap">
+  <div class="modal">
+    <h3 id="mTitle">科目を編集</h3>
+    <div class="ms">保存すると下書きに反映されます（利用者画面へは「🌐 更新を公開」で反映）</div>
+    <div class="mrow">
+      <div><label>主催支部</label><select id="mShibu"></select></div>
+      <div><label>募集月</label><select id="mMonth"></select></div>
+    </div>
+    <label>科目名（科目No.含む）</label><input id="mName" placeholder="例：科目No.1 認知行動療法">
+    <label>開催日程</label><input id="mDates" placeholder="例：2026年10月3日(土), 4日(日)・2日間">
+    <label>会場（Zoomの場合は「オンライン（Zoom）」）</label><input id="mVenue" placeholder="例：東京支部 中野坂上教室">
+    <label>申込URL①「お申込み」（資格登録会員）</label><input id="mUrl" placeholder="例：https://www.counselor.or.jp/guide/tabid/167/Default.aspx">
+    <label>申込URL②「資格登録会員以外の方」</label><input id="mUrl2" placeholder="例：https://member.counselor.or.jp/aspx/senior.aspx">
+    <div style="font-size:11px;color:#7a828c;margin-top:4px;line-height:1.6">※ 現行サイトと同じく、詳細ページに<b>申込口を2つ</b>並べます。現行運用の申込先をそのまま貼り付けてください。<b>空欄のボタンは自動で無効化</b>され、URLの貼り忘れによる「押せるのに飛べない」を防ぎます。</div>
+    <label>受付状況</label><select id="mSt"><option>募集中</option><option>締切</option><option>調整中</option></select>
+
+    <div style="margin-top:16px;padding-top:14px;border-top:1px dashed #c9dbc9">
+      <div style="font-size:12.5px;font-weight:800;color:#1c7c2f;margin-bottom:2px">📄 科目の詳細ページの内容</div>
+      <div style="font-size:11px;color:#7a828c;line-height:1.7;margin-bottom:8px">現行サイトの科目ページ（講師・時間数・日時・場所・定員・費用・講座概要）に相当します。利用者画面の「📄 科目の詳細を見る」で表示されます。</div>
+      <div class="mrow">
+        <div><label>講師</label><input id="mTeacher" placeholder="例：シニア育成講座認定講師"></div>
+        <div><label>時間数</label><input id="mHours" placeholder="例：12時間（グループ討議12h）"></div>
+      </div>
+      <label>会場の補足（住所など）</label><input id="mPlace" placeholder="例：本町スクエア（仙台市青葉区本町2丁目1）">
+      <label>定員・費用</label><input id="mFee" placeholder="例：4名（最少催行人数：4名）　資格登録会員31,900円（税込）　一般35,090円（税込）">
+      <label>講座概要および目的</label><textarea id="mSummary" rows="5" placeholder="科目のねらい・進め方などを記載します（改行はそのまま表示されます）"></textarea>
+      <label>到達目標</label><textarea id="mGoal" rows="3"></textarea>
+      <label>事前学習</label><textarea id="mPrep" rows="2"></textarea>
+      <label>修了条件</label><textarea id="mCond" rows="2"></textarea>
+      <label>その他</label><textarea id="mOther" rows="2"></textarea>
+      <label>注意書き（科目名の下に赤字で表示）</label><input id="mNotice" placeholder="例：※本科目は科目別解説ページ（No.11）をご参照ください。">
+    </div>
+
+    <div class="mbtns"><button class="cancel" id="mCancel">キャンセル</button><button class="save" id="mSave">保存（下書き）</button></div>
+  </div>
+</div>
+<!-- ファーストビュー編集 -->
+<div class="mwrap" id="hwrap">
+  <div class="modal">
+    <h3>🖼 ファーストビュー編集</h3>
+    <div class="ms">利用者画面の一番上（講座名・受付状況・お知らせ帯・リード文）を職員が書き換えられます。保存は<b>下書き</b>で、「🌐 更新を公開」で反映されます。</div>
+    <div class="mrow">
+      <div><label>講座名（1行目）</label><input id="hT1" placeholder="例：シニア産業カウンセラー育成講座"></div>
+      <div><label>講座名（2行目）</label><input id="hT2" placeholder="例：2026年度 募集中の科目"></div>
+    </div>
+    <div class="mrow">
+      <div><label>受付状況の見出し</label><input id="hSt" placeholder="例：7月募集分の受付は終了しました"></div>
+      <div><label>表示色</label><select id="hStT"><option value="open">受付中（緑）</option><option value="closed">終了・準備中（グレー）</option></select></div>
+    </div>
+    <label><input type="checkbox" id="hBandOn" style="width:auto;margin-right:6px;vertical-align:-1px">黄色のお知らせ帯を表示する</label>
+    <div class="mrow">
+      <div><label>帯の文言</label><input id="hBandText" placeholder="例：年間開催予定表をご覧になられたい方は"></div>
+      <div><label>リンクの文字</label><input id="hBandLink" placeholder="例：こちら"></div>
+    </div>
+    <label>帯のリンク先URL</label><input id="hBandUrl" placeholder="空欄ならリンクなしの文字だけ">
+    <label>リード文</label><textarea id="hLead" rows="2"></textarea>
+    <label>補足の1行</label><input id="hSub">
+    <div class="mbtns"><button class="cancel" id="hCancel">キャンセル</button><button class="save" id="hSave">保存（下書き）</button></div>
+  </div>
+</div>
+
+<!-- 年間予定表の編集 -->
+<div class="mwrap" id="ywrap">
+  <div class="modal" style="width:min(880px,95vw)">
+    <h3>📅 年間予定表の編集</h3>
+    <div class="ms">利用者画面に載せる<b>年間開催予定表</b>を職員が編集します。行の追加・削除ができます。保存は<b>下書き</b>で、「🌐 更新を公開」で反映されます。</div>
+    <div class="mrow">
+      <div><label>見出し</label><input id="yTitle" placeholder="例：2026年度 年間開催予定表"></div>
+      <div><label>リード文</label><input id="yLead" placeholder="例：年間の開催予定です。確定した回から順次、下の「募集中の科目」に掲載します。"></div>
+    </div>
+    <div class="mrow">
+      <div><label>PDF等のリンク文字（任意）</label><input id="yLinkText" placeholder="例：2025年度 年間開催予定表（PDF）"></div>
+      <div><label>リンク先URL（任意）</label><input id="yLinkUrl" placeholder="https://…"></div>
+    </div>
+    <label style="margin-top:12px">予定表の行</label>
+    <div id="yRows" style="max-height:44vh;overflow-y:auto;border:1px solid #e2ebe4;border-radius:10px;padding:8px"></div>
+    <button id="yAdd" style="margin-top:8px;border:1.5px solid #9cc7a6;background:#f2faf4;color:#1c7c2f;border-radius:8px;padding:7px 14px;font-size:12px;font-weight:800;cursor:pointer;font-family:inherit">＋ 行を追加</button>
+    <div class="mbtns"><button class="cancel" id="yCancel">キャンセル</button><button class="save" id="ySave">保存（下書き）</button></div>
+  </div>
+</div>
+
+<!-- 科目の詳細（利用者画面） -->
+<div class="mwrap" id="dwrap">
+  <div class="modal dtl" style="width:min(820px,95vw);max-height:88vh;overflow-y:auto">
+    <div id="dBody"></div>
+    <div class="mbtns"><button class="cancel" id="dCancel">閉じる</button></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="./senior_data.js"></script>
+<script src="../demo_schedule/xlsx.full.min.js"></script>
+<script>
+const SEED = (window.SENIOR_ITEMS || []).map(o=>Object.assign({},o));
+
+const STS=['募集中','締切','調整中'];
+const PC={'募集中':'ok','締切':'end','調整中':'few'};
+const clone=o=>JSON.parse(JSON.stringify(o));
+/* 現行運用の申込先（会員申込システム）。1件だけ意図的に未設定にし、「URL未設定なら申込ボタンが自動で無効になる」動きを実演できるようにしています */
+const APPLY_URL='https://member.counselor.or.jp/aspx/senior.aspx';
+/* 1件だけ意図的に申込URLを空にし、「URL未設定なら申込ボタンが自動で無効になる」動きを実演できるようにしています */
+let published=clone(SEED).map(d=>(d._del=false,d));
+(function(){ /* 最初の「募集中」1件だけ②のURLを空にし、URL未設定ボタンが自動で無効になる動きを実演できるようにする */
+  const i=published.findIndex(d=>d.status==='募集中');
+  if(i>=0) published[i].url2='';
+})();
+let draft=clone(published);
+let fShibu='すべて', fSt='すべて', fMonth='すべて', editing=null;
+const $=s=>document.querySelector(s);
+const SHIBUS=[...new Set(SEED.map(d=>d.shibu))];
+const MONTHS=[...new Set(SEED.map(d=>d.month))];
+
+/* ---- 利用者画面のファーストビュー（職員が管理画面から編集） ---- */
+const HERO_SEED={
+  t1:'シニア産業カウンセラー育成講座',
+  t2:'2026年度 募集中の科目',
+  st:'科目ごとに毎月ご応募いただけます',
+  stT:'open',
+  bandOn:true,
+  bandText:'年間の開催予定をご覧になられたい方は',
+  bandLink:'下の「年間開催予定表」へ',
+  bandUrl:'',
+  lead:['ご希望の科目・主催支部・募集月からお選びいただき、そのままお申し込みいただけます。','科目は1科目ごとに支部が主催し、月ごとに募集します（応募多数の場合は抽選）。'].join(String.fromCharCode(10)),
+  sub:'2026年度は全国12支部で 95科目 を開催予定です。'
+};
+let heroD=JSON.parse(JSON.stringify(HERO_SEED)), heroP=JSON.parse(JSON.stringify(HERO_SEED));
+
+/* ---- 年間開催予定表（現行サイトの2026年度・2025年度をそのまま取り込み） ---- */
+const YEAR_SEED={
+  title:'年間開催予定表',
+  lead:'現行サイト掲載の年間開催予定表をそのまま読み込んでいます。開催地・日程・講師・定員は変更になる場合があります。',
+  sel:0,
+  years:JSON.parse(JSON.stringify(window.SENIOR_YEARS||[]))
+};
+let yearD=JSON.parse(JSON.stringify(YEAR_SEED)), yearP=JSON.parse(JSON.stringify(YEAR_SEED));
+const heroChanged=()=>JSON.stringify(heroD)!==JSON.stringify(heroP);
+const yearChanged=()=>JSON.stringify(yearD)!==JSON.stringify(yearP);
+const esc=v=>String(v==null?'':v).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const nl2br=v=>esc(v).split(String.fromCharCode(10)).join('<br>');
+
+function toast(m){const t=$('#toast');t.innerHTML=m;t.classList.add('show');clearTimeout(t._tm);t._tm=setTimeout(()=>t.classList.remove('show'),3800);}
+const admin=()=>document.body.classList.contains('admin');
+function diff(i){return JSON.stringify(draft[i])!==JSON.stringify(published[i]);}
+function pending(){let n=0;for(let i=0;i<Math.max(draft.length,published.length);i++){if(!published[i]&&draft[i])n++;else if(draft[i]&&diff(i))n++;}if(heroChanged())n++;if(yearChanged())n++;return n;}
+
+function renderFilters(){
+  const sel=(id,opts,cur)=>{const s=$(id);s.innerHTML='';['すべて',...opts].forEach(o=>{const op=document.createElement('option');op.textContent=o;s.appendChild(op);});s.value=cur;};
+  sel('#fShibu',SHIBUS,fShibu); sel('#fMonth',MONTHS,fMonth);
+  $('#fShibu').onchange=e=>{fShibu=e.target.value;render();};
+  $('#fMonth').onchange=e=>{fMonth=e.target.value;render();};
+  const fs=$('#fSt');fs.innerHTML='';
+  ['すべて',...STS].forEach(s=>{const b=document.createElement('button');b.className='chip'+(fSt===s?' on':'');b.textContent=s;b.onclick=()=>{fSt=s;render();};fs.appendChild(b);});
+}
+function renderStats(){
+  const src=(admin()?draft:published).filter(d=>!d._del);
+  const c=s=>src.filter(d=>d.status===s).length;
+  $('#stats').innerHTML='<div class="st"><b>'+src.length+'</b>科目開催（'+SHIBUS.length+'支部・'+MONTHS.length+'募集月）</div>'
+    +'<div class="st"><b>'+c('募集中')+'</b>募集中</div>'
+    +'<div class="st"><b>'+c('締切')+'</b>締切</div>'
+    +'<div class="st"><b>'+c('調整中')+'</b>調整中</div>';
+}
+function renderHero(){
+  const h=admin()?heroD:heroP, box=$('#uhero'); if(!box) return;
+  let band='';
+  if(h.bandOn&&(h.bandText||h.bandLink)){
+    const inner=esc(h.bandText)+(h.bandLink?' <span class="lk">'+esc(h.bandLink)+'</span>':'');
+    band=h.bandUrl?'<a class="uh-band" href="'+esc(h.bandUrl)+'" target="_blank" rel="noopener">'+inner+'</a>'
+                   :'<span class="uh-band">'+inner+'</span>';
+  }
+  box.innerHTML='<div class="uh-t">'+esc(h.t1)+(h.t2?'<span class="uh-t2">'+esc(h.t2)+'</span>':'')+'</div>'
+    +(h.st?'<div class="uh-st '+(h.stT==='closed'?'closed':'open')+'">'+esc(h.st)+'</div>':'')
+    +band+'<div class="uh-rule"></div>'
+    +(h.lead?'<p class="uh-lead">'+nl2br(h.lead)+'</p>':'')
+    +(h.sub?'<div class="uh-sub">'+esc(h.sub)+'</div>':'')
+    +'<div class="editnote">🔧 この部分は左メニューの<b>「🖼 ファーストビュー編集」</b>から職員が書き換えられます'+(heroChanged()?'（<b>未公開の変更があります</b>）':'')+'。</div>';
+}
+function renderYear(){
+  const y=admin()?yearD:yearP, box=$('#yplan'); if(!box) return;
+  const ys=y.years||[];
+  if(!ys.length){ box.style.display='none'; return; }
+  const si=Math.min(y.sel||0, ys.length-1);
+  const cur=ys[si], head=cur.head||[];
+  box.style.display='';
+  box.innerHTML='<h2><span class="en">YEARLY PLAN</span>'+esc(y.title)+'<span class="ycnt">'+(cur.rows||[]).length+'件</span></h2>'
+    +(y.lead?'<div class="ylead">'+nl2br(y.lead)+'</div>':'')
+    +'<div class="ytabs">'+ys.map((o,i)=>'<button class="ytab'+(i===si?' on':'')+'" data-y="'+i+'">'+esc(o.year)+'</button>').join('')+'</div>'
+    +'<div class="ywrap"><table><thead><tr>'+head.map(h=>'<th>'+esc(h)+'</th>').join('')+'</tr></thead><tbody>'
+    +(cur.rows||[]).map(r=>'<tr>'+head.map((h,ci)=>'<td'+(ci===7?' class="yteach"':'')+'>'+nl2br(r[ci]||'')+'</td>').join('')+'</tr>').join('')
+    +'</tbody></table></div>'
+    +(cur.src?'<div class="ylink">📄 <a href="'+esc(cur.src)+'" target="_blank" rel="noopener">現行サイトの'+esc(cur.year)+'年間開催予定表を開く ↗</a></div>':'')
+    +'<div class="editnote">🔧 この表は左メニューの<b>「📅 年間予定表の編集」</b>から職員が更新できます'+(yearChanged()?'（<b>未公開の変更があります</b>）':'')+'。</div>';
+  box.querySelectorAll('.ytab').forEach(b2=>{ b2.onclick=()=>{ (admin()?yearD:yearP).sel=+b2.dataset.y; renderYear(); }; });
+}
+function render(){
+  renderHero();renderYear();
+  renderFilters();renderStats();
+  const box=$('#cards');box.innerHTML='';let n=0;
+  draft.forEach((d,i)=>{
+    const pubd=published[i];
+    if(!admin()){ if(!pubd||pubd._del) return; }
+    const view=admin()?d:pubd;
+    if(admin()&&d._del&&!pubd){return;}
+    if(fShibu!=='すべて'&&view.shibu!==fShibu)return;
+    if(fMonth!=='すべて'&&view.month!==fMonth)return;
+    if(fSt!=='すべて'&&view.status!==fSt)return;
+    n++;
+    const el=document.createElement('div');
+    el.className='card'+(admin()&&diff(i)?' draft':'')+(admin()&&d._del?' deleted':'');
+    const open=view.status==='募集中';
+    const dateHtml=admin()
+      ?'<div class="drow"><b>📅 日程</b><input value="'+view.dates.replace(/"/g,'&quot;')+'" data-i="'+i+'"></div>'
+      :'<div class="drow"><b>📅 日程</b><span style="font-weight:700">'+view.dates+'</span></div>';
+    el.innerHTML='<div class="hd"><span class="area">'+view.shibu+'</span><h3>'+view.name
+      +(pubd?'':'<span class="newbadge">新規（未公開）</span>')
+      +'<span class="dbadge">未公開の変更</span></h3><span class="pill '+PC[view.status]+'">'+view.status+'</span></div>'
+      +dateHtml
+      +'<div class="meta"><span class="mbadge">'+view.month+'</span><b>時間：</b>'+view.time+'<br><b>会場：</b>'+view.venue+'</div>'
+      +(function(){
+         /* 現行サイトと同じ導線：一覧では詳細ページへ進み、申込ボタンは詳細ページの中にあります */
+         if(!open) return '<a class="abtn dis" href="#" onclick="return false">'+(view.status==='調整中'?'日程調整中':'締め切りました')+'</a>';
+         return '<button class="abtn" onclick="openDetail('+i+')">詳細・お申込みはこちら</button>'
+           +(admin()&&!(view.url&&view.url.trim())&&!(view.url2&&view.url2.trim())
+              ?'<div style="font-size:11px;color:#b4372f;margin-top:4px">⚠ 申込URLが未入力のため、詳細ページの申込ボタンが無効です（✏編集から貼り付け）</div>':'');
+       })()
+      +'<button class="abtn2" onclick="openDetail('+i+')">📄 科目の詳細を見る</button>'
+      +'<div class="admbtns">'
+      +(d._del
+        ?'<button onclick="undel('+i+')">↩ 削除を取り消す</button>'
+        :'<button onclick="openEdit('+i+')">✏ 編集</button>'
+         +'<button class="st3" onclick="cyc('+i+')">受付状況を切替（'+d.status+'）</button>'
+         +'<button class="del" onclick="del('+i+')">🗑 削除</button>')
+      +'</div>';
+    box.appendChild(el);
+  });
+  $('#cnt').textContent=n+'件を表示';
+  const p=pending();
+  $('#pubN').textContent=p;$('#pubN').classList.toggle('zero',p===0);
+  box.querySelectorAll('.drow input').forEach(inp=>{
+    inp.addEventListener('change',()=>{
+      draft[+inp.dataset.i].dates=inp.value.trim();
+      render();
+      toast('日程を修正しました（下書き）');
+    });
+  });
+}
+function cyc(i){const cur=STS.indexOf(draft[i].status);draft[i].status=STS[(cur+1)%3];render();toast('<b>'+draft[i].name.slice(0,24)+'</b> を「'+draft[i].status+'」に変更しました（下書き）');}
+function del(i){draft[i]._del=true;render();toast('<b>'+draft[i].name.slice(0,24)+'</b> を削除しました（下書き・取消可）');}
+function undel(i){draft[i]._del=false;render();}
+
+/* modal */
+function fillSel(id,opts){const s=$(id);s.innerHTML='';opts.forEach(a=>{const o=document.createElement('option');o.textContent=a;s.appendChild(o);});}
+function openEdit(i){
+  editing=i;fillSel('#mShibu',SHIBUS);fillSel('#mMonth',MONTHS);
+  $('#mTitle').textContent='科目を編集';
+  $('#mShibu').value=draft[i].shibu;$('#mMonth').value=draft[i].month;$('#mSt').value=draft[i].status;
+  $('#mName').value=draft[i].name;$('#mDates').value=draft[i].dates;$('#mVenue').value=draft[i].venue;
+  $('#mUrl').value=draft[i].url||'';
+  $('#mUrl2').value=draft[i].url2||'';
+  $('#mTeacher').value=draft[i].teacher||'';
+  $('#mHours').value=draft[i].hours||'';
+  $('#mPlace').value=draft[i].place||'';
+  $('#mFee').value=draft[i].fee||'';
+  $('#mSummary').value=draft[i].summary||'';
+  $('#mGoal').value=draft[i].goal||'';
+  $('#mPrep').value=draft[i].prep||'';
+  $('#mCond').value=draft[i].cond||'';
+  $('#mOther').value=draft[i].other||'';
+  $('#mNotice').value=draft[i].notice||'';
+  $('#mwrap').classList.add('show');
+}
+$('#btnAdd').onclick=()=>{
+  editing=null;fillSel('#mShibu',SHIBUS);fillSel('#mMonth',MONTHS);
+  $('#mTitle').textContent='新規科目を登録';
+  $('#mShibu').value=SHIBUS[0];$('#mMonth').value=MONTHS[0];$('#mSt').value='募集中';
+  $('#mName').value='';$('#mDates').value='';$('#mVenue').value='';$('#mUrl').value='';$('#mUrl2').value='';
+  ['#mTeacher','#mHours','#mPlace','#mFee','#mSummary','#mGoal','#mPrep','#mCond','#mOther','#mNotice'].forEach(id=>$(id).value='');
+  $('#mwrap').classList.add('show');
+};
+$('#mCancel').onclick=()=>$('#mwrap').classList.remove('show');
+$('#mwrap').addEventListener('click',e=>{if(e.target.id==='mwrap')$('#mwrap').classList.remove('show');});
+$('#mSave').onclick=()=>{
+  const name=$('#mName').value.trim();
+  if(!name){toast('科目名を入力してください');return;}
+  const o={shibu:$('#mShibu').value,month:$('#mMonth').value,status:$('#mSt').value,name:name,
+    dates:$('#mDates').value.trim()||'（日程調整中）',
+    time:'9:30開場、10:00開始、17:00終了（昼食1時間）',
+    venue:$('#mVenue').value.trim()||'（会場調整中）',
+    url:$('#mUrl').value.trim(),
+    url2:$('#mUrl2').value.trim(),
+    teacher:$('#mTeacher').value.trim(),
+    hours:$('#mHours').value.trim(),
+    place:$('#mPlace').value.trim(),
+    fee:$('#mFee').value.trim(),
+    summary:$('#mSummary').value,
+    goal:$('#mGoal').value,
+    prep:$('#mPrep').value,
+    cond:$('#mCond').value,
+    other:$('#mOther').value,
+    notice:$('#mNotice').value.trim(),
+    _del:false};
+  if(editing===null){draft.push(o);toast('<b>'+name.slice(0,24)+'</b> を新規登録しました（下書き）<br>「🌐 更新を公開」で利用者画面に掲載されます');}
+  else{draft[editing]=o;toast('<b>'+name.slice(0,24)+'</b> を更新しました（下書き）');}
+  $('#mwrap').classList.remove('show');render();
+};
+
+/* ==== 科目の詳細（現行サイトの科目ページ相当）==== */
+function openDetail(i){
+  const v = admin()? draft[i] : (published[i]||draft[i]);
+  if(!v) return;
+  const open = v.status==='募集中';
+  /* 現行サイトと同じ2つの申込口をそのまま再現し、それぞれの「実際の行き先」を明示する。
+     現行サイトはラベルと行き先が噛み合っていない（「お申込み」→会員マイページの案内、
+     「資格登録会員以外の方」→申込コース選択）ため、リニューアルでの導線改善の材料になります。 */
+  const b1 = v.url  && v.url.trim();
+  const b2 = v.url2 && v.url2.trim();
+  const dest = u => { try{ return new URL(u).host; }catch(e){ return ''; } };
+  const where = u => /member\.counselor\.or\.jp/.test(u) ? '申込コース選択の画面が開きます'
+                   : /guide\/tabid\/167/.test(u) ? '会員マイページのご案内が開きます（申込画面ではありません）'
+                   : '外部サイトが開きます';
+  const one = (u,label,cls) => u
+    ? '<div class="bwrap"><a class="b '+cls+'" href="'+esc(u)+'" target="_blank" rel="noopener">'+label+' ↗</a>'
+      +'<div class="bcap">→ '+where(u)+'<br><span class="bhost">'+esc(dest(u))+'</span></div></div>'
+    : '<div class="bwrap"><span class="b dis '+cls+'">'+label+'（URL未設定）</span>'
+      +'<div class="bcap">→ 職員が申込URLを登録すると有効になります</div></div>';
+  const btn = (!open)
+    ? '<span class="b dis">'+(v.status==='調整中'?'日程調整中':'受付終了')+'</span>'
+    : ((b1||b2) ? one(b1?v.url:'','お申込み','') + one(b2?v.url2:'','資格登録会員以外の方','b2')
+                : '<span class="b dis">申込URL未設定</span>');
+  const row=(k,val)=> val ? '<tr><th>'+k+'</th><td>'+nl2br(val)+'</td></tr>' : '';
+  $('#dBody').innerHTML =
+     '<div class="dhd">'+esc(v.shibu)+'　'+esc(v.month)+'<br>'+esc(v.name)+'</div>'
+    +(v.notice?'<div class="dnotice">'+nl2br(v.notice)+'</div>':'')
+    +'<div class="dst">'+btn+'</div>'
+    +'<table>'
+    + row('講師', v.teacher)
+    + row('時間数', v.hours)
+    + row('日時・場所', v.place || [v.dates, v.venue, v.time].filter(Boolean).join(String.fromCharCode(10)))
+    + row('定員・費用', v.fee)
+    + row('講座概要および目的', v.summary)
+    + row('到達目標', v.goal)
+    + row('事前学習', v.prep)
+    + row('修了条件', v.cond)
+    + row('その他', v.other)
+    +'</table>'
+    +'<div class="dsrc">出典：現行サイト「募集中の科目」（2026年7月時点の掲載内容をそのまま読み込んでいます）</div>'
+    +(admin()?'<div class="editnote" style="display:block;margin-top:12px">🔧 この詳細ページの内容は、カードの<b>「✏ 編集」→「📄 科目の詳細ページの内容」</b>から職員が更新できます。</div>':'');
+  $('#dwrap').classList.add('show');
+}
+$('#dCancel').onclick=()=>$('#dwrap').classList.remove('show');
+$('#dwrap').addEventListener('click',e=>{if(e.target.id==='dwrap')$('#dwrap').classList.remove('show');});
+
+/* ==== ファーストビュー編集 ==== */
+$('#btnHero').onclick=()=>{
+  if(!admin()) return;
+  $('#hT1').value=heroD.t1||''; $('#hT2').value=heroD.t2||'';
+  $('#hSt').value=heroD.st||''; $('#hStT').value=heroD.stT||'open';
+  $('#hBandOn').checked=!!heroD.bandOn;
+  $('#hBandText').value=heroD.bandText||''; $('#hBandLink').value=heroD.bandLink||''; $('#hBandUrl').value=heroD.bandUrl||'';
+  $('#hLead').value=heroD.lead||''; $('#hSub').value=heroD.sub||'';
+  $('#hwrap').classList.add('show');
+};
+$('#hCancel').onclick=()=>$('#hwrap').classList.remove('show');
+$('#hwrap').addEventListener('click',e=>{if(e.target.id==='hwrap')$('#hwrap').classList.remove('show');});
+$('#hSave').onclick=()=>{
+  heroD={t1:$('#hT1').value.trim(),t2:$('#hT2').value.trim(),st:$('#hSt').value.trim(),stT:$('#hStT').value,
+    bandOn:$('#hBandOn').checked,bandText:$('#hBandText').value.trim(),bandLink:$('#hBandLink').value.trim(),
+    bandUrl:$('#hBandUrl').value.trim(),lead:$('#hLead').value,sub:$('#hSub').value.trim()};
+  $('#hwrap').classList.remove('show'); render();
+  toast(heroChanged()?'💾 ファーストビューを<b>下書き</b>に保存しました。「🌐 更新を公開」で利用者画面に反映されます':'💾 保存しました（公開中の内容と同じです）');
+};
+
+/* ==== 年間予定表の編集 ==== */
+let yTmp=[], ySel=0;
+function yHead(){ const ys=yearD.years||[]; return (ys[ySel]&&ys[ySel].head)||[]; }
+function drawYRows(){
+  const head=yHead(), box=$('#yRows');
+  const tabs='<div class="ytabs" style="margin-bottom:8px">'+(yearD.years||[]).map((o,i)=>'<button class="ytab'+(i===ySel?' on':'')+'" data-e="'+i+'">'+esc(o.year)+'（'+(i===ySel?yTmp.length:(o.rows||[]).length)+'件）</button>').join('')+'</div>';
+  if(!yTmp.length){ box.innerHTML=tabs+'<div style="font-size:12px;color:#8a938a;padding:8px">行がありません。「＋ 行を追加」から追加してください。</div>'; }
+  else{
+    box.innerHTML=tabs+'<table class="yedit"><thead><tr><th>#</th>'+head.map(h=>'<th>'+esc(h)+'</th>').join('')+'<th></th></tr></thead><tbody>'
+      +yTmp.map((r,i)=>'<tr data-i="'+i+'"><td class="rn">'+(i+1)+'</td>'
+        +head.map((h,ci)=>'<td><input data-c="'+ci+'" value="'+esc(r[ci]||'')+'"></td>').join('')
+        +'<td><button data-del="'+i+'" title="この行を削除">✕</button></td></tr>').join('')
+      +'</tbody></table>';
+    box.querySelectorAll('input').forEach(inp=>{ inp.oninput=()=>{ const tr=inp.closest('tr'); yTmp[+tr.dataset.i][+inp.dataset.c]=inp.value; }; });
+    box.querySelectorAll('[data-del]').forEach(b2=>{ b2.onclick=()=>{ yTmp.splice(+b2.dataset.del,1); drawYRows(); }; });
+  }
+  box.querySelectorAll('[data-e]').forEach(b2=>{ b2.onclick=()=>{ commitYTmp(); ySel=+b2.dataset.e; yTmp=JSON.parse(JSON.stringify((yearD.years[ySel]||{}).rows||[])); drawYRows(); }; });
+}
+function commitYTmp(){ if(yearD.years&&yearD.years[ySel]) yearD.years[ySel].rows=yTmp.filter(r=>r.some(c=>String(c).trim()!=='')); }
+$('#btnYear').onclick=()=>{
+  if(!admin()) return;
+  $('#yTitle').value=yearD.title||''; $('#yLead').value=yearD.lead||'';
+  ySel=Math.min(yearD.sel||0,(yearD.years||[]).length-1); if(ySel<0) ySel=0;
+  yTmp=JSON.parse(JSON.stringify(((yearD.years||[])[ySel]||{}).rows||[]));
+  drawYRows();
+  $('#ywrap').classList.add('show');
+};
+$('#yAdd').onclick=()=>{ yTmp.push(yHead().map(()=>'')); drawYRows(); };
+$('#yCancel').onclick=()=>$('#ywrap').classList.remove('show');
+$('#ywrap').addEventListener('click',e=>{if(e.target.id==='ywrap')$('#ywrap').classList.remove('show');});
+$('#ySave').onclick=()=>{
+  commitYTmp();
+  yearD.title=$('#yTitle').value.trim();
+  yearD.lead=$('#yLead').value.trim();
+  yearD.sel=ySel;
+  $('#ywrap').classList.remove('show'); render();
+  toast(yearChanged()?'💾 年間予定表を<b>下書き</b>に保存しました。「🌐 更新を公開」で利用者画面に反映されます':'💾 保存しました（公開中の内容と同じです）');
+};
+
+/* 一括・公開 */
+$('#btnBulk').onclick=()=>{
+  let n=0;draft.forEach(d=>{if(d.shibu==='東京支部'&&!d._del&&d.status==='募集中'){d.status='締切';n++;}});
+  render();toast('東京支部の募集中 <b>'+n+'件</b> を締切にしました（下書き）');
+};
+$('#btnPub').onclick=()=>{
+  const n=pending();if(!n){toast('未公開の変更はありません');return;}
+  draft=draft.filter(d=>!d._del);
+  published=clone(draft);
+  heroP=JSON.parse(JSON.stringify(heroD));
+  yearP=JSON.parse(JSON.stringify(yearD));
+  render();
+  toast('🌐 <b>'+n+'件</b>の変更を公開しました。利用者画面（Webサイト）に反映されています');
+};
+
+/* ==== Excel取込 ==== */
+let impRows=[];
+$('#btnImp').onclick=()=>{ impRows=[]; $('#ires').innerHTML=''; $('#iReg').style.display='none'; $('#iwrap').classList.add('show'); };
+$('#iCancel').onclick=()=>$('#iwrap').classList.remove('show');
+$('#iwrap').addEventListener('click',e=>{if(e.target.id==='iwrap')$('#iwrap').classList.remove('show');});
+const idrop=$('#idrop'), ifile=$('#ifile');
+idrop.onclick=()=>ifile.click();
+['dragenter','dragover'].forEach(ev=>idrop.addEventListener(ev,e=>{e.preventDefault();idrop.style.background='#e9f5ee';}));
+['dragleave','drop'].forEach(ev=>idrop.addEventListener(ev,e=>{e.preventDefault();idrop.style.background='#f8fbf9';}));
+idrop.addEventListener('drop',e=>{const f=e.dataTransfer.files[0]; if(f) readXlsx(f);});
+ifile.addEventListener('change',()=>{ if(ifile.files[0]) readXlsx(ifile.files[0]); ifile.value=''; });
+function readXlsx(file){
+  const fr=new FileReader();
+  fr.onload=()=>{
+    let wb;
+    try{ wb=XLSX.read(new Uint8Array(fr.result),{type:'array'}); }
+    catch(e){ $('#ires').innerHTML='⚠️ Excelとして読み込めませんでした：'+e.message; return; }
+    const ws=wb.Sheets[wb.SheetNames[0]];
+    const arr=XLSX.utils.sheet_to_json(ws,{header:1,defval:''});
+    validateRows(arr, file.name);
+  };
+  fr.readAsArrayBuffer(file);
+}
+function validateRows(arr, fname){
+  impRows=[];
+  const head=(arr[0]||[]).map(String);
+  const need=['主催支部','科目名'];
+  if(!need.every(k=>head.some(h=>h.includes(k)))){
+    $('#ires').innerHTML='⚠️ 1行目の見出しに「主催支部」「科目名」が見つかりません。テンプレート形式（主催支部／募集月／科目名／開催日程／会場／受付状況）でご用意ください。';
+    $('#iReg').style.display='none'; return;
+  }
+  const col=k=>head.findIndex(h=>h.includes(k));
+  const ci={shibu:col('主催支部'),month:col('募集月'),name:col('科目名'),dates:col('開催日程'),venue:col('会場'),st:col('受付状況')};
+  let html='<b>📄 '+fname+'</b> の検証結果：<table style="width:100%;border-collapse:collapse;margin-top:6px;font-size:11.5px">'
+    +'<tr><th style="border:1px solid #dde;padding:4px 8px;background:#eef7f0">行</th><th style="border:1px solid #dde;padding:4px 8px;background:#eef7f0">主催支部</th><th style="border:1px solid #dde;padding:4px 8px;background:#eef7f0">科目名</th><th style="border:1px solid #dde;padding:4px 8px;background:#eef7f0">判定</th></tr>';
+  for(let r=1;r<arr.length;r++){
+    const row=arr[r]; if(!row || row.every(c=>String(c).trim()==='')) continue;
+    const g=i=>i>=0?String(row[i]).trim():'';
+    const shibu=g(ci.shibu), name=g(ci.name), st=g(ci.st)||'募集中';
+    let ng=[];
+    if(!name) ng.push('科目名が未入力');
+    if(!SHIBUS.includes(shibu)) ng.push('支部「'+shibu+'」は存在しません（'+SHIBUS.slice(0,4).join('・')+'…から指定）');
+    if(!STS.includes(st)) ng.push('受付状況「'+st+'」は不正（募集中／締切／調整中）');
+    const ok=ng.length===0;
+    if(ok) impRows.push({shibu:shibu,month:g(ci.month)||MONTHS[0],name:name,
+      dates:g(ci.dates)||'（日程調整中）',time:'9:30開場、10:00開始、17:00終了（昼食1時間）',
+      venue:g(ci.venue)||'（会場調整中）',status:st,_del:false});
+    html+='<tr><td style="border:1px solid #dde;padding:4px 8px">'+(r+1)+'</td><td style="border:1px solid #dde;padding:4px 8px">'+shibu+'</td><td style="border:1px solid #dde;padding:4px 8px">'+name.slice(0,22)+'</td>'
+      +'<td style="border:1px solid #dde;padding:4px 8px;color:'+(ok?'#1c7c2f':'#b3372f')+';font-weight:700">'+(ok?'✅ OK':'✖ '+ng.join('／'))+'</td></tr>';
+  }
+  html+='</table><div style="margin-top:8px">✅ 正常 <b>'+impRows.length+'</b>件　／　✖ エラー行はExcelを直してもう一度お取り込みください。</div>';
+  $('#ires').innerHTML=html;
+  $('#iReg').textContent=impRows.length+'件を一括登録（下書き）';
+  $('#iReg').style.display=impRows.length?'inline-block':'none';
+}
+$('#iReg').onclick=()=>{
+  if(!impRows.length) return;
+  impRows.forEach(o=>draft.push(clone(o)));
+  const n=impRows.length; impRows=[];
+  $('#iwrap').classList.remove('show');
+  render();
+  toast('📥 <b>'+n+'件</b>を一括登録しました（下書き）。<br>「🌐 更新を公開」で利用者画面に掲載されます');
+};
+
+/* mode */
+$('#mUser').onclick=()=>{document.body.classList.remove('admin');$('#mUser').classList.add('on');$('#mAdmin').classList.remove('on');render();};
+$('#mAdmin').onclick=()=>{document.body.classList.add('admin');$('#mAdmin').classList.add('on');$('#mUser').classList.remove('on');render();};
+if(location.hash==='#admin'){document.body.classList.add('admin');$('#mAdmin').classList.add('on');$('#mUser').classList.remove('on');}
+if(new URLSearchParams(location.search).has('embed')){document.body.classList.add('embed');}
+render();
+</script>
+<script src="../demo_navbar.js" data-crumb="科目・日程一覧" data-back="qualification/senior/" data-back-label="シニア産業カウンセラー育成講座"></script>
+</body>
+</html>

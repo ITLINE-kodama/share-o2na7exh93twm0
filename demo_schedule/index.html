@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<!-- JAICO-DEMO-GATE:BEGIN -->
+<script>/* 閲覧用ゲート（関係者限定デモ）。クライアントサイドの簡易ロックです。 */
+(function(){
+  var KEY='jaicoDemoGate2026', SIG='6c4a961c';
+  function hash(s){var v=5381;for(var i=0;i<s.length;i++){v=((v*33)^s.charCodeAt(i))>>>0;}return v.toString(16);}
+  try{ if(localStorage.getItem(KEY)===SIG) return; }catch(e){}
+  document.write('<style id="__gs">html{visibility:hidden!important}#__gate,#__gate *{visibility:visible!important}</style>');
+  function build(){
+    var w=document.createElement('div');
+    w.id='__gate';
+    w.setAttribute('style','position:fixed;inset:0;z-index:2147483647;background:linear-gradient(160deg,#f2f8f3,#e6f2e9);display:flex;align-items:center;justify-content:center;padding:20px;font-family:"Noto Sans JP","Yu Gothic UI",sans-serif');
+    w.innerHTML='<form id="__gf" style="background:#fff;border:1px solid #dbe7dc;border-radius:18px;box-shadow:0 14px 40px rgba(28,124,47,.14);padding:34px 32px;width:100%;max-width:380px;box-sizing:border-box">'
+      +'<div style="font-size:11px;font-weight:800;letter-spacing:.14em;color:#239b3b">CONFIDENTIAL</div>'
+      +'<h1 style="font-size:17px;margin:8px 0 6px;color:#243024;line-height:1.6">ご提案デモサイト<br>閲覧用ログイン</h1>'
+      +'<p style="font-size:12px;line-height:1.9;color:#5c6b63;margin:0 0 20px">関係者限定のプロトタイプです。<br>ご案内済みのID・パスワードを入力してください。</p>'
+      +'<label style="display:block;font-size:12px;font-weight:700;color:#243024;margin-bottom:5px">ID</label>'
+      +'<input id="__gi" type="text" autocomplete="username" autocapitalize="off" autocorrect="off" spellcheck="false" style="width:100%;box-sizing:border-box;font-size:15px;padding:11px 13px;border:1px solid #cfe0d3;border-radius:9px;margin-bottom:14px;font-family:inherit">'
+      +'<label style="display:block;font-size:12px;font-weight:700;color:#243024;margin-bottom:5px">パスワード</label>'
+      +'<input id="__gp" type="password" autocomplete="current-password" style="width:100%;box-sizing:border-box;font-size:15px;padding:11px 13px;border:1px solid #cfe0d3;border-radius:9px;font-family:inherit">'
+      +'<p id="__ge" style="display:none;font-size:12px;color:#c0392b;font-weight:700;margin:12px 0 0">IDまたはパスワードが違います。</p>'
+      +'<button type="submit" style="width:100%;margin-top:20px;background:#239b3b;color:#fff;border:0;border-radius:999px;font-size:15px;font-weight:800;padding:13px;cursor:pointer;font-family:inherit">閲覧する</button>'
+      +'<p style="font-size:10.5px;color:#8a988f;line-height:1.8;margin:16px 0 0">※ 本デモの内容・画面イメージの二次配布はご遠慮ください。</p>'
+      +'</form>';
+    document.body.appendChild(w);
+    var i=document.getElementById('__gi');
+    if(i) i.focus();
+    document.getElementById('__gf').addEventListener('submit',function(ev){
+      ev.preventDefault();
+      var id=(document.getElementById('__gi').value||'').trim();
+      var pw=document.getElementById('__gp').value||'';
+      if(hash(id+':'+pw)===SIG){
+        try{ localStorage.setItem(KEY,SIG); }catch(e){}
+        location.reload();
+      }else{
+        document.getElementById('__ge').style.display='block';
+        document.getElementById('__gp').value='';
+        document.getElementById('__gp').focus();
+      }
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',build); else build();
+})();
+</script>
+<!-- JAICO-DEMO-GATE:END -->
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>標準CMS／講座日程マスタDBデモ｜一般社団法人日本産業カウンセラー協会</title>
+<style>
+:root{
+  --green:#239b3b; --green-dark:#1c7c2f; --green-bright:#27ab41; --yellow:#eab010;
+  --ink:#233229; --muted:#68766d; --line:#dbe6dd; --bg:#f4f8f5; --card:#ffffff;
+  --admin:#2b4bab; --admin-dark:#1e3578; --side:#1c2b52; --uz:1;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Noto Sans JP","Yu Gothic UI","Hiragino Sans",sans-serif;background:var(--bg);color:var(--ink);font-size:14px;line-height:1.6}
+
+/* ===== top bar ===== */
+.topbar{background:linear-gradient(90deg,var(--green-dark),var(--green) 55%,var(--green-bright));color:#fff;padding:12px 22px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;box-shadow:0 2px 8px rgba(28,124,47,.25);position:sticky;top:0;z-index:50}
+body.admin .topbar{background:linear-gradient(90deg,var(--admin-dark),var(--admin) 60%,#3d63d0)}
+.topbar .brand{font-weight:800;font-size:14px;letter-spacing:.04em;background:#fff;color:var(--green-dark);padding:3px 10px;border-radius:4px}
+body.admin .topbar .brand{color:var(--admin-dark)}
+.topbar h1{font-size:15px;font-weight:700;letter-spacing:.02em}
+.topbar .spacer{flex:1}
+.mode-tgl{display:flex;border:1.5px solid rgba(255,255,255,.7);border-radius:20px;overflow:hidden}
+.mode-tgl button{font:inherit;font-size:12.5px;font-weight:700;padding:7px 15px;border:none;background:transparent;color:#fff;cursor:pointer;transition:.15s;white-space:nowrap}
+.mode-tgl button.on{background:#fff;color:var(--green-dark)}
+body.admin .mode-tgl button.on{color:var(--admin-dark)}
+
+/* ===== 文字サイズ変更（アクセシビリティ） ===== */
+.a11y{display:flex;align-items:center;gap:5px;background:rgba(255,255,255,.16);border:1.5px solid rgba(255,255,255,.6);border-radius:20px;padding:4px 6px 4px 13px}
+.a11y .a11y-lbl{font-size:12.5px;font-weight:700;color:#fff;white-space:nowrap}
+.a11y button{font:inherit;font-size:13px;font-weight:700;padding:6px 12px;border:none;background:transparent;color:#fff;border-radius:14px;cursor:pointer;transition:.12s}
+.a11y button:hover{background:rgba(255,255,255,.22)}
+.a11y button.on{background:#fff;color:var(--green-dark)}
+body.admin .user-only{display:none !important}
+
+/* ===== admin bar ===== */
+.adminbar{display:none;background:#e8edfb;border-bottom:1.5px solid #c3cfef;color:#27407e;font-size:12.5px;padding:8px 22px;line-height:1.7}
+body.admin .adminbar{display:block}
+.admin-only{display:none !important}
+body.admin .admin-only{display:inline-flex !important}
+body.admin .admin-only.blk{display:block !important}
+body.admin .user-only{display:none !important}
+
+/* ===== layout（管理時は左サイドバー） ===== */
+.layout{display:block}
+body.admin .layout{display:grid;grid-template-columns:236px minmax(0,1fr);align-items:start}
+.sidebar{display:none}
+body.admin .sidebar{display:block;background:var(--side);color:#dfe6f5;min-height:calc(100vh - 92px);padding:16px 12px;position:sticky;top:92px}
+.sidebar .shead{font-size:11px;font-weight:800;letter-spacing:.14em;color:#8fa2cf;padding:4px 12px 8px}
+.sidebar .sdiv{border-top:1px solid rgba(255,255,255,.12);margin:12px 8px}
+.mi{display:flex;align-items:center;gap:9px;width:100%;text-align:left;font:inherit;font-size:13px;font-weight:600;color:#c9d4ee;background:none;border:none;padding:10px 12px;border-radius:8px;cursor:pointer;transition:.12s}
+.mi:hover{background:rgba(255,255,255,.09);color:#fff}
+.mi.active{background:var(--admin);color:#fff;font-weight:700}
+.mi.on{background:#5b5b5b;color:#fff}
+.mi.dim{opacity:.55}
+.mi .ic{width:20px;text-align:center;flex:0 0 20px}
+.mi .mbadge{margin-left:auto;background:var(--yellow);color:#4a3800;border-radius:10px;padding:0 8px;font-weight:800;font-size:11px}
+.mi.pub{background:var(--yellow);color:#4a3800;font-weight:800;margin-top:4px}
+.mi.pub:hover{filter:brightness(1.06);color:#4a3800}
+.mi.pub .mbadge{background:#4a3800;color:#fff}
+.mi.pub[disabled]{opacity:.45;cursor:default;filter:none}
+
+.wrap{max-width:1180px;margin:0 auto;padding:22px 18px 60px}
+body.admin .wrap{max-width:none;margin:0;padding:20px 22px 60px}
+
+/* ===== 利用者ヒーロー ===== */
+/* 利用者画面のファーストビュー（現行サイト「会場と日程｜お申し込み」に寄せた公開ページの体裁） */
+.uhero{background:linear-gradient(180deg,#f2fbf3 0%,#ffffff 100%);border:1px solid #d8ecd9;border-radius:16px;padding:34px 26px 26px;margin-bottom:16px;text-align:center}
+.uhero .uh-title{font-size:34px;line-height:1.3;font-weight:900;color:var(--green-dark);letter-spacing:.01em}
+.uhero .uh-title .reg{font-size:.55em;vertical-align:super}
+.uhero .uh-title2{display:block;font-size:.82em;margin-top:2px}
+.uhero .uh-status{margin-top:18px;font-size:22px;font-weight:900;letter-spacing:.02em}
+.uhero .uh-status.open{color:var(--green-dark)}
+.uhero .uh-status.closed{color:#7a8a7c}
+.uhero .uh-band{display:block;margin:16px auto 0;max-width:760px;background:#FFF45A;border:1px solid #e6d94a;border-radius:8px;padding:13px 18px;font-size:15px;font-weight:800;color:#1b3a86;text-decoration:none;line-height:1.7}
+.uhero .uh-band:hover{background:#fff06b}
+.uhero .uh-band .lk{text-decoration:underline;text-underline-offset:3px}
+.uhero .uh-rule{height:3px;background:var(--green-dark);border-radius:2px;max-width:900px;margin:24px auto 0}
+.uhero .uh-lead{font-size:14px;color:#43533f;margin-top:18px;line-height:1.9}
+.uhero .uh-sub{margin-top:8px;font-size:13px;color:var(--green-dark);font-weight:700}
+.uhero .uh-editnote{display:none}
+body.admin .uhero .uh-editnote{display:block;margin-top:14px;font-size:11.5px;color:var(--admin-dark);background:#eef2fb;border:1px solid #d6e0f5;border-radius:8px;padding:7px 12px}
+.uhero .uh-editnote b{color:#1f3f8a}
+@media(max-width:640px){
+  .uhero{padding:24px 16px 20px}
+  .uhero .uh-title{font-size:23px}
+  .uhero .uh-status{font-size:17px}
+  .uhero .uh-band{font-size:13.5px;padding:11px 13px}
+}
+/* 「会場一覧」の見出し（現行サイトの構成に合わせる） */
+.usec{display:none}
+body:not(.admin) .usec{display:block;text-align:center;margin:22px 0 4px}
+body:not(.admin) .usec h3{font-size:24px;font-weight:900;color:var(--green-dark)}
+body:not(.admin) .usec .usec-line{height:1px;background:#dfe7e0;max-width:900px;margin:12px auto 14px}
+body:not(.admin) .usec p{font-size:13.5px;color:#4a5a4a;line-height:1.9}
+body:not(.admin) .usec .warn{margin-top:10px;font-size:12.5px;color:#b3372f;line-height:1.85}
+.alead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.alead h2{font-size:19px;color:var(--admin-dark)}
+.alead .src{font-size:12px;color:var(--muted)}
+
+.before-after{display:none}
+body.admin .before-after{display:block;background:#FFF9E8;border:1px solid #E8D9A0;border-radius:10px;padding:10px 16px;font-size:12px;line-height:1.85;color:#5d4d10;margin-bottom:14px}
+.before-after b{color:#8a6d00}
+.before-after a{color:#2F6EA5;text-decoration:underline;text-underline-offset:2px}
+
+/* ===== stats（管理のみ） ===== */
+.stats{display:none}
+body.admin .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-bottom:6px}
+.stat{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--admin);border-radius:10px;padding:13px 16px;box-shadow:0 1px 4px rgba(35,50,41,.06)}
+.stat .lbl{font-size:12px;color:var(--muted);font-weight:600}
+.stat .val{font-size:28px;font-weight:800;color:var(--admin-dark);line-height:1.25}
+.stat .val small{font-size:14px;font-weight:700;color:var(--ink)}
+.stat .sub{font-size:11px;color:var(--muted)}
+.note{display:none}
+body.admin .note{display:block;font-size:11.5px;color:var(--muted);margin:4px 2px 16px}
+.note b{color:var(--admin-dark)}
+
+/* ===== filter bar ===== */
+.ftitle{font-size:14px;font-weight:800;color:var(--green-dark);margin:2px 2px 8px}
+body.admin .ftitle{display:none}
+.filters{background:var(--card);border:1.5px solid #cfe3d6;border-radius:14px;padding:15px 18px;display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:16px;box-shadow:0 2px 8px rgba(35,50,41,.07)}
+body.admin .filters{border-color:var(--line);border-radius:10px}
+.fgroup{display:flex;align-items:center;gap:8px}
+.fgroup .flbl{font-size:12px;font-weight:700;color:var(--green-dark);white-space:nowrap}
+body.admin .fgroup .flbl{color:var(--admin-dark)}
+select,.search,.mfield input,.mfield select{font:inherit;font-size:13px;padding:8px 11px;border:1.5px solid var(--line);border-radius:9px;background:#fff;color:var(--ink)}
+select:focus,.search:focus{outline:none;border-color:var(--green)}
+.search{width:230px}
+.tgl{display:flex;border:1.5px solid var(--line);border-radius:9px;overflow:hidden}
+.tgl button{font:inherit;font-size:12.5px;font-weight:600;padding:8px 13px;border:none;background:#fff;color:var(--muted);cursor:pointer;border-right:1px solid var(--line);transition:.12s}
+.tgl button:last-child{border-right:none}
+.tgl button.on{background:var(--green);color:#fff}
+body.admin .tgl button.on{background:var(--admin)}
+.count{margin-left:auto;font-size:13px;font-weight:700;color:var(--green-dark)}
+.count b{font-size:20px}
+.btn-reset{font:inherit;font-size:12px;background:none;border:none;color:var(--muted);cursor:pointer;text-decoration:underline}
+
+/* ===== course list ===== */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px}
+.card{background:var(--card);border:1.5px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 2px 8px rgba(35,50,41,.07);transition:.15s;display:flex;flex-direction:column}
+.card:hover{box-shadow:0 6px 16px rgba(35,50,41,.12)}
+.card.open{grid-column:1/-1}
+.card.full{background:#f3f3f3;border-color:#ddd}
+.card.del{border:1.5px dashed #c0392b;background:#fdf5f5}
+.card.del .chead{opacity:.55}
+.chead{padding:14px 16px 11px;cursor:pointer;display:flex;flex-direction:column;gap:8px;flex:1}
+.chead:hover{background:#f7fbf8}
+.card.full .chead:hover{background:transparent}
+.crow1{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.code{font-size:11.5px;font-weight:700;color:#fff;background:var(--admin-dark);border-radius:4px;padding:1px 7px;letter-spacing:.05em}
+.branch{font-size:11.5px;font-weight:700;color:var(--green-dark);background:#e7f4ea;border-radius:4px;padding:2px 8px}
+body.admin .branch{color:var(--admin-dark);background:#e8edfb}
+.room{font-size:16.5px;font-weight:800}
+.statpill{margin-left:auto;font-size:11.5px;font-weight:800;border-radius:12px;padding:2px 11px;background:#e7f4ea;color:var(--green-dark)}
+.statpill.ng{background:#fdecea;color:#c0392b}
+.dbadge{font-size:10.5px;font-weight:800;border-radius:4px;padding:1px 7px}
+.d-new{background:#2b4bab;color:#fff}
+.d-mod{background:#eab010;color:#4a3800}
+.d-del{background:#c0392b;color:#fff}
+.crow2{display:flex;align-items:center;gap:7px;flex-wrap:wrap;font-size:12px}
+.badge{border-radius:4px;padding:1px 8px;font-weight:700;font-size:11.5px}
+.b-tsu{background:#e7f4ea;color:var(--green-dark);border:1px solid #bcdfc4}
+.b-ol{background:#fdf3d7;color:#8a6400;border:1px solid #ecd489}
+.b-fol{background:#eef;color:#3b3b9b;border:1px solid #c9c9ef}
+.b-type{background:#f1f1f1;color:#555;border:1px solid #ddd}
+.wd{color:var(--muted)}
+.cap{color:var(--muted)}
+.crow3{display:flex;align-items:center;gap:8px;justify-content:space-between;flex-wrap:wrap}
+.expand-hint{font-size:11.5px;color:var(--green-dark);font-weight:700}
+.cbody-foot{text-align:center;margin-top:12px;padding:9px;border-top:1px dashed var(--line);color:var(--green-dark);font-weight:700;font-size:12.5px;cursor:pointer;border-radius:8px}
+.cbody-foot:hover{background:#f2faf3}
+body.admin .expand-hint{display:inline-flex;align-items:center;gap:5px;color:var(--green-dark);font-weight:800;font-size:12px;background:#eef7f0;border:1.5px solid #bcdfc4;border-radius:999px;padding:6px 15px;cursor:pointer}
+body.admin .expand-hint:hover{background:#dff0e4;border-color:#95c9a2}
+.abtn{font:inherit;font-size:11.5px;font-weight:700;padding:5px 12px;border-radius:14px;border:1.5px solid var(--line);background:#fff;color:var(--muted);cursor:pointer;transition:.12s;white-space:nowrap}
+.abtn:hover{border-color:var(--admin);color:var(--admin)}
+.abtn.danger:hover{border-color:#c0392b;color:#c0392b}
+.card.full .btn-full{border-color:var(--green);color:var(--green-dark);background:#fff}
+.cbody{display:none;border-top:1px dashed var(--line);padding:12px 16px 15px;background:#fbfdfb}
+.card.open .cbody{display:block}
+.cbody .meta{font-size:12px;color:var(--muted);margin-bottom:8px}
+.tblwrap{overflow-x:auto}
+table.sched{border-collapse:collapse;font-size:12px;white-space:nowrap}
+table.sched th{background:var(--green);color:#fff;font-weight:700;padding:5px 9px;border:1px solid #1c7c2f}
+table.sched td{padding:5px 9px;border:1px solid var(--line);background:#fff;text-align:center}
+table.sched tr td:first-child{font-weight:700;color:var(--green-dark);background:#eef7f0}
+table.sched td.sat{color:#1a56b0}
+table.sched td.sun{color:#c0392b}
+.sedit{width:76px;font:inherit;font-size:11.5px;padding:3px 4px;border:1px solid #cfd8e8;border-radius:5px;text-align:center;background:#fdfefe}
+.sedit:focus{outline:none;border-color:var(--admin);background:#fff}
+.sedit.wdi{width:36px}
+.sedit.tmi{width:56px}
+.addsess{font:inherit;font-size:11.5px;font-weight:700;border:1.5px dashed #b9c6e8;background:#f6f8fd;color:var(--admin-dark);border-radius:8px;padding:5px 12px;cursor:pointer;margin-top:8px}
+.addsess:hover{border-color:var(--admin)}
+.edithint{font-size:11px;color:var(--admin);font-weight:700;margin-bottom:6px}
+.apply-row{padding:11px 16px 14px;border-top:1px solid var(--line);background:#fff}
+.btn-apply{width:100%;background:var(--green);color:#fff;border:none;font-family:inherit;font-weight:800;font-size:13.5px;padding:12px;border-radius:10px;cursor:pointer;box-shadow:0 3px 8px rgba(28,124,47,.28);transition:.15s}
+.btn-apply:hover{background:var(--green-dark);transform:translateY(-1px)}
+a.btn-apply{display:block;text-align:center;text-decoration:none}
+a.btn-apply.dis{background:#c6cfc9;box-shadow:none;cursor:default;pointer-events:none}
+a.btn-apply.dis:hover{background:#c6cfc9;transform:none}
+.fullmsg{width:100%;text-align:center;background:#eee;color:#c0392b;font-weight:800;border-radius:10px;padding:12px;font-size:13px}
+.empty{padding:40px;text-align:center;color:var(--muted);font-size:14px;grid-column:1/-1}
+
+/* ===== modal ===== */
+#modalwrap,#herowrap{position:fixed;inset:0;background:rgba(20,30,25,.45);display:none;align-items:center;justify-content:center;z-index:200}
+#modalwrap.show,#herowrap.show{display:flex}
+#herowrap .mfield textarea{width:100%;border:1.5px solid #cfd8cf;border-radius:8px;padding:8px 10px;font-size:13px;font-family:inherit;line-height:1.7;resize:vertical}
+.modal{background:#fff;border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.3);width:min(480px,92vw);padding:22px 24px}
+.modal h3{font-size:16px;color:var(--admin-dark);margin-bottom:4px}
+.modal .msub{font-size:11.5px;color:var(--muted);margin-bottom:14px}
+.mfield{margin-bottom:11px}
+.mfield label{display:block;font-size:12px;font-weight:700;color:#444;margin-bottom:3px}
+.mfield input,.mfield select{width:100%}
+.mrow{display:flex;gap:10px}
+.mrow .mfield{flex:1}
+.mbtns{display:flex;gap:10px;justify-content:flex-end;margin-top:16px}
+.mbtns button{font:inherit;font-size:13px;font-weight:700;border-radius:9px;padding:9px 20px;cursor:pointer;border:none}
+.m-save{background:var(--admin);color:#fff}
+.m-cancel{background:#eee;color:#555}
+
+/* ===== 利用者画面 アクセシビリティ（大きく・見やすく・伝わる） ===== */
+body:not(.admin) .wrap{padding:26px 20px 70px}
+body:not(.admin) .uhero{padding:32px 32px;border-radius:18px}
+body:not(.admin) .uhero h2{font-size:calc(28px * var(--uz));line-height:1.35;letter-spacing:.01em}
+body:not(.admin) .uhero p{font-size:calc(16.5px * var(--uz));color:#33422f;margin-top:10px;line-height:1.9}
+body:not(.admin) .uhero .uline{font-size:calc(15.5px * var(--uz));margin-top:12px}
+
+body:not(.admin) .ftitle{font-size:calc(19px * var(--uz));margin-bottom:10px}
+body:not(.admin) .filters{padding:18px 20px;gap:18px 20px}
+body:not(.admin) .fgroup .flbl{font-size:calc(15.5px * var(--uz))}
+body:not(.admin) select,
+body:not(.admin) .search{font-size:calc(16px * var(--uz));padding:12px 14px;border-width:2px}
+body:not(.admin) .search{width:280px}
+body:not(.admin) .tgl{border-width:2px}
+body:not(.admin) .tgl button{font-size:calc(15.5px * var(--uz));padding:12px 18px}
+body:not(.admin) .count{font-size:calc(16px * var(--uz))}
+body:not(.admin) .count b{font-size:calc(26px * var(--uz))}
+body:not(.admin) .btn-reset{font-size:calc(14.5px * var(--uz))}
+
+body:not(.admin) .grid{gap:18px;grid-template-columns:repeat(auto-fill,minmax(370px,1fr))}
+body:not(.admin) .card{border-width:2px;border-radius:16px}
+body:not(.admin) .chead{padding:20px 22px 16px;gap:12px}
+body:not(.admin) .crow1{gap:12px}
+body:not(.admin) .branch{font-size:calc(14.5px * var(--uz));padding:5px 13px;border-radius:8px}
+body:not(.admin) .room{font-size:calc(23px * var(--uz));line-height:1.3}
+body:not(.admin) .statpill{font-size:calc(15.5px * var(--uz));padding:6px 18px;border-radius:999px;border:2px solid #7cc389}
+body:not(.admin) .statpill.ng{border-color:#e6a49c}
+body:not(.admin) .crow2{font-size:calc(15.5px * var(--uz));gap:11px;margin-top:2px}
+body:not(.admin) .badge{font-size:calc(14.5px * var(--uz));padding:4px 13px;border-radius:6px}
+body:not(.admin) .wd,body:not(.admin) .cap{color:#33422f;font-weight:600}
+body:not(.admin) .expand-hint{display:inline-flex;align-items:center;gap:5px;font-size:calc(15.5px * var(--uz));font-weight:700;color:var(--green-dark);background:#f2faf3;border:2px solid #bcdfc4;border-radius:999px;padding:9px 18px}
+body:not(.admin) .cbody{padding:16px 22px 20px}
+body:not(.admin) .cbody .meta{font-size:calc(14px * var(--uz));color:#4a5a4a;margin-bottom:12px}
+body:not(.admin) table.sched th{font-size:calc(13px * var(--uz));padding:8px 12px}
+body:not(.admin) table.sched td{font-size:calc(13.5px * var(--uz));padding:8px 12px}
+body:not(.admin) .apply-row{padding:16px 22px 20px}
+body:not(.admin) .btn-apply{padding:16px;border-radius:12px;letter-spacing:.02em}
+body:not(.admin) .btn-apply .ba-t{font-size:calc(18px * var(--uz));font-weight:800;line-height:1.3}
+body:not(.admin) .fullmsg{font-size:calc(16px * var(--uz));padding:16px}
+
+/* キーボード操作の可視化（アクセシビリティ） */
+body:not(.admin) .btn-apply:focus-visible,
+body:not(.admin) .expand-hint:focus-visible,
+body:not(.admin) .tgl button:focus-visible,
+body:not(.admin) select:focus-visible,
+body:not(.admin) .search:focus-visible,
+.a11y button:focus-visible{outline:3px solid #0b5cd6;outline-offset:2px}
+
+@media (max-width:600px){
+  body:not(.admin) .search{width:100%}
+  body:not(.admin) .grid{grid-template-columns:1fr}
+  .a11y .a11y-lbl{display:none}
+}
+
+/* ===== import modal ===== */
+#impwrap{position:fixed;inset:0;background:rgba(20,30,25,.45);display:none;align-items:center;justify-content:center;z-index:210}
+#impwrap.show{display:flex}
+.impmodal{background:#fff;border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.3);width:min(560px,94vw);padding:22px 24px;max-height:88vh;overflow-y:auto}
+.impmodal h3{font-size:16px;color:var(--admin-dark);margin-bottom:4px}
+.impmodal .msub{font-size:11.5px;color:var(--muted);margin-bottom:12px;line-height:1.8}
+.impmodal .msub a{color:#2F6EA5;text-decoration:underline}
+#dropzone{border:2.5px dashed #b9c6e8;border-radius:12px;background:#f6f8fd;padding:26px 16px;text-align:center;color:#4a5878;font-size:13px;cursor:pointer;transition:.15s}
+#dropzone:hover,#dropzone.over{border-color:var(--admin);background:#eef2fb}
+#dropzone .big{font-size:30px;display:block;margin-bottom:6px}
+#impResult{margin-top:14px;font-size:12.5px;line-height:1.9;display:none}
+#impResult.show{display:block}
+#impResult .ok{background:#e7f4ea;border:1px solid #bcdfc4;border-radius:8px;padding:10px 14px;color:var(--green-dark);font-weight:700}
+#impResult .ng{background:#fdecea;border:1px solid #f0b9b3;border-radius:8px;padding:10px 14px;color:#c0392b;margin-top:8px}
+#impResult ul{margin:6px 0 0 18px}
+#impResult table{border-collapse:collapse;font-size:12px;margin-top:8px;width:100%}
+#impResult th{background:#e8edfb;color:var(--admin-dark);padding:4px 9px;border:1px solid #d5deef;text-align:left}
+#impResult td{padding:4px 9px;border:1px solid #e3e8f2}
+
+/* ===== toast ===== */
+#toast{position:fixed;left:50%;bottom:34px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;font-size:13px;padding:11px 20px;border-radius:24px;opacity:0;pointer-events:none;transition:.28s;box-shadow:0 4px 14px rgba(0,0,0,.3);max-width:92vw;text-align:center;z-index:300}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+#toast b{color:var(--yellow)}
+
+footer{margin-top:34px;font-size:11px;color:var(--muted);text-align:center}
+@media (max-width:760px){.search{width:100%}.count{margin-left:0}body.admin .layout{display:block}body.admin .sidebar{min-height:0;position:static}}
+body.embed .topbar{display:none!important}body.embed .adminbar{display:none!important}
+/* 埋め込み（?embed）時のみモード切替を隠す。通常表示では 利用者⇄職員管理 を切替可能にする */
+body.embed #modeTgl{display:none!important}
+
+/* ===== スマホ（600px以下）調整：右側の見切れ・横スクロールを解消 ===== */
+@media (max-width:600px){
+  .topbar{padding:10px 14px;gap:8px 10px;row-gap:8px}
+  .topbar .brand{order:0}
+  .topbar h1{order:2;flex-basis:100%;font-size:clamp(14px,4.4vw,18px);line-height:1.35;margin:0}
+  .topbar .spacer{display:none}
+  .a11y{order:3;flex:0 0 auto}
+  .mode-tgl{order:4;flex:0 0 auto}
+  .a11y button{padding:6px 9px;font-size:11px}
+  .a11y{padding:3px 5px 3px 10px;gap:4px}
+  .mode-tgl button{padding:6px 10px;font-size:11px}
+  .filters{flex-direction:column;align-items:stretch;gap:10px;padding:14px}
+  .filters .fgroup{width:100%;flex-direction:column;align-items:stretch;gap:5px}
+  .filters .fgroup .flbl{align-self:flex-start}
+  .filters .tgl{width:100%}
+  /* body:not(.admin) .tgl button（既定15.5px）より高い特異度で上書きし、3ボタンを画面内に収める */
+  body:not(.admin) .filters .tgl,
+  body.admin .filters .tgl{width:100%}
+  body:not(.admin) .filters .tgl button,
+  body.admin .filters .tgl button{flex:1 1 0;min-width:0;padding:9px 3px;font-size:11px;white-space:nowrap}
+  .filters .search{width:100%}
+  .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="brand">標準CMS デモ</span>
+  <h1>講座日程マスタDB（標準CMS・実Excel読込）</h1>
+  <span class="spacer"></span>
+  <div class="a11y user-only" id="a11y" role="group" aria-label="文字サイズの変更">
+    <span class="a11y-lbl">文字サイズ</span>
+    <button type="button" data-z="1" class="on">標準</button>
+    <button type="button" data-z="1.18">大</button>
+    <button type="button" data-z="1.36">特大</button>
+  </div>
+  <div class="mode-tgl" id="modeTgl">
+    <button data-m="user" class="on">👁 利用者画面</button>
+    <button data-m="admin">🔧 職員管理</button>
+  </div>
+</div>
+
+<div class="adminbar">
+  🔧 <b>職員管理モード</b>（WordPress管理画面のイメージ）— 本デモの登録・編集・満席切替・下書き→公開は<b>AIなしで動く標準WordPress機能</b>です。変更は<b>下書き</b>に保存され、左メニューの<b>「🌐 更新を公開」で利用者画面（Webサイト）に反映</b>されます。公開前に「👁 利用者画面」に切り替えると、公開前後の違いを確認できます。
+</div>
+
+<div class="layout">
+  <!-- ===== 管理サイドバー ===== -->
+  <aside class="sidebar">
+    <div class="shead">講座管理</div>
+    <button class="mi active"><span class="ic">📚</span>講座マスタ（この画面）</button>
+    <button class="mi" id="btnAdd"><span class="ic">＋</span>新規コース登録</button>
+    <button class="mi" id="btnImp"><span class="ic">📥</span>Excel取込（一括登録）</button>
+    <button class="mi" id="btnHero"><span class="ic">🖼</span>ファーストビュー編集</button>
+    <button class="mi" id="btnBulk"><span class="ic">🈵</span><span id="bulkLabel">東京支部を一括満席</span></button>
+    <button class="mi pub" id="btnPub" disabled><span class="ic">🌐</span>更新を公開<span class="mbadge" id="pubN">0</span></button>
+    <div class="sdiv"></div>
+    <div class="shead">その他のマスタ（参考）</div>
+    <button class="mi dim" data-dummy="1"><span class="ic">📅</span>開催回マスタ（LP連動）</button>
+    <button class="mi dim" data-dummy="1"><span class="ic">📢</span>お知らせ管理</button>
+    <button class="mi dim" data-dummy="1"><span class="ic">📄</span>固定ページ管理</button>
+    <button class="mi dim" data-dummy="1"><span class="ic">✅</span>承認待ち<span class="mbadge">2</span></button>
+    <div class="sdiv"></div>
+    <button class="mi dim" data-dummy="1"><span class="ic">⚙</span>設定・権限</button>
+  </aside>
+
+  <!-- ===== メイン ===== -->
+  <div class="main">
+  <div class="wrap">
+
+    <!-- 利用者向けファーストビュー（内容は職員管理の「ファーストビュー編集」で更新できます） -->
+    <div class="uhero" id="uhero"></div>
+
+    <!-- 会場一覧の見出し（利用者画面のみ） -->
+    <div class="usec">
+      <h3>会場一覧</h3>
+      <div class="usec-line"></div>
+      <p>下記より受講を希望されるエリア・受講形式をお選びください。<br>※各エリア記載の都道府県は当協会支部の管轄エリアを示します。</p>
+      <p class="warn">※アクセス時間帯によっては受付状況が最新ではない場合があります。<br>満席・受付終了の教室は、別の教室をお選びいただくか、お申し込み先支部にご連絡のうえキャンセル待ちのお手続きをお願いします。</p>
+    </div>
+
+    <!-- 管理向けリード -->
+    <div class="alead admin-only blk">
+      <h2>講座マスタ管理　— 2026年度 春6か月・春10か月コース</h2>
+      <span class="src">※実物の「2026春6春10 教室と日程一覧.xlsx」から自動集計</span>
+    </div>
+
+    <div class="before-after">
+      <b>現行サイトとの対応：</b>現行の「<a href="https://www.counselor.or.jp/portals/0/e-learning/entry/" target="_blank" rel="noopener">会場と日程｜お申し込み</a>」ページ ＋ 教室別日程ページ（数十枚） ＋ 内部管理Excel（教室と日程一覧.xlsx）が、リニューアル後は<b>この1画面に統合</b>されます。右上の「🔧 職員管理」で<b>職員がこの画面をどう更新するか</b>もご覧いただけます。
+    </div>
+
+    <div class="stats" id="stats"></div>
+    <p class="note">
+      <b>Excel 4シート（企画一覧／春6日程／春10日程／FOL日程）を1つのマスタDBに統合。</b>
+      日付・時間・定員はExcel原本の記載をそのまま表示しています（2025年・2026年の日付が混在するのも原本のまま）。
+    </p>
+
+    <div class="ftitle">🔍 講座をさがす</div>
+    <div class="filters">
+      <div class="fgroup">
+        <span class="flbl">支部</span>
+        <select id="fBranch"><option value="">すべて</option></select>
+      </div>
+      <div class="fgroup">
+        <span class="flbl">受講形式</span>
+        <div class="tgl" id="fFmt">
+          <button data-v="通学" class="on">通学</button>
+          <button data-v="OL" class="on">オンライン</button>
+          <button data-v="FOL" class="on">フルオンライン</button>
+        </div>
+      </div>
+      <div class="fgroup">
+        <span class="flbl">コース</span>
+        <div class="tgl" id="fType">
+          <button data-v="春6" class="on">春6か月</button>
+          <button data-v="春10" class="on">春10か月</button>
+        </div>
+      </div>
+      <div class="fgroup">
+        <input type="search" class="search" id="fWord" placeholder="教室名・地名で検索（例：新宿）">
+      </div>
+      <span class="count"><b id="cnt">0</b> 件</span>
+      <button class="btn-reset" id="btnCloseAll" style="display:none">▲ 開いた日程をすべて閉じる</button>
+      <button class="btn-reset" id="btnReset">条件をリセット</button>
+    </div>
+
+    <div class="grid" id="list"></div>
+
+    <footer>
+      本デモは実データ（Excel）を読み込んで生成した参考画面です。登録・編集・削除・公開はブラウザ内デモであり、実データは変更されません。<br>
+      申込ボタンの飛び先は<b>職員が「申込URL」欄に貼り付けた先</b>（現行運用では会員申込システム member.counselor.or.jp 等）で、<b>未入力のコースはボタンが自動で無効化</b>されます。<br>
+      標準CMS／講座日程マスタDBデモ（AIオプションなしで動作）｜一般社団法人日本産業カウンセラー協会 御中
+    </footer>
+  </div>
+  </div>
+</div>
+
+<!-- ファーストビュー編集モーダル（職員が公開ページの先頭を書き換える） -->
+<div id="herowrap">
+  <div class="modal">
+    <h3>🖼 ファーストビュー編集</h3>
+    <div class="msub">利用者画面の一番上（講座名・受付状況・お知らせ帯・リード文）を職員が書き換えられます。保存は<b>下書き</b>で、「🌐 更新を公開」で利用者画面に反映されます。</div>
+    <div class="mrow">
+      <div class="mfield"><label>講座名（1行目）</label><input id="hTitle1" placeholder="例：産業カウンセラー養成講座®"></div>
+      <div class="mfield"><label>講座名（2行目）</label><input id="hTitle2" placeholder="例：2026年度 春開講"></div>
+    </div>
+    <div class="mrow">
+      <div class="mfield"><label>受付状況の見出し</label><input id="hStatus" placeholder="例：講座の申込みは終了しました"></div>
+      <div class="mfield" style="flex:0 0 190px"><label>表示色</label>
+        <select id="hStatusType"><option value="open">受付中（緑）</option><option value="closed">終了・準備中（グレー）</option></select>
+      </div>
+    </div>
+    <div class="mfield">
+      <label><input type="checkbox" id="hBandOn" style="width:auto;margin-right:6px;vertical-align:-1px">黄色のお知らせ帯を表示する</label>
+    </div>
+    <div class="mrow">
+      <div class="mfield"><label>帯の文言</label><input id="hBandText" placeholder="例：2026年度秋冬開講講座の会場と日程をご覧になられたい方は"></div>
+      <div class="mfield" style="flex:0 0 150px"><label>リンクの文字</label><input id="hBandLink" placeholder="例：こちら"></div>
+    </div>
+    <div class="mfield"><label>帯のリンク先URL</label><input id="hBandUrl" placeholder="例：https://www.counselor.or.jp/…（空欄ならリンクなしの文字だけ）"></div>
+    <div class="mfield"><label>リード文</label><textarea id="hLead" rows="2" placeholder="例：お近くの支部・受講形式・コースから講座をさがして、そのままお申し込みいただけます。"></textarea></div>
+    <div class="mfield"><label>補足の1行</label><input id="hSub" placeholder="例：2026年度春期は、全国13支部＋本部受付で 合計63コース を開講しています。"></div>
+    <div class="mbtns">
+      <button class="m-cancel" id="hCancel">キャンセル</button>
+      <button class="m-save" id="hSave">保存（下書き）</button>
+    </div>
+  </div>
+</div>
+
+<!-- 編集・新規登録モーダル -->
+<div id="modalwrap">
+  <div class="modal">
+    <h3 id="mTitle">コースを編集</h3>
+    <div class="msub">保存すると下書きに反映されます（利用者画面へは「🌐 更新を公開」で反映）</div>
+    <div class="mrow">
+      <div class="mfield"><label>コースコード</label><input id="mCode" placeholder="例：2611Y01"></div>
+      <div class="mfield"><label>エリア（支部）</label><select id="mBranch"></select></div>
+    </div>
+    <div class="mrow">
+      <div class="mfield"><label>受講形式</label><select id="mFormat"><option value="通学">通学</option><option value="OL">オンライン</option><option value="FOL">フルオンライン</option></select></div>
+      <div class="mfield"><label>コース種別</label><select id="mType"><option value="春6">春6か月</option><option value="春10">春10か月</option></select></div>
+    </div>
+    <div class="mfield"><label>教室名</label><input id="mRoom" placeholder="例：新宿（第2教室）"></div>
+    <div class="mrow">
+      <div class="mfield"><label>会場（住所・施設名）</label><input id="mVenue" placeholder="例：東京都新宿区〇〇 △△ビル3F"></div>
+      <div class="mfield" style="flex:0 0 160px"><label>申込先TEL</label><input id="mTel" placeholder="03-0000-0000"></div>
+    </div>
+    <div class="mfield"><label>申込URL（会員申込システム等の申込先）</label><input id="mUrl" placeholder="例：https://member.counselor.or.jp/nckoza.aspx?cr=2611Y01">
+      <div style="font-size:11px;color:#7a828c;margin-top:4px;line-height:1.6">※ 現行運用の申込先（member.counselor.or.jp 等）をそのまま貼り付けます。<b>空欄のままだと利用者画面の申込ボタンは自動で無効化</b>され、URLの貼り忘れによる「押せるのに飛べない」を防ぎます。</div>
+    </div>
+    <div class="mrow">
+      <div class="mfield"><label>開催曜日</label><select id="mWd"><option>月</option><option>火</option><option>水</option><option>木</option><option>金</option><option>土</option><option>日</option></select></div>
+      <div class="mfield"><label>定員（名）</label><input id="mCap" type="number" min="1" max="999" value="24"></div>
+    </div>
+    <div class="mbtns">
+      <button class="m-cancel" id="mCancel">キャンセル</button>
+      <button class="m-save" id="mSave">保存（下書き）</button>
+    </div>
+  </div>
+</div>
+
+<!-- Excel取込モーダル -->
+<div id="impwrap">
+  <div class="impmodal">
+    <h3>📥 Excel取込（一括登録）</h3>
+    <div class="msub">取込テンプレート（支部／教室名／形式／種別／曜日／定員）のExcelを読み込み、<b>自動検証→一括登録（下書き）</b>します。
+    <a href="./取込テンプレート_サンプル.xlsx" download>📎 取込テンプレート（サンプル）をダウンロード</a><br>
+    ※実物の「教室と日程一覧.xlsx」を読み込むと、既存マスタとの<b>照合チェック</b>を実行します。</div>
+    <div id="dropzone"><span class="big">📄</span>ここにExcelファイルをドラッグ＆ドロップ<br>またはクリックして選択</div>
+    <input type="file" id="impFile" accept=".xlsx,.xlsm" style="display:none">
+    <div id="impResult"></div>
+    <div class="mbtns">
+      <button class="m-cancel" id="impCancel">閉じる</button>
+      <button class="m-save" id="impCommit" style="display:none">0件を一括登録（下書き）</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script src="./xlsx.full.min.js"></script>
+<script>
+const DATA = {"source":"2026春6春10 教室と日程一覧.xlsx","generated":"2026-07-18","stats":{"courses":63,"branches":13,"branchesLabel":"13支部＋本部","capacity":969,"sessions":956,"spring6":57,"spring10":6,"fmt":{"通学":47,"OL":5,"FOL":11}},"branches":["北海道","東北","上信越","北関東","東関東","東京","神奈川","中部","関西","中国","四国","九州","沖縄","本部受付"],"courses":[{"code":"2611Y01","branch":"北海道","ctype":"春6","format":"通学","room":"札幌","weekday":"日","capacity":15,"venue":"北海道札幌市中央区北4条西7-1-5　札幌ホワイトビル3階　日本産業カウンセラー協会　北海道支部会議室","zip":"060-0004","applyTo":"北海道札幌市中央区北4条西7-1-5　札幌ホワイトビル3階　一般社団法人日本産業カウンセラー協会　北海道支部","tel":"011-209-7000","fax":"011-209-7011","sessions":[{"iso":"2026-04-12","disp":"2026/4/12","wd":"日","no":1,"start":"10:30","end":"18:00"},{"iso":"2026-04-26","disp":"2026/4/26","wd":"日","no":2,"start":"10:00","end":"18:00"},{"iso":"2026-05-10","disp":"2026/5/10","wd":"日","no":3,"start":"10:00","end":"18:00"},{"iso":"2026-05-24","disp":"2026/5/24","wd":"日","no":4,"start":"10:00","end":"18:00"},{"iso":"2026-06-14","disp":"2026/6/14","wd":"日","no":5,"start":"10:00","end":"18:00"},{"iso":"2026-06-21","disp":"2026/6/21","wd":"日","no":6,"start":"10:00","end":"18:00"},{"iso":"2026-07-05","disp":"2026/7/5","wd":"日","no":7,"start":"10:00","end":"18:00"},{"iso":"2026-07-12","disp":"2026/7/12","wd":"日","no":8,"start":"10:00","end":"18:00"},{"iso":"2026-07-19","disp":"2026/7/19","wd":"日","no":9,"start":"10:00","end":"18:00"},{"iso":"2026-08-02","disp":"2026/8/2","wd":"日","no":10,"start":"10:00","end":"18:00"},{"iso":"2026-08-09","disp":"2026/8/9","wd":"日","no":11,"start":"10:00","end":"18:00"},{"iso":"2026-08-30","disp":"2026/8/30","wd":"日","no":12,"start":"10:00","end":"18:00"},{"iso":"2026-09-06","disp":"2026/9/6","wd":"日","no":13,"start":"10:00","end":"18:00"},{"iso":"2026-09-13","disp":"2026/9/13","wd":"日","no":14,"start":"10:00","end":"18:00"},{"iso":"2026-09-27","disp":"2026/9/27","wd":"日","no":15,"start":"10:00","end":"17:30"}]},{"code":"2621Y01","branch":"東北","ctype":"春6","format":"通学","room":"仙台","weekday":"日","capacity":18,"venue":"宮城県仙台市青葉区一番町3-1-16　 PARM-CITY131貸会議室","zip":"980-0014","applyTo":"宮城県仙台市青葉区本町2-6-15　チコウビル503　一般社団法人日本産業カウンセラー協会　東北支部","tel":"022-715-8114","fax":"022-715-8115","sessions":[{"iso":"2026-04-19","disp":"2026/4/19","wd":"日","no":1,"start":"10:00","end":"17:00"},{"iso":"2026-04-26","disp":"2026/4/26","wd":"日","no":2,"start":"9:30","end":"17:30"},{"iso":"2026-05-10","disp":"2026/5/10","wd":"日","no":3,"start":"9:30","end":"17:30"},{"iso":"2026-05-24","disp":"2026/5/24","wd":"日","no":4,"start":"9:30","end":"17:30"},{"iso":"2026-06-07","disp":"2026/6/7","wd":"日","no":5,"start":"9:30","end":"17:30"},{"iso":"2026-06-14","disp":"2026/6/14","wd":"日","no":6,"start":"9:30","end":"17:30"},{"iso":"2026-06-28","disp":"2026/6/28","wd":"日","no":7,"start":"9:30","end":"17:30"},{"iso":"2026-07-05","disp":"2026/7/5","wd":"日","no":8,"start":"9:30","end":"17:30"},{"iso":"2026-07-12","disp":"2026/7/12","wd":"日","no":9,"start":"9:30","end":"17:30"},{"iso":"2026-07-26","disp":"2026/7/26","wd":"日","no":10,"start":"9:30","end":"17:30"},{"iso":"2026-08-02","disp":"2026/8/2","wd":"日","no":11,"start":"9:30","end":"17:30"},{"iso":"2026-08-23","disp":"2026/8/23","wd":"日","no":12,"start":"9:30","end":"17:30"},{"iso":"2026-09-06","disp":"2026/9/6","wd":"日","no":13,"start":"9:30","end":"17:30"},{"iso":"2026-09-13","disp":"2026/9/13","wd":"日","no":14,"start":"9:30","end":"17:30"},{"iso":"2026-09-27","disp":"2026/9/27","wd":"日","no":15,"start":"9:30","end":"17:30"}]},{"code":"2621Y02","branch":"東北","ctype":"春6","format":"通学","room":"盛岡","weekday":"日","capacity":10,"venue":"岩手県盛岡市盛岡駅西通一丁目7番1号  アイーナ（いわて県民情報交流センター）","zip":"980-0014","applyTo":"宮城県仙台市青葉区本町2-6-15　チコウビル503　一般社団法人日本産業カウンセラー協会　東北支部","tel":"022-715-8114","fax":"022-715-8115","sessions":[{"iso":"2026-04-19","disp":"2026/4/19","wd":"日","no":1,"start":"10:00","end":"17:00"},{"iso":"2026-04-26","disp":"2026/4/26","wd":"日","no":2,"start":"9:30","end":"17:30"},{"iso":"2026-05-10","disp":"2026/5/10","wd":"日","no":3,"start":"9:30","end":"17:30"},{"iso":"2026-05-24","disp":"2026/5/24","wd":"日","no":4,"start":"9:30","end":"17:30"},{"iso":"2026-06-07","disp":"2026/6/7","wd":"日","no":5,"start":"9:30","end":"17:30"},{"iso":"2026-06-14","disp":"2026/6/14","wd":"日","no":6,"start":"9:30","end":"17:30"},{"iso":"2026-06-28","disp":"2026/6/28","wd":"日","no":7,"start":"9:30","end":"17:30"},{"iso":"2026-07-05","disp":"2026/7/5","wd":"日","no":8,"start":"9:30","end":"17:30"},{"iso":"2026-07-12","disp":"2026/7/12","wd":"日","no":9,"start":"9:30","end":"17:30"},{"iso":"2026-07-26","disp":"2026/7/26","wd":"日","no":10,"start":"9:30","end":"17:30"},{"iso":"2026-08-02","disp":"2026/8/2","wd":"日","no":11,"start":"9:30","end":"17:30"},{"iso":"2026-08-23","disp":"2026/8/23","wd":"日","no":12,"start":"9:30","end":"17:30"},{"iso":"2026-09-06","disp":"2026/9/6","wd":"日","no":13,"start":"9:30","end":"17:30"},{"iso":"2026-09-13","disp":"2026/9/13","wd":"日","no":14,"start":"9:30","end":"17:30"},{"iso":"2026-09-27","disp":"2026/9/27","wd":"日","no":15,"start":"9:30","end":"17:30"}]},{"code":"2631Y01","branch":"上信越","ctype":"春6","format":"通学","room":"高崎","weekday":"日","capacity":12,"venue":"群馬県高崎市問屋町3-10-3　問屋町センター第2ビル3階　日本産業カウンセラー協会　上信越支部研修室","zip":"370-0006","applyTo":"群馬県高崎市問屋町3-10-3　問屋町センター第2ビル3階　一般社団法人日本産業カウンセラー協会　上信越支部養成講座部","tel":"027-365-2575","fax":"027-395-5020","sessions":[{"iso":"2026-04-19","disp":"2026/4/19","wd":"日","no":1,"start":"9:30","end":"17:00"},{"iso":"2026-04-26","disp":"2026/4/26","wd":"日","no":2,"start":"9:00","end":"17:00"},{"iso":"2026-05-10","disp":"2026/5/10","wd":"日","no":3,"start":"9:00","end":"17:00"},{"iso":"2026-05-17","disp":"2026/5/17","wd":"日","no":4,"start":"9:00","end":"17:00"},{"iso":"2026-05-24","disp":"2026/5/24","wd":"日","no":5,"start":"9:00","end":"17:00"},{"iso":"2026-06-07","disp":"2026/6/7","wd":"日","no":6,"start":"9:00","end":"17:00"},{"iso":"2026-06-14","disp":"2026/6/14","wd":"日","no":7,"start":"9:00","end":"17:00"},{"iso":"2026-06-21","disp":"2026/6/21","wd":"日","no":8,"start":"9:00","end":"17:00"},{"iso":"2026-07-05","disp":"2026/7/5","wd":"日","no":9,"start":"9:00","end":"17:00"},{"iso":"2026-07-12","disp":"2026/7/12","wd":"日","no":10,"start":"9:00","end":"17:00"},{"iso":"2026-08-02","disp":"2026/8/2","wd":"日","no":11,"start":"9:00","end":"17:00"},{"iso":"2026-08-09","disp":"2026/8/9","wd":"日","no":12,"start":"9:00","end":"17:00"},{"iso":"2026-08-23","disp":"2026/8/23","wd":"日","no":13,"start":"9:00","end":"17:00"},{"iso":"2026-09-06","disp":"2026/9/6","wd":"日","no":14,"start":"9:00","end":"17:00"},{"iso":"2026-09-27","disp":"2026/9/27","wd":"日","no":15,"start":"9:00","end":"16:30"}]},{"code":"2631Y02","branch":"上信越","ctype":"春6","format":"通学","room":"長野","weekday":"土","capacity":12,"venue":"長野県長野市大字南長野北石堂町1177番地3　JA長野県ビル","zip":"370-0006","applyTo":"群馬県高崎市問屋町3-10-3　問屋町センター第2ビル3階　一般社団法人日本産業カウンセラー協会　上信越支部養成講座部","tel":"027-365-2575","fax":"027-395-5020","sessions":[{"iso":"2026-04-18","disp":"2026/4/18","wd":"土","no":1,"start":"9:30","end":"17:00"},{"iso":"2026-05-02","disp":"2026/5/2","wd":"土","no":2,"start":"9:00","end":"17:00"},{"iso":"2026-05-16","disp":"2026/5/16","wd":"土","no":3,"start":"9:00","end":"17:00"},{"iso":"2026-05-23","disp":"2026/5/23","wd":"土","no":4,"start":"9:00","end":"17:00"},{"iso":"2026-05-30","disp":"2026/5/30","wd":"土","no":5,"start":"9:00","end":"17:00"},{"iso":"2026-06-13","disp":"2026/6/13","wd":"土","no":6,"start":"9:00","end":"17:00"},{"iso":"2026-06-20","disp":"2026/6/20","wd":"土","no":7,"start":"9:00","end":"17:00"},{"iso":"2026-07-04","disp":"2026/7/4","wd":"土","no":8,"start":"9:00","end":"17:00"},{"iso":"2026-07-11","disp":"2026/7/11","wd":"土","no":9,"start":"9:00","end":"17:00"},{"iso":"2026-07-18","disp":"2026/7/18","wd":"土","no":10,"start":"9:00","end":"17:00"},{"iso":"2026-08-01","disp":"2026/8/1","wd":"土","no":11,"start":"9:00","end":"17:00"},{"iso":"2026-08-08","disp":"2026/8/8","wd":"土","no":12,"start":"9:00","end":"17:00"},{"iso":"2026-08-29","disp":"2026/8/29","wd":"土","no":13,"start":"9:00","end":"17:00"},{"iso":"2026-09-05","disp":"2026/9/5","wd":"土","no":14,"start":"9:00","end":"17:00"},{"iso":"2026-09-19","disp":"2026/9/19","wd":"土","no":15,"start":"9:00","end":"16:30"}]},{"code":"2631Y03","branch":"上信越","ctype":"春6","format":"通学","room":"新潟","weekday":"土日","capacity":12,"venue":"新潟県新潟市中央区上所2丁目2番2号　新潟ユニゾンプラザ","zip":"370-0006","applyTo":"群馬県高崎市問屋町3-10-3　問屋町センター第2ビル3階　一般社団法人日本産業カウンセラー協会　上信越支部養成講座部","tel":"027-365-2575","fax":"027-395-5020","sessions":[{"iso":"2026-04-12","disp":"2026/4/12","wd":"日","no":1,"start":"9:30","end":"17:00"},{"iso":"2026-04-18","disp":"2026/4/18","wd":"土","no":2,"start":"9:00","end":"17:00"},{"iso":"2026-05-09","disp":"2026/5/9","wd":"土","no":3,"start":"9:00","end":"17:00"},{"iso":"2026-05-16","disp":"2026/5/16","wd":"土","no":4,"start":"9:00","end":"17:00"},{"iso":"2026-05-17","disp":"2026/5/17","wd":"日","no":5,"start":"9:00","end":"17:00"},{"iso":"2026-06-07","disp":"2026/6/7","wd":"日","no":6,"start":"9:00","end":"17:00"},{"iso":"2026-06-13","disp":"2026/6/13","wd":"土","no":7,"start":"9:00","end":"17:00"},{"iso":"2026-06-14","disp":"2026/6/14","wd":"日","no":8,"start":"9:00","end":"17:00"},{"iso":"2026-07-04","disp":"2026/7/4","wd":"土","no":9,"start":"9:00","end":"17:00"},{"iso":"2026-07-05","disp":"2026/7/5","wd":"日","no":10,"start":"9:00","end":"17:00"},{"iso":"2026-07-11","disp":"2026/7/11","wd":"土","no":11,"start":"9:00","end":"17:00"},{"iso":"2026-08-01","disp":"2026/8/1","wd":"土","no":12,"start":"9:00","end":"17:00"},{"iso":"2026-08-08","disp":"2026/8/8","wd":"土","no":13,"start":"9:00","end":"17:00"},{"iso":"2026-08-23","disp":"2026/8/23","wd":"日","no":14,"start":"9:00","end":"17:00"},{"iso":"2026-09-05","disp":"2026/9/5","wd":"土","no":15,"start":"9:00","end":"16:30"}]},{"code":"2632Y03","branch":"北関東","ctype":"春6","format":"通学","room":"浦和（水）","weekday":"水","capacity":12,"venue":"埼玉県さいたま市浦和区仲町3-5-1　埼玉県県民健康センター","zip":"330-0062","applyTo":"埼玉県さいたま市浦和区仲町3-5-1　埼玉県県民健康センター2階　一般社団法人日本産業カウンセラー協会　北関東支部","tel":"048-823-7801","fax":"048-823-7808","sessions":[{"iso":"2026-04-08","disp":"2026/4/8","wd":"水","no":1,"start":"9:30","end":"17:00"},{"iso":"2026-04-15","disp":"2026/4/15","wd":"水","no":2,"start":"9:00","end":"17:00"},{"iso":"2026-04-22","disp":"2026/4/22","wd":"水","no":3,"start":"9:00","end":"17:00"},{"iso":"2026-05-20","disp":"2026/5/20","wd":"水","no":4,"start":"9:00","end":"17:00"},{"iso":"2026-05-27","disp":"2026/5/27","wd":"水","no":5,"start":"9:00","end":"17:00"},{"iso":"2026-06-10","disp":"2026/6/10","wd":"水","no":6,"start":"9:00","end":"17:00"},{"iso":"2026-06-24","disp":"2026/6/24","wd":"水","no":7,"start":"9:00","end":"17:00"},{"iso":"2026-07-08","disp":"2026/7/8","wd":"水","no":8,"start":"9:00","end":"17:00"},{"iso":"2026-07-15","disp":"2026/7/15","wd":"水","no":9,"start":"9:00","end":"17:00"},{"iso":"2026-07-22","disp":"2026/7/22","wd":"水","no":10,"start":"9:00","end":"17:00"},{"iso":"2026-08-05","disp":"2026/8/5","wd":"水","no":11,"start":"9:00","end":"17:00"},{"iso":"2026-08-19","disp":"2026/8/19","wd":"水","no":12,"start":"9:00","end":"17:00"},{"iso":"2026-09-02","disp":"2026/9/2","wd":"水","no":13,"start":"9:00","end":"17:00"},{"iso":"2026-09-09","disp":"2026/9/9","wd":"水","no":14,"start":"9:00","end":"17:00"},{"iso":"2026-09-30","disp":"2026/9/30","wd":"水","no":15,"start":"9:00","end":"16:30"}]},{"code":"2632Y01","branch":"北関東","ctype":"春6","format":"通学","room":"浦和（土）","weekday":"土","capacity":12,"venue":"埼玉県さいたま市浦和区仲町3-5-1　埼玉県県民健康センター","zip":"330-0062","applyTo":"埼玉県さいたま市浦和区仲町3-5-1　埼玉県県民健康センター2階　一般社団法人日本産業カウンセラー協会　北関東支部","tel":"048-823-7801","fax":"048-823-7808","sessions":[{"iso":"2026-04-11","disp":"2026/4/11","wd":"土","no":1,"start":"9:30","end":"17:00"},{"iso":"2026-04-18","disp":"2026/4/18","wd":"土","no":2,"start":"9:00","end":"17:00"},{"iso":"2026-04-25","disp":"2026/4/25","wd":"土","no":3,"start":"9:00","end":"17:00"},{"iso":"2026-05-16","disp":"2026/5/16","wd":"土","no":4,"start":"9:00","end":"17:00"},{"iso":"2026-05-30","disp":"2026/5/30","wd":"土","no":5,"start":"9:00","end":"17:00"},{"iso":"2026-06-13","disp":"2026/6/13","wd":"土","no":6,"start":"9:00","end":"17:00"},{"iso":"2026-06-20","disp":"2026/6/20","wd":"土","no":7,"start":"9:00","end":"17:00"},{"iso":"2026-07-04","disp":"2026/7/4","wd":"土","no":8,"start":"9:00","end":"17:00"},{"iso":"2026-07-18","disp":"2026/7/18","wd":"土","no":9,"start":"9:00","end":"17:00"},{"iso":"2026-07-25","disp":"2026/7/25","wd":"土","no":10,"start":"9:00","end":"17:00"},{"iso":"2026-08-08","disp":"2026/8/8","wd":"土","no":11,"start":"9:00","end":"17:00"},{"iso":"2026-08-22","disp":"2026/8/22","wd":"土","no":12,"start":"9:00","end":"17:00"},{"iso":"2026-08-29","disp":"2026/8/29","wd":"土","no":13,"start":"9:00","end":"17:00"},{"iso":"2026-09-12","disp":"2026/9/12","wd":"土","no":14,"start":"9:00","end":"17:00"},{"iso":"2026-09-26","disp":"2026/9/26","wd":"土","no":15,"start":"9:00","end":"16:30"}]},{"code":"2632Y02","branch":"北関東","ctype":"春6","format":"通学","room":"浦和（日）","weekday":"日","capacity":12,"venue":"埼玉県さいたま市浦和区仲町3-5-1　埼玉県県民健康センター","zip":"330-0062","applyTo":"埼玉県さいたま市浦和区仲町3-5-1　埼玉県県民健康センター2階　一般社団法人日本産業カウンセラー協会　北関東支部","tel":"048-823-7801","fax":"048-823-7808","sessions":[{"iso":"2026-04-12","disp":"2026/4/12","wd":"日","no":1,"start":"9:30","end":"17:00"},{"iso":"2026-04-26","disp":"2026/4/26","wd":"日","no":2,"start":"9:00","end":"17:00"},{"iso":"2026-05-17","disp":"2026/5/17","wd":"日","no":3,"start":"9:00","end":"17:00"},{"iso":"2026-05-24","disp":"2026/5/24","wd":"日","no":4,"start":"9:00","end":"17:00"},{"iso":"2026-05-31","disp":"2026/5/31","wd":"日","no":5,"start":"9:00","end":"17:00"},{"iso":"2026-06-14","disp":"2026/6/14","wd":"日","no":6,"start":"9:00","end":"17:00"},{"iso":"2026-06-21","disp":"2026/6/21","wd":"日","no":7,"start":"9:00","end":"17:00"},{"iso":"2026-06-28","disp":"2026/6/28","wd":"日","no":8,"start":"9:00","end":"17:00"},{"iso":"2026-07-12","disp":"2026/7/12","wd":"日","no":9,"start":"9:00","end":"17:00"},{"iso":"2026-07-19","disp":"2026/7/19","wd":"日","no":10,"start":"9:00","end":"17:00"},{"iso":"2026-08-02","disp":"2026/8/2","wd":"日","no":11,"start":"9:00","end":"17:00"},{"iso":"2026-08-23","disp":"2026/8/23","wd":"日","no":12,"start":"9:00","end":"17:00"},{"iso":"2026-08-30","disp":"2026/8/30","wd":"日","no":13,"start":"9:00","end":"17:00"},{"iso":"2026-09-13","disp":"2026/9/13","wd":"日","no":14,"start":"9:00","end":"17:00"},{"iso":"2026-09-27","disp":"2026/9/27","wd":"日","no":15,"start":"9:00","end":"16:30"}]},{"code":"2632Y04","branch":"北関東","ctype":"春6","format":"通学","room":"宇都宮","weekday":"日","capacity":12,"venue":"栃木県宇都宮市本町1-8　栃木県総合文化センター","zip":"330-0062","applyTo":"埼玉県さいたま市浦和区仲町3-5-1　埼玉県県民健康センター2階　一般社団法人日本産業カウンセラー協会　北関東支部","tel":"048-823-7801","fax":"048-823-7808","sessions":[{"iso":"2026-04-12","disp":"2026/4/12","wd":"日","no":1,"start":"9:30","end":"17:00"},{"iso":"2026-04-26","disp":"2026/4/26","wd":"日","no":2,"start":"9:00","end":"17:00"},{"iso":"2026-05-17","disp":"2026/5/17","wd":"日","no":3,"start":"9:00","end":"17:00"},{"iso":"2026-05-24","disp":"2026/5/24","wd":"日","no":4,"start":"9:00","end":"17:00"},{"iso":"2026-05-31","disp":"2026/5/31","wd":"日","no":5,"start":"9:00","end":"17:00"},{"iso":"2026-06-14","disp":"2026/6/14","wd":"日","no":6,"start":"9:00","end":"17:00"},{"iso":"2026-06-21","disp":"2026/6/21","wd":"日","no":7,"start":"9:00","end":"17:00"},{"iso":"2026-06-28","disp":"2026/6/28","wd":"日","no":8,"start":"9:00","end":"17:00"},{"iso":"2026-07-12","disp":"2026/7/12","wd":"日","no":9,"start":"9:00","end":"17:00"},{"iso":"2026-07-19","disp":"2026/7/19","wd":"日","no":10,"start":"9:00","end":"17:00"},{"iso":"2026-08-02","disp":"2026/8/2","wd":"日","no":11,"start":"9:00","end":"17:00"},{"iso":"2026-08-23","disp":"2026/8/23","wd":"日","no":12,"start":"9:00","end":"17:00"},{"iso":"2026-08-30","disp":"2026/8/30","wd":"日","no":13,"start":"9:00","end":"17:00"},{"iso":"2026-09-13","disp":"2026/9/13","wd":"日","no":14,"start":"9:00","end":"17:00"},{"iso":"2026-09-27","disp":"2026/9/27","wd":"日","no":15,"start":"9:00","end":"16:30"}]},{"code":"2633Y02","branch":"東関東","ctype":"春6","format":"通学","room":"柏（水）","weekday":"水","capacity":6,"venue":"千葉県柏市柏2-6-17　染谷エステートビル3階　日本産業カウンセラー協会　東関東支部柏研修室","zip":"277-0005","applyTo":"千葉県柏市柏2-6-17　染谷エステートビル3階　一般社団法人日本産業カウンセラー協会　東関東支部","tel":"04-7168-7160","fax":"","sessions":[{"iso":"2026-04-08","disp":"2026/4/8","wd":"水","no":1,"start":"9:30","end":"17:00"},{"iso":"2026-04-22","disp":"2026/4/22","wd":"水","no":2,"start":"9:00","end":"17:00"},{"iso":"2026-05-13","disp":"2026/5/13","wd":"水","no":3,"start":"9:00","end":"17:00"},{"iso":"2026-05-20","disp":"2026/5/20","wd":"水","no":4,"start":"9:00","end":"17:00"},{"iso":"2026-06-03","disp":"2026/6/3","wd":"水","no":5,"start":"9:00","end":"17:00"},{"iso":"2026-06-10","disp":"2026/6/10","wd":"水","no":6,"start":"9:00","end":"17:00"},{"iso":"2026-06-24","disp":"2026/6/24","wd":"水","no":7,"start":"9:00","end":"17:00"},{"iso":"2026-07-01","disp":"2026/7/1","wd":"水","no":8,"start":"9:00","end":"17:00"},{"iso":"2026-07-08","disp":"2026/7/8","wd":"水","no":9,"start":"9:00","end":"17:00"},{"iso":"2026-07-29","disp":"2026/7/29","wd":"水","no":10,"start":"9:00","end":"17:00"},{"iso":"2026-08-05","disp":"2026/8/5","wd":"水","no":11,"start":"9:00","end":"17:00"},{"iso":"2026-08-19","disp":"2026/8/19","wd":"水","no":12,"start":"9:00","end":"17:00"},{"iso":"2026-08-26","disp":"2026/8/26","wd":"水","no":13,"start":"9:00","end":"17:00"},{"iso":"2026-09-09","disp":"2026/9/9","wd":"水","no":14,"start":"9:00","end":"17:00"},{"iso":"2026-09-16","disp":"2026/9/16","wd":"水","no":15,"start":"9:00","end":"16:30"}]},{"code":"2633Y03","branch":"東関東","ctype":"春6","format":"通学","room":"柏（土）","weekday":"土","capacity":12,"venue":"千葉県柏市柏2-6-17　染谷エステートビル3階　日本産業カウンセラー協会　東関東支部柏研修室\n（13回目のみ）千葉県柏市柏4-5-10　貸し会議室kouwa","zip":"277-0005","applyTo":"千葉県柏市柏2-6-17　染谷エステートビル3階　一般社団法人日本産業カウンセラー協会　東関東支部","tel":"04-7168-7160","fax":"","sessions":[{"iso":"2026-04-11","disp":"2026/4/11","wd":"土","no":1,"start":"9:30","end":"17:00"},{"iso":"2026-04-25","disp":"2026/4/25","wd":"土","no":2,"start":"9:00","end":"17:00"},{"iso":"2026-05-02","disp":"2026/5/2","wd":"土","no":3,"start":"9:00","end":"17:00"},{"iso":"2026-05-09","disp":"2026/5/9","wd":"土","no":4,"start":"9:00","end":"17:00"},{"iso":"2026-05-23","disp":"2026/5/23","wd":"土","no":5,"start":"9:00","end":"17:00"},{"iso":"2026-06-06","disp":"2026/6/6","wd":"土","no":6,"start":"9:00","end":"17:00"},{"iso":"2026-06-20","disp":"2026/6/20","wd":"土","no":7,"start":"9:00","end":"17:00"},{"iso":"2026-06-27","disp":"2026/6/27","wd":"土","no":8,"start":"9:00","end":"17:00"},{"iso":"2026-07-11","disp":"2026/7/11","wd":"土","no":9,"start":"9:00","end":"17:00"},{"iso":"2026-07-25","disp":"2026/7/25","wd":"土","no":10,"start":"9:00","end":"17:00"},{"iso":"2026-08-08","disp":"2026/8/8","wd":"土","no":11,"start":"9:00","end":"17:00"},{"iso":"2026-08-22","disp":"2026/8/22","wd":"土","no":12,"start":"9:00","end":"17:00"},{"iso":"2026-08-29","disp":"2026/8/29","wd":"土","no":13,"start":"9:00","end":"17:00"},{"iso":"2026-09-05","disp":"2026/9/5","wd":"土","no":14,"start":"9:00","end":"17:00"},{"iso":"2026-09-19","disp":"2026/9/19","wd":"土","no":15,"start":"9:00","end":"16:30"}]},{"code":"2633Y04","branch":"東関東","ctype":"春6","format":"通学","room":"市川駅前（土）","weekday":"土","capacity":12,"venue":"千葉県市川市市川1-3-14　山崎製パン企業年金基金会館","zip":"277-0005","applyTo":"千葉県柏市柏2-6-17　染谷エステートビル3階　一般社団法人日本産業カウンセラー協会　東関東支部","tel":"04-7168-7160","fax":"","sessions":[{"iso":"2026-04-11","disp":"2026/4/11","wd":"土","no":1,"start":"9:30","end":"17:00"},{"iso":"2026-04-25","disp":"2026/4/25","wd":"土","no":2,"start":"9:00","end":"17:00"},{"iso":"2026-05-09","disp":"2026/5/9","wd":"土","no":3,"start":"9:00","end":"17:00"},{"iso":"2026-05-23","disp":"2026/5/23","wd":"土","no":4,"start":"9:00","end":"17:00"},{"iso":"2026-06-06","disp":"2026/6/6","wd":"土","no":5,"start":"9:00","end":"17:00"},{"iso":"2026-06-20","disp":"2026/6/20","wd":"土","no":6,"start":"9:00","end":"17:00"},{"iso":"2026-06-27","disp":"2026/6/27","wd":"土","no":7,"start":"9:00","end":"17:00"},{"iso":"2026-07-04","disp":"2026/7/4","wd":"土","no":8,"start":"9:00","end":"17:00"},{"iso":"2026-07-18","disp":"2026/7/18","wd":"土","no":9,"start":"9:00","end":"17:00"},{"iso":"2026-08-01","disp":"2026/8/1","wd":"土","no":10,"start":"9:00","end":"17:00"},{"iso":"2026-08-08","disp":"2026/8/8","wd":"土","no":11,"start":"9:00","end":"17:00"},{"iso":"2026-08-22","disp":"2026/8/22","wd":"土","no":12,"start":"9:00","end":"17:00"},{"iso":"2026-08-29","disp":"2026/8/29","wd":"土","no":13,"start":"9:00","end":"17:00"},{"iso":"2026-09-05","disp":"2026/9/5","wd":"土","no":14,"start":"9:00","end":"17:00"},{"iso":"2026-09-19","disp":"2026/9/19","wd":"土","no":15,"start":"9:00","end":"16:30"}]},{"code":"2633Y05","branch":"東関東","ctype":"春6","format":"OL","room":"市川駅前（日）OL","weekday":"日","capacity":12,"venue":"千葉県市川市市川1-3-14　山崎製パン企業年金基金会館","zip":"277-0005","applyTo":"千葉県柏市柏2-6-17　染谷エステートビル3階　一般社団法人日本産業カウンセラー協会　東関東支部","tel":"04-7168-7160","fax":"","sessions":[{"iso":"2026-04-12","disp":"2026/4/12","wd":"日","no":1,"start":"9:30","end":"17:00"},{"iso":"2026-04-26","disp":"2026/4/26","wd":"日","no":2,"start":"9:00","end":"17:00"},{"iso":"2026-05-10","disp":"2026/5/10","wd":"日","no":3,"start":"9:00","end":"17:00"},{"iso":"2026-05-24","disp":"2026/5/24","wd":"日","no":4,"start":"9:00","end":"17:00"},{"iso":"2026-05-31","disp":"2026/5/31","wd":"日","no":5,"start":"9:00","end":"17:00"},{"iso":"2026-06-14","disp":"2026/6/14","wd":"日","no":6,"start":"9:00","end":"17:00"},{"iso":"2026-06-21","disp":"2026/6/21","wd":"日","no":7,"start":"9:00","end":"17:00"},{"iso":"2026-07-05","disp":"2026/7/5","wd":"日","no":8,"start":"9:00","end":"17:00"},{"iso":"2026-07-19","disp":"2026/7/19","wd":"日","no":9,"start":"9:00","end":"17:00"},{"iso":"2026-08-02","disp":"2026/8/2","wd":"日","no":10,"start":"9:00","end":"17:00"},{"iso":"2026-08-09","disp":"2026/8/9","wd":"日","no":11,"start":"9:00","end":"17:00"},{"iso":"2026-08-23","disp":"2026/8/23","wd":"日","no":12,"start":"9:00","end":"17:00"},{"iso":"2026-08-30","disp":"2026/8/30","wd":"日","no":13,"start":"9:00","end":"17:00"},{"iso":"2026-09-13","disp":"2026/9/13","wd":"日","no":14,"start":"9:00","end":"17:00"},{"iso":"2026-09-20","disp":"2026/9/20","wd":"日","no":15,"start":"9:00","end":"16:30"}]},{"code":"2633Y06","branch":"東関東","ctype":"春6","format":"通学","room":"千葉（水）","weekday":"水","capacity":6,"venue":"千葉県千葉市中央区新町18-12　第8東ビル501号室　日本産業カウンセラー協会　千葉事務所研修室","zip":"277-0005","applyTo":"千葉県柏市柏2-6-17　染谷エステートビル3階　一般社団法人日本産業カウンセラー協会　東関東支部","tel":"04-7168-7160","fax":"","sessions":[{"iso":"2026-04-08","disp":"2026/4/8","wd":"水","no":1,"start":"9:30","end":"17:00"},{"iso":"2026-04-22","disp":"2026/4/22","wd":"水","no":2,"start":"9:00","end":"17:00"},{"iso":"2026-05-13","disp":"2026/5/13","wd":"水","no":3,"start":"9:00","end":"17:00"},{"iso":"2026-05-20","disp":"2026/5/20","wd":"水","no":4,"start":"9:00","end":"17:00"},{"iso":"2026-06-03","disp":"2026/6/3","wd":"水","no":5,"start":"9:00","end":"17:00"},{"iso":"2026-06-10","disp":"2026/6/10","wd":"水","no":6,"start":"9:00","end":"17:00"},{"iso":"2026-06-24","disp":"2026/6/24","wd":"水","no":7,"start":"9:00","end":"17:00"},{"iso":"2026-07-01","disp":"2026/7/1","wd":"水","no":8,"start":"9:00","end":"17:00"},{"iso":"2026-07-08","disp":"2026/7/8","wd":"水","no":9,"start":"9:00","end":"17:00"},{"iso":"2026-07-29","disp":"2026/7/29","wd":"水","no":10,"start":"9:00","end":"17:00"},{"iso":"2026-08-05","disp":"2026/8/5","wd":"水","no":11,"start":"9:00","end":"17:00"},{"iso":"2026-08-19","disp":"2026/8/19","wd":"水","no":12,"start":"9:00","end":"17:00"},{"iso":"2026-08-26","disp":"2026/8/26","wd":"水","no":13,"start":"9:00","end":"17:00"},{"iso":"2026-09-09","disp":"2026/9/9","wd":"水","no":14,"start":"9:00","end":"17:00"},{"iso":"2026-09-16","disp":"2026/9/16","wd":"水","no":15,"start":"9:00","end":"16:30"}]},{"code":"2633Y07","branch":"東関東","ctype":"春6","format":"通学","room":"千葉（日）","weekday":"日","capacity":12,"venue":"千葉県千葉市中央区新町18-12　第8東ビル501号室　日本産業カウンセラー協会　千葉事務所研修室\n（1・12・14・15回目のみ）千葉県千葉市中央区千葉港4-3　千葉県経営者会館","zip":"277-0005","applyTo":"千葉県柏市柏2-6-17　染谷エステートビル3階　一般社団法人日本産業カウンセラー協会　東関東支部","tel":"04-7168-7160","fax":"","sessions":[{"iso":"2026-04-12","disp":"2026/4/12","wd":"日","no":1,"start":"9:30","end":"17:00"},{"iso":"2026-04-26","disp":"2026/4/26","wd":"日","no":2,"start":"9:00","end":"17:00"},{"iso":"2026-05-03","disp":"2026/5/3","wd":"日","no":3,"start":"9:00","end":"17:00"},{"iso":"2026-05-17","disp":"2026/5/17","wd":"日","no":4,"start":"9:00","end":"17:00"},{"iso":"2026-05-31","disp":"2026/5/31","wd":"日","no":5,"start":"9:00","end":"17:00"},{"iso":"2026-06-07","disp":"2026/6/7","wd":"日","no":6,"start":"9:00","end":"17:00"},{"iso":"2026-06-21","disp":"2026/6/21","wd":"日","no":7,"start":"9:00","end":"17:00"},{"iso":"2026-06-28","disp":"2026/6/28","wd":"日","no":8,"start":"9:00","end":"17:00"},{"iso":"2026-07-05","disp":"2026/7/5","wd":"日","no":9,"start":"9:00","end":"17:00"},{"iso":"2026-07-26","disp":"2026/7/26","wd":"日","no":10,"start":"9:00","end":"17:00"},{"iso":"2026-08-02","disp":"2026/8/2","wd":"日","no":11,"start":"9:00","end":"17:00"},{"iso":"2026-08-23","disp":"2026/8/23","wd":"日","no":12,"start":"9:00","end":"17:00"},{"iso":"2026-08-30","disp":"2026/8/30","wd":"日","no":13,"start":"9:00","end":"17:00"},{"iso":"2026-09-06","disp":"2026/9/6","wd":"日","no":14,"start":"9:00","end":"17:00"},{"iso":"2026-09-20","disp":"2026/9/20","wd":"日","no":15,"start":"9:00","end":"16:30"}]},{"code":"2634Y26","branch":"東京","ctype":"春6","format":"OL","room":"渋谷OL（日）026","weekday":"日","capacity":16,"venue":"東京都渋谷区渋谷2-22-3　渋谷東口ビル　TKPガーデンシティ渋谷","zip":"151-0051","applyTo":"東京都渋谷区千駄ヶ谷4-2-12　菱化代々木ビル4階　一般社団法人日本産業カウンセラー協会　東京支部","tel":"03-6434-9130","fax":"03-5772-3053","sessions":[{"iso":"2026-04-19","disp":"2026/4/19","wd":"日","no":1,"start":"10:30","end":"18:00"},{"iso":"2026-04-26","disp":"2026/4/26","wd":"日","no":2,"start":"10:00","end":"18:00"},{"iso":"2026-05-17","disp":"2026/5/17","wd":"日","no":3,"start":"10:00","end":"18:00"},{"iso":"2026-05-17","disp":"2026/5/17","wd":"日","no":4,"start":"10:00","end":"18:00"},{"iso":"2026-05-31","disp":"2026/5/31","wd":"日","no":5,"start":"10:00","end":"18:00"},{"iso":"2026-06-07","disp":"2026/6/7","wd":"日","no":6,"start":"10:00","end":"18:00"},{"iso":"2026-06-21","disp":"2026/6/21","wd":"日","no":7,"start":"10:00","end":"18:00"},{"iso":"2026-06-28","disp":"2026/6/28","wd":"日","no":8,"start":"10:00","end":"18:00"},{"iso":"2026-07-12","disp":"2026/7/12","wd":"日","no":9,"start":"10:00","end":"18:00"},{"iso":"2026-07-19","disp":"2026/7/19","wd":"日","no":10,"start":"10:00","end":"18:00"},{"iso":"2026-08-02","disp":"2026/8/2","wd":"日","no":11,"start":"10:00","end":"18:00"},{"iso":"2026-08-16","disp":"2026/8/16","wd":"日","no":12,"start":"10:00","end":"18:00"},{"iso":"2026-08-23","disp":"2026/8/23","wd":"日","no":13,"start":"10:00","end":"18:00"},{"iso":"2026-09-06","disp":"2026/9/6","wd":"日","no":14,"start":"10:00","end":"18:00"},{"iso":"2026-09-13","disp":"2026/9/13","wd":"日","no":15,"start":"10:00","end":"17:30"}]},{"code":"2634Y27","branch":"東京","ctype":"春6","format":"OL","room":"代々木OL（土）027","weekday":"土","capacity":24,"venue":"東京都渋谷区千駄ヶ谷4-2-12　菱化代々木ビル　一般社団法人日本産業カウンセラー協会　東京支部　代々木教室","zip":"151-0051","applyTo":"東京都渋谷区千駄ヶ谷4-2-12　菱化代々木ビル4階　一般社団法人日本産業カウンセラー協会　東京支部","tel":"03-6434-9130","fax":"03-5772-3053","sessions":[{"iso":"2026-04-18","disp":"2026/4/18","wd":"土","no":1,"start":"9:30","end":"17:00"},{"iso":"2026-04-25","disp":"2026/4/25","wd":"土","no":2,"start":"9:00","end":"17:00"},{"iso":"2026-05-09","disp":"2026/5/9","wd":"土","no":3,"start":"9:00","end":"17:00"},{"iso":"2026-05-16","disp":"2026/5/16","wd":"土","no":4,"start":"9:00","end":"17:00"},{"iso":"2026-05-23","disp":"2026/5/23","wd":"土","no":5,"start":"9:00","end":"17:00"},{"iso":"2026-06-06","disp":"2026/6/6","wd":"土","no":6,"start":"9:00","end":"17:00"},{"iso":"2026-06-13","disp":"2026/6/13","wd":"土","no":7,"start":"9:00","end":"17:00"},{"iso":"2026-06-27","disp":"2026/6/27","wd":"土","no":8,"start":"9:00","end":"17:00"},{"iso":"2026-07-11","disp":"2026/7/11","wd":"土","no":9,"start":"9:00","end":"17:00"},{"iso":"2026-07-25","disp":"2026/7/25","wd":"土","no":10,"start":"9:00","end":"17:00"},{"iso":"2026-08-01","disp":"2026/8/1","wd":"土","no":11,"start":"9:00","end":"17:00"},{"iso":"2026-08-15","disp":"2026/8/15","wd":"土","no":12,"start":"9:00","end":"17:00"},{"iso":"2026-08-22","disp":"2026/8/22","wd":"土","no":13,"start":"9:00","end":"17:00"},{"iso":"2026-09-05","disp":"2026/9/5","wd":"土","no":14,"start":"9:00","end":"17:00"},{"iso":"2026-09-12","disp":"2026/9/12","wd":"土","no":15,"start":"9:00","end":"16:30"}]},{"code":"2634Y52","branch":"東京","ctype":"春6","format":"OL","room":"秋葉原OL（日）052","weekday":"日","capacity":12,"venue":"東京都千代田区外神田1-1-8　東芝万世橋ビル　TKP秋葉原カンファレンスセンター","zip":"151-0051","applyTo":"東京都渋谷区千駄ヶ谷4-2-12　菱化代々木ビル4階　一般社団法人日本産業カウンセラー協会　東京支部","tel":"03-6434-9130","fax":"03-5772-3053","sessions":[{"iso":"2026-04-19","disp":"2026/4/19","wd":"日","no":1,"start":"10:30","end":"18:00"},{"iso":"2026-04-26","disp":"2026/4/26","wd":"日","no":2,"start":"10:00","end":"18:00"},{"iso":"2026-05-10","disp":"2026/5/10","wd":"日","no":3,"start":"10:00","end":"18:00"},{"iso":"2026-05-17","disp":"2026/5/17","wd":"日","no":4,"start":"10:00","end":"18:00"},{"iso":"2026-05-31","disp":"2026/5/31","wd":"日","no":5,"start":"10:00","end":"18:00"},{"iso":"2026-06-07","disp":"2026/6/7","wd":"日","no":6,"start":"10:00","end":"18:00"},{"iso":"2026-06-21","disp":"2026/6/21","wd":"日","no":7,"start":"10:00","end":"18:00"},{"iso":"2026-06-28","disp":"2026/6/28","wd":"日","no":8,"start":"10:00","end":"18:00"},{"iso":"2026-07-12","disp":"2026/7/12","wd":"日","no":9,"start":"10:00","end":"18:00"},{"iso":"2026-07-19","disp":"2026/7/19","wd":"日","no":10,"start":"10:00","end":"18:00"},{"iso":"2026-08-02","disp":"2026/8/2","wd":"日","no":11,"start":"10:00","end":"18:00"},{"iso":"2026-08-16","disp":"2026/8/16","wd":"日","no":12,"start":"10:00","end":"18:00"},{"iso":"2026-08-23","disp":"2026/8/23","wd":"日","no":13,"start":"10:00","end":"18:00"},{"iso":"2026-09-06","disp":"2026/9/6","wd":"日","no":14,"start":"10:00","end":"18:00"},{"iso":"2026-09-13","disp":"2026/9/13","wd":"日","no":15,"start":"10:00","end":"17:30"}]},{"code":"2634Y51","branch":"東京","ctype":"春6","format":"通学","room":"秋葉原（土）051","weekday":"土","capacity":12,"venue":"東京都千代田区外神田1-1-8　東芝万世橋ビル　TKP秋葉原カンファレンスセンター","zip":"151-0051","applyTo":"東京都渋谷区千駄ヶ谷4-2-12　菱化代々木ビル4階　一般社団法人日本産業カウンセラー協会　東京支部","tel":"03-6434-9130","fax":"03-5772-3053","sessions":[{"iso":"2026-04-18","disp":"2026/4/18","wd":"土","no":1,"start":"10:30","end":"18:00"},{"iso":"2026-04-25","disp":"2026/4/25","wd":"土","no":2,"start":"10:00","end":"18:00"},{"iso":"2026-05-09","disp":"2026/5/9","wd":"土","no":3,"start":"10:00","end":"18:00"},{"iso":"2026-05-16","disp":"2026/5/16","wd":"土","no":4,"start":"10:00","end":"18:00"},{"iso":"2026-05-30","disp":"2026/5/30","wd":"土","no":5,"start":"10:00","end":"18:00"},{"iso":"2026-06-06","disp":"2026/6/6","wd":"土","no":6,"start":"10:00","end":"18:00"},{"iso":"2026-06-20","disp":"2026/6/20","wd":"土","no":7,"start":"10:00","end":"18:00"},{"iso":"2026-06-27","disp":"2026/6/27","wd":"土","no":8,"start":"10:00","end":"18:00"},{"iso":"2026-07-11","disp":"2026/7/11","wd":"土","no":9,"start":"10:00","end":"18:00"},{"iso":"2026-07-18","disp":"2026/7/18","wd":"土","no":10,"start":"10:00","end":"18:00"},{"iso":"2026-08-01","disp":"2026/8/1","wd":"土","no":11,"start":"10:00","end":"18:00"},{"iso":"2026-08-15","disp":"2026/8/15","wd":"土","no":12,"start":"10:00","end":"18:00"},{"iso":"2026-08-22","disp":"2026/8/22","wd":"土","no":13,"start":"10:00","end":"18:00"},{"iso":"2026-08-29","disp":"2026/8/29","wd":"土","no":14,"start":"10:00","end":"18:00"},{"iso":"2026-09-12","disp":"2026/9/12","wd":"土","no":15,"start":"10:00","end":"17:30"}]},{"code":"2634Y53","branch":"東京","ctype":"春6","format":"通学","room":"秋葉原（水）053","weekday":"水","capacity":12,"venue":"東京都千代田区外神田1-1-8　東芝万世橋ビル　TKP秋葉原カンファレンスセンター","zip":"151-0051","applyTo":"東京都渋谷区千駄ヶ谷4-2-12　菱化代々木ビル4階　一般社団法人日本産業カウンセラー協会　東京支部","tel":"03-6434-9130","fax":"03-5772-3053","sessions":[{"iso":"2026-04-15","disp":"2026/4/15","wd":"水","no":1,"start":"10:30","end":"18:00"},{"iso":"2026-04-22","disp":"2026/4/22","wd":"水","no":2,"start":"10:00","end":"18:00"},{"iso":"2026-05-13","disp":"2026/5/13","wd":"水","no":3,"start":"10:00","end":"18:00"},{"iso":"2026-05-20","disp":"2026/5/20","wd":"水","no":4,"start":"10:00","end":"18:00"},{"iso":"2026-06-03","disp":"2026/6/3","wd":"水","no":5,"start":"10:00","end":"18:00"},{"iso":"2026-06-10","disp":"2026/6/10","wd":"水","no":6,"start":"10:00","end":"18:00"},{"iso":"2026-06-17","disp":"2026/6/17","wd":"水","no":7,"start":"10:00","end":"18:00"},{"iso":"2026-07-01","disp":"2026/7/1","wd":"水","no":8,"start":"10:00","end":"18:00"},{"iso":"2026-07-15","disp":"2026/7/15","wd":"水","no":9,"start":"10:00","end":"18:00"},{"iso":"2026-07-22","disp":"2026/7/22","wd":"水","no":10,"start":"10:00","end":"18:00"},{"iso":"2026-08-05","disp":"2026/8/5","wd":"水","no":11,"start":"10:00","end":"18:00"},{"iso":"2026-08-19","disp":"2026/8/19","wd":"水","no":12,"start":"10:00","end":"18:00"},{"iso":"2026-08-26","disp":"2026/8/26","wd":"水","no":13,"start":"10:00","end":"18:00"},{"iso":"2026-09-09","disp":"2026/9/9","wd":"水","no":14,"start":"10:00","end":"18:00"},{"iso":"2026-09-16","disp":"2026/9/16","wd":"水","no":15,"start":"10:00","end":"17:30"}]},{"code":"2634Y11","branch":"東京","ctype":"春6","format":"通学","room":"後楽園（土）011","weekday":"土","capacity":36,"venue":"東京都文京区小石川1-1-1　読売理工医療福祉専門学校","zip":"151-0051","applyTo":"東京都渋谷区千駄ヶ谷4-2-12　菱化代々木ビル4階　一般社団法人日本産業カウンセラー協会　東京支部","tel":"03-6434-9130","fax":"03-5772-3053","sessions":[{"iso":"2026-04-11","disp":"2026/4/11","wd":"土","no":1,"start":"10:00","end":"17:30"},{"iso":"2026-04-25","disp":"2026/4/25","wd":"土","no":2,"start":"9:30","end":"17:30"},{"iso":"2026-05-09","disp":"2026/5/9","wd":"土","no":3,"start":"9:30","end":"17:30"},{"iso":"2026-05-16","disp":"2026/5/16","wd":"土","no":4,"start":"9:30","end":"17:30"},{"iso":"2026-05-23","disp":"2026/5/23","wd":"土","no":5,"start":"9:30","end":"17:30"},{"iso":"2026-06-06","disp":"2026/6/6","wd":"土","no":6,"start":"9:30","end":"17:30"},{"iso":"2026-06-13","disp":"2026/6/13","wd":"土","no":7,"start":"9:30","end":"17:30"},{"iso":"2026-06-27","disp":"2026/6/27","wd":"土","no":8,"start":"9:30","end":"17:30"},{"iso":"2026-07-04","disp":"2026/7/4","wd":"土","no":9,"start":"9:30","end":"17:30"},{"iso":"2026-07-18","disp":"2026/7/18","wd":"土","no":10,"start":"9:30","end":"17:30"},{"iso":"2026-08-01","disp":"2026/8/1","wd":"土","no":11,"start":"9:30","end":"17:30"},{"iso":"2026-08-15","disp":"2026/8/15","wd":"土","no":12,"start":"9:30","end":"17:30"},{"iso":"2026-08-22","disp":"2026/8/22","wd":"土","no":13,"start":"9:30","end":"17:30"},{"iso":"2026-08-29","disp":"2026/8/29","wd":"土","no":14,"start":"9:30","end":"17:30"},{"iso":"2026-09-12","disp":"2026/9/12","wd":"土","no":15,"start":"9:30","end":"17:00"}]},{"code":"2634Y13","branch":"東京","ctype":"春6","format":"通学","room":"後楽園（日）013","weekday":"日","capacity":36,"venue":"東京都文京区小石川1-1-1　読売理工医療福祉専門学校","zip":"151-0051","applyTo":"東京都渋谷区千駄ヶ谷4-2-12　菱化代々木ビル4階　一般社団法人日本産業カウンセラー協会　東京支部","tel":"03-6434-9130","fax":"03-5772-3053","sessions":[{"iso":"2026-04-12","disp":"2026/4/12","wd":"日","no":1,"start":"10:00","end":"17:30"},{"iso":"2026-04-26","disp":"2026/4/26","wd":"日","no":2,"start":"9:30","end":"17:30"},{"iso":"2026-05-10","disp":"2026/5/10","wd":"日","no":3,"start":"9:30","end":"17:30"},{"iso":"2026-05-17","disp":"2026/5/17","wd":"日","no":4,"start":"9:30","end":"17:30"},{"iso":"2026-05-24","disp":"2026/5/24","wd":"日","no":5,"start":"9:30","end":"17:30"},{"iso":"2026-06-07","disp":"2026/6/7","wd":"日","no":6,"start":"9:30","end":"17:30"},{"iso":"2026-06-14","disp":"2026/6/14","wd":"日","no":7,"start":"9:30","end":"17:30"},{"iso":"2026-06-28","disp":"2026/6/28","wd":"日","no":8,"start":"9:30","end":"17:30"},{"iso":"2026-07-05","disp":"2026/7/5","wd":"日","no":9,"start":"9:30","end":"17:30"},{"iso":"2026-07-19","disp":"2026/7/19","wd":"日","no":10,"start":"9:30","end":"17:30"},{"iso":"2026-08-02","disp":"2026/8/2","wd":"日","no":11,"start":"9:30","end":"17:30"},{"iso":"2026-08-16","disp":"2026/8/16","wd":"日","no":12,"start":"9:30","end":"17:30"},{"iso":"2026-08-23","disp":"2026/8/23","wd":"日","no":13,"start":"9:30","end":"17:30"},{"iso":"2026-09-06","disp":"2026/9/6","wd":"日","no":14,"start":"9:30","end":"17:30"},{"iso":"2026-09-13","disp":"2026/9/13","wd":"日","no":15,"start":"9:30","end":"17:00"}]},{"code":"2634Y31","branch":"東京","ctype":"春6","format":"通学","room":"中野坂上（土）031","weekday":"土","capacity":24,"venue":"東京都中野区本町1丁目32-2　ハーモニータワー　東京支部　中野坂上教室","zip":"151-0051","applyTo":"東京都渋谷区千駄ヶ谷4-2-12　菱化代々木ビル4階　一般社団法人日本産業カウンセラー協会　東京支部","tel":"03-6434-9130","fax":"03-5772-3053","sessions":[{"iso":"2026-04-18","disp":"2026/4/18","wd":"土","no":1,"start":"9:30","end":"17:00"},{"iso":"2026-04-25","disp":"2026/4/25","wd":"土","no":2,"start":"9:00","end":"17:00"},{"iso":"2026-05-09","disp":"2026/5/9","wd":"土","no":3,"start":"9:00","end":"17:00"},{"iso":"2026-05-16","disp":"2026/5/16","wd":"土","no":4,"start":"9:00","end":"17:00"},{"iso":"2026-05-23","disp":"2026/5/23","wd":"土","no":5,"start":"9:00","end":"17:00"},{"iso":"2026-06-06","disp":"2026/6/6","wd":"土","no":6,"start":"9:00","end":"17:00"},{"iso":"2026-06-13","disp":"2026/6/13","wd":"土","no":7,"start":"9:00","end":"17:00"},{"iso":"2026-06-27","disp":"2026/6/27","wd":"土","no":8,"start":"9:00","end":"17:00"},{"iso":"2026-07-04","disp":"2026/7/4","wd":"土","no":9,"start":"9:00","end":"17:00"},{"iso":"2026-07-18","disp":"2026/7/18","wd":"土","no":10,"start":"9:00","end":"17:00"},{"iso":"2026-07-25","disp":"2026/7/25","wd":"土","no":11,"start":"9:00","end":"17:00"},{"iso":"2026-08-15","disp":"2026/8/15","wd":"土","no":12,"start":"9:00","end":"17:00"},{"iso":"2026-08-22","disp":"2026/8/22","wd":"土","no":13,"start":"9:00","end":"17:00"},{"iso":"2026-09-05","disp":"2026/9/5","wd":"土","no":14,"start":"9:00","end":"17:00"},{"iso":"2026-09-12","disp":"2026/9/12","wd":"土","no":15,"start":"9:00","end":"16:30"}]},{"code":"2634Y32","branch":"東京","ctype":"春6","format":"通学","room":"中野坂上（日）032","weekday":"日","capacity":24,"venue":"東京都中野区本町1丁目32-2　ハーモニータワー　東京支部　中野坂上教室","zip":"151-0051","applyTo":"東京都渋谷区千駄ヶ谷4-2-12　菱化代々木ビル4階　一般社団法人日本産業カウンセラー協会　東京支部","tel":"03-6434-9130","fax":"03-5772-3053","sessions":[{"iso":"2026-04-19","disp":"2026/4/19","wd":"日","no":1,"start":"9:30","end":"17:00"},{"iso":"2026-04-26","disp":"2026/4/26","wd":"日","no":2,"start":"9:00","end":"17:00"},{"iso":"2026-05-10","disp":"2026/5/10","wd":"日","no":3,"start":"9:00","end":"17:00"},{"iso":"2026-05-17","disp":"2026/5/17","wd":"日","no":4,"start":"9:00","end":"17:00"},{"iso":"2026-05-24","disp":"2026/5/24","wd":"日","no":5,"start":"9:00","end":"17:00"},{"iso":"2026-06-07","disp":"2026/6/7","wd":"日","no":6,"start":"9:00","end":"17:00"},{"iso":"2026-06-14","disp":"2026/6/14","wd":"日","no":7,"start":"9:00","end":"17:00"},{"iso":"2026-06-28","disp":"2026/6/28","wd":"日","no":8,"start":"9:00","end":"17:00"},{"iso":"2026-07-05","disp":"2026/7/5","wd":"日","no":9,"start":"9:00","end":"17:00"},{"iso":"2026-07-19","disp":"2026/7/19","wd":"日","no":10,"start":"9:00","end":"17:00"},{"iso":"2026-07-26","disp":"2026/7/26","wd":"日","no":11,"start":"9:00","end":"17:00"},{"iso":"2026-08-02","disp":"2026/8/2","wd":"日","no":12,"start":"9:00","end":"17:00"},{"iso":"2026-08-23","disp":"2026/8/23","wd":"日","no":13,"start":"9:00","end":"17:00"},{"iso":"2026-08-30","disp":"2026/8/30","wd":"日","no":14,"start":"9:00","end":"17:00"},{"iso":"2026-09-13","disp":"2026/9/13","wd":"日","no":15,"start":"9:00","end":"16:30"}]},{"code":"2634Y33","branch":"東京","ctype":"春6","format":"通学","room":"中野坂上（火）033","weekday":"火","capacity":24,"venue":"東京都中野区本町1丁目32-2　ハーモニータワー　東京支部　中野坂上教室","zip":"151-0051","applyTo":"東京都渋谷区千駄ヶ谷4-2-12　菱化代々木ビル4階　一般社団法人日本産業カウンセラー協会　東京支部","tel":"03-6434-9130","fax":"03-5772-3053","sessions":[{"iso":"2026-04-14","disp":"2026/4/14","wd":"火","no":1,"start":"9:30","end":"17:00"},{"iso":"2026-04-28","disp":"2026/4/28","wd":"火","no":2,"start":"9:00","end":"17:00"},{"iso":"2026-05-12","disp":"2026/5/12","wd":"火","no":3,"start":"9:00","end":"17:00"},{"iso":"2026-05-19","disp":"2026/5/19","wd":"火","no":4,"start":"9:00","end":"17:00"},{"iso":"2026-05-26","disp":"2026/5/26","wd":"火","no":5,"start":"9:00","end":"17:00"},{"iso":"2026-06-09","disp":"2026/6/9","wd":"火","no":6,"start":"9:00","end":"17:00"},{"iso":"2026-06-16","disp":"2026/6/16","wd":"火","no":7,"start":"9:00","end":"17:00"},{"iso":"2026-06-30","disp":"2026/6/30","wd":"火","no":8,"start":"9:00","end":"17:00"},{"iso":"2026-07-14","disp":"2026/7/14","wd":"火","no":9,"start":"9:00","end":"17:00"},{"iso":"2026-07-21","disp":"2026/7/21","wd":"火","no":10,"start":"9:00","end":"17:00"},{"iso":"2026-08-04","disp":"2026/8/4","wd":"火","no":11,"start":"9:00","end":"17:00"},{"iso":"2026-08-18","disp":"2026/8/18","wd":"火","no":12,"start":"9:00","end":"17:00"},{"iso":"2026-08-25","disp":"2026/8/25","wd":"火","no":13,"start":"9:00","end":"17:00"},{"iso":"2026-09-01","disp":"2026/9/1","wd":"火","no":14,"start":"9:00","end":"17:00"},{"iso":"2026-09-15","disp":"2026/9/15","wd":"火","no":15,"start":"9:00","end":"16:30"}]},{"code":"2634Y34","branch":"東京","ctype":"春6","format":"通学","room":"中野坂上（木）034","weekday":"木","capacity":12,"venue":"東京都中野区本町1丁目32-2　ハーモニータワー　東京支部　中野坂上教室","zip":"151-0051","applyTo":"東京都渋谷区千駄ヶ谷4-2-12　菱化代々木ビル4階　一般社団法人日本産業カウンセラー協会　東京支部","tel":"03-6434-9130","fax":"03-5772-3053","sessions":[{"iso":"2026-04-16","disp":"2026/4/16","wd":"木","no":1,"start":"9:30","end":"17:00"},{"iso":"2026-04-23","disp":"2026/4/23","wd":"木","no":2,"start":"9:00","end":"17:00"},{"iso":"2026-05-07","disp":"2026/5/7","wd":"木","no":3,"start":"9:00","end":"17:00"},{"iso":"2026-05-14","disp":"2026/5/14","wd":"木","no":4,"start":"9:00","end":"17:00"},{"iso":"2026-05-28","disp":"2026/5/28","wd":"木","no":5,"start":"9:00","end":"17:00"},{"iso":"2026-06-11","disp":"2026/6/11","wd":"木","no":6,"start":"9:00","end":"17:00"},{"iso":"2026-06-18","disp":"2026/6/18","wd":"木","no":7,"start":"9:00","end":"17:00"},{"iso":"2026-07-02","disp":"2026/7/2","wd":"木","no":8,"start":"9:00","end":"17:00"},{"iso":"2026-07-16","disp":"2026/7/16","wd":"木","no":9,"start":"9:00","end":"17:00"},{"iso":"2026-07-23","disp":"2026/7/23","wd":"木","no":10,"start":"9:00","end":"17:00"},{"iso":"2026-08-06","disp":"2026/8/6","wd":"木","no":11,"start":"9:00","end":"17:00"},{"iso":"2026-08-20","disp":"2026/8/20","wd":"木","no":12,"start":"9:00","end":"17:00"},{"iso":"2026-08-27","disp":"2026/8/27","wd":"木","no":13,"start":"9:00","end":"17:00"},{"iso":"2026-09-10","disp":"2026/9/10","wd":"木","no":14,"start":"9:00","end":"17:00"},{"iso":"2026-09-17","disp":"2026/9/17","wd":"木","no":15,"start":"9:00","end":"16:30"}]},{"code":"2634Y15","branch":"東京","ctype":"春6","format":"通学","room":"町田（土）015","weekday":"土","capacity":12,"venue":"東京都町田市原町田 4－1－1　プラザ町田　町田市文化交流センター","zip":"151-0051","applyTo":"東京都渋谷区千駄ヶ谷4-2-12　菱化代々木ビル4階　一般社団法人日本産業カウンセラー協会　東京支部","tel":"03-6434-9130","fax":"03-5772-3053","sessions":[{"iso":"2026-04-25","disp":"2026/4/25","wd":"土","no":1,"start":"10:00","end":"17:30"},{"iso":"2026-05-09","disp":"2026/5/9","wd":"土","no":2,"start":"9:30","end":"17:30"},{"iso":"2026-05-16","disp":"2026/5/16","wd":"土","no":3,"start":"9:30","end":"17:30"},{"iso":"2026-05-23","disp":"2026/5/23","wd":"土","no":4,"start":"9:30","end":"17:30"},{"iso":"2026-06-06","disp":"2026/6/6","wd":"土","no":5,"start":"9:30","end":"17:30"},{"iso":"2026-06-20","disp":"2026/6/20","wd":"土","no":6,"start":"9:30","end":"17:30"},{"iso":"2026-06-27","disp":"2026/6/27","wd":"土","no":7,"start":"9:30","end":"17:30"},{"iso":"2026-07-04","disp":"2026/7/4","wd":"土","no":8,"start":"9:30","end":"17:30"},{"iso":"2026-07-25","disp":"2026/7/25","wd":"土","no":9,"start":"9:30","end":"17:30"},{"iso":"2026-08-01","disp":"2026/8/1","wd":"土","no":10,"start":"9:30","end":"17:30"},{"iso":"2026-08-22","disp":"2026/8/22","wd":"土","no":11,"start":"9:30","end":"17:30"},{"iso":"2026-08-29","disp":"2026/8/29","wd":"土","no":12,"start":"9:30","end":"17:30"},{"iso":"2026-09-12","disp":"2026/9/12","wd":"土","no":13,"start":"9:30","end":"17:30"},{"iso":"2026-09-19","disp":"2026/9/19","wd":"土","no":14,"start":"9:30","end":"17:30"},{"iso":"2026-09-26","disp":"2026/9/26","wd":"土","no":15,"start":"9:30","end":"17:00"}]},{"code":"2635Y02","branch":"神奈川","ctype":"春6","format":"通学","room":"横浜（土）","weekday":"土","capacity":24,"venue":"神奈川県横浜市中区桜木町3丁目8　横浜塩業ビル　日本産業カウンセラー協会　神奈川支部研修室","zip":"231-0062","applyTo":"横浜市中区桜木町3丁目8　横浜塩業ビル6階　一般社団法人日本産業カウンセラー協会　神奈川支部養成講座部","tel":"045-264-9521","fax":"045-264-9013","sessions":[{"iso":"2026-04-04","disp":"2026/4/4","wd":"土","no":1,"start":"9:30","end":"17:00"},{"iso":"2026-04-25","disp":"2026/4/25","wd":"土","no":2,"start":"9:00","end":"17:00"},{"iso":"2026-05-09","disp":"2026/5/9","wd":"土","no":3,"start":"9:00","end":"17:00"},{"iso":"2026-05-23","disp":"2026/5/23","wd":"土","no":4,"start":"9:00","end":"17:00"},{"iso":"2026-06-06","disp":"2026/6/6","wd":"土","no":5,"start":"9:00","end":"17:00"},{"iso":"2026-06-20","disp":"2026/6/20","wd":"土","no":6,"start":"9:00","end":"17:00"},{"iso":"2026-07-04","disp":"2026/7/4","wd":"土","no":7,"start":"9:00","end":"17:00"},{"iso":"2026-07-11","disp":"2026/7/11","wd":"土","no":8,"start":"9:00","end":"17:00"},{"iso":"2026-07-18","disp":"2026/7/18","wd":"土","no":9,"start":"9:00","end":"17:00"},{"iso":"2026-08-01","disp":"2026/8/1","wd":"土","no":10,"start":"9:00","end":"17:00"},{"iso":"2026-08-08","disp":"2026/8/8","wd":"土","no":11,"start":"9:00","end":"17:00"},{"iso":"2026-08-22","disp":"2026/8/22","wd":"土","no":12,"start":"9:00","end":"17:00"},{"iso":"2026-08-29","disp":"2026/8/29","wd":"土","no":13,"start":"9:00","end":"17:00"},{"iso":"2026-09-12","disp":"2026/9/12","wd":"土","no":14,"start":"9:00","end":"17:00"},{"iso":"2026-09-19","disp":"2026/9/19","wd":"土","no":15,"start":"9:00","end":"16:30"}]},{"code":"2635Y03","branch":"神奈川","ctype":"春6","format":"通学","room":"横浜（日）","weekday":"日","capacity":24,"venue":"神奈川県横浜市中区桜木町3丁目8　横浜塩業ビル　日本産業カウンセラー協会　神奈川支部研修室","zip":"231-0062","applyTo":"横浜市中区桜木町3丁目8　横浜塩業ビル6階　一般社団法人日本産業カウンセラー協会　神奈川支部養成講座部","tel":"045-264-9521","fax":"045-264-9013","sessions":[{"iso":"2026-04-05","disp":"2026/4/5","wd":"日","no":1,"start":"9:30","end":"17:00"},{"iso":"2026-04-26","disp":"2026/4/26","wd":"日","no":2,"start":"9:00","end":"17:00"},{"iso":"2026-05-10","disp":"2026/5/10","wd":"日","no":3,"start":"9:00","end":"17:00"},{"iso":"2026-05-24","disp":"2026/5/24","wd":"日","no":4,"start":"9:00","end":"17:00"},{"iso":"2026-06-07","disp":"2026/6/7","wd":"日","no":5,"start":"9:00","end":"17:00"},{"iso":"2026-06-21","disp":"2026/6/21","wd":"日","no":6,"start":"9:00","end":"17:00"},{"iso":"2026-07-05","disp":"2026/7/5","wd":"日","no":7,"start":"9:00","end":"17:00"},{"iso":"2026-07-12","disp":"2026/7/12","wd":"日","no":8,"start":"9:00","end":"17:00"},{"iso":"2026-07-19","disp":"2026/7/19","wd":"日","no":9,"start":"9:00","end":"17:00"},{"iso":"2026-08-02","disp":"2026/8/2","wd":"日","no":10,"start":"9:00","end":"17:00"},{"iso":"2026-08-09","disp":"2026/8/9","wd":"日","no":11,"start":"9:00","end":"17:00"},{"iso":"2026-08-23","disp":"2026/8/23","wd":"日","no":12,"start":"9:00","end":"17:00"},{"iso":"2026-08-30","disp":"2026/8/30","wd":"日","no":13,"start":"9:00","end":"17:00"},{"iso":"2026-09-13","disp":"2026/9/13","wd":"日","no":14,"start":"9:00","end":"17:00"},{"iso":"2026-09-20","disp":"2026/9/20","wd":"日","no":15,"start":"9:00","end":"16:30"}]},{"code":"2635Y01","branch":"神奈川","ctype":"春6","format":"通学","room":"横浜（木）","weekday":"木","capacity":12,"venue":"神奈川県横浜市中区桜木町3丁目8　横浜塩業ビル　日本産業カウンセラー協会　神奈川支部研修室","zip":"231-0062","applyTo":"横浜市中区桜木町3丁目8　横浜塩業ビル6階　一般社団法人日本産業カウンセラー協会　神奈川支部養成講座部","tel":"045-264-9521","fax":"045-264-9013","sessions":[{"iso":"2026-04-02","disp":"2026/4/2","wd":"木","no":1,"start":"9:30","end":"17:00"},{"iso":"2026-04-23","disp":"2026/4/23","wd":"木","no":2,"start":"9:00","end":"17:00"},{"iso":"2026-05-07","disp":"2026/5/7","wd":"木","no":3,"start":"9:00","end":"17:00"},{"iso":"2026-05-21","disp":"2026/5/21","wd":"木","no":4,"start":"9:00","end":"17:00"},{"iso":"2026-06-04","disp":"2026/6/4","wd":"木","no":5,"start":"9:00","end":"17:00"},{"iso":"2026-06-18","disp":"2026/6/18","wd":"木","no":6,"start":"9:00","end":"17:00"},{"iso":"2026-07-02","disp":"2026/7/2","wd":"木","no":7,"start":"9:00","end":"17:00"},{"iso":"2026-07-09","disp":"2026/7/9","wd":"木","no":8,"start":"9:00","end":"17:00"},{"iso":"2026-07-16","disp":"2026/7/16","wd":"木","no":9,"start":"9:00","end":"17:00"},{"iso":"2026-07-30","disp":"2026/7/30","wd":"木","no":10,"start":"9:00","end":"17:00"},{"iso":"2026-08-06","disp":"2026/8/6","wd":"木","no":11,"start":"9:00","end":"17:00"},{"iso":"2026-08-20","disp":"2026/8/20","wd":"木","no":12,"start":"9:00","end":"17:00"},{"iso":"2026-08-27","disp":"2026/8/27","wd":"木","no":13,"start":"9:00","end":"17:00"},{"iso":"2026-09-10","disp":"2026/9/10","wd":"木","no":14,"start":"9:00","end":"17:00"},{"iso":"2026-09-17","disp":"2026/9/17","wd":"木","no":15,"start":"9:00","end":"16:30"}]},{"code":"2641Y01","branch":"中部","ctype":"春6","format":"通学","room":"名古屋（土）","weekday":"土","capacity":18,"venue":"愛知県名古屋市東区東桜1-9-26　IKKOパーク栄ビル4階　日本産業カウンセラー協会　中部支部A2研修室","zip":"461-0005","applyTo":"愛知県名古屋市東区東桜1-9-26　IKKOパーク栄ビル４階　一般社団法人日本産業カウンセラー協会　中部支部","tel":"052-618-7830","fax":"052-657-5651","sessions":[{"iso":"2026-04-11","disp":"2026/4/11","wd":"土","no":1,"start":"10:00","end":"17:30"},{"iso":"2026-04-25","disp":"2026/4/25","wd":"土","no":2,"start":"9:30","end":"17:30"},{"iso":"2026-05-16","disp":"2026/5/16","wd":"土","no":3,"start":"9:30","end":"17:30"},{"iso":"2026-05-23","disp":"2026/5/23","wd":"土","no":4,"start":"9:30","end":"17:30"},{"iso":"2026-06-06","disp":"2026/6/6","wd":"土","no":5,"start":"9:30","end":"17:30"},{"iso":"2026-06-13","disp":"2026/6/13","wd":"土","no":6,"start":"9:30","end":"17:30"},{"iso":"2026-06-20","disp":"2026/6/20","wd":"土","no":7,"start":"9:30","end":"17:30"},{"iso":"2026-07-04","disp":"2026/7/4","wd":"土","no":8,"start":"9:30","end":"17:30"},{"iso":"2026-07-18","disp":"2026/7/18","wd":"土","no":9,"start":"9:30","end":"17:30"},{"iso":"2026-07-25","disp":"2026/7/25","wd":"土","no":10,"start":"9:30","end":"17:30"},{"iso":"2026-08-08","disp":"2026/8/8","wd":"土","no":11,"start":"9:30","end":"17:30"},{"iso":"2026-08-22","disp":"2026/8/22","wd":"土","no":12,"start":"9:30","end":"17:30"},{"iso":"2026-08-29","disp":"2026/8/29","wd":"土","no":13,"start":"9:30","end":"17:30"},{"iso":"2026-09-12","disp":"2026/9/12","wd":"土","no":14,"start":"9:30","end":"17:30"},{"iso":"2026-09-19","disp":"2026/9/19","wd":"土","no":15,"start":"9:30","end":"17:00"}]},{"code":"2641Y02","branch":"中部","ctype":"春6","format":"通学","room":"名古屋（日）","weekday":"日","capacity":18,"venue":"愛知県名古屋市東区東桜1-9-26　IKKOパーク栄ビル4階　日本産業カウンセラー協会　中部支部A2研修室","zip":"461-0005","applyTo":"愛知県名古屋市東区東桜1-9-26　IKKOパーク栄ビル４階　一般社団法人日本産業カウンセラー協会　中部支部","tel":"052-618-7830","fax":"052-657-5651","sessions":[{"iso":"2026-04-12","disp":"2026/4/12","wd":"日","no":1,"start":"10:00","end":"17:30"},{"iso":"2026-04-26","disp":"2026/4/26","wd":"日","no":2,"start":"9:30","end":"17:30"},{"iso":"2026-05-17","disp":"2026/5/17","wd":"日","no":3,"start":"9:30","end":"17:30"},{"iso":"2026-05-24","disp":"2026/5/24","wd":"日","no":4,"start":"9:30","end":"17:30"},{"iso":"2026-06-07","disp":"2026/6/7","wd":"日","no":5,"start":"9:30","end":"17:30"},{"iso":"2026-06-14","disp":"2026/6/14","wd":"日","no":6,"start":"9:30","end":"17:30"},{"iso":"2026-06-21","disp":"2026/6/21","wd":"日","no":7,"start":"9:30","end":"17:30"},{"iso":"2026-07-05","disp":"2026/7/5","wd":"日","no":8,"start":"9:30","end":"17:30"},{"iso":"2026-07-19","disp":"2026/7/19","wd":"日","no":9,"start":"9:30","end":"17:30"},{"iso":"2026-07-26","disp":"2026/7/26","wd":"日","no":10,"start":"9:30","end":"17:30"},{"iso":"2026-08-09","disp":"2026/8/9","wd":"日","no":11,"start":"9:30","end":"17:30"},{"iso":"2026-08-23","disp":"2026/8/23","wd":"日","no":12,"start":"9:30","end":"17:30"},{"iso":"2026-08-30","disp":"2026/8/30","wd":"日","no":13,"start":"9:30","end":"17:30"},{"iso":"2026-09-13","disp":"2026/9/13","wd":"日","no":14,"start":"9:30","end":"17:30"},{"iso":"2026-09-20","disp":"2026/9/20","wd":"日","no":15,"start":"9:30","end":"17:00"}]},{"code":"2641Y03","branch":"中部","ctype":"春6","format":"通学","room":"名古屋（火）","weekday":"火","capacity":12,"venue":"愛知県名古屋市東区東桜1-9-26　IKKOパーク栄ビル4階　日本産業カウンセラー協会　中部支部A2研修室","zip":"461-0005","applyTo":"愛知県名古屋市東区東桜1-9-26　IKKOパーク栄ビル４階　一般社団法人日本産業カウンセラー協会　中部支部","tel":"052-618-7830","fax":"052-657-5651","sessions":[{"iso":"2026-04-14","disp":"2026/4/14","wd":"火","no":1,"start":"10:00","end":"17:30"},{"iso":"2026-04-28","disp":"2026/4/28","wd":"火","no":2,"start":"9:30","end":"17:30"},{"iso":"2026-05-19","disp":"2026/5/19","wd":"火","no":3,"start":"9:30","end":"17:30"},{"iso":"2026-05-26","disp":"2026/5/26","wd":"火","no":4,"start":"9:30","end":"17:30"},{"iso":"2026-06-09","disp":"2026/6/9","wd":"火","no":5,"start":"9:30","end":"17:30"},{"iso":"2026-06-16","disp":"2026/6/16","wd":"火","no":6,"start":"9:30","end":"17:30"},{"iso":"2026-06-23","disp":"2026/6/23","wd":"火","no":7,"start":"9:30","end":"17:30"},{"iso":"2026-07-07","disp":"2026/7/7","wd":"火","no":8,"start":"9:30","end":"17:30"},{"iso":"2026-07-21","disp":"2026/7/21","wd":"火","no":9,"start":"9:30","end":"17:30"},{"iso":"2026-07-28","disp":"2026/7/28","wd":"火","no":10,"start":"9:30","end":"17:30"},{"iso":"2026-08-18","disp":"2026/8/18","wd":"火","no":11,"start":"9:30","end":"17:30"},{"iso":"2026-08-25","disp":"2026/8/25","wd":"火","no":12,"start":"9:30","end":"17:30"},{"iso":"2026-09-01","disp":"2026/9/1","wd":"火","no":13,"start":"9:30","end":"17:30"},{"iso":"2026-09-15","disp":"2026/9/15","wd":"火","no":14,"start":"9:30","end":"17:30"},{"iso":"2026-09-29","disp":"2026/9/29","wd":"火","no":15,"start":"9:30","end":"17:00"}]},{"code":"2641Y05","branch":"中部","ctype":"春6","format":"通学","room":"三重","weekday":"日","capacity":12,"venue":"三重県津市羽所町513　サンヒルズ2階　日本産業カウンセラー協会　三重事務所","zip":"514-0009","applyTo":"三重県津市羽所町513　サンヒルズ2階　一般社団法人日本産業カウンセラー協会　中部支部　三重事務所","tel":"059-213-6960","fax":"059-213-6970","sessions":[{"iso":"2026-04-05","disp":"2026/4/5","wd":"日","no":1,"start":"10:00","end":"17:30"},{"iso":"2026-04-12","disp":"2026/4/12","wd":"日","no":2,"start":"9:30","end":"17:30"},{"iso":"2026-04-26","disp":"2026/4/26","wd":"日","no":3,"start":"9:30","end":"17:30"},{"iso":"2026-05-10","disp":"2026/5/10","wd":"日","no":4,"start":"9:30","end":"17:30"},{"iso":"2026-05-24","disp":"2026/5/24","wd":"日","no":5,"start":"9:30","end":"17:30"},{"iso":"2026-06-07","disp":"2026/6/7","wd":"日","no":6,"start":"9:30","end":"17:30"},{"iso":"2026-06-21","disp":"2026/6/21","wd":"日","no":7,"start":"9:30","end":"17:30"},{"iso":"2026-06-28","disp":"2026/6/28","wd":"日","no":8,"start":"9:30","end":"17:30"},{"iso":"2026-07-12","disp":"2026/7/12","wd":"日","no":9,"start":"9:30","end":"17:30"},{"iso":"2026-07-26","disp":"2026/7/26","wd":"日","no":10,"start":"9:30","end":"17:30"},{"iso":"2026-08-09","disp":"2026/8/9","wd":"日","no":11,"start":"9:30","end":"17:30"},{"iso":"2026-08-23","disp":"2026/8/23","wd":"日","no":12,"start":"9:30","end":"17:30"},{"iso":"2026-08-30","disp":"2026/8/30","wd":"日","no":13,"start":"9:30","end":"17:30"},{"iso":"2026-09-06","disp":"2026/9/6","wd":"日","no":14,"start":"9:30","end":"17:30"},{"iso":"2026-09-13","disp":"2026/9/13","wd":"日","no":15,"start":"9:30","end":"17:00"}]},{"code":"2641Y06","branch":"中部","ctype":"春6","format":"通学","room":"北陸","weekday":"日","capacity":12,"venue":"石川県金沢市鞍月2丁目1番地　石川県地場産業振興センター　（他 金沢市内の会場）","zip":"920-0022","applyTo":"石川県金沢市北安江3-4-2　北栄ビル2階　一般社団法人日本産業カウンセラー協会　中部支部　北陸事務所","tel":"076-224-9303","fax":"076-224-9304","sessions":[{"iso":"2026-05-10","disp":"2026/5/10","wd":"日","no":1,"start":"10:00","end":"17:30"},{"iso":"2026-05-17","disp":"2026/5/17","wd":"日","no":2,"start":"9:30","end":"17:00"},{"iso":"2026-05-31","disp":"2026/5/31","wd":"日","no":3,"start":"9:30","end":"17:00"},{"iso":"2026-06-07","disp":"2026/6/7","wd":"日","no":4,"start":"9:30","end":"17:00"},{"iso":"2026-06-14","disp":"2026/6/14","wd":"日","no":5,"start":"9:30","end":"17:00"},{"iso":"2026-06-21","disp":"2026/6/21","wd":"日","no":6,"start":"9:30","end":"17:00"},{"iso":"2026-06-28","disp":"2026/6/28","wd":"日","no":7,"start":"9:30","end":"17:00"},{"iso":"2026-07-12","disp":"2026/7/12","wd":"日","no":8,"start":"9:30","end":"17:00"},{"iso":"2026-07-19","disp":"2026/7/19","wd":"日","no":9,"start":"9:30","end":"17:00"},{"iso":"2026-07-26","disp":"2026/7/26","wd":"日","no":10,"start":"9:30","end":"17:00"},{"iso":"2026-08-09","disp":"2026/8/9","wd":"日","no":11,"start":"9:30","end":"17:00"},{"iso":"2026-08-23","disp":"2026/8/23","wd":"日","no":12,"start":"9:30","end":"17:00"},{"iso":"2026-08-30","disp":"2026/8/30","wd":"日","no":13,"start":"9:30","end":"17:00"},{"iso":"2026-09-06","disp":"2026/9/6","wd":"日","no":14,"start":"9:30","end":"17:00"},{"iso":"2026-09-13","disp":"2026/9/13","wd":"日","no":15,"start":"9:30","end":"17:00"}]},{"code":"2641Y04","branch":"中部","ctype":"春6","format":"通学","room":"静岡","weekday":"土","capacity":12,"venue":"静岡県静岡市葵区追手町10番地221-2　新中町ビル2階　日本産業カウンセラー協会　静岡事務所研修室","zip":"420-0853","applyTo":"静岡県静岡市葵区追手町10番地221-2　新中町ビル2階　一般社団法人日本産業カウンセラー協会　中部支部　静岡事務所","tel":"054-254-5151","fax":"054-254-5272","sessions":[{"iso":"2026-04-11","disp":"2026/4/11","wd":"土","no":1,"start":"10:00","end":"17:30"},{"iso":"2026-04-18","disp":"2026/4/18","wd":"土","no":2,"start":"9:30","end":"17:30"},{"iso":"2026-04-25","disp":"2026/4/25","wd":"土","no":3,"start":"9:30","end":"17:30"},{"iso":"2026-05-09","disp":"2026/5/9","wd":"土","no":4,"start":"9:30","end":"17:30"},{"iso":"2026-05-16","disp":"2026/5/16","wd":"土","no":5,"start":"9:30","end":"17:30"},{"iso":"2026-05-23","disp":"2026/5/23","wd":"土","no":6,"start":"9:30","end":"17:30"},{"iso":"2026-06-06","disp":"2026/6/6","wd":"土","no":7,"start":"9:30","end":"17:30"},{"iso":"2026-06-13","disp":"2026/6/13","wd":"土","no":8,"start":"9:30","end":"17:30"},{"iso":"2026-06-27","disp":"2026/6/27","wd":"土","no":9,"start":"9:30","end":"17:30"},{"iso":"2026-07-04","disp":"2026/7/4","wd":"土","no":10,"start":"9:30","end":"17:30"},{"iso":"2026-07-18","disp":"2026/7/18","wd":"土","no":11,"start":"9:30","end":"17:30"},{"iso":"2026-08-01","disp":"2026/8/1","wd":"土","no":12,"start":"9:30","end":"17:30"},{"iso":"2026-08-15","disp":"2026/8/15","wd":"土","no":13,"start":"9:30","end":"17:30"},{"iso":"2026-08-29","disp":"2026/8/29","wd":"土","no":14,"start":"9:30","end":"17:30"},{"iso":"2026-09-05","disp":"2026/9/5","wd":"土","no":15,"start":"9:30","end":"17:00"}]},{"code":"2651Y02","branch":"関西","ctype":"春6","format":"通学","room":"大阪（日）","weekday":"日","capacity":30,"venue":"大阪府大阪市中央区石町2-5-3　エル・おおさか南館3階　日本産業カウンセラー協会　関西支部研修室","zip":"540-0033","applyTo":"大阪府大阪市中央区石町2-5-3　エル・おおさか南館3階　一般社団法人日本産業カウンセラー協会　関西支部","tel":":06-4963-2357","fax":"06-4963-2076","sessions":[{"iso":"2026-04-19","disp":"2026/4/19","wd":"日","no":1,"start":"10:00","end":"17:30"},{"iso":"2026-04-26","disp":"2026/4/26","wd":"日","no":2,"start":"9:30","end":"17:30"},{"iso":"2026-05-10","disp":"2026/5/10","wd":"日","no":3,"start":"9:30","end":"17:30"},{"iso":"2026-05-17","disp":"2026/5/17","wd":"日","no":4,"start":"9:30","end":"17:30"},{"iso":"2026-05-24","disp":"2026/5/24","wd":"日","no":5,"start":"9:30","end":"17:30"},{"iso":"2026-05-31","disp":"2026/5/31","wd":"日","no":6,"start":"9:30","end":"17:30"},{"iso":"2026-06-07","disp":"2026/6/7","wd":"日","no":7,"start":"9:30","end":"17:30"},{"iso":"2026-06-21","disp":"2026/6/21","wd":"日","no":8,"start":"9:30","end":"17:30"},{"iso":"2026-07-05","disp":"2026/7/5","wd":"日","no":9,"start":"9:30","end":"17:30"},{"iso":"2026-07-19","disp":"2026/7/19","wd":"日","no":10,"start":"9:30","end":"17:30"},{"iso":"2026-08-09","disp":"2026/8/9","wd":"日","no":11,"start":"9:30","end":"17:30"},{"iso":"2026-08-23","disp":"2026/8/23","wd":"日","no":12,"start":"9:30","end":"17:30"},{"iso":"2026-08-30","disp":"2026/8/30","wd":"日","no":13,"start":"9:30","end":"17:30"},{"iso":"2026-09-06","disp":"2026/9/6","wd":"日","no":14,"start":"9:30","end":"17:30"},{"iso":"2026-09-20","disp":"2026/9/20","wd":"日","no":15,"start":"9:30","end":"17:00"}]},{"code":"2651Y03","branch":"関西","ctype":"春6","format":"通学","room":"大阪（水）","weekday":"水","capacity":24,"venue":"大阪府大阪市中央区石町2-5-3　エル・おおさか南館3階　日本産業カウンセラー協会　関西支部研修室","zip":"540-0033","applyTo":"大阪府大阪市中央区石町2-5-3　エル・おおさか南館3階　一般社団法人日本産業カウンセラー協会　関西支部","tel":":06-4963-2357","fax":"06-4963-2076","sessions":[{"iso":"2026-04-22","disp":"2026/4/22","wd":"水","no":1,"start":"10:00","end":"17:30"},{"iso":"2026-05-13","disp":"2026/5/13","wd":"水","no":2,"start":"9:30","end":"17:30"},{"iso":"2026-05-20","disp":"2026/5/20","wd":"水","no":3,"start":"9:30","end":"17:30"},{"iso":"2026-05-27","disp":"2026/5/27","wd":"水","no":4,"start":"9:30","end":"17:30"},{"iso":"2026-06-03","disp":"2026/6/3","wd":"水","no":5,"start":"9:30","end":"17:30"},{"iso":"2026-06-10","disp":"2026/6/10","wd":"水","no":6,"start":"9:30","end":"17:30"},{"iso":"2026-06-24","disp":"2026/6/24","wd":"水","no":7,"start":"9:30","end":"17:30"},{"iso":"2026-07-01","disp":"2026/7/1","wd":"水","no":8,"start":"9:30","end":"17:30"},{"iso":"2026-07-22","disp":"2026/7/22","wd":"水","no":9,"start":"9:30","end":"17:30"},{"iso":"2026-07-29","disp":"2026/7/29","wd":"水","no":10,"start":"9:30","end":"17:30"},{"iso":"2026-08-05","disp":"2026/8/5","wd":"水","no":11,"start":"9:30","end":"17:30"},{"iso":"2026-08-19","disp":"2026/8/19","wd":"水","no":12,"start":"9:30","end":"17:30"},{"iso":"2026-08-26","disp":"2026/8/26","wd":"水","no":13,"start":"9:30","end":"17:30"},{"iso":"2026-09-02","disp":"2026/9/2","wd":"水","no":14,"start":"9:30","end":"17:30"},{"iso":"2026-09-09","disp":"2026/9/9","wd":"水","no":15,"start":"9:30","end":"17:00"}]},{"code":"2651Y04","branch":"関西","ctype":"春6","format":"通学","room":"京都","weekday":"土","capacity":24,"venue":"京都府京都市下京区油小路通塩小路下る西油小路町27番地　YIC京都","zip":"540-0033","applyTo":"大阪府大阪市中央区石町2-5-3　エル・おおさか南館3階　一般社団法人日本産業カウンセラー協会　関西支部","tel":":06-4963-2357","fax":"06-4963-2076","sessions":[{"iso":"2026-04-25","disp":"2026/4/25","wd":"土","no":1,"start":"10:30","end":"18:00"},{"iso":"2026-05-09","disp":"2026/5/9","wd":"土","no":2,"start":"10:00","end":"18:00"},{"iso":"2026-05-16","disp":"2026/5/16","wd":"土","no":3,"start":"10:00","end":"18:00"},{"iso":"2026-05-30","disp":"2026/5/30","wd":"土","no":4,"start":"10:00","end":"18:00"},{"iso":"2026-06-06","disp":"2026/6/6","wd":"土","no":5,"start":"10:00","end":"18:00"},{"iso":"2026-06-13","disp":"2026/6/13","wd":"土","no":6,"start":"10:00","end":"18:00"},{"iso":"2026-06-27","disp":"2026/6/27","wd":"土","no":7,"start":"10:00","end":"18:00"},{"iso":"2026-07-04","disp":"2026/7/4","wd":"土","no":8,"start":"10:00","end":"18:00"},{"iso":"2026-07-25","disp":"2026/7/25","wd":"土","no":9,"start":"10:00","end":"18:00"},{"iso":"2026-08-01","disp":"2026/8/1","wd":"土","no":10,"start":"10:00","end":"18:00"},{"iso":"2026-08-08","disp":"2026/8/8","wd":"土","no":11,"start":"10:00","end":"18:00"},{"iso":"2026-08-22","disp":"2026/8/22","wd":"土","no":12,"start":"10:00","end":"18:00"},{"iso":"2026-08-29","disp":"2026/8/29","wd":"土","no":13,"start":"10:00","end":"18:00"},{"iso":"2026-09-05","disp":"2026/9/5","wd":"土","no":14,"start":"10:00","end":"18:00"},{"iso":"2026-09-19","disp":"2026/9/19","wd":"土","no":15,"start":"10:00","end":"17:30"}]},{"code":"2651Y01","branch":"関西","ctype":"春10","format":"通学","room":"大阪（土）","weekday":"土","capacity":24,"venue":"大阪府大阪市中央区石町2-5-3　エル・おおさか南館3階　日本産業カウンセラー協会　関西支部研修室","zip":"540-0033","applyTo":"大阪府大阪市中央区石町2-5-3　エル・おおさか南館3階　一般社団法人日本産業カウンセラー協会　関西支部","tel":":06-4963-2357","fax":"06-4963-2076","sessions":[{"iso":"2026-05-09","disp":"2026/5/9","wd":"土","no":1,"start":"10:00","end":"17:30"},{"iso":"2026-05-16","disp":"2026/5/16","wd":"土","no":2,"start":"9:30","end":"17:30"},{"iso":"2026-06-06","disp":"2026/6/6","wd":"土","no":3,"start":"9:30","end":"17:30"},{"iso":"2026-07-11","disp":"2026/7/11","wd":"土","no":4,"start":"9:30","end":"17:30"},{"iso":"2026-07-25","disp":"2026/7/25","wd":"土","no":5,"start":"9:30","end":"17:30"},{"iso":"2026-08-08","disp":"2026/8/8","wd":"土","no":6,"start":"9:30","end":"17:30"},{"iso":"2026-09-05","disp":"2026/9/5","wd":"土","no":7,"start":"9:30","end":"17:30"},{"iso":"2026-09-26","disp":"2026/9/26","wd":"土","no":8,"start":"9:30","end":"17:30"},{"iso":"2026-10-03","disp":"2026/10/3","wd":"土","no":9,"start":"9:30","end":"17:30"},{"iso":"2026-10-24","disp":"2026/10/24","wd":"土","no":10,"start":"9:30","end":"17:30"},{"iso":"2026-11-14","disp":"2026/11/14","wd":"土","no":11,"start":"9:30","end":"17:30"},{"iso":"2026-11-28","disp":"2026/11/28","wd":"土","no":12,"start":"9:30","end":"17:30"},{"iso":"2026-12-05","disp":"2026/12/5","wd":"土","no":13,"start":"9:30","end":"17:30"},{"iso":"2027-01-09","disp":"2027/1/9","wd":"土","no":14,"start":"9:30","end":"17:30"},{"iso":"2027-01-16","disp":"2027/1/16","wd":"土","no":15,"start":"9:30","end":"17:00"}]},{"code":"2661Y01","branch":"中国","ctype":"春6","format":"通学","room":"岡山","weekday":"土日","capacity":8,"venue":"岡山県岡山市北区野田屋町2-11-13　旧あおば生命ビル4階　日本産業カウンセラー協会　岡山事務所研修室","zip":"700-0815","applyTo":"岡山県岡山市北区野田屋町2丁目11-13　旧岡山あおば生命ビル4階　一般社団法人日本産業カウンセラー協会　中国支部","tel":"086-224-4050","fax":"086-234-1432","sessions":[{"iso":"2026-04-12","disp":"2026/4/12","wd":"日","no":1,"start":"10:00","end":"17:30"},{"iso":"2026-04-26","disp":"2026/4/26","wd":"日","no":2,"start":"9:30","end":"17:30"},{"iso":"2026-05-10","disp":"2026/5/10","wd":"日","no":3,"start":"9:30","end":"17:30"},{"iso":"2026-05-24","disp":"2026/5/24","wd":"日","no":4,"start":"9:30","end":"17:30"},{"iso":"2026-05-31","disp":"2026/5/31","wd":"日","no":5,"start":"9:30","end":"17:30"},{"iso":"2026-06-07","disp":"2026/6/7","wd":"日","no":6,"start":"9:30","end":"17:30"},{"iso":"2026-06-27","disp":"2026/6/27","wd":"土","no":7,"start":"9:30","end":"17:30"},{"iso":"2026-07-04","disp":"2026/7/4","wd":"土","no":8,"start":"9:30","end":"17:30"},{"iso":"2026-07-11","disp":"2026/7/11","wd":"土","no":9,"start":"9:30","end":"17:30"},{"iso":"2026-07-25","disp":"2026/7/25","wd":"土","no":10,"start":"9:30","end":"17:30"},{"iso":"2026-08-08","disp":"2026/8/8","wd":"土","no":11,"start":"9:30","end":"17:30"},{"iso":"2026-08-23","disp":"2026/8/23","wd":"日","no":12,"start":"9:30","end":"17:30"},{"iso":"2026-08-29","disp":"2026/8/29","wd":"土","no":13,"start":"9:30","end":"17:30"},{"iso":"2026-09-13","disp":"2026/9/13","wd":"日","no":14,"start":"9:30","end":"17:30"},{"iso":"2026-09-19","disp":"2026/9/19","wd":"土","no":15,"start":"9:30","end":"17:00"}]},{"code":"2661Y02","branch":"中国","ctype":"春6","format":"通学","room":"広島","weekday":"土日","capacity":12,"venue":"広島県広島市中区幟町3-1　第3山県ビル5階　日本産業カウンセラー協会　広島事務所研修室","zip":"700-0815","applyTo":"岡山県岡山市北区野田屋町2丁目11-13　旧岡山あおば生命ビル4階　一般社団法人日本産業カウンセラー協会　中国支部","tel":"086-224-4050","fax":"086-234-1432","sessions":[{"iso":"2026-04-18","disp":"2026/4/18","wd":"土","no":1,"start":"10:00","end":"17:30"},{"iso":"2026-04-26","disp":"2026/4/26","wd":"日","no":2,"start":"9:30","end":"17:30"},{"iso":"2026-05-10","disp":"2026/5/10","wd":"日","no":3,"start":"9:30","end":"17:30"},{"iso":"2026-05-24","disp":"2026/5/24","wd":"日","no":4,"start":"9:30","end":"17:30"},{"iso":"2026-06-07","disp":"2026/6/7","wd":"日","no":5,"start":"9:30","end":"17:30"},{"iso":"2026-06-28","disp":"2026/6/28","wd":"日","no":6,"start":"9:30","end":"17:30"},{"iso":"2026-07-05","disp":"2026/7/5","wd":"日","no":7,"start":"9:30","end":"17:30"},{"iso":"2026-07-12","disp":"2026/7/12","wd":"日","no":8,"start":"9:30","end":"17:30"},{"iso":"2026-07-19","disp":"2026/7/19","wd":"日","no":9,"start":"9:30","end":"17:30"},{"iso":"2026-07-26","disp":"2026/7/26","wd":"日","no":10,"start":"9:30","end":"17:30"},{"iso":"2026-08-09","disp":"2026/8/9","wd":"日","no":11,"start":"9:30","end":"17:30"},{"iso":"2026-08-23","disp":"2026/8/23","wd":"日","no":12,"start":"9:30","end":"17:30"},{"iso":"2026-08-29","disp":"2026/8/29","wd":"土","no":13,"start":"9:30","end":"17:30"},{"iso":"2026-09-13","disp":"2026/9/13","wd":"日","no":14,"start":"9:30","end":"17:30"},{"iso":"2026-09-19","disp":"2026/9/19","wd":"土","no":15,"start":"9:30","end":"17:00"}]},{"code":"2661Y03","branch":"中国","ctype":"春6","format":"通学","room":"山陰","weekday":"日","capacity":8,"venue":"鳥取県米子市角盤町2丁目61　米子市公会堂","zip":"700-0815","applyTo":"岡山県岡山市北区野田屋町2丁目11-13　旧岡山あおば生命ビル4階　一般社団法人日本産業カウンセラー協会　中国支部","tel":"086-224-4050","fax":"086-234-1432","sessions":[{"iso":"2026-04-19","disp":"2026/4/19","wd":"日","no":1,"start":"10:00","end":"17:30"},{"iso":"2026-04-26","disp":"2026/4/26","wd":"日","no":2,"start":"9:30","end":"17:30"},{"iso":"2026-05-10","disp":"2026/5/10","wd":"日","no":3,"start":"9:30","end":"17:30"},{"iso":"2026-05-24","disp":"2026/5/24","wd":"日","no":4,"start":"9:30","end":"17:30"},{"iso":"2026-05-31","disp":"2026/5/31","wd":"日","no":5,"start":"9:30","end":"17:30"},{"iso":"2026-06-28","disp":"2026/6/28","wd":"日","no":6,"start":"9:30","end":"17:30"},{"iso":"2026-07-05","disp":"2026/7/5","wd":"日","no":7,"start":"9:30","end":"17:30"},{"iso":"2026-07-12","disp":"2026/7/12","wd":"日","no":8,"start":"9:30","end":"17:30"},{"iso":"2026-07-26","disp":"2026/7/26","wd":"日","no":9,"start":"9:30","end":"17:30"},{"iso":"2026-08-02","disp":"2026/8/2","wd":"日","no":10,"start":"9:30","end":"17:30"},{"iso":"2026-08-23","disp":"2026/8/23","wd":"日","no":11,"start":"9:30","end":"17:30"},{"iso":"2026-08-30","disp":"2026/8/30","wd":"日","no":12,"start":"9:30","end":"17:30"},{"iso":"2026-09-13","disp":"2026/9/13","wd":"日","no":13,"start":"9:30","end":"17:30"},{"iso":"2026-09-20","disp":"2026/9/20","wd":"日","no":14,"start":"9:30","end":"17:30"},{"iso":"2026-09-27","disp":"2026/9/27","wd":"日","no":15,"start":"9:30","end":"17:00"}]},{"code":"2671Y01","branch":"四国","ctype":"春6","format":"通学","room":"愛媛","weekday":"土日祝","capacity":12,"venue":"愛媛県松山市味酒町1丁目3番地　四国ガス第3ビル7階　日本産業カウンセラー協会　四国支部研修室","zip":"790-0814","applyTo":"愛媛県松山市味酒町1丁目3番地　四国ガス第3ビル7階　一般社団法人日本産業カウンセラー協会　四国支部","tel":"089-968-2800","fax":"089-968-2801","sessions":[{"iso":"2026-04-12","disp":"2026/4/12","wd":"日","no":1,"start":"10:00","end":"17:00"},{"iso":"2026-04-19","disp":"2026/4/19","wd":"日","no":2,"start":"9:00","end":"17:00"},{"iso":"2026-04-29","disp":"2026/4/29","wd":"水","no":3,"start":"9:00","end":"17:00"},{"iso":"2026-05-09","disp":"2026/5/9","wd":"土","no":4,"start":"9:00","end":"17:00"},{"iso":"2026-05-17","disp":"2026/5/17","wd":"日","no":5,"start":"9:00","end":"17:00"},{"iso":"2026-05-30","disp":"2026/5/30","wd":"土","no":6,"start":"9:00","end":"17:00"},{"iso":"2026-06-07","disp":"2026/6/7","wd":"日","no":7,"start":"9:00","end":"17:00"},{"iso":"2026-06-14","disp":"2026/6/14","wd":"日","no":8,"start":"9:00","end":"17:00"},{"iso":"2026-06-28","disp":"2026/6/28","wd":"日","no":9,"start":"9:00","end":"17:00"},{"iso":"2026-07-11","disp":"2026/7/11","wd":"土","no":10,"start":"9:00","end":"17:00"},{"iso":"2026-07-25","disp":"2026/7/25","wd":"土","no":11,"start":"9:00","end":"17:00"},{"iso":"2026-08-01","disp":"2026/8/1","wd":"土","no":12,"start":"9:00","end":"17:00"},{"iso":"2026-08-23","disp":"2026/8/23","wd":"日","no":13,"start":"9:00","end":"17:00"},{"iso":"2026-09-06","disp":"2026/9/6","wd":"日","no":14,"start":"9:00","end":"17:00"},{"iso":"2026-09-19","disp":"2026/9/19","wd":"土","no":15,"start":"9:00","end":"17:00"}]},{"code":"2671Y02","branch":"四国","ctype":"春6","format":"通学","room":"香川","weekday":"土日","capacity":12,"venue":"香川県高松市林町2217-15　香川産業頭脳化センタービル","zip":"761-0301","applyTo":"香川県高松市林町2217-15　香川産業頭脳化センタービル4階 411号　一般社団法人日本産業カウンセラー協会　四国支部　香川事務所","tel":"087-816-8040","fax":"087-816-8041","sessions":[{"iso":"2026-04-12","disp":"2026/4/12","wd":"日","no":1,"start":"10:00","end":"17:00"},{"iso":"2026-04-25","disp":"2026/4/25","wd":"土","no":2,"start":"9:00","end":"17:00"},{"iso":"2026-05-10","disp":"2026/5/10","wd":"日","no":3,"start":"9:00","end":"17:00"},{"iso":"2026-05-23","disp":"2026/5/23","wd":"土","no":4,"start":"9:00","end":"17:00"},{"iso":"2026-05-31","disp":"2026/5/31","wd":"日","no":5,"start":"9:00","end":"17:00"},{"iso":"2026-06-13","disp":"2026/6/13","wd":"土","no":6,"start":"9:00","end":"17:00"},{"iso":"2026-06-28","disp":"2026/6/28","wd":"日","no":7,"start":"9:00","end":"17:00"},{"iso":"2026-07-04","disp":"2026/7/4","wd":"土","no":8,"start":"9:00","end":"17:00"},{"iso":"2026-07-11","disp":"2026/7/11","wd":"土","no":9,"start":"9:00","end":"17:00"},{"iso":"2026-07-18","disp":"2026/7/18","wd":"土","no":10,"start":"9:00","end":"17:00"},{"iso":"2026-08-02","disp":"2026/8/2","wd":"日","no":11,"start":"9:00","end":"17:00"},{"iso":"2026-08-23","disp":"2026/8/23","wd":"日","no":12,"start":"9:00","end":"17:00"},{"iso":"2026-09-06","disp":"2026/9/6","wd":"日","no":13,"start":"9:00","end":"17:00"},{"iso":"2026-09-12","disp":"2026/9/12","wd":"土","no":14,"start":"9:00","end":"17:00"},{"iso":"2026-09-26","disp":"2026/9/26","wd":"土","no":15,"start":"9:00","end":"17:00"}]},{"code":"2671Y03","branch":"四国","ctype":"春6","format":"通学","room":"高知","weekday":"日","capacity":12,"venue":"高知県高知市本町4丁目3-30　高知県立県民文化ホール","zip":"780-0870","applyTo":"高知県高知市本町3丁目6番22号　レジデンスリオ101号室　一般社団法人日本産業カウンセラー協会　四国支部　高知事務所","tel":"088-826-9880","fax":"088-826-9880","sessions":[{"iso":"2026-04-19","disp":"2026/4/19","wd":"日","no":1,"start":"10:00","end":"17:00"},{"iso":"2026-04-26","disp":"2026/4/26","wd":"日","no":2,"start":"9:00","end":"17:00"},{"iso":"2026-05-10","disp":"2026/5/10","wd":"日","no":3,"start":"9:00","end":"17:00"},{"iso":"2026-05-17","disp":"2026/5/17","wd":"日","no":4,"start":"9:00","end":"17:00"},{"iso":"2026-05-31","disp":"2026/5/31","wd":"日","no":5,"start":"9:00","end":"17:00"},{"iso":"2026-06-14","disp":"2026/6/14","wd":"日","no":6,"start":"9:00","end":"17:00"},{"iso":"2026-06-28","disp":"2026/6/28","wd":"日","no":7,"start":"9:00","end":"17:00"},{"iso":"2026-07-05","disp":"2026/7/5","wd":"日","no":8,"start":"9:00","end":"17:00"},{"iso":"2026-07-12","disp":"2026/7/12","wd":"日","no":9,"start":"9:00","end":"17:00"},{"iso":"2026-07-26","disp":"2026/7/26","wd":"日","no":10,"start":"9:00","end":"17:00"},{"iso":"2026-08-16","disp":"2026/8/16","wd":"日","no":11,"start":"9:00","end":"17:00"},{"iso":"2026-08-30","disp":"2026/8/30","wd":"日","no":12,"start":"9:00","end":"17:00"},{"iso":"2026-09-06","disp":"2026/9/6","wd":"日","no":13,"start":"9:00","end":"17:00"},{"iso":"2026-09-13","disp":"2026/9/13","wd":"日","no":14,"start":"9:00","end":"17:00"},{"iso":"2026-09-20","disp":"2026/9/20","wd":"日","no":15,"start":"9:00","end":"17:00"}]},{"code":"2681Y01","branch":"九州","ctype":"春6","format":"通学","room":"福岡","weekday":"土","capacity":18,"venue":"福岡県福岡市博多区博多駅南1-2-15　事務機ビル6階　日本産業カウンセラー協会　九州支部研修室","zip":"812-0016","applyTo":"福岡県福岡市博多区博多駅南1-2-15　事務機ビル6階　一般社団法人 日本産業カウンセラー協会　九州支部","tel":"092-434-4433","fax":"092-434-4434","sessions":[{"iso":"2026-04-11","disp":"2026/4/11","wd":"土","no":1,"start":"10:00","end":"17:00"},{"iso":"2026-04-18","disp":"2026/4/18","wd":"土","no":2,"start":"9:30","end":"17:30"},{"iso":"2026-04-25","disp":"2026/4/25","wd":"土","no":3,"start":"9:30","end":"17:30"},{"iso":"2026-05-09","disp":"2026/5/9","wd":"土","no":4,"start":"9:30","end":"17:30"},{"iso":"2026-05-23","disp":"2026/5/23","wd":"土","no":5,"start":"9:30","end":"17:30"},{"iso":"2026-06-06","disp":"2026/6/6","wd":"土","no":6,"start":"9:30","end":"17:30"},{"iso":"2026-06-20","disp":"2026/6/20","wd":"土","no":7,"start":"9:30","end":"17:30"},{"iso":"2026-06-27","disp":"2026/6/27","wd":"土","no":8,"start":"9:30","end":"17:30"},{"iso":"2026-07-11","disp":"2026/7/11","wd":"土","no":9,"start":"9:30","end":"17:30"},{"iso":"2026-07-18","disp":"2026/7/18","wd":"土","no":10,"start":"9:30","end":"17:30"},{"iso":"2026-08-01","disp":"2026/8/1","wd":"土","no":11,"start":"9:30","end":"17:30"},{"iso":"2026-08-08","disp":"2026/8/8","wd":"土","no":12,"start":"9:30","end":"17:30"},{"iso":"2026-08-29","disp":"2026/8/29","wd":"土","no":13,"start":"9:30","end":"17:30"},{"iso":"2026-09-12","disp":"2026/9/12","wd":"土","no":14,"start":"9:30","end":"17:30"},{"iso":"2026-09-19","disp":"2026/9/19","wd":"土","no":15,"start":"9:30","end":"17:30"}]},{"code":"2681Y03","branch":"九州","ctype":"春6","format":"通学","room":"宮崎","weekday":"日","capacity":12,"venue":"宮崎市大字恒久4241番地　ポリテクセンター宮崎","zip":"812-0016","applyTo":"福岡県福岡市博多区博多駅南1-2-15　事務機ビル6階　一般社団法人 日本産業カウンセラー協会　九州支部","tel":"092-434-4433","fax":"092-434-4434","sessions":[{"iso":"2026-04-12","disp":"2026/4/12","wd":"日","no":1,"start":"10:00","end":"17:00"},{"iso":"2026-04-19","disp":"2026/4/19","wd":"日","no":2,"start":"9:30","end":"17:30"},{"iso":"2026-04-26","disp":"2026/4/26","wd":"日","no":3,"start":"9:30","end":"17:30"},{"iso":"2026-05-17","disp":"2026/5/17","wd":"日","no":4,"start":"9:30","end":"17:30"},{"iso":"2026-05-24","disp":"2026/5/24","wd":"日","no":5,"start":"9:30","end":"17:30"},{"iso":"2026-06-07","disp":"2026/6/7","wd":"日","no":6,"start":"9:30","end":"17:30"},{"iso":"2026-06-21","disp":"2026/6/21","wd":"日","no":7,"start":"9:30","end":"17:30"},{"iso":"2026-06-28","disp":"2026/6/28","wd":"日","no":8,"start":"9:30","end":"17:30"},{"iso":"2026-07-12","disp":"2026/7/12","wd":"日","no":9,"start":"9:30","end":"17:30"},{"iso":"2026-07-19","disp":"2026/7/19","wd":"日","no":10,"start":"9:30","end":"17:30"},{"iso":"2026-08-02","disp":"2026/8/2","wd":"日","no":11,"start":"9:30","end":"17:30"},{"iso":"2026-08-09","disp":"2026/8/9","wd":"日","no":12,"start":"9:30","end":"17:30"},{"iso":"2026-08-23","disp":"2026/8/23","wd":"日","no":13,"start":"9:30","end":"17:30"},{"iso":"2026-09-06","disp":"2026/9/6","wd":"日","no":14,"start":"9:30","end":"17:30"},{"iso":"2026-09-20","disp":"2026/9/20","wd":"日","no":15,"start":"9:30","end":"17:30"}]},{"code":"2681Y02","branch":"九州","ctype":"春6","format":"通学","room":"熊本","weekday":"日","capacity":12,"venue":"熊本市南区流通団地1丁目24番地　熊本市流通情報会館","zip":"812-0016","applyTo":"福岡県福岡市博多区博多駅南1-2-15　事務機ビル6階　一般社団法人 日本産業カウンセラー協会　九州支部","tel":"092-434-4433","fax":"092-434-4434","sessions":[{"iso":"2026-04-12","disp":"2026/4/12","wd":"日","no":1,"start":"10:00","end":"17:00"},{"iso":"2026-04-19","disp":"2026/4/19","wd":"日","no":2,"start":"9:30","end":"17:30"},{"iso":"2026-04-26","disp":"2026/4/26","wd":"日","no":3,"start":"9:30","end":"17:30"},{"iso":"2026-05-10","disp":"2026/5/10","wd":"日","no":4,"start":"9:30","end":"17:30"},{"iso":"2026-05-24","disp":"2026/5/24","wd":"日","no":5,"start":"9:30","end":"17:30"},{"iso":"2026-05-31","disp":"2026/5/31","wd":"日","no":6,"start":"9:30","end":"17:30"},{"iso":"2026-06-21","disp":"2026/6/21","wd":"日","no":7,"start":"9:30","end":"17:30"},{"iso":"2026-06-28","disp":"2026/6/28","wd":"日","no":8,"start":"9:30","end":"17:30"},{"iso":"2026-07-12","disp":"2026/7/12","wd":"日","no":9,"start":"9:30","end":"17:30"},{"iso":"2026-07-19","disp":"2026/7/19","wd":"日","no":10,"start":"9:30","end":"17:30"},{"iso":"2026-08-02","disp":"2026/8/2","wd":"日","no":11,"start":"9:30","end":"17:30"},{"iso":"2026-08-09","disp":"2026/8/9","wd":"日","no":12,"start":"9:30","end":"17:30"},{"iso":"2026-08-23","disp":"2026/8/23","wd":"日","no":13,"start":"9:30","end":"17:30"},{"iso":"2026-09-06","disp":"2026/9/6","wd":"日","no":14,"start":"9:30","end":"17:30"},{"iso":"2026-09-20","disp":"2026/9/20","wd":"日","no":15,"start":"9:30","end":"17:30"}]},{"code":"2681Y04","branch":"九州","ctype":"春10","format":"OL","room":"九州OL","weekday":"土日","capacity":18,"venue":"福岡県福岡市博多区博多駅南1-2-15　事務機ビル6階　日本産業カウンセラー協会　九州支部研修室","zip":"812-0016","applyTo":"福岡県福岡市博多区博多駅南1-2-15　事務機ビル6階　一般社団法人 日本産業カウンセラー協会　九州支部","tel":"092-434-4433","fax":"092-434-4434","sessions":[{"iso":"2026-05-16","disp":"2026/5/16","wd":"土","no":1,"start":"10:00","end":"17:00"},{"iso":"2026-05-17","disp":"2026/5/17","wd":"日","no":2,"start":"9:30","end":"17:30"},{"iso":"2026-05-31","disp":"2026/5/31","wd":"日","no":3,"start":"9:30","end":"17:30"},{"iso":"2026-06-21","disp":"2026/6/21","wd":"日","no":4,"start":"9:30","end":"17:30"},{"iso":"2026-07-12","disp":"2026/7/12","wd":"日","no":5,"start":"9:30","end":"17:30"},{"iso":"2026-08-02","disp":"2026/8/2","wd":"日","no":6,"start":"9:30","end":"17:30"},{"iso":"2026-08-22","disp":"2026/8/22","wd":"土","no":7,"start":"9:30","end":"17:30"},{"iso":"2026-08-23","disp":"2026/8/23","wd":"日","no":8,"start":"9:30","end":"17:30"},{"iso":"2026-09-13","disp":"2026/9/13","wd":"日","no":9,"start":"9:30","end":"17:30"},{"iso":"2026-10-04","disp":"2026/10/4","wd":"日","no":10,"start":"9:30","end":"17:30"},{"iso":"2026-10-18","disp":"2026/10/18","wd":"日","no":11,"start":"9:30","end":"17:30"},{"iso":"2026-11-08","disp":"2026/11/8","wd":"日","no":12,"start":"9:30","end":"17:30"},{"iso":"2026-11-29","disp":"2026/11/29","wd":"日","no":13,"start":"9:30","end":"17:30"},{"iso":"2026-12-20","disp":"2026/12/20","wd":"日","no":14,"start":"9:30","end":"17:30"},{"iso":"2027-01-10","disp":"2027/1/10","wd":"日","no":15,"start":"9:30","end":"17:30"}]},{"code":"2691Y01","branch":"沖縄","ctype":"春6","format":"通学","room":"浦添","weekday":"日","capacity":12,"venue":"沖縄県浦添市牧港5-6-7　沖縄建設労働者研修福祉センター","zip":"901-2131","applyTo":"沖縄県浦添市牧湊5-6-8 沖縄県建設会館3階　一般社団法人日本産業カウンセラー協会　沖縄支部","tel":"098-975-6061","fax":"098-975-6066","sessions":[{"iso":"2026-04-12","disp":"2026/4/12","wd":"日","no":1,"start":"9:30","end":"17:00"},{"iso":"2026-04-26","disp":"2026/4/26","wd":"日","no":2,"start":"9:00","end":"17:00"},{"iso":"2026-05-10","disp":"2026/5/10","wd":"日","no":3,"start":"9:00","end":"17:00"},{"iso":"2026-05-24","disp":"2026/5/24","wd":"日","no":4,"start":"9:00","end":"17:00"},{"iso":"2026-05-31","disp":"2026/5/31","wd":"日","no":5,"start":"9:00","end":"17:00"},{"iso":"2026-06-07","disp":"2026/6/7","wd":"日","no":6,"start":"9:00","end":"17:00"},{"iso":"2026-06-21","disp":"2026/6/21","wd":"日","no":7,"start":"9:00","end":"17:00"},{"iso":"2026-06-28","disp":"2026/6/28","wd":"日","no":8,"start":"9:00","end":"17:00"},{"iso":"2026-07-12","disp":"2026/7/12","wd":"日","no":9,"start":"9:00","end":"17:00"},{"iso":"2026-07-26","disp":"2026/7/26","wd":"日","no":10,"start":"9:00","end":"17:00"},{"iso":"2026-08-02","disp":"2026/8/2","wd":"日","no":11,"start":"9:00","end":"17:00"},{"iso":"2026-08-23","disp":"2026/8/23","wd":"日","no":12,"start":"9:00","end":"17:00"},{"iso":"2026-09-06","disp":"2026/9/6","wd":"日","no":13,"start":"9:00","end":"17:00"},{"iso":"2026-09-20","disp":"2026/9/20","wd":"日","no":14,"start":"9:00","end":"17:00"},{"iso":"2026-09-27","disp":"2026/9/27","wd":"日","no":15,"start":"9:00","end":"16:30"}]},{"code":"2600Y01","branch":"本部受付","ctype":"春6","format":"FOL","room":"フルオンライン（土A）","weekday":"土","capacity":10,"venue":"-","zip":"105-0004","applyTo":"東京都港区新橋6-17-17　御成門センタービル6階　一般社団法人日本産業カウンセラー協会　産業カウンセラー養成事業部","tel":"03-3438-4568","fax":"-","sessions":[{"iso":"2026-04-04","disp":"2026/4/4","wd":"土","no":1,"start":"9:00","end":"17:00"},{"iso":"2026-04-11","disp":"2026/4/11","wd":"土","no":2,"start":"9:00","end":"17:00"},{"iso":"2026-04-25","disp":"2026/4/25","wd":"土","no":3,"start":"9:00","end":"17:00"},{"iso":"2026-05-16","disp":"2026/5/16","wd":"土","no":4,"start":"9:00","end":"17:00"},{"iso":"2026-05-23","disp":"2026/5/23","wd":"土","no":5,"start":"9:00","end":"17:00"},{"iso":"2026-06-06","disp":"2026/6/6","wd":"土","no":6,"start":"9:00","end":"17:00"},{"iso":"2026-06-13","disp":"2026/6/13","wd":"土","no":7,"start":"9:00","end":"17:00"},{"iso":"2026-06-20","disp":"2026/6/20","wd":"土","no":8,"start":"9:00","end":"17:00"},{"iso":"2026-07-04","disp":"2026/7/4","wd":"土","no":9,"start":"9:00","end":"17:00"},{"iso":"2026-07-11","disp":"2026/7/11","wd":"土","no":10,"start":"9:00","end":"17:00"},{"iso":"2026-07-25","disp":"2026/7/25","wd":"土","no":11,"start":"9:00","end":"17:00"},{"iso":"2026-08-01","disp":"2026/8/1","wd":"土","no":12,"start":"9:00","end":"17:00"},{"iso":"2026-08-22","disp":"2026/8/22","wd":"土","no":13,"start":"9:00","end":"17:00"},{"iso":"2026-09-05","disp":"2026/9/5","wd":"土","no":14,"start":"9:00","end":"17:00"},{"iso":"2026-09-12","disp":"2026/9/12","wd":"土","no":15,"start":"9:00","end":"17:00"}]},{"code":"2600Y02","branch":"本部受付","ctype":"春6","format":"FOL","room":"フルオンライン（土B）","weekday":"土","capacity":18,"venue":"-","zip":"105-0004","applyTo":"東京都港区新橋6-17-17　御成門センタービル6階　一般社団法人日本産業カウンセラー協会　産業カウンセラー養成事業部","tel":"03-3438-4568","fax":"-","sessions":[{"iso":"2026-04-11","disp":"2026/4/11","wd":"土","no":1,"start":"9:30","end":"17:30"},{"iso":"2026-04-18","disp":"2026/4/18","wd":"土","no":2,"start":"9:30","end":"17:30"},{"iso":"2026-04-25","disp":"2026/4/25","wd":"土","no":3,"start":"9:30","end":"17:30"},{"iso":"2026-05-16","disp":"2026/5/16","wd":"土","no":4,"start":"9:30","end":"17:30"},{"iso":"2026-05-30","disp":"2026/5/30","wd":"土","no":5,"start":"9:30","end":"17:30"},{"iso":"2026-06-06","disp":"2026/6/6","wd":"土","no":6,"start":"9:30","end":"17:30"},{"iso":"2026-06-20","disp":"2026/6/20","wd":"土","no":7,"start":"9:30","end":"17:30"},{"iso":"2026-07-04","disp":"2026/7/4","wd":"土","no":8,"start":"9:30","end":"17:30"},{"iso":"2026-07-11","disp":"2026/7/11","wd":"土","no":9,"start":"9:30","end":"17:30"},{"iso":"2026-07-25","disp":"2026/7/25","wd":"土","no":10,"start":"9:30","end":"17:30"},{"iso":"2026-08-01","disp":"2026/8/1","wd":"土","no":11,"start":"9:30","end":"17:30"},{"iso":"2026-08-22","disp":"2026/8/22","wd":"土","no":12,"start":"9:30","end":"17:30"},{"iso":"2026-08-29","disp":"2026/8/29","wd":"土","no":13,"start":"9:30","end":"17:30"},{"iso":"2026-09-12","disp":"2026/9/12","wd":"土","no":14,"start":"9:30","end":"17:30"},{"iso":"2026-09-26","disp":"2026/9/26","wd":"土","no":15,"start":"9:30","end":"17:30"}]},{"code":"2600Y03","branch":"本部受付","ctype":"春6","format":"FOL","room":"フルオンライン（日A）","weekday":"日","capacity":22,"venue":"-","zip":"105-0004","applyTo":"東京都港区新橋6-17-17　御成門センタービル6階　一般社団法人日本産業カウンセラー協会　産業カウンセラー養成事業部","tel":"03-3438-4568","fax":"-","sessions":[{"iso":"2026-04-05","disp":"2026/4/5","wd":"日","no":1,"start":"9:00","end":"17:00"},{"iso":"2026-04-12","disp":"2026/4/12","wd":"日","no":2,"start":"9:00","end":"17:00"},{"iso":"2026-04-26","disp":"2026/4/26","wd":"日","no":3,"start":"9:00","end":"17:00"},{"iso":"2026-05-17","disp":"2026/5/17","wd":"日","no":4,"start":"9:00","end":"17:00"},{"iso":"2026-05-24","disp":"2026/5/24","wd":"日","no":5,"start":"9:00","end":"17:00"},{"iso":"2026-06-07","disp":"2026/6/7","wd":"日","no":6,"start":"9:00","end":"17:00"},{"iso":"2026-06-14","disp":"2026/6/14","wd":"日","no":7,"start":"9:00","end":"17:00"},{"iso":"2026-06-21","disp":"2026/6/21","wd":"日","no":8,"start":"9:00","end":"17:00"},{"iso":"2026-07-05","disp":"2026/7/5","wd":"日","no":9,"start":"9:00","end":"17:00"},{"iso":"2026-07-12","disp":"2026/7/12","wd":"日","no":10,"start":"9:00","end":"17:00"},{"iso":"2026-07-26","disp":"2026/7/26","wd":"日","no":11,"start":"9:00","end":"17:00"},{"iso":"2026-08-02","disp":"2026/8/2","wd":"日","no":12,"start":"9:00","end":"17:00"},{"iso":"2026-08-23","disp":"2026/8/23","wd":"日","no":13,"start":"9:00","end":"17:00"},{"iso":"2026-09-06","disp":"2026/9/6","wd":"日","no":14,"start":"9:00","end":"17:00"},{"iso":"2026-09-13","disp":"2026/9/13","wd":"日","no":15,"start":"9:00","end":"17:00"}]},{"code":"2600Y04","branch":"本部受付","ctype":"春6","format":"FOL","room":"フルオンライン（日B）","weekday":"日","capacity":12,"venue":"-","zip":"105-0004","applyTo":"東京都港区新橋6-17-17　御成門センタービル6階　一般社団法人日本産業カウンセラー協会　産業カウンセラー養成事業部","tel":"03-3438-4568","fax":"-","sessions":[{"iso":"2026-04-12","disp":"2026/4/12","wd":"日","no":1,"start":"9:00","end":"17:00"},{"iso":"2026-04-19","disp":"2026/4/19","wd":"日","no":2,"start":"9:00","end":"17:00"},{"iso":"2026-04-26","disp":"2026/4/26","wd":"日","no":3,"start":"9:00","end":"17:00"},{"iso":"2026-05-17","disp":"2026/5/17","wd":"日","no":4,"start":"9:00","end":"17:00"},{"iso":"2026-05-31","disp":"2026/5/31","wd":"日","no":5,"start":"9:00","end":"17:00"},{"iso":"2026-06-07","disp":"2026/6/7","wd":"日","no":6,"start":"9:00","end":"17:00"},{"iso":"2026-06-21","disp":"2026/6/21","wd":"日","no":7,"start":"9:00","end":"17:00"},{"iso":"2026-07-05","disp":"2026/7/5","wd":"日","no":8,"start":"9:00","end":"17:00"},{"iso":"2026-07-12","disp":"2026/7/12","wd":"日","no":9,"start":"9:00","end":"17:00"},{"iso":"2026-07-26","disp":"2026/7/26","wd":"日","no":10,"start":"9:00","end":"17:00"},{"iso":"2026-08-02","disp":"2026/8/2","wd":"日","no":11,"start":"9:00","end":"17:00"},{"iso":"2026-08-23","disp":"2026/8/23","wd":"日","no":12,"start":"9:00","end":"17:00"},{"iso":"2026-08-30","disp":"2026/8/30","wd":"日","no":13,"start":"9:00","end":"17:00"},{"iso":"2026-09-13","disp":"2026/9/13","wd":"日","no":14,"start":"9:00","end":"17:00"},{"iso":"2026-09-27","disp":"2026/9/27","wd":"日","no":15,"start":"9:00","end":"17:00"}]},{"code":"2600Y05","branch":"本部受付","ctype":"春6","format":"FOL","room":"フルオンライン（月）","weekday":"月","capacity":10,"venue":"-","zip":"105-0004","applyTo":"東京都港区新橋6-17-17　御成門センタービル6階　一般社団法人日本産業カウンセラー協会　産業カウンセラー養成事業部","tel":"03-3438-4568","fax":"-","sessions":[{"iso":"2026-04-06","disp":"2026/4/6","wd":"月","no":1,"start":"9:00","end":"17:00"},{"iso":"2026-04-13","disp":"2026/4/13","wd":"月","no":2,"start":"9:00","end":"17:00"},{"iso":"2026-04-27","disp":"2026/4/27","wd":"月","no":3,"start":"9:00","end":"17:00"},{"iso":"2026-05-18","disp":"2026/5/18","wd":"月","no":4,"start":"9:00","end":"17:00"},{"iso":"2026-05-25","disp":"2026/5/25","wd":"月","no":5,"start":"9:00","end":"17:00"},{"iso":"2026-06-08","disp":"2026/6/8","wd":"月","no":6,"start":"9:00","end":"17:00"},{"iso":"2026-06-15","disp":"2026/6/15","wd":"月","no":7,"start":"9:00","end":"17:00"},{"iso":"2026-06-29","disp":"2026/6/29","wd":"月","no":8,"start":"9:00","end":"17:00"},{"iso":"2026-07-06","disp":"2026/7/6","wd":"月","no":9,"start":"9:00","end":"17:00"},{"iso":"2026-07-13","disp":"2026/7/13","wd":"月","no":10,"start":"9:00","end":"17:00"},{"iso":"2026-07-27","disp":"2026/7/27","wd":"月","no":11,"start":"9:00","end":"17:00"},{"iso":"2026-08-03","disp":"2026/8/3","wd":"月","no":12,"start":"9:00","end":"17:00"},{"iso":"2026-08-24","disp":"2026/8/24","wd":"月","no":13,"start":"9:00","end":"17:00"},{"iso":"2026-09-07","disp":"2026/9/7","wd":"月","no":14,"start":"9:00","end":"17:00"},{"iso":"2026-09-14","disp":"2026/9/14","wd":"月","no":15,"start":"9:00","end":"17:00"}]},{"code":"2600Y06","branch":"本部受付","ctype":"春6","format":"FOL","room":"フルオンライン（水）","weekday":"水","capacity":22,"venue":"-","zip":"105-0004","applyTo":"東京都港区新橋6-17-17　御成門センタービル6階　一般社団法人日本産業カウンセラー協会　産業カウンセラー養成事業部","tel":"03-3438-4568","fax":"-","sessions":[{"iso":"2026-04-08","disp":"2026/4/8","wd":"水","no":1,"start":"9:00","end":"17:00"},{"iso":"2026-04-22","disp":"2026/4/22","wd":"水","no":2,"start":"9:00","end":"17:00"},{"iso":"2026-05-13","disp":"2026/5/13","wd":"水","no":3,"start":"9:00","end":"17:00"},{"iso":"2026-05-20","disp":"2026/5/20","wd":"水","no":4,"start":"9:00","end":"17:00"},{"iso":"2026-06-03","disp":"2026/6/3","wd":"水","no":5,"start":"9:00","end":"17:00"},{"iso":"2026-06-10","disp":"2026/6/10","wd":"水","no":6,"start":"9:00","end":"17:00"},{"iso":"2026-06-24","disp":"2026/6/24","wd":"水","no":7,"start":"9:00","end":"17:00"},{"iso":"2026-07-01","disp":"2026/7/1","wd":"水","no":8,"start":"9:00","end":"17:00"},{"iso":"2026-07-15","disp":"2026/7/15","wd":"水","no":9,"start":"9:00","end":"17:00"},{"iso":"2026-07-22","disp":"2026/7/22","wd":"水","no":10,"start":"9:00","end":"17:00"},{"iso":"2026-08-05","disp":"2026/8/5","wd":"水","no":11,"start":"9:00","end":"17:00"},{"iso":"2026-08-19","disp":"2026/8/19","wd":"水","no":12,"start":"9:00","end":"17:00"},{"iso":"2026-08-26","disp":"2026/8/26","wd":"水","no":13,"start":"9:00","end":"17:00"},{"iso":"2026-09-09","disp":"2026/9/9","wd":"水","no":14,"start":"9:00","end":"17:00"},{"iso":"2026-09-16","disp":"2026/9/16","wd":"水","no":15,"start":"9:00","end":"17:00"}]},{"code":"2600Y07","branch":"本部受付","ctype":"春6","format":"FOL","room":"フルオンライン（木）","weekday":"木","capacity":12,"venue":"-","zip":"105-0004","applyTo":"東京都港区新橋6-17-17　御成門センタービル6階　一般社団法人日本産業カウンセラー協会　産業カウンセラー養成事業部","tel":"03-3438-4568","fax":"-","sessions":[{"iso":"2026-04-23","disp":"2026/4/23","wd":"木","no":1,"start":"9:00","end":"17:00"},{"iso":"2026-05-14","disp":"2026/5/14","wd":"木","no":2,"start":"9:00","end":"17:00"},{"iso":"2026-05-21","disp":"2026/5/21","wd":"木","no":3,"start":"9:00","end":"17:00"},{"iso":"2026-05-28","disp":"2026/5/28","wd":"木","no":4,"start":"9:00","end":"17:00"},{"iso":"2026-06-11","disp":"2026/6/11","wd":"木","no":5,"start":"9:00","end":"17:00"},{"iso":"2026-06-18","disp":"2026/6/18","wd":"木","no":6,"start":"9:00","end":"17:00"},{"iso":"2026-07-02","disp":"2026/7/2","wd":"木","no":7,"start":"9:00","end":"17:00"},{"iso":"2026-07-09","disp":"2026/7/9","wd":"木","no":8,"start":"9:00","end":"17:00"},{"iso":"2026-07-23","disp":"2026/7/23","wd":"木","no":9,"start":"9:00","end":"17:00"},{"iso":"2026-07-30","disp":"2026/7/30","wd":"木","no":10,"start":"9:00","end":"17:00"},{"iso":"2026-08-06","disp":"2026/8/6","wd":"木","no":11,"start":"9:00","end":"17:00"},{"iso":"2026-08-20","disp":"2026/8/20","wd":"木","no":12,"start":"9:00","end":"17:00"},{"iso":"2026-08-27","disp":"2026/8/27","wd":"木","no":13,"start":"9:00","end":"17:00"},{"iso":"2026-09-10","disp":"2026/9/10","wd":"木","no":14,"start":"9:00","end":"17:00"},{"iso":"2026-09-17","disp":"2026/9/17","wd":"木","no":15,"start":"9:00","end":"17:00"}]},{"code":"2600Y11","branch":"本部受付","ctype":"春10","format":"FOL","room":"フルオンライン（土）","weekday":"土","capacity":12,"venue":"-","zip":"105-0004","applyTo":"東京都港区新橋6-17-17　御成門センタービル6階　一般社団法人日本産業カウンセラー協会　産業カウンセラー養成事業部","tel":"03-3438-4568","fax":"-","sessions":[{"iso":"2026-04-18","disp":"2026/4/18","wd":"土","no":1,"start":"9:30","end":"17:30"},{"iso":"2026-05-16","disp":"2026/5/16","wd":"土","no":2,"start":"9:30","end":"17:30"},{"iso":"2026-05-30","disp":"2026/5/30","wd":"土","no":3,"start":"9:30","end":"17:30"},{"iso":"2026-06-20","disp":"2026/6/20","wd":"土","no":4,"start":"9:30","end":"17:30"},{"iso":"2026-07-04","disp":"2026/7/4","wd":"土","no":5,"start":"9:30","end":"17:30"},{"iso":"2026-07-25","disp":"2026/7/25","wd":"土","no":6,"start":"9:30","end":"17:30"},{"iso":"2026-08-22","disp":"2026/8/22","wd":"土","no":7,"start":"9:30","end":"17:30"},{"iso":"2026-09-12","disp":"2026/9/12","wd":"土","no":8,"start":"9:30","end":"17:30"},{"iso":"2026-10-03","disp":"2026/10/3","wd":"土","no":9,"start":"9:30","end":"17:30"},{"iso":"2026-10-24","disp":"2026/10/24","wd":"土","no":10,"start":"9:30","end":"17:30"},{"iso":"2026-11-14","disp":"2026/11/14","wd":"土","no":11,"start":"9:30","end":"17:30"},{"iso":"2026-11-28","disp":"2026/11/28","wd":"土","no":12,"start":"9:30","end":"17:30"},{"iso":"2026-12-19","disp":"2026/12/19","wd":"土","no":13,"start":"9:30","end":"17:30"},{"iso":"2027-01-09","disp":"2027/1/9","wd":"土","no":14,"start":"9:30","end":"17:30"},{"iso":"2027-01-23","disp":"2027/1/23","wd":"土","no":15,"start":"9:30","end":"17:30"}]},{"code":"2600Y12","branch":"本部受付","ctype":"春10","format":"FOL","room":"フルオンライン（日）","weekday":"日","capacity":12,"venue":"-","zip":"105-0004","applyTo":"東京都港区新橋6-17-17　御成門センタービル6階　一般社団法人日本産業カウンセラー協会　産業カウンセラー養成事業部","tel":"03-3438-4568","fax":"-","sessions":[{"iso":"2026-04-19","disp":"2026/4/19","wd":"日","no":1,"start":"9:00","end":"17:00"},{"iso":"2026-05-17","disp":"2026/5/17","wd":"日","no":2,"start":"9:00","end":"17:00"},{"iso":"2026-05-31","disp":"2026/5/31","wd":"日","no":3,"start":"9:00","end":"17:00"},{"iso":"2026-06-21","disp":"2026/6/21","wd":"日","no":4,"start":"9:00","end":"17:00"},{"iso":"2026-07-05","disp":"2026/7/5","wd":"日","no":5,"start":"9:00","end":"17:00"},{"iso":"2026-07-26","disp":"2026/7/26","wd":"日","no":6,"start":"9:00","end":"17:00"},{"iso":"2026-08-23","disp":"2026/8/23","wd":"日","no":7,"start":"9:00","end":"17:00"},{"iso":"2026-09-13","disp":"2026/9/13","wd":"日","no":8,"start":"9:00","end":"17:00"},{"iso":"2026-10-04","disp":"2026/10/4","wd":"日","no":9,"start":"9:00","end":"17:00"},{"iso":"2026-10-25","disp":"2026/10/25","wd":"日","no":10,"start":"9:00","end":"17:00"},{"iso":"2026-11-15","disp":"2026/11/15","wd":"日","no":11,"start":"9:00","end":"17:00"},{"iso":"2026-11-29","disp":"2026/11/29","wd":"日","no":12,"start":"9:00","end":"17:00"},{"iso":"2026-12-20","disp":"2026/12/20","wd":"日","no":13,"start":"9:00","end":"17:00"},{"iso":"2027-01-10","disp":"2027/1/10","wd":"日","no":14,"start":"9:00","end":"17:00"},{"iso":"2027-01-24","disp":"2027/1/24","wd":"日","no":15,"start":"9:00","end":"17:00"}]},{"code":"2600Y13","branch":"本部受付","ctype":"春10","format":"FOL","room":"フルオンライン（木）","weekday":"木","capacity":18,"venue":"-","zip":"105-0004","applyTo":"東京都港区新橋6-17-17　御成門センタービル6階　一般社団法人日本産業カウンセラー協会　産業カウンセラー養成事業部","tel":"03-3438-4568","fax":"-","sessions":[{"iso":"2026-04-16","disp":"2026/4/16","wd":"木","no":1,"start":"9:00","end":"17:00"},{"iso":"2026-05-14","disp":"2026/5/14","wd":"木","no":2,"start":"9:00","end":"17:00"},{"iso":"2026-05-28","disp":"2026/5/28","wd":"木","no":3,"start":"9:00","end":"17:00"},{"iso":"2026-06-18","disp":"2026/6/18","wd":"木","no":4,"start":"9:00","end":"17:00"},{"iso":"2026-07-02","disp":"2026/7/2","wd":"木","no":5,"start":"9:00","end":"17:00"},{"iso":"2026-07-23","disp":"2026/7/23","wd":"木","no":6,"start":"9:00","end":"17:00"},{"iso":"2026-08-20","disp":"2026/8/20","wd":"木","no":7,"start":"9:00","end":"17:00"},{"iso":"2026-09-10","disp":"2026/9/10","wd":"木","no":8,"start":"9:00","end":"17:00"},{"iso":"2026-10-01","disp":"2026/10/1","wd":"木","no":9,"start":"9:00","end":"17:00"},{"iso":"2026-10-22","disp":"2026/10/22","wd":"木","no":10,"start":"9:00","end":"17:00"},{"iso":"2026-11-12","disp":"2026/11/12","wd":"木","no":11,"start":"9:00","end":"17:00"},{"iso":"2026-11-26","disp":"2026/11/26","wd":"木","no":12,"start":"9:00","end":"17:00"},{"iso":"2026-12-17","disp":"2026/12/17","wd":"木","no":13,"start":"9:00","end":"17:00"},{"iso":"2027-01-14","disp":"2027/1/14","wd":"木","no":14,"start":"9:00","end":"17:00"},{"iso":"2027-01-21","disp":"2027/1/21","wd":"木","no":15,"start":"9:00","end":"17:00"}]},{"code":"2600Y14","branch":"本部受付","ctype":"春10","format":"FOL","room":"フルオンライン（水）","weekday":"水短時間","capacity":12,"venue":"-","zip":"105-0004","applyTo":"東京都港区新橋6-17-17　御成門センタービル6階　一般社団法人日本産業カウンセラー協会　産業カウンセラー養成事業部","tel":"03-3438-4568","fax":"-","sessions":[{"iso":"2026-04-22","disp":"2026/4/22","wd":"水","no":1,"start":"13:00","end":"17:00"},{"iso":"2026-05-13","disp":"2026/5/13","wd":"水","no":2,"start":"13:00","end":"17:00"},{"iso":"2026-05-27","disp":"2026/5/27","wd":"水","no":3,"start":"13:00","end":"17:00"},{"iso":"2026-06-03","disp":"2026/6/3","wd":"水","no":4,"start":"13:00","end":"17:00"},{"iso":"2026-06-17","disp":"2026/6/17","wd":"水","no":5,"start":"13:00","end":"17:00"},{"iso":"2026-06-24","disp":"2026/6/24","wd":"水","no":6,"start":"13:00","end":"17:00"},{"iso":"2026-07-08","disp":"2026/7/8","wd":"水","no":7,"start":"13:00","end":"17:00"},{"iso":"2026-07-15","disp":"2026/7/15","wd":"水","no":8,"start":"13:00","end":"17:00"},{"iso":"2026-07-29","disp":"2026/7/29","wd":"水","no":9,"start":"13:00","end":"17:00"},{"iso":"2026-08-05","disp":"2026/8/5","wd":"水","no":10,"start":"13:00","end":"17:00"},{"iso":"2026-08-19","disp":"2026/8/19","wd":"水","no":11,"start":"13:00","end":"17:00"},{"iso":"2026-08-26","disp":"2026/8/26","wd":"水","no":12,"start":"13:00","end":"17:00"},{"iso":"2026-09-09","disp":"2026/9/9","wd":"水","no":13,"start":"13:00","end":"17:00"},{"iso":"2026-09-16","disp":"2026/9/16","wd":"水","no":14,"start":"13:00","end":"17:00"},{"iso":"2026-09-30","disp":"2026/9/30","wd":"水","no":15,"start":"13:00","end":"17:00"},{"iso":"2026-10-07","disp":"2026/10/7","wd":"水","no":16,"start":"13:00","end":"17:00"},{"iso":"2026-10-21","disp":"2026/10/21","wd":"水","no":17,"start":"13:00","end":"17:00"},{"iso":"2026-10-28","disp":"2026/10/28","wd":"水","no":18,"start":"13:00","end":"17:00"},{"iso":"2026-11-11","disp":"2026/11/11","wd":"水","no":19,"start":"13:00","end":"17:00"},{"iso":"2026-11-18","disp":"2026/11/18","wd":"水","no":20,"start":"13:00","end":"17:00"},{"iso":"2026-11-25","disp":"2026/11/25","wd":"水","no":21,"start":"13:00","end":"17:00"},{"iso":"2026-12-09","disp":"2026/12/9","wd":"水","no":22,"start":"13:00","end":"17:00"},{"iso":"2026-12-16","disp":"2026/12/16","wd":"水","no":23,"start":"13:00","end":"17:00"},{"iso":"2026-12-23","disp":"2026/12/23","wd":"水","no":24,"start":"13:00","end":"17:00"},{"iso":"2027-01-13","disp":"2027/1/13","wd":"水","no":25,"start":"13:00","end":"17:00"},{"iso":"2027-01-20","disp":"2027/1/20","wd":"水","no":26,"start":"13:00","end":"17:00"}]}]};
+
+/* 現行運用の申込先（会員申込システム）。1件だけ意図的に未設定にし、「URL未設定なら申込ボタンが自動で無効になる」動きを実演できるようにしています */
+const APPLY_BASE = "https://member.counselor.or.jp/nckoza.aspx";
+const applyUrlOf = code => code ? APPLY_BASE + "?cr=" + code : APPLY_BASE;
+DATA.courses.forEach((c,i)=>{ c.url = (i===1) ? "" : applyUrlOf(c.codeDisp || c.code); });
+
+const $ = s => document.querySelector(s);
+const fmtLabel ={"通学":"通学","OL":"オンライン","FOL":"フルオンライン"};
+const fmtCls = {"通学":"b-tsu","OL":"b-ol","FOL":"b-fol"};
+
+/* ---- 状態：下書き（管理画面）と公開済み（利用者画面）を分離 ---- */
+let mode = "user";
+const extra = [];
+const draft = new Map();
+let published = new Map();
+
+/* ---- ファーストビュー（利用者画面の先頭）。職員が管理画面から編集できる ---- */
+const HERO_SEED = {
+  title1:'産業カウンセラー養成講座®',
+  title2:'2026年度 春開講',
+  status:'お申し込み受付中',
+  statusType:'open',
+  bandOn:true,
+  bandText:'2026年度 秋冬開講講座の会場と日程をご覧になられたい方は',
+  bandLink:'こちら',
+  bandUrl:'https://www.counselor.or.jp/portals/0/e-learning/entry/',
+  lead:'お近くの支部・受講形式・コースから講座をさがして、そのままお申し込みいただけます。',
+  sub:'2026年度春期は、全国13支部＋本部受付で 合計63コース を開講しています。'
+};
+let heroDraft = Object.assign({}, HERO_SEED);
+let heroPub   = Object.assign({}, HERO_SEED);
+const heroChanged = () => JSON.stringify(heroDraft) !== JSON.stringify(heroPub);
+let newSeq = 1;
+const state = {branch:"", fmts:new Set(["通学","OL","FOL"]), types:new Set(["春6","春10"]), word:"",
+               open:new Set(), bulkTokyo:false, editing:null};
+
+/* 検索・絞り込みは利用者画面と職員管理画面で独立させる */
+const filterStore = {
+  user:  {branch:"", fmts:new Set(["通学","OL","FOL"]), types:new Set(["春6","春10"]), word:""},
+  admin: {branch:"", fmts:new Set(["通学","OL","FOL"]), types:new Set(["春6","春10"]), word:""}
+};
+function saveFilter(m){
+  filterStore[m] = {branch:state.branch, fmts:new Set(state.fmts), types:new Set(state.types), word:state.word};
+}
+function loadFilter(m){
+  const f = filterStore[m];
+  state.branch=f.branch; state.fmts=new Set(f.fmts); state.types=new Set(f.types); state.word=f.word;
+  $("#fBranch").value = state.branch;
+  $("#fWord").value = state.word;
+  document.querySelectorAll("#fFmt button").forEach(b=>b.classList.toggle("on", state.fmts.has(b.dataset.v)));
+  document.querySelectorAll("#fType button").forEach(b=>b.classList.toggle("on", state.types.has(b.dataset.v)));
+}
+
+const clonePatches = m => new Map(JSON.parse(JSON.stringify([...m])));
+const allCourses = () => DATA.courses.concat(extra);
+const eff = (c, m) => Object.assign({}, c, m.get(c.code) || {});
+function pendingCount(){
+  const codes = new Set([...draft.keys(), ...published.keys()]);
+  let n = 0;
+  codes.forEach(k=>{
+    if(JSON.stringify(draft.get(k)||null) !== JSON.stringify(published.get(k)||null)) n++;
+  });
+  if(heroChanged()) n++;   // ファーストビューの変更も1件として数える
+  return n;
+}
+
+/* ---- stats ---- */
+(function(){
+  const s = DATA.stats;
+  $("#stats").innerHTML = [
+    ["総コース数", s.courses, "コース", `春6か月 ${s.spring6}／春10か月 ${s.spring10}`],
+    ["実施体制", s.branches, "支部＋本部", `通学${s.fmt["通学"]}・OL${s.fmt["OL"]}・FOL${s.fmt["FOL"]}コース`],
+    ["総定員", s.capacity.toLocaleString(), "名", "全コース定員の合計"],
+    ["日程登録", s.sessions.toLocaleString(), "件", "全コースの開催日程の登録件数（2026年度春期）"]
+  ].map(([l,v,u,sub]) =>
+    `<div class="stat"><div class="lbl">${l}</div><div class="val">${v}<small> ${u}</small></div><div class="sub">${sub}</div></div>`
+  ).join("");
+})();
+
+/* ---- branch select ---- */
+DATA.branches.forEach(b=>{
+  const o=document.createElement("option"); o.value=b; o.textContent=b;
+  $("#fBranch").appendChild(o);
+  const o2=document.createElement("option"); o2.value=b; o2.textContent=b;
+  $("#mBranch").appendChild(o2);
+});
+
+/* ---- 表示対象（モード別） ---- */
+function visible(){
+  const m = (mode==="admin") ? draft : published;
+  return allCourses()
+    .filter(c=>{
+      const p = m.get(c.code) || {};
+      if(mode==="user"){
+        if(c._new && !published.has(c.code)) return false;
+        if(p.deleted) return false;
+      }
+      return true;
+    })
+    .map(c=>eff(c, m));
+}
+
+function filtered(){
+  const w = state.word.trim().toLowerCase();
+  return visible().filter(c=>{
+    if(state.branch && c.branch!==state.branch) return false;
+    if(!state.fmts.has(c.format)) return false;
+    if(!state.types.has(c.ctype)) return false;
+    if(w){
+      const hay=(c.code+" "+(c.codeDisp||"")+" "+c.branch+" "+c.room+" "+(c.venue||"")+" "+c.weekday).toLowerCase();
+      if(!hay.includes(w)) return false;
+    }
+    return true;
+  });
+}
+
+function schedTable(c, admin){
+  const sess = c.sessions || [];
+  if(!sess.length && !admin) return '<p class="meta">日程未登録（日程マスタに登録すると、ここに全日程が自動表示されます）</p>';
+  if(!sess.length && admin) return '<p class="meta">日程未登録</p><button class="addsess" data-act="addsess">＋ 開催回を追加（セルを直接入力できます）</button>';
+  const th = sess.map(s=>`<th>第${s.no}回</th>`).join("");
+  const cls = s => s.wd==="土"?"sat":(s.wd==="日"?"sun":"");
+  let dt, st, en;
+  if(admin){
+    dt = sess.map((s,i)=>`<td><input class="sedit" data-i="${i}" data-k="disp" value="${s.disp}"><br><input class="sedit wdi" data-i="${i}" data-k="wd" value="${s.wd}"></td>`).join("");
+    st = sess.map((s,i)=>`<td><input class="sedit tmi" data-i="${i}" data-k="start" value="${s.start}"></td>`).join("");
+    en = sess.map((s,i)=>`<td><input class="sedit tmi" data-i="${i}" data-k="end" value="${s.end}"></td>`).join("");
+  }else{
+    dt = sess.map(s=>`<td class="${cls(s)}">${s.disp}<br>（${s.wd}）</td>`).join("");
+    st = sess.map(s=>`<td>${s.start}</td>`).join("");
+    en = sess.map(s=>`<td>${s.end}</td>`).join("");
+  }
+  return (admin?'<div class="edithint">✏ 日付・曜日・時間はセルを直接編集できます（変更は下書きに保存）</div>':"")
+    + `<div class="tblwrap"><table class="sched">
+    <tr><th style="min-width:72px"></th>${th}</tr>
+    <tr><td>開催日</td>${dt}</tr>
+    <tr><td>開始</td>${st}</tr>
+    <tr><td>終了</td>${en}</tr>
+  </table></div>`
+    + (admin?'<button class="addsess" data-act="addsess">＋ 開催回を追加</button>':"");
+}
+
+function draftBadge(c){
+  if(mode!=="admin") return "";
+  const d = draft.get(c.code) || null;
+  const p = published.get(c.code) || null;
+  if(JSON.stringify(d)===JSON.stringify(p)) return "";
+  if(d && d.deleted) return '<span class="dbadge d-del">削除予定・未公開</span>';
+  if(c._new && !published.has(c.code)) return '<span class="dbadge d-new">新規・未公開</span>';
+  return '<span class="dbadge d-mod">変更あり・未公開</span>';
+}
+
+/* ファーストビューの描画。職員管理では下書き、利用者画面では公開中の内容を表示する */
+function escH(v){ return String(v==null?'':v).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function renderHero(){
+  const box = $("#uhero"); if(!box) return;
+  const h = (mode==="admin") ? heroDraft : heroPub;
+  const t2 = h.title2 ? `<span class="uh-title2">${escH(h.title2)}</span>` : "";
+  let band = "";
+  if(h.bandOn && (h.bandText || h.bandLink)){
+    const inner = `${escH(h.bandText)}${h.bandLink?` <span class="lk">${escH(h.bandLink)}</span>`:""}`;
+    band = h.bandUrl
+      ? `<a class="uh-band" href="${escH(h.bandUrl)}" target="_blank" rel="noopener">${inner}</a>`
+      : `<span class="uh-band">${inner}</span>`;
+  }
+  box.innerHTML = `
+    <div class="uh-title">${escH(h.title1)}${t2}</div>
+    ${h.status?`<div class="uh-status ${h.statusType==="closed"?"closed":"open"}">${escH(h.status)}</div>`:""}
+    ${band}
+    <div class="uh-rule"></div>
+    ${h.lead?`<p class="uh-lead">${escH(h.lead).split(String.fromCharCode(10)).join("<br>")}</p>`:""}
+    ${h.sub?`<div class="uh-sub">${escH(h.sub)}</div>`:""}
+    <div class="uh-editnote">🔧 この部分は左メニューの<b>「🖼 ファーストビュー編集」</b>から職員が書き換えられます${heroChanged()?'（<b>未公開の変更があります</b>）':''}。</div>`;
+}
+
+function render(){
+  renderHero();
+  const rows = filtered();
+  $("#cnt").textContent = rows.length;
+  const _ca = $("#btnCloseAll"); if(_ca) _ca.style.display = state.open.size ? "" : "none";
+  const n = pendingCount();
+  $("#pubN").textContent = n;
+  $("#btnPub").disabled = (n===0);
+  const list = $("#list");
+  if(!rows.length){ list.innerHTML = '<div class="empty">条件に一致するコースがありません</div>'; return; }
+  const admin = (mode==="admin");
+  list.innerHTML = rows.map(c=>{
+    const isFull = !!c.full;
+    const isDel = !!c.deleted;
+    const isOpen = state.open.has(c.code);
+    const venue = c.venue && c.venue!=="-" ? `会場：${c.venue}` : "オンライン開催（会場なし）";
+    return `<div class="card ${isFull?"full":""} ${isOpen?"open":""} ${isDel?"del":""}" data-code="${c.code}">
+      <div class="chead" data-act="toggle">
+        <div class="crow1">
+          ${admin?`<span class="code">${c.codeDisp || c.code}</span>`:""}
+          <span class="branch">${c.branch}</span>
+          <span class="room">${c.room}</span>
+          ${draftBadge(c)}
+          ${!admin?`<span class="statpill ${isFull?"ng":""}">${isFull?"満席":"受付中"}</span>`:""}
+        </div>
+        <div class="crow2">
+          <span class="badge ${fmtCls[c.format]||"b-type"}">${fmtLabel[c.format]||c.format}</span>
+          <span class="badge b-type">${c.ctype}か月</span>
+          <span class="wd">${c.weekday}曜開催</span>
+          <span class="cap">定員 ${c.capacity}名</span>
+          ${admin?`<span class="statpill ${isFull?"ng":""}" style="margin-left:auto">${isDel?"—":(isFull?"満席":"受付中")}</span>`:""}
+        </div>
+        <div class="crow3">
+          <span class="expand-hint">${isOpen?"▲ 日程を閉じる":"▼ 開催日程を見る"}</span>
+          ${admin && !isDel ? `<span style="display:flex;gap:8px;flex-wrap:wrap">
+            <button class="abtn" data-act="edit">✏ 編集</button>
+            <button class="abtn btn-full" data-act="full">${isFull?"受付中に戻す":"満席にする"}</button>
+            <button class="abtn danger" data-act="del">🗑 削除</button></span>` : ""}
+          ${admin && isDel ? '<button class="abtn" data-act="undel">↩ 削除を取り消す</button>' : ""}
+        </div>
+      </div>
+      <div class="cbody">
+        <p class="meta">${venue}${admin?`　／　申込先TEL：${c.tel||"—"}　<span style="color:var(--admin);font-weight:700">（会場・TEL・申込URLは「✏ 編集」から変更）</span>`:""}</p>
+        ${admin ? (c.url && c.url.trim()
+          ? `<p class="meta" style="word-break:break-all">申込先：${c.url}</p>`
+          : '<p class="meta" style="color:#c0392b;font-weight:700">⚠ 申込URLが未入力のため、利用者画面ではボタンが無効です（✏編集から貼り付け）</p>') : ""}
+        ${schedTable(c, admin)}
+        <div class="cbody-foot" data-act="toggle">▲ 日程を閉じる</div>
+      </div>
+      ${!admin?`<div class="apply-row">${isFull
+        ?'<div class="fullmsg">満席のため受付を終了しました</div>'
+        :((c.url && c.url.trim())
+          ? `<a class="btn-apply" href="${String(c.url).replace(/"/g,"&quot;")}" target="_blank" rel="noopener"><span class="ba-t">詳細・お申込みはこちら ❯❯</span></a>`
+          : '<a class="btn-apply dis" href="#" onclick="return false" title="申込URLが未設定です"><span class="ba-t">申込URL未設定</span></a>')}</div>`:""}
+    </div>`;
+  }).join("");
+}
+
+/* ---- toast ---- */
+let toastTimer=null;
+function toast(msg){
+  const t=$("#toast"); t.innerHTML=msg; t.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>t.classList.remove("show"), 3600);
+}
+
+/* ---- draft helpers ---- */
+function patch(code, obj){
+  const cur = draft.get(code) || {};
+  const next = Object.assign({}, cur, obj);
+  Object.keys(next).forEach(k=>{ if(next[k]===undefined) delete next[k]; });
+  if(Object.keys(next).length) draft.set(code, next); else draft.delete(code);
+}
+
+/* ---- モード切替 ---- */
+$("#modeTgl").addEventListener("click", e=>{
+  const b = e.target.closest("button"); if(!b) return;
+  const next = b.dataset.m;
+  if(next === mode) return;
+  saveFilter(mode);   // いまのモードの検索・絞り込みを保存
+  mode = next;
+  loadFilter(mode);   // 切替先モードの検索・絞り込みを復元（画面ごとに独立）
+  document.querySelectorAll("#modeTgl button").forEach(x=>x.classList.toggle("on", x===b));
+  document.body.classList.toggle("admin", mode==="admin");
+  render();
+  if(mode==="user" && pendingCount()>0){
+    toast("👁 利用者画面（公開中のWebサイト）を表示しています。<b>未公開の変更は反映されていません</b>");
+  }
+});
+
+/* ---- カード操作 ---- */
+document.addEventListener("click", e=>{
+  const card = e.target.closest(".card"); if(!card) return;
+  const code = card.dataset.code;
+  /* 申込ボタンは職員が「申込URL」欄に登録した申込先（会員申込システム等）へ直接遷移します（<a href> で新しいタブ） */
+  if(e.target.closest('[data-act="edit"]')){ openModal(code); return; }
+  if(e.target.closest('[data-act="del"]')){
+    patch(code, {deleted:true});
+    toast(`<b>${code}</b> を削除予定にしました（「🌐 更新を公開」で確定・取り消しも可能）`);
+    render(); return;
+  }
+  if(e.target.closest('[data-act="undel"]')){
+    patch(code, {deleted:undefined});
+    toast(`<b>${code}</b> の削除を取り消しました`);
+    render(); return;
+  }
+  if(e.target.closest('[data-act="full"]')){
+    const cur = (draft.get(code)||{}).full;
+    patch(code, {full: cur?undefined:true});
+    toast(cur ? `<b>${code}</b> を受付中に戻しました（下書き）`
+              : `<b>${code}</b> を満席（受付終了）にしました（下書き）<br>「🌐 更新を公開」で利用者画面に反映されます`);
+    render(); return;
+  }
+  if(e.target.closest('[data-act="toggle"]')){
+    state.open.has(code) ? state.open.delete(code) : state.open.add(code);
+    render();
+  }
+});
+
+/* ---- 日程セルの直接編集（管理モード） ---- */
+function currentSessions(code){
+  const base = allCourses().find(c=>c.code===code);
+  const cur = eff(base, draft);
+  return JSON.parse(JSON.stringify(cur.sessions || []));
+}
+document.addEventListener("change", e=>{
+  const inp = e.target.closest(".sedit"); if(!inp) return;
+  const card = e.target.closest(".card"); if(!card) return;
+  const code = card.dataset.code;
+  const sess = currentSessions(code);
+  const i = parseInt(inp.dataset.i, 10);
+  if(!sess[i]) return;
+  sess[i][inp.dataset.k] = inp.value.trim();
+  patch(code, {sessions: sess});
+  toast(`<b>${code}</b> の日程を更新しました（下書き）`);
+  render();
+});
+document.addEventListener("click", e=>{
+  const b = e.target.closest('[data-act="addsess"]'); if(!b) return;
+  const card = e.target.closest(".card"); if(!card) return;
+  const code = card.dataset.code;
+  const sess = currentSessions(code);
+  sess.push({no: sess.length+1, disp:"2026/", wd:"", start:"9:00", end:"17:00"});
+  patch(code, {sessions: sess});
+  render();
+  toast(`<b>${code}</b> に第${sess.length}回を追加しました（セルに日付を入力してください）`);
+});
+
+/* ---- サイドバーのダミー項目 ---- */
+document.querySelectorAll("[data-dummy]").forEach(b=>{
+  b.addEventListener("click", ()=>toast("※本デモで操作できるのは「講座マスタ」です。実運用では各マスタを同じ操作感で管理できます"));
+});
+
+/* ---- モーダル（新規・編集） ---- */
+function openModal(code){
+  state.editing = code || null;
+  const isNew = !code;
+  $("#mTitle").textContent = isNew ? "新規コースを登録" : `コースを編集（${code}）`;
+  if(isNew){
+    $("#mCode").value = "";
+    $("#mBranch").value = DATA.branches[0];
+    $("#mFormat").value = "通学";
+    $("#mType").value = "春6";
+    $("#mRoom").value = "";
+    $("#mVenue").value = "";
+    $("#mTel").value = "";
+    $("#mUrl").value = "";
+    $("#mWd").value = "土";
+    $("#mCap").value = 24;
+  }else{
+    const base = allCourses().find(c=>c.code===code);
+    const cur = eff(base, draft);
+    $("#mCode").value = cur.codeDisp || cur.code;
+    $("#mBranch").value = cur.branch;
+    $("#mFormat").value = cur.format;
+    $("#mType").value = cur.ctype;
+    $("#mRoom").value = cur.room;
+    $("#mVenue").value = (cur.venue && cur.venue!=="-") ? cur.venue : "";
+    $("#mTel").value = cur.tel || "";
+    $("#mUrl").value = cur.url || "";
+    $("#mWd").value = cur.weekday;
+    $("#mCap").value = cur.capacity;
+  }
+  $("#modalwrap").classList.add("show");
+  setTimeout(()=>$("#mRoom").focus(), 50);
+}
+$("#mCancel").addEventListener("click", ()=>$("#modalwrap").classList.remove("show"));
+$("#modalwrap").addEventListener("click", e=>{ if(e.target.id==="modalwrap") $("#modalwrap").classList.remove("show"); });
+$("#mSave").addEventListener("click", ()=>{
+  const room = $("#mRoom").value.trim();
+  const cap = parseInt($("#mCap").value, 10) || 0;
+  const wd = $("#mWd").value;
+  const codeDisp = $("#mCode").value.trim();
+  const branch = $("#mBranch").value, format = $("#mFormat").value, ctype = $("#mType").value;
+  if(!room){ toast("教室名を入力してください"); return; }
+  const venue = $("#mVenue").value.trim() || "-";
+  const tel = $("#mTel").value.trim();
+  const url = $("#mUrl").value.trim();
+  if(state.editing){
+    const base = allCourses().find(c=>c.code===state.editing);
+    const curCode = (eff(base, draft).codeDisp || base.code);
+    const p = {room, weekday:wd, capacity:cap, venue, tel, url, branch, format, ctype};
+    if(codeDisp && codeDisp !== curCode) p.codeDisp = codeDisp;
+    patch(state.editing, p);
+    toast(`<b>${codeDisp||state.editing}</b> を更新しました（下書き）`);
+  }else{
+    const code = "NEW-" + String(newSeq++).padStart(2,"0");
+    extra.push({code, codeDisp:(codeDisp||code), branch, room, weekday:wd, capacity:cap,
+                format, ctype, venue, tel, url, sessions:[], _new:true});
+    patch(code, {isNew:true});
+    toast(`<b>${codeDisp||code}</b>（${room}）を新規登録しました（下書き）<br>「🌐 更新を公開」で利用者画面に掲載されます`);
+  }
+  $("#modalwrap").classList.remove("show");
+  render();
+});
+$("#btnAdd").addEventListener("click", ()=>openModal(null));
+
+/* ---- ファーストビュー編集 ---- */
+function openHero(){
+  $("#hTitle1").value = heroDraft.title1 || "";
+  $("#hTitle2").value = heroDraft.title2 || "";
+  $("#hStatus").value = heroDraft.status || "";
+  $("#hStatusType").value = heroDraft.statusType || "open";
+  $("#hBandOn").checked = !!heroDraft.bandOn;
+  $("#hBandText").value = heroDraft.bandText || "";
+  $("#hBandLink").value = heroDraft.bandLink || "";
+  $("#hBandUrl").value = heroDraft.bandUrl || "";
+  $("#hLead").value = heroDraft.lead || "";
+  $("#hSub").value = heroDraft.sub || "";
+  $("#herowrap").classList.add("show");
+}
+$("#btnHero").addEventListener("click", ()=>{ if(mode!=="admin") return; openHero(); });
+$("#hCancel").addEventListener("click", ()=>$("#herowrap").classList.remove("show"));
+$("#herowrap").addEventListener("click", e=>{ if(e.target.id==="herowrap") $("#herowrap").classList.remove("show"); });
+$("#hSave").addEventListener("click", ()=>{
+  heroDraft = {
+    title1: $("#hTitle1").value.trim(),
+    title2: $("#hTitle2").value.trim(),
+    status: $("#hStatus").value.trim(),
+    statusType: $("#hStatusType").value,
+    bandOn: $("#hBandOn").checked,
+    bandText: $("#hBandText").value.trim(),
+    bandLink: $("#hBandLink").value.trim(),
+    bandUrl: $("#hBandUrl").value.trim(),
+    lead: $("#hLead").value.trim(),
+    sub: $("#hSub").value.trim()
+  };
+  $("#herowrap").classList.remove("show");
+  render();
+  toast(heroChanged()
+    ? "💾 ファーストビューを<b>下書き</b>に保存しました。「🌐 更新を公開」で利用者画面に反映されます"
+    : "💾 保存しました（公開中の内容と同じです）");
+});
+
+/* ---- 公開 ---- */
+$("#btnPub").addEventListener("click", ()=>{
+  const n = pendingCount();
+  if(!n) return;
+  published = clonePatches(draft);
+  heroPub = Object.assign({}, heroDraft);
+  toast(`🌐 <b>${n}件</b>の変更を公開しました。利用者画面（Webサイト）に反映されています`);
+  render();
+});
+
+/* ---- filters ---- */
+$("#fBranch").addEventListener("change", e=>{ state.branch=e.target.value; render(); });
+$("#fWord").addEventListener("input", e=>{ state.word=e.target.value; render(); });
+function bindToggle(id, set){
+  $(id).addEventListener("click", e=>{
+    const b=e.target.closest("button"); if(!b) return;
+    const v=b.dataset.v;
+    if(set.has(v)){ set.delete(v); b.classList.remove("on"); }
+    else{ set.add(v); b.classList.add("on"); }
+    render();
+  });
+}
+bindToggle("#fFmt", state.fmts);
+bindToggle("#fType", state.types);
+$("#btnReset").addEventListener("click", ()=>{
+  state.branch=""; state.word="";
+  $("#fBranch").value=""; $("#fWord").value="";
+  state.fmts=new Set(["通学","OL","FOL"]); state.types=new Set(["春6","春10"]);
+  document.querySelectorAll("#fFmt button,#fType button").forEach(b=>b.classList.add("on"));
+  render();
+});
+/* ---- 開いた日程をすべて閉じる ---- */
+$("#btnCloseAll").addEventListener("click", ()=>{ state.open.clear(); render(); });
+
+/* ---- 一括満席（東京） ---- */
+$("#btnBulk").addEventListener("click", ()=>{
+  const tokyo = DATA.courses.filter(c=>c.branch==="東京").map(c=>c.code);
+  state.bulkTokyo = !state.bulkTokyo;
+  const btn = $("#btnBulk");
+  if(state.bulkTokyo){
+    tokyo.forEach(c=>patch(c, {full:true}));
+    $("#bulkLabel").textContent="東京支部の満席を解除"; btn.classList.add("on");
+    toast(`東京支部の <b>${tokyo.length}コース</b> を一括で満席にしました（下書き）<br>「🌐 更新を公開」で利用者画面に反映されます`);
+  }else{
+    tokyo.forEach(c=>patch(c, {full:undefined}));
+    $("#bulkLabel").textContent="東京支部を一括満席"; btn.classList.remove("on");
+    toast(`東京支部の <b>${tokyo.length}コース</b> を受付中に戻しました（下書き）`);
+  }
+  render();
+});
+
+/* ---- Excel取込 ---- */
+let impRows = [];
+const WDOK = ["月","火","水","木","金","土","日"];
+const FMTMAP = {"通学":"通学","オンライン":"OL","OL":"OL","フルオンライン":"FOL","FOL":"FOL"};
+const TYPEMAP = {"春6":"春6","春6か月":"春6","春10":"春10","春10か月":"春10"};
+
+function openImp(){
+  impRows = [];
+  $("#impResult").className = ""; $("#impResult").innerHTML = "";
+  $("#impCommit").style.display = "none";
+  $("#impFile").value = "";
+  $("#impwrap").classList.add("show");
+}
+$("#btnImp").addEventListener("click", openImp);
+$("#impCancel").addEventListener("click", ()=>$("#impwrap").classList.remove("show"));
+$("#impwrap").addEventListener("click", e=>{ if(e.target.id==="impwrap") $("#impwrap").classList.remove("show"); });
+$("#dropzone").addEventListener("click", ()=>$("#impFile").click());
+$("#dropzone").addEventListener("dragover", e=>{ e.preventDefault(); $("#dropzone").classList.add("over"); });
+$("#dropzone").addEventListener("dragleave", ()=>$("#dropzone").classList.remove("over"));
+$("#dropzone").addEventListener("drop", e=>{
+  e.preventDefault(); $("#dropzone").classList.remove("over");
+  const f = e.dataTransfer.files[0]; if(f) readImpFile(f);
+});
+$("#impFile").addEventListener("change", e=>{ const f=e.target.files[0]; if(f) readImpFile(f); });
+
+function readImpFile(file){
+  const rd = new FileReader();
+  rd.onload = ev => importBuffer(ev.target.result, file.name);
+  rd.readAsArrayBuffer(file);
+}
+
+function importBuffer(buf, fname){
+  let wb;
+  try{ wb = XLSX.read(buf, {type:"array"}); }
+  catch(e){ showImpError("Excelファイルとして読み込めませんでした：" + e.message); return; }
+  if(wb.SheetNames.includes("2026春企画一覧")){
+    verifyRealFile(wb, fname);
+  }else{
+    parseTemplate(wb, fname);
+  }
+}
+
+function showImpError(msg){
+  const r = $("#impResult");
+  r.classList.add("show");
+  r.innerHTML = `<div class="ng">${msg}</div>`;
+  $("#impCommit").style.display = "none";
+}
+
+/* 実物「教室と日程一覧.xlsx」→ 既存マスタと照合 */
+function verifyRealFile(wb, fname){
+  const ws = wb.Sheets["2026春企画一覧"];
+  const arr = XLSX.utils.sheet_to_json(ws, {header:1, defval:""});
+  const found = [];
+  arr.forEach(row=>{
+    const code = String(row[0]||"").trim();
+    if(/^\d{4}Y\d{2}$/.test(code)){
+      found.push({code, branch:String(row[1]||"").trim(), room:String(row[4]||"").trim(),
+                  weekday:String(row[5]||"").replace(/\s+/g,""), capacity:parseInt(row[6],10)||0});
+    }
+  });
+  const master = new Map(DATA.courses.map(c=>[c.code, c]));
+  let match = 0; const diffs = [];
+  found.forEach(f=>{
+    const m = master.get(f.code);
+    if(!m){ diffs.push(`${f.code}：マスタに存在しません（新規候補）`); return; }
+    if(m.capacity !== f.capacity) diffs.push(`${f.code} ${f.room}：定員 ${m.capacity}名 → ${f.capacity}名`);
+    else match++;
+  });
+  const missing = DATA.courses.filter(c=>!found.some(f=>f.code===c.code)).length;
+  const r = $("#impResult");
+  r.classList.add("show");
+  r.innerHTML = `<div class="ok">✅ 実物ファイル「${fname}」を認識しました（照合モード）<br>
+    検出 <b>${found.length}コース</b> ／ 既存マスタと一致 <b>${match}件</b> ／ 差分 <b>${diffs.length}件</b> ／ マスタ側のみ <b>${missing}件</b></div>`
+    + (diffs.length? `<div class="ng">差分（実運用ではこの差分だけを取り込みます）<ul>${diffs.slice(0,8).map(d=>`<li>${d}</li>`).join("")}</ul></div>`
+                    : `<div class="ok" style="margin-top:8px">差分はありません。Excel原本とサイトのマスタが完全に一致しています。</div>`);
+  $("#impCommit").style.display = "none";
+  toast("実物Excelを照合しました：" + found.length + "コース検出");
+}
+
+/* 取込テンプレート → 検証 → 一括登録 */
+function parseTemplate(wb, fname){
+  const ws = wb.Sheets[wb.SheetNames[0]];
+  const arr = XLSX.utils.sheet_to_json(ws, {header:1, defval:""});
+  if(!arr.length){ showImpError("シートが空です"); return; }
+  const head = arr[0].map(x=>String(x).trim());
+  const idx = {};
+  ["支部","教室名","形式","種別","曜日","定員"].forEach(h=>{ idx[h] = head.indexOf(h); });
+  if(idx["支部"]<0 || idx["教室名"]<0){
+    showImpError(`取込テンプレート形式ではありません（1行目に「支部」「教室名」…の見出しが必要です）。<br>サンプルをダウンロードしてご利用ください。ファイル：${fname}`);
+    return;
+  }
+  const okRows = []; const errs = [];
+  arr.slice(1).forEach((row, i)=>{
+    const rn = i + 2;
+    const branch = String(row[idx["支部"]]||"").trim();
+    const room = String(row[idx["教室名"]]||"").trim();
+    const fmtRaw = String(row[idx["形式"]]||"").trim();
+    const typeRaw = String(row[idx["種別"]]||"").trim();
+    const wd = String(row[idx["曜日"]]||"").trim().replace("曜","");
+    const cap = parseInt(row[idx["定員"]], 10);
+    if(!branch && !room) return; // 空行
+    const rowErrs = [];
+    if(!DATA.branches.includes(branch)) rowErrs.push("支部名が不正");
+    if(!room) rowErrs.push("教室名が空");
+    if(!FMTMAP[fmtRaw]) rowErrs.push("形式が不正（通学/オンライン/フルオンライン）");
+    if(!TYPEMAP[typeRaw]) rowErrs.push("種別が不正（春6/春10）");
+    if(!WDOK.includes(wd)) rowErrs.push("曜日が不正");
+    if(!(cap>=1 && cap<=999)) rowErrs.push("定員が不正");
+    if(rowErrs.length){ errs.push(`${rn}行目（${room||branch}）：${rowErrs.join("・")}`); }
+    else okRows.push({branch, room, format:FMTMAP[fmtRaw], ctype:TYPEMAP[typeRaw], weekday:wd, capacity:cap});
+  });
+  impRows = okRows;
+  const r = $("#impResult");
+  r.classList.add("show");
+  r.innerHTML = `<div class="ok">✅ 「${fname}」を読み込み、自動検証しました：登録可能 <b>${okRows.length}件</b> ／ エラー <b>${errs.length}件</b></div>`
+    + (errs.length? `<div class="ng">エラー行（修正して再アップロードしてください）<ul>${errs.slice(0,8).map(d=>`<li>${d}</li>`).join("")}</ul></div>` : "")
+    + (okRows.length? `<table><tr><th>支部</th><th>教室名</th><th>形式</th><th>種別</th><th>曜日</th><th>定員</th></tr>${
+        okRows.slice(0,8).map(x=>`<tr><td>${x.branch}</td><td>${x.room}</td><td>${fmtLabel[x.format]}</td><td>${x.ctype}か月</td><td>${x.weekday}</td><td>${x.capacity}名</td></tr>`).join("")
+      }</table>${okRows.length>8?`<div style="color:var(--muted)">…ほか${okRows.length-8}件</div>`:""}` : "");
+  const btn = $("#impCommit");
+  btn.style.display = okRows.length ? "" : "none";
+  btn.textContent = `${okRows.length}件を一括登録（下書き）`;
+}
+
+$("#impCommit").addEventListener("click", ()=>{
+  if(!impRows.length) return;
+  impRows.forEach(x=>{
+    const code = "NEW-" + String(newSeq++).padStart(2,"0");
+    extra.push(Object.assign({code, venue:"-", tel:"", sessions:[], _new:true}, x));
+    patch(code, {isNew:true});
+  });
+  toast(`📥 <b>${impRows.length}件</b>を一括登録しました（下書き）<br>「🌐 更新を公開」で利用者画面に掲載されます`);
+  $("#impwrap").classList.remove("show");
+  render();
+});
+
+/* ---- 文字サイズ変更（アクセシビリティ） ---- */
+$("#a11y").addEventListener("click", e=>{
+  const b = e.target.closest("button"); if(!b) return;
+  document.documentElement.style.setProperty("--uz", b.dataset.z);
+  document.querySelectorAll("#a11y button").forEach(x=>x.classList.toggle("on", x===b));
+  const label = {"1":"標準","1.18":"大","1.36":"特大"}[b.dataset.z] || "";
+  toast("文字サイズを「" + label + "」に変更しました");
+});
+
+/* URLに #admin が付いていたら管理モードで起動（プレゼン用ショートカット） */
+if(location.hash === "#admin"){
+  document.querySelector('#modeTgl button[data-m="admin"]').click();
+}
+
+render();
+
+if(new URLSearchParams(location.search).has('embed')){document.body.classList.add('embed');}
+</script>
+<script src="../demo_navbar.js" data-crumb="会場・日程一覧" data-back="qualification/counselor/" data-back-label="産業カウンセラー養成講座"></script>
+</body>
+</html>

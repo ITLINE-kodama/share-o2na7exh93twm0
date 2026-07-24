@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<!-- JAICO-DEMO-GATE:BEGIN -->
+<script>/* 閲覧用ゲート（関係者限定デモ）。クライアントサイドの簡易ロックです。 */
+(function(){
+  var KEY='jaicoDemoGate2026', SIG='6c4a961c';
+  function hash(s){var v=5381;for(var i=0;i<s.length;i++){v=((v*33)^s.charCodeAt(i))>>>0;}return v.toString(16);}
+  try{ if(localStorage.getItem(KEY)===SIG) return; }catch(e){}
+  document.write('<style id="__gs">html{visibility:hidden!important}#__gate,#__gate *{visibility:visible!important}</style>');
+  function build(){
+    var w=document.createElement('div');
+    w.id='__gate';
+    w.setAttribute('style','position:fixed;inset:0;z-index:2147483647;background:linear-gradient(160deg,#f2f8f3,#e6f2e9);display:flex;align-items:center;justify-content:center;padding:20px;font-family:"Noto Sans JP","Yu Gothic UI",sans-serif');
+    w.innerHTML='<form id="__gf" style="background:#fff;border:1px solid #dbe7dc;border-radius:18px;box-shadow:0 14px 40px rgba(28,124,47,.14);padding:34px 32px;width:100%;max-width:380px;box-sizing:border-box">'
+      +'<div style="font-size:11px;font-weight:800;letter-spacing:.14em;color:#239b3b">CONFIDENTIAL</div>'
+      +'<h1 style="font-size:17px;margin:8px 0 6px;color:#243024;line-height:1.6">ご提案デモサイト<br>閲覧用ログイン</h1>'
+      +'<p style="font-size:12px;line-height:1.9;color:#5c6b63;margin:0 0 20px">関係者限定のプロトタイプです。<br>ご案内済みのID・パスワードを入力してください。</p>'
+      +'<label style="display:block;font-size:12px;font-weight:700;color:#243024;margin-bottom:5px">ID</label>'
+      +'<input id="__gi" type="text" autocomplete="username" autocapitalize="off" autocorrect="off" spellcheck="false" style="width:100%;box-sizing:border-box;font-size:15px;padding:11px 13px;border:1px solid #cfe0d3;border-radius:9px;margin-bottom:14px;font-family:inherit">'
+      +'<label style="display:block;font-size:12px;font-weight:700;color:#243024;margin-bottom:5px">パスワード</label>'
+      +'<input id="__gp" type="password" autocomplete="current-password" style="width:100%;box-sizing:border-box;font-size:15px;padding:11px 13px;border:1px solid #cfe0d3;border-radius:9px;font-family:inherit">'
+      +'<p id="__ge" style="display:none;font-size:12px;color:#c0392b;font-weight:700;margin:12px 0 0">IDまたはパスワードが違います。</p>'
+      +'<button type="submit" style="width:100%;margin-top:20px;background:#239b3b;color:#fff;border:0;border-radius:999px;font-size:15px;font-weight:800;padding:13px;cursor:pointer;font-family:inherit">閲覧する</button>'
+      +'<p style="font-size:10.5px;color:#8a988f;line-height:1.8;margin:16px 0 0">※ 本デモの内容・画面イメージの二次配布はご遠慮ください。</p>'
+      +'</form>';
+    document.body.appendChild(w);
+    var i=document.getElementById('__gi');
+    if(i) i.focus();
+    document.getElementById('__gf').addEventListener('submit',function(ev){
+      ev.preventDefault();
+      var id=(document.getElementById('__gi').value||'').trim();
+      var pw=document.getElementById('__gp').value||'';
+      if(hash(id+':'+pw)===SIG){
+        try{ localStorage.setItem(KEY,SIG); }catch(e){}
+        location.reload();
+      }else{
+        document.getElementById('__ge').style.display='block';
+        document.getElementById('__gp').value='';
+        document.getElementById('__gp').focus();
+      }
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',build); else build();
+})();
+</script>
+<!-- JAICO-DEMO-GATE:END -->
+
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>重要なお知らせ｜日本産業カウンセラー協会（リニューアル構成デモ）</title>
+<meta name="description" content="受験・受講・会員サービスに関わる特に重要なお知らせの一覧です。掲載中の記事はトップページの「重要なお知らせ」帯にも自動表示されます。">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+<style>
+/* お知らせ一覧（重要なお知らせ） */
+.nl-head{display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.nl-head h2{flex:1;min-width:220px}
+.nl-tools{display:flex;align-items:center;gap:10px;padding-bottom:6px}
+.nl-cnt{font-size:12px;font-weight:800;color:#5f7a66;background:#eef6f0;border-radius:999px;padding:4px 13px;white-space:nowrap}
+.nl-srch{border:1.5px solid #cfd8cf;border-radius:9px;padding:7px 12px;font-size:13px;font-family:inherit;width:190px}
+.nl-srch:focus{outline:2px solid var(--g);border-color:var(--g)}
+.nl-list{margin-top:14px;display:flex;flex-direction:column;gap:12px}
+.nl-item{display:block;background:#fff;border:1px solid var(--line);border-left:5px solid var(--g);border-radius:14px;padding:16px 20px;text-decoration:none;color:inherit;box-shadow:0 3px 12px rgba(20,70,38,.05);transition:.15s}
+.nl-item:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(20,70,38,.12);border-left-color:var(--gd)}
+.nl-item .m{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.nl-item time{font-family:var(--en);font-size:12.5px;font-weight:700;color:#6b7d70}
+.nl-item .tg{font-size:11px;font-weight:800;border-radius:6px;padding:2px 10px}
+.nl-item .exp{margin-left:auto;font-size:11px;font-weight:800;color:#8a6d00;background:#fff5d6;border:1px solid #ecd9a6;border-radius:999px;padding:2px 11px;white-space:nowrap}
+.nl-item h4{font-size:16px;font-weight:800;line-height:1.6;color:var(--ink)}
+.nl-item p{font-size:13.5px;line-height:1.9;color:#4a5a4e;margin-top:6px}
+.nl-item .go{display:inline-block;margin-top:9px;font-size:12.5px;font-weight:800;color:var(--gd)}
+.nl-list.past .nl-item{border-left-color:#c3cec4;opacity:.78}
+.nl-list.past .nl-item .exp{color:#6b7280;background:#f1f3f2;border-color:#dfe3e0}
+.nl-sub{font-size:15px;font-weight:800;color:#5f7a66;margin:26px 0 4px;padding-left:11px;border-left:4px solid #c3cec4}
+.nl-empty{background:#fff;border:1px dashed #cfd8cf;border-radius:12px;padding:24px;text-align:center;font-size:13px;color:#7a877d}
+@media(max-width:640px){ .nl-tools{width:100%} .nl-srch{flex:1;width:auto} .nl-item .exp{margin-left:0} }
+</style>
+</head>
+<body>
+
+<div class="notice">リニューアル構成デモ｜リニューアル後の画面イメージ（プロトタイプ）— 文言・日程・数値にはサンプルを含みます</div>
+<div class="topbar"><div class="wrap">
+  <span class="tg">働く人と組織を支える 一般社団法人日本産業カウンセラー協会</span>
+  <span class="sp"><a href="../../about/link/">全国の支部サイト ↗</a><a href="../../soon.html#会員ログイン">会員ログイン</a><a href="../../access/">アクセス</a><a href="../../soon.html#English">English</a></span>
+</div></div>
+<header class="hd"><div class="wrap">
+  <a class="logo" href="../../index.html"><img src="../../../images/logo.png" alt="一般社団法人日本産業カウンセラー協会"></a>
+  <nav><ul><li><a href="../../counseling/">相談する</a><div class="mega"><div class="mg-side"><span class="t">相談する</span><span class="en">COUNSELING</span><a class="go" href="../../counseling/" aria-label="相談するトップへ">→</a></div><div class="mg-list"><a href="../../counseling/">相談・カウンセリング トップ</a><a href="../../counseling/first/">はじめての方へ</a><a href="../../counseling/hotline/">働く人の悩みホットライン</a><a href="../../counseling/sns/">SNS相談</a><a href="../../counseling/room/">全国の相談室</a><a href="../../counseling/reserve/">予約方法・担当</a><a href="../../counseling/entry/">相談のお申し込み</a><a href="../../counseling/for-company/">企業・団体の方</a></div><div class="mg-right"></div></div></li><li><a href="../../qualification/">資格・講座</a><div class="mega"><div class="mg-side"><span class="t">資格・講座</span><span class="en">QUALIFICATIONS</span><a class="go" href="../../qualification/" aria-label="資格・講座トップへ">→</a></div><div class="mg-list"><a href="../../qualification/">資格・講座トップ</a><div class="mg-item"><a class="mg-p" href="../../qualification/counselor/">産業カウンセラー養成講座</a><button class="mg-tgl" type="button" data-sub="qualification-counselor" aria-label="産業カウンセラー養成講座の下層を開閉">＋</button></div><div class="mg-item"><a class="mg-p" href="../../qualification/career/">キャリアコンサルタント</a><button class="mg-tgl" type="button" data-sub="qualification-career" aria-label="キャリアコンサルタントの下層を開閉">＋</button></div><div class="mg-item"><a class="mg-p" href="../../qualification/senior/">シニア産業カウンセラー</a><button class="mg-tgl" type="button" data-sub="qualification-senior" aria-label="シニア産業カウンセラーの下層を開閉">＋</button></div><a href="../../qualification/kokoro/">こころのアドバイザー</a><a href="../../qualification/calendar/">講座カレンダー</a><a href="../../qualification/training/">専門研修（フォローアップ）</a><a href="../../qualification/supervision/">スーパービジョン</a><a href="../../qualification/renewal/">資格更新のご案内</a><a href="../../qualification/voice/">受講者の声</a><a href="../../qualification/kyufukin/">教育訓練給付制度</a></div><div class="mg-right"><div class="mg-sub" data-panel="qualification-counselor"><a href="../../qualification/counselor/#schedule">日程・会場・お申し込み</a><a href="../../qualification/counselor/#fee">受講料・教育訓練給付金</a><a href="../../qualification/counselor/#style">受講スタイル（通学・オンライン）</a><a href="../../qualification/counselor/#area">エリア別 無料説明会</a></div><div class="mg-sub" data-panel="qualification-career"><a href="../../qualification/career/course/">養成講習</a><a href="../../qualification/career/renewal/">更新講習</a><a href="../../qualification/career/exam-prep/">試験対策</a><a href="../../qualification/career/moshi/">模擬試験</a></div><div class="mg-sub" data-panel="qualification-senior"><a href="../../qualification/senior/flow/">受験までの流れ・フォローアップ</a></div></div></div></li><li><a href="../../examination/">試験情報</a><div class="mega"><div class="mg-side"><span class="t">試験情報</span><span class="en">EXAMINATION</span><a class="go" href="../../examination/" aria-label="試験情報トップへ">→</a></div><div class="mg-list"><a href="../../examination/">試験情報トップ</a><div class="mg-item"><a class="mg-p" href="../../examination/grade2/">産業カウンセラー試験 2級</a><button class="mg-tgl" type="button" data-sub="examination-grade2" aria-label="産業カウンセラー試験 2級の下層を開閉">＋</button></div><a href="../../examination/grade1/">産業カウンセラー試験 1級</a><a href="../../examination/career/">キャリアコンサルタント国家試験</a><a href="../../examination/certificate/">合格証の発送・再発行（2級・1級）</a><a href="../../examination/faq/">よくある質問</a></div><div class="mg-right"><div class="mg-sub" data-panel="examination-grade2"><a href="../../examination/grade2/apply/">受検申請・受検上の配慮</a><a href="../../examination/grade2/results/">合否結果</a></div></div></div></li><li><a href="../../company/">法人向け</a><div class="mega"><div class="mg-side"><span class="t">法人向け</span><span class="en">FOR BUSINESS</span><a class="go" href="../../company/" aria-label="法人向けトップへ">→</a></div><div class="mg-list"><a href="../../company/">法人向けサービス トップ</a><a href="../../company/mental/">メンタルヘルス対策支援</a><a href="../../company/training/">企業研修</a><a href="../../company/stresscheck/">ストレスチェック</a><a href="../../company/eap/">外部相談窓口・EAP</a><a href="../../company/case/">導入事例</a><a href="../../company/contact/">法人お問い合わせ</a></div><div class="mg-right"></div></div></li><li><a href="../../member/">会員・入会</a><div class="mega"><div class="mg-side"><span class="t">会員・入会</span><span class="en">MEMBERSHIP</span><a class="go" href="../../member/" aria-label="会員・入会トップへ">→</a></div><div class="mg-list"><a href="../../member/">会員・入会 トップ</a><div class="mg-item"><a class="mg-p" href="../../member/join/">入会案内</a><button class="mg-tgl" type="button" data-sub="member-join" aria-label="入会案内の下層を開閉">＋</button></div><a href="../../member/benefit/">会員特典</a><a href="../../member/card/">会員証</a><a href="../../member/procedure/">各種手続き</a><a href="../../member/branch/">全国支部・拠点一覧</a><a href="../../member/mypage/">会員マイページ</a><a href="../../member/news/">会員向けお知らせ</a><a href="../../member/job/">求人情報</a></div><div class="mg-right"><div class="mg-sub" data-panel="member-join"><a href="../../member/join/entry/">入会手続き・申込フォーム</a></div></div></div></li><li><a href="../../about/">協会について</a><div class="mega"><div class="mg-side"><span class="t">協会について</span><span class="en">ABOUT US</span><a class="go" href="../../about/" aria-label="協会についてトップへ">→</a></div><div class="mg-list"><a href="../../about/">協会について トップ</a><a href="../../about/message/">会長メッセージ</a><a href="../../about/policy/">理念・行動指針</a><a href="../../about/activity/">3つの活動領域</a><a href="../../about/organization/">組織図</a><a href="../../about/adr/">ADR（紛争解決）</a><a href="../../about/conference/">全国研究大会</a><a href="../../about/disclosure/">情報公開</a><a href="../../about/link/">リンク集・関連団体</a><a href="../../about/recruit/">採用情報</a></div><div class="mg-right"></div></div></li><li><a href="../../news/" class="on">ニュース</a><div class="mega"><div class="mg-side"><span class="t">ニュース</span><span class="en">NEWS</span><a class="go" href="../../news/" aria-label="ニューストップへ">→</a></div><div class="mg-list"><a href="../../news/">お知らせ一覧</a><a href="../../news/important/">重要なお知らせ</a><a href="../../news/report/">活動報告</a><a href="../../news/archive/">年度別アーカイブ</a><a href="../../news/mailmagazine/">メールマガジン</a></div><div class="mg-right"></div></div></li><li><a href="../../library/">研究・刊行物</a><div class="mega"><div class="mg-side"><span class="t">研究・刊行物</span><span class="en">LIBRARY</span><a class="go" href="../../library/" aria-label="研究・刊行物トップへ">→</a></div><div class="mg-list"><a href="../../library/">研究・刊行物 トップ</a><div class="mg-item"><a class="mg-p" href="../../library/institute/">産業カウンセリング研究所</a><button class="mg-tgl" type="button" data-sub="library-institute" aria-label="産業カウンセリング研究所の下層を開閉">＋</button></div><a href="../../library/books/">書籍・教材</a><a href="../../library/column/">コラム</a><a href="../../library/movie/">動画ライブラリ</a><div class="mg-item"><a class="mg-p" href="../../library/magazine/">広報誌</a><button class="mg-tgl" type="button" data-sub="library-magazine" aria-label="広報誌の下層を開閉">＋</button></div><a href="../../library/kokorolab/">働く人の心ラボ</a></div><div class="mg-right"><div class="mg-sub" data-panel="library-institute"><a href="../../library/research/">調査・研究</a><a href="../../library/journal/">学術誌「産業カウンセリング研究」</a><a href="../../library/event/">イベント・セミナー</a></div><div class="mg-sub" data-panel="library-magazine"><a href="../../library/magazine/ad/">広告掲載のお申し込み</a></div></div></div></li></ul></nav>
+  <div class="cta">
+    <a class="srch" href="../../soon.html#サイト内検索" aria-label="サイト内検索"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg></a>
+    <a class="btn btn-y" href="../../member/join/">入会案内</a>
+    <a class="btn btn-g" href="../../contact/">お問い合わせ</a>
+  </div>
+  <button class="menu-btn" aria-label="メニュー"><span></span><span></span><span></span></button>
+</div></header>
+<div class="mnav"><button class="x">×</button><a href="../../counseling/">相談する</a><a href="../../qualification/">資格・講座</a><a href="../../examination/">試験情報</a><a href="../../company/">法人向け</a><a href="../../member/">会員・入会</a><a href="../../about/">協会について</a><a href="../../news/">ニュース</a><a href="../../library/">研究・刊行物</a>
+  <a href="../../member/join/">入会案内</a><a href="../../contact/">お問い合わせ</a>
+</div>
+
+<div class="crumb"><div class="wrap"><ol><li><a href="../../index.html">トップ</a></li><li><a href="../../news/">ニュース・活動報告</a></li><li>重要なお知らせ</li></ol></div></div>
+<div class="p-hero"><div class="wrap"><span class="en">IMPORTANT</span><h1>重要なお知らせ</h1><p class="ld">受験・受講・会員サービスに関わる特に重要なお知らせの一覧です。掲載中の記事はトップページの「重要なお知らせ」帯にも自動表示されます。</p></div></div>
+<main class="sub"><div class="wrap prose">
+<div class="nl-head">
+  <h2><small>IMPORTANT</small>重要なお知らせ</h2>
+  <div class="nl-tools">
+    <span class="nl-cnt" id="nlCnt">—</span>
+    <input id="nlQ" class="nl-srch" type="search" placeholder="キーワードで探す">
+  </div>
+</div>
+<p class="lead2">掲載期限つきの重要なお知らせです。掲載中の記事はトップページの帯にも同時に表示されます。</p>
+
+<div class="nl-list" id="nlList"></div>
+
+<h3 class="nl-sub" id="nlPastHd" style="display:none">掲載期限を過ぎたお知らせ</h3>
+<div class="nl-list past" id="nlPast"></div>
+
+<div class="note" style="margin-top:22px">
+  <b>掲載のしくみ</b>：各部署が起案 → 広報部が承認 → 公開と同時にトップページの帯とこの一覧に自動表示 → 掲載期限を過ぎると帯から自動的に外れ、この下の「掲載期限を過ぎたお知らせ」へ移動します。掲載の消し忘れが起きない設計です。
+</div>
+
+<div class="cta-box">
+  <h3>お知らせの内容についてのご質問</h3>
+  <p>掲載内容に関するご不明な点は、お問い合わせフォームよりご連絡ください。</p>
+  <div class="bs"><a class="btn btn-y btn-big" href="../../contact/">お問い合わせ</a><a class="btn btn-w" href="../../faq/">よくあるご質問</a></div>
+</div>
+
+<div class="rel"><h3>RELATED ─ 関連ページ</h3><div class="lk"><a href="../../news/">お知らせ一覧</a><a href="../../news/archive/">年度別アーカイブ</a><a href="../../examination/grade2/">試験案内（2級）</a><a href="../../member/news/">会員向けお知らせ</a></div></div>
+</div></main>
+
+<footer>
+ <div class="wrap ft-main">
+  <div class="ft-brand">
+    <img src="../../../images/foot_logo.png" alt="JAICO">
+    <p>一般社団法人日本産業カウンセラー協会<br>〒105-0004 東京都港区新橋六丁目17番17号 御成門センタービル6階</p>
+    <div class="pm"><img src="../../../images/pmark.png" alt="プライバシーマーク"><span>当協会はプライバシーマーク取得事業者です</span></div>
+  </div>
+  <div class="ft-col"><h4>相談する</h4>
+    <a href="../../counseling/hotline/">働く人の悩みホットライン</a>
+    <a href="https://harassment.counselor.or.jp/" target="_blank" rel="noopener" class="ex">JAICOハラスメント相談室</a>
+    <a href="../../counseling/sns/">JAICO SNS相談</a>
+    <a href="../../company/">法人向け相談サービス</a>
+  </div>
+  <div class="ft-col"><h4>学ぶ・資格を取る</h4>
+    <a href="../../qualification/counselor/">産業カウンセラー養成講座</a>
+    <a href="../../qualification/career/">キャリアコンサルタント</a>
+    <a href="../../qualification/senior/">シニア産業カウンセラー</a>
+    <a href="../../qualification/kokoro/">こころのアドバイザー</a>
+    <a href="../../examination/">産業カウンセラー試験</a>
+  </div>
+  <div class="ft-col"><h4>協会について</h4>
+    <a href="../../about/">協会概要・役員</a>
+    <a href="../../member/branch/">全国の支部一覧</a>
+    <a href="../../news/">ニュース・活動報告</a>
+    <a href="../../library/">研究・刊行物</a>
+    <a href="../../about/recruit/">採用情報</a>
+  </div>
+  <div class="ft-col"><h4>関連リンク</h4>
+    <a href="https://kokoro.mhlw.go.jp/" target="_blank" rel="noopener" class="ex">こころの耳（厚労省）</a>
+    <a href="../../qualification/kokoro/">こころのアドバイザー講座</a>
+    <a href="../../about/link/">関連団体・行政リンク</a>
+    <a href="../../about/policy/#privacy">プライバシーポリシー</a>
+    <a href="../../soon.html#サイトマップ">サイトマップ</a>
+  </div>
+ </div>
+ <div class="wrap ft-btm">
+   <span>© Japan Industrial Counselors Association（リニューアル構成デモ・プロトタイプ）</span>
+   <span class="lk"><a href="../../about/policy/#privacy">個人情報保護方針</a><a href="../../soon.html#特定商取引法">特定商取引法に基づく表記</a></span>
+ </div>
+</footer>
+
+<script src="../../assets/app.js"></script>
+<script src="../../assets/chatbot.js" defer></script>
+
+<script src="../../news_articles.js"></script>
+<script>
+/* 重要なお知らせ一覧：news_articles.js（＋職員管理で保存した内容）から生成 */
+(function(){
+  var TAGCLR={t1:['#e7f4ea','#1c7c2f'],t2:['#fdf3d5','#8a6d1a'],t3:['#e8f0fb','#2b5ea7'],t4:['#f3e9f5','#7b3f8f']};
+  function esc(v){ return String(v==null?'':v).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function num(d){ return Number(String(d||'').replace(/[^0-9]/g,'')) || 0; }
+  var TODAY = num('2026.07.23');
+
+  /* 職員管理ポータル（トップページ管理）で保存した内容があればそちらを優先 */
+  function fromStore(){
+    try{
+      var r=localStorage.getItem('jaico_toppage_v1'); if(!r) return null;
+      var j=JSON.parse(r); var c=(j&&j.published)||null; if(!c||!c.important) return null;
+      return c.important.map(function(x){ return {id:x.id,date:x.date,cat:x.cat,cls:x.cls,title:x.title,lead:(x.body||'').replace(/<[^>]+>/g,'').slice(0,90),expire:x.expire||'',important:true}; });
+    }catch(e){ return null; }
+  }
+  var ALL = fromStore() || (window.JAICO_ARTICLES||[]).filter(function(a){ return a.important; });
+
+  function card(a, past){
+    var c=TAGCLR[a.cls]||['#eef2ef','#556'];
+    return '<a class="nl-item" href="../view/?src=important&id='+encodeURIComponent(a.id)+'">'
+      +'<div class="m"><time>'+esc(a.date)+'</time>'
+      +'<span class="tg" style="background:'+c[0]+';color:'+c[1]+'">'+esc(a.cat||'')+'</span>'
+      +(a.expire?'<span class="exp">'+(past?'掲載終了':'掲載期限')+' '+esc(a.expire)+'</span>':'')
+      +'</div><h4>'+esc(a.title)+'</h4>'
+      +(a.lead?'<p>'+esc(a.lead)+'</p>':'')
+      +'<span class="go">記事を読む →</span></a>';
+  }
+  function render(){
+    var q=(document.getElementById('nlQ').value||'').trim();
+    var rows=ALL.filter(function(a){ return !q || (a.title+' '+(a.lead||'')+' '+(a.cat||'')).indexOf(q)>=0; });
+    var now=rows.filter(function(a){ return !a.expire || num(a.expire)>=TODAY; });
+    var past=rows.filter(function(a){ return a.expire && num(a.expire)<TODAY; });
+    document.getElementById('nlCnt').textContent='掲載中 '+now.length+'件';
+    document.getElementById('nlList').innerHTML = now.length
+      ? now.map(function(a){return card(a,false);}).join('')
+      : '<div class="nl-empty">現在、掲載中の重要なお知らせはありません。</div>';
+    document.getElementById('nlPastHd').style.display = past.length ? '' : 'none';
+    document.getElementById('nlPast').innerHTML = past.map(function(a){return card(a,true);}).join('');
+  }
+  document.getElementById('nlQ').addEventListener('input', render);
+  render();
+})();
+</script>
+</body>
+</html>

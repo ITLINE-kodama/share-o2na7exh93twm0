@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<!-- JAICO-DEMO-GATE:BEGIN -->
+<script>/* 閲覧用ゲート（関係者限定デモ）。クライアントサイドの簡易ロックです。 */
+(function(){
+  var KEY='jaicoDemoGate2026', SIG='6c4a961c';
+  function hash(s){var v=5381;for(var i=0;i<s.length;i++){v=((v*33)^s.charCodeAt(i))>>>0;}return v.toString(16);}
+  try{ if(localStorage.getItem(KEY)===SIG) return; }catch(e){}
+  document.write('<style id="__gs">html{visibility:hidden!important}#__gate,#__gate *{visibility:visible!important}</style>');
+  function build(){
+    var w=document.createElement('div');
+    w.id='__gate';
+    w.setAttribute('style','position:fixed;inset:0;z-index:2147483647;background:linear-gradient(160deg,#f2f8f3,#e6f2e9);display:flex;align-items:center;justify-content:center;padding:20px;font-family:"Noto Sans JP","Yu Gothic UI",sans-serif');
+    w.innerHTML='<form id="__gf" style="background:#fff;border:1px solid #dbe7dc;border-radius:18px;box-shadow:0 14px 40px rgba(28,124,47,.14);padding:34px 32px;width:100%;max-width:380px;box-sizing:border-box">'
+      +'<div style="font-size:11px;font-weight:800;letter-spacing:.14em;color:#239b3b">CONFIDENTIAL</div>'
+      +'<h1 style="font-size:17px;margin:8px 0 6px;color:#243024;line-height:1.6">ご提案デモサイト<br>閲覧用ログイン</h1>'
+      +'<p style="font-size:12px;line-height:1.9;color:#5c6b63;margin:0 0 20px">関係者限定のプロトタイプです。<br>ご案内済みのID・パスワードを入力してください。</p>'
+      +'<label style="display:block;font-size:12px;font-weight:700;color:#243024;margin-bottom:5px">ID</label>'
+      +'<input id="__gi" type="text" autocomplete="username" autocapitalize="off" autocorrect="off" spellcheck="false" style="width:100%;box-sizing:border-box;font-size:15px;padding:11px 13px;border:1px solid #cfe0d3;border-radius:9px;margin-bottom:14px;font-family:inherit">'
+      +'<label style="display:block;font-size:12px;font-weight:700;color:#243024;margin-bottom:5px">パスワード</label>'
+      +'<input id="__gp" type="password" autocomplete="current-password" style="width:100%;box-sizing:border-box;font-size:15px;padding:11px 13px;border:1px solid #cfe0d3;border-radius:9px;font-family:inherit">'
+      +'<p id="__ge" style="display:none;font-size:12px;color:#c0392b;font-weight:700;margin:12px 0 0">IDまたはパスワードが違います。</p>'
+      +'<button type="submit" style="width:100%;margin-top:20px;background:#239b3b;color:#fff;border:0;border-radius:999px;font-size:15px;font-weight:800;padding:13px;cursor:pointer;font-family:inherit">閲覧する</button>'
+      +'<p style="font-size:10.5px;color:#8a988f;line-height:1.8;margin:16px 0 0">※ 本デモの内容・画面イメージの二次配布はご遠慮ください。</p>'
+      +'</form>';
+    document.body.appendChild(w);
+    var i=document.getElementById('__gi');
+    if(i) i.focus();
+    document.getElementById('__gf').addEventListener('submit',function(ev){
+      ev.preventDefault();
+      var id=(document.getElementById('__gi').value||'').trim();
+      var pw=document.getElementById('__gp').value||'';
+      if(hash(id+':'+pw)===SIG){
+        try{ localStorage.setItem(KEY,SIG); }catch(e){}
+        location.reload();
+      }else{
+        document.getElementById('__ge').style.display='block';
+        document.getElementById('__gp').value='';
+        document.getElementById('__gp').focus();
+      }
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',build); else build();
+})();
+</script>
+<!-- JAICO-DEMO-GATE:END -->
+
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>産業カウンセラー養成講座｜日本産業カウンセラー協会（リニューアル構成デモ）</title>
+<meta name="description" content="産業カウンセラー養成講座のご案内。カリキュラム・受講スタイル・受講料・開講日程。">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+<div class="notice">リニューアル構成デモ｜リニューアル後の画面イメージ（プロトタイプ）— 文言・日程・数値にはサンプルを含みます</div>
+<div class="topbar"><div class="wrap">
+  <span class="tg">働く人と組織を支える 一般社団法人日本産業カウンセラー協会</span>
+  <span class="sp"><a href="../../about/link/">全国の支部サイト ↗</a><a href="../../soon.html#会員ログイン">会員ログイン</a><a href="../../access/">アクセス</a><a href="../../soon.html#English">English</a></span>
+</div></div>
+<header class="hd"><div class="wrap">
+  <a class="logo" href="../../index.html"><img src="../../../images/logo.png" alt="一般社団法人日本産業カウンセラー協会"></a>
+  <nav><ul><li><a href="../../counseling/">相談する</a><div class="mega"><div class="mg-side"><span class="t">相談する</span><span class="en">COUNSELING</span><a class="go" href="../../counseling/" aria-label="相談するトップへ">→</a></div><div class="mg-list"><a href="../../counseling/">相談・カウンセリング トップ</a><a href="../../counseling/first/">はじめての方へ</a><a href="../../counseling/hotline/">働く人の悩みホットライン</a><a href="../../counseling/sns/">SNS相談</a><a href="../../counseling/room/">全国の相談室</a><a href="../../counseling/reserve/">予約方法・担当</a><a href="../../counseling/entry/">相談のお申し込み</a><a href="../../counseling/for-company/">企業・団体の方</a></div><div class="mg-right"></div></div></li><li><a href="../../qualification/" class="on">資格・講座</a><div class="mega"><div class="mg-side"><span class="t">資格・講座</span><span class="en">QUALIFICATIONS</span><a class="go" href="../../qualification/" aria-label="資格・講座トップへ">→</a></div><div class="mg-list"><a href="../../qualification/">資格・講座トップ</a><div class="mg-item"><a class="mg-p" href="../../qualification/counselor/">産業カウンセラー養成講座</a><button class="mg-tgl" type="button" data-sub="qualification-counselor" aria-label="産業カウンセラー養成講座の下層を開閉">＋</button></div><div class="mg-item"><a class="mg-p" href="../../qualification/career/">キャリアコンサルタント</a><button class="mg-tgl" type="button" data-sub="qualification-career" aria-label="キャリアコンサルタントの下層を開閉">＋</button></div><div class="mg-item"><a class="mg-p" href="../../qualification/senior/">シニア産業カウンセラー</a><button class="mg-tgl" type="button" data-sub="qualification-senior" aria-label="シニア産業カウンセラーの下層を開閉">＋</button></div><a href="../../qualification/kokoro/">こころのアドバイザー</a><a href="../../qualification/calendar/">講座カレンダー</a><a href="../../qualification/training/">専門研修（フォローアップ）</a><a href="../../qualification/supervision/">スーパービジョン</a><a href="../../qualification/renewal/">資格更新のご案内</a><a href="../../qualification/voice/">受講者の声</a><a href="../../qualification/kyufukin/">教育訓練給付制度</a></div><div class="mg-right"><div class="mg-sub" data-panel="qualification-counselor"><a href="../../qualification/counselor/#schedule">日程・会場・お申し込み</a><a href="../../qualification/counselor/#fee">受講料・教育訓練給付金</a><a href="../../qualification/counselor/#style">受講スタイル（通学・オンライン）</a><a href="../../qualification/counselor/#area">エリア別 無料説明会</a></div><div class="mg-sub" data-panel="qualification-career"><a href="../../qualification/career/course/">養成講習</a><a href="../../qualification/career/renewal/">更新講習</a><a href="../../qualification/career/exam-prep/">試験対策</a><a href="../../qualification/career/moshi/">模擬試験</a></div><div class="mg-sub" data-panel="qualification-senior"><a href="../../qualification/senior/flow/">受験までの流れ・フォローアップ</a></div></div></div></li><li><a href="../../examination/">試験情報</a><div class="mega"><div class="mg-side"><span class="t">試験情報</span><span class="en">EXAMINATION</span><a class="go" href="../../examination/" aria-label="試験情報トップへ">→</a></div><div class="mg-list"><a href="../../examination/">試験情報トップ</a><div class="mg-item"><a class="mg-p" href="../../examination/grade2/">産業カウンセラー試験 2級</a><button class="mg-tgl" type="button" data-sub="examination-grade2" aria-label="産業カウンセラー試験 2級の下層を開閉">＋</button></div><a href="../../examination/grade1/">産業カウンセラー試験 1級</a><a href="../../examination/career/">キャリアコンサルタント国家試験</a><a href="../../examination/certificate/">合格証の発送・再発行（2級・1級）</a><a href="../../examination/faq/">よくある質問</a></div><div class="mg-right"><div class="mg-sub" data-panel="examination-grade2"><a href="../../examination/grade2/apply/">受検申請・受検上の配慮</a><a href="../../examination/grade2/results/">合否結果</a></div></div></div></li><li><a href="../../company/">法人向け</a><div class="mega"><div class="mg-side"><span class="t">法人向け</span><span class="en">FOR BUSINESS</span><a class="go" href="../../company/" aria-label="法人向けトップへ">→</a></div><div class="mg-list"><a href="../../company/">法人向けサービス トップ</a><a href="../../company/mental/">メンタルヘルス対策支援</a><a href="../../company/training/">企業研修</a><a href="../../company/stresscheck/">ストレスチェック</a><a href="../../company/eap/">外部相談窓口・EAP</a><a href="../../company/case/">導入事例</a><a href="../../company/contact/">法人お問い合わせ</a></div><div class="mg-right"></div></div></li><li><a href="../../member/">会員・入会</a><div class="mega"><div class="mg-side"><span class="t">会員・入会</span><span class="en">MEMBERSHIP</span><a class="go" href="../../member/" aria-label="会員・入会トップへ">→</a></div><div class="mg-list"><a href="../../member/">会員・入会 トップ</a><div class="mg-item"><a class="mg-p" href="../../member/join/">入会案内</a><button class="mg-tgl" type="button" data-sub="member-join" aria-label="入会案内の下層を開閉">＋</button></div><a href="../../member/benefit/">会員特典</a><a href="../../member/card/">会員証</a><a href="../../member/procedure/">各種手続き</a><a href="../../member/branch/">全国支部・拠点一覧</a><a href="../../member/mypage/">会員マイページ</a><a href="../../member/news/">会員向けお知らせ</a><a href="../../member/job/">求人情報</a></div><div class="mg-right"><div class="mg-sub" data-panel="member-join"><a href="../../member/join/entry/">入会手続き・申込フォーム</a></div></div></div></li><li><a href="../../about/">協会について</a><div class="mega"><div class="mg-side"><span class="t">協会について</span><span class="en">ABOUT US</span><a class="go" href="../../about/" aria-label="協会についてトップへ">→</a></div><div class="mg-list"><a href="../../about/">協会について トップ</a><a href="../../about/message/">会長メッセージ</a><a href="../../about/policy/">理念・行動指針</a><a href="../../about/activity/">3つの活動領域</a><a href="../../about/organization/">組織図</a><a href="../../about/adr/">ADR（紛争解決）</a><a href="../../about/conference/">全国研究大会</a><a href="../../about/disclosure/">情報公開</a><a href="../../about/link/">リンク集・関連団体</a><a href="../../about/recruit/">採用情報</a></div><div class="mg-right"></div></div></li><li><a href="../../news/">ニュース</a><div class="mega"><div class="mg-side"><span class="t">ニュース</span><span class="en">NEWS</span><a class="go" href="../../news/" aria-label="ニューストップへ">→</a></div><div class="mg-list"><a href="../../news/">お知らせ一覧</a><a href="../../news/important/">重要なお知らせ</a><a href="../../news/report/">活動報告</a><a href="../../news/archive/">年度別アーカイブ</a><a href="../../news/mailmagazine/">メールマガジン</a></div><div class="mg-right"></div></div></li><li><a href="../../library/">研究・刊行物</a><div class="mega"><div class="mg-side"><span class="t">研究・刊行物</span><span class="en">LIBRARY</span><a class="go" href="../../library/" aria-label="研究・刊行物トップへ">→</a></div><div class="mg-list"><a href="../../library/">研究・刊行物 トップ</a><div class="mg-item"><a class="mg-p" href="../../library/institute/">産業カウンセリング研究所</a><button class="mg-tgl" type="button" data-sub="library-institute" aria-label="産業カウンセリング研究所の下層を開閉">＋</button></div><a href="../../library/books/">書籍・教材</a><a href="../../library/column/">コラム</a><a href="../../library/movie/">動画ライブラリ</a><div class="mg-item"><a class="mg-p" href="../../library/magazine/">広報誌</a><button class="mg-tgl" type="button" data-sub="library-magazine" aria-label="広報誌の下層を開閉">＋</button></div><a href="../../library/kokorolab/">働く人の心ラボ</a></div><div class="mg-right"><div class="mg-sub" data-panel="library-institute"><a href="../../library/research/">調査・研究</a><a href="../../library/journal/">学術誌「産業カウンセリング研究」</a><a href="../../library/event/">イベント・セミナー</a></div><div class="mg-sub" data-panel="library-magazine"><a href="../../library/magazine/ad/">広告掲載のお申し込み</a></div></div></div></li></ul></nav>
+  <div class="cta">
+    <a class="srch" href="../../soon.html#サイト内検索" aria-label="サイト内検索"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg></a>
+    <a class="btn btn-y" href="../../member/join/">入会案内</a>
+    <a class="btn btn-g" href="../../contact/">お問い合わせ</a>
+  </div>
+  <button class="menu-btn" aria-label="メニュー"><span></span><span></span><span></span></button>
+</div></header>
+<div class="mnav"><button class="x">×</button><a href="../../counseling/">相談する</a><a href="../../qualification/">資格・講座</a><a href="../../examination/">試験情報</a><a href="../../company/">法人向け</a><a href="../../member/">会員・入会</a><a href="../../about/">協会について</a><a href="../../news/">ニュース</a><a href="../../library/">研究・刊行物</a>
+  <a href="../../member/join/">入会案内</a><a href="../../contact/">お問い合わせ</a>
+</div>
+
+<div class="crumb"><div class="wrap"><ol><li><a href="../../index.html">トップ</a></li><li><a href="../">資格・講座</a></li><li>産業カウンセラー養成講座</li></ol></div></div>
+<div class="p-hero"><div class="wrap"><span class="en">INDUSTRIAL COUNSELOR TRAINING</span><h1>産業カウンセラー養成講座</h1><p class="ld">働く人のこころに寄り添う専門家へ。理論と実技を体系的に学ぶ、協会の中核講座です。</p></div></div>
+
+<main class="sub"><div class="wrap prose">
+  <style>
+  /* 養成講座ページ 背景ブルー（ページ固有・共有 style.css は変更しない） */
+  main.sub{background:linear-gradient(180deg,#e7f0fb 0%,#f2f8fe 60%,#eaf3fc 100%)}
+  </style>
+  <div class="anchor-nav">
+    <a href="#about">講座とは</a><a href="#feature">3つの特徴</a><a href="#style">学習スタイル</a><a href="#movie">動画</a><a href="#voice">受講者の声</a><a href="#teacher">実技指導者</a><a href="#schedule">スケジュール</a><a href="#outline">講座概要</a><a href="#fee">受講料・給付金</a><a href="#faq">Q&amp;A</a><a href="#venue">会場一覧</a>
+  </div>
+
+  <div class="lead-vis"><img src="../../../images/yousei/top_pc_260407.png" alt="働く人と組織を支える「聴く力」産業カウンセラー養成講座® 教育訓練給付制度 一般教育訓練指定講座"></div>
+
+  <h2 id="about"><small>ABOUT</small>『産業カウンセラー』になって得られるスキル</h2>
+  <p>働く人たちや組織が抱える問題を自ら解決できるよう、心理的な手法を用いて支援するカウンセラーです。その活動は多岐にわたり、産業、労働現場に通じたプロフェッショナルな支援者として、国や自治体、企業等から専門的な役割を期待されています。ハラスメント、メンタル不調、人間関係や職場環境に関する問題の解決が喫緊の課題となっている今、その活動がますます求められています。</p>
+  <p>また、産業カウンセラー養成講座で学ぶカウンセリングの基本スキルである「傾聴」は、ビジネスはもとより”人”と接するあらゆる場面や日常で広く必要とされるスキルです。</p>
+  <p style="text-align:center"><img src="../../../images/yousei/too_scene.jpg" alt="『産業カウンセラー』になって得られるスキル" style="border-radius:var(--r);box-shadow:var(--sh);max-width:1100px;width:100%;display:block;margin:0 auto"></p>
+
+  <div class="cta-box"><h3>説明会・無料体験講座 開催情報</h3>
+  <p>全国で説明会・無料体験講座を実施しています。オンライン開催は全国どこからでもご参加いただけます。参加された方は受講料が<b>5,500円(税込)割引</b>となります！<br><small>※募集期間中または募集期間直近の説明会にご参加後、講座をお申込みいただいた場合に割引適用となります。</small></p>
+  <div class="bs"><a class="btn btn-y btn-big" href="../../../demo_schedule/index.html">会場と日程・お申し込み ↗</a><a class="btn btn-w" href="#area">説明会の開催エリアを見る →</a></div></div>
+
+  <h2 id="area"><small>AREA</small>日程および開催方法（対面またはオンライン）</h2>
+  <p class="lead2">各主催支部のWebサイトをご確認ください。オンライン開催はあらゆる地域から参加できます。<br>会場ごとの詳しい開催日程・受付状況・お申し込みは、<a href="../../../demo_schedule/index.html" style="color:var(--gd);font-weight:700;text-decoration:underline">講座日程マスタ（会場と日程・お申し込み）</a>でご覧いただけます。</p>
+  <ul class="areagrid" id="areaGrid"><li data-key="全　国" data-orig="https://www.counselor.or.jp/course/tabid/134/Default.aspx"><a href="https://www.counselor.or.jp/course/tabid/134/Default.aspx" target="_blank" rel="noopener"><span class="an">全　国</span><span class="am">オンライン</span></a></li>
+<li data-key="北海道エリア" data-orig="https://hokkaido.counselor.or.jp/7208/"><a href="https://hokkaido.counselor.or.jp/7208/" target="_blank" rel="noopener"><span class="an">北海道エリア</span><span class="am">対面</span></a></li>
+<li data-key="東北エリア" data-orig="https://tohoku.counselor.or.jp/learning/yousei/online_setsumeikai/"><a href="https://tohoku.counselor.or.jp/learning/yousei/online_setsumeikai/" target="_blank" rel="noopener"><span class="an">東北エリア</span><span class="am">対面・オンライン</span></a></li>
+<li data-key="上信越エリア" data-orig="https://joshinetsu.counselor.or.jp/8245/"><a href="https://joshinetsu.counselor.or.jp/8245/" target="_blank" rel="noopener"><span class="an">上信越エリア</span><span class="am">対面・オンライン</span></a></li>
+<li data-key="北関東エリア" data-orig="https://kitakanto.counselor.or.jp/learning/yousei/co_experience/"><a href="https://kitakanto.counselor.or.jp/learning/yousei/co_experience/" target="_blank" rel="noopener"><span class="an">北関東エリア</span><span class="am">対面</span></a></li>
+<li data-key="東関東エリア" data-orig="https://www.co-higashikanto.jp/training/jissyu/"><a href="https://www.co-higashikanto.jp/training/jissyu/" target="_blank" rel="noopener"><span class="an">東関東エリア</span><span class="am">対面</span></a></li>
+<li data-key="東京エリア" data-orig="https://www.counselor-tokyo.jp/course/yousei"><a href="https://www.counselor-tokyo.jp/course/yousei" target="_blank" rel="noopener"><span class="an">東京エリア</span><span class="am">対面・オンライン</span></a></li>
+<li data-key="神奈川エリア" data-orig="https://kanagawa.counselor.or.jp/learning/course/muryo/"><a href="https://kanagawa.counselor.or.jp/learning/course/muryo/" target="_blank" rel="noopener"><span class="an">神奈川エリア</span><span class="am">対面</span></a></li>
+<li data-key="中部エリア" data-orig="https://chubu.counselor.or.jp/learning/yousei/#muryo"><a href="https://chubu.counselor.or.jp/learning/yousei/#muryo" target="_blank" rel="noopener"><span class="an">中部エリア</span><span class="am">対面・オンライン</span></a></li>
+<li data-key="関西エリア" data-orig="https://kansai.counselor.or.jp/learning/yousei/yousei_setsumei/"><a href="https://kansai.counselor.or.jp/learning/yousei/yousei_setsumei/" target="_blank" rel="noopener"><span class="an">関西エリア</span><span class="am">対面・オンライン</span></a></li>
+<li data-key="中国エリア" data-orig="https://chugoku.counselor.or.jp/learning/muryo/"><a href="https://chugoku.counselor.or.jp/learning/muryo/" target="_blank" rel="noopener"><span class="an">中国エリア</span><span class="am">TEL・オンライン</span></a></li>
+<li data-key="四国エリア" data-orig="https://shikoku.counselor.or.jp/learning/yousei/mini/"><a href="https://shikoku.counselor.or.jp/learning/yousei/mini/" target="_blank" rel="noopener"><span class="an">四国エリア</span><span class="am">対面・オンライン</span></a></li>
+<li data-key="九州エリア" data-orig="https://kyushu.counselor.or.jp/youseikouza-muryosetsumeikai/"><a href="https://kyushu.counselor.or.jp/youseikouza-muryosetsumeikai/" target="_blank" rel="noopener"><span class="an">九州エリア</span><span class="am">対面・オンライン</span></a></li>
+<li data-key="沖縄エリア" data-orig="https://okinawa.counselor.or.jp/learning/yousei/"><a href="https://okinawa.counselor.or.jp/learning/yousei/" target="_blank" rel="noopener"><span class="an">沖縄エリア</span><span class="am">対面</span></a></li></ul>
+  <p style="text-align:center;margin-top:14px"><a class="btn btn-g btn-big" href="../../../demo_schedule/index.html">エリア別の会場・日程を見る（63コース）→</a></p>
+
+  <section class="cnews" id="counselorNews">
+    <div class="cn-hd">
+      <h3><span class="en">NEWS</span>新着情報</h3>
+      <a class="cn-arc" href="../../../news-archive/index.html?lp=sangyo">過去のお知らせ（アーカイブ）→</a>
+    </div>
+    <ul class="cn-list">
+      <li><time>2026.4.24</time><div class="cn-b"><p>「全国オンライン無料説明会」の開催日時は決まり次第、順次掲載いたします。現在はお申込みを受け付けておりません。</p><ul class="cn-sub"><li>新型コロナウイルス感染症の拡大防止のため、安全対策を施し講座を実施します。</li><li>面接の体験学習をオンライン（Zoom利用）で行なうコースを開設しています。一部スクーリングのあるコースと、全日程オンラインで行なうコースとがあります。</li></ul></div></li>
+    </ul>
+  </section>
+
+  <h2><small>WHAT</small>産業カウンセラー養成講座とは</h2>
+  <p>一般社団法人日本産業カウンセラー協会の産業カウンセラー養成講座は、カウンセリングの基礎である「傾聴」の態度・技法と、支援活動に必要な知識を学べる講座です。カウンセリング教育60年以上の実績を持つ独自プログラムにより、理論だけでなく、<b>「現場で活かす」チカラ</b>を身につけることができます。</p>
+
+  <h2 id="feature"><small>FEATURES</small>産業カウンセラー養成講座の特徴</h2>
+  <div class="cards3">
+    <div class="card"><div class="ph pw"><img src="../../../images/yousei/p01.png" alt="その1"></div><div class="in"><span class="t">すべての人の支援に必須「傾聴力」の習得</span><span class="d">104時間に及ぶ面接の体験学習では、カウンセラー役・相談者役・観察者を体験します。相談者が自分の感情や思いを理解し、自ら決断し、行動できるように支援するための態度とスキルを実践的に習得します。</span></div></div>
+    <div class="card"><div class="ph pw"><img src="../../../images/yousei/p02.png" alt="その2"></div><div class="in"><span class="t">実用性の高い「心理学・メンタルヘルスの専門知識」の習得</span><span class="d">47時間相当のe-Learningによる理論学習で、メンタルヘルスや産業組織心理学、労働関係法など、個人だけでなく組織の支援に活用でき、現場で役立つ専門知識を学ぶことができます。</span></div></div>
+    <div class="card"><div class="ph pw"><img src="../../../images/yousei/p03.png" alt="その3"></div><div class="in"><span class="t">人間関係・職場環境改善に活かせる「ファシリテーション力」の習得</span><span class="d">面接の体験学習では、グループワークや事例検討など、カウンセリングスキルだけでなく、コミュニケーション力を磨くカリキュラムが多数用意されています。仲間とのディスカッションを通じて「ファシリテーション力」が身についていきます。</span></div></div>
+  </div>
+
+  <h2><small>LEARNING</small>理論と体験</h2>
+  <p class="lead2">効率良く、深く学べる学習スタイルです。</p>
+  <div class="cards2 learncards">
+    <div class="card learn"><div class="ph"><img src="../../../images/yousei/study_style01.png" alt="理論学習（e-Learning）"></div><div class="in"><span class="k">効率よく</span><span class="t">理論学習（e-Learning）</span><span class="d">テキストを読み、講義動画を視聴、理解度確認テストに取り組みます。講義動画は視聴可能期間であれば、繰り返し見ることができます。講師は、産業カウンセリングやキャリアカウンセリング、臨床の分野で活躍中の大学教授や研究者、医師等が担当しています。</span></div></div>
+    <div class="card learn"><div class="ph"><img src="../../../images/yousei/study_style02.png" alt="面接の体験学習"></div><div class="in"><span class="k">深く</span><span class="t">面接の体験学習（15〜16日／計104時間）</span><span class="d">グループでの学習となります。実技指導者のもと小グループに分かれて、カウンセラー役と相談者役を繰り返し体験することで”知っている”から”できる”を目指します。また他者の体験を生で観察し共有することでさらに学びが深まります。</span></div></div>
+  </div>
+
+  <h2 id="style"><small>STYLE</small>面接の体験学習は3つの学習スタイルから選べます</h2>
+  <div class="cards3 stylecards">
+    <div class="card stylecard s1"><div class="in"><span class="ic">🏫</span><span class="k">STYLE 1</span><span class="t">通学コース</span><span class="d"><b>面接の体験学習104時間すべてを対面で行います。</b>実際の対面カウンセリング場面に近い条件で、体験学習を行います。体験学習効果としては最もお薦めのコースです。</span></div></div>
+    <div class="card stylecard s2"><div class="in"><span class="ic">💻</span><span class="k">STYLE 2</span><span class="t">オンラインコース</span><span class="d"><b>スクーリングで28時間、オンライン（ZOOM）で76時間。</b>スクーリングで、対面カウンセリング場面も経験。オンラインカウンセリングの貴重な経験ともなるでしょう。</span></div></div>
+    <div class="card stylecard s3"><div class="in"><span class="ic">🌐</span><span class="k">STYLE 3</span><span class="t">フルオンラインコース</span><span class="d"><b>面接の体験学習104時間すべてをオンライン（ZOOM）で。</b>教室への移動が困難な方、教室を開設していない地域の方、海外在住の方などにお薦めします。＊教材等の送付先は国内のみといたします。</span></div></div>
+  </div>
+
+  <h2 id="movie"><small>MOVIE</small>動画で見る産業カウンセラー養成講座</h2>
+  <div class="videos">
+    <figure><div class="ytwrap"><iframe src="https://www.youtube.com/embed/Vc-oU0czCEw" title="人と人を繋ぐプロになる" loading="lazy" allowfullscreen></iframe></div><figcaption>人と人を繋ぐプロになる</figcaption></figure>
+    <figure><div class="ytwrap"><iframe src="https://www.youtube.com/embed/VE_kZxUPZHQ" title="産業カウンセラー養成講座の魅力" loading="lazy" allowfullscreen></iframe></div><figcaption>産業カウンセラー養成講座の魅力</figcaption></figure>
+    <figure><div class="ytwrap"><iframe src="https://www.youtube.com/embed/20_MQYBNmxs" title="産業カウンセラーを目指したワケ" loading="lazy" allowfullscreen></iframe></div><figcaption>産業カウンセラーを目指したワケ<br><a href="https://www.counselor.or.jp/portals/0/e-learning/Interview.html" target="_blank" rel="noopener">▶ インタビュー全文はこちら</a></figcaption></figure>
+    <figure><div class="ytwrap"><iframe src="https://www.youtube.com/embed/kNyhEeRyDkA" title="受講者インタビュー" loading="lazy" allowfullscreen></iframe></div><figcaption>受講者インタビュー<br><a href="https://www.counselor.or.jp/portals/0/e-learning/Interview2.html" target="_blank" rel="noopener">▶ インタビュー全文はこちら</a></figcaption></figure>
+  </div>
+
+  <h2 id="voice"><small>VOICE</small>受講者の声</h2>
+  <h3 class="vh">受講して得られたもの</h3>
+  <div class="voices"><div class="vcard"><img src="../../../images/yousei/avatar01.png" alt=""><p>私は人事業務の中で社員の相談を受ける際、自分の聴き方・応え方など、聴く姿勢全般について不安があり受講を決めたのですが、受講を終えた今は自信と前向きな気持ちを持って相談対応に取り組めています。私は日曜６ヶ月コースを選んだため、体力的に辛く感じることがありましたが、毎回深い学びがあり、大変価値のあるものだったと感じています。傾聴を学びたい方には心からお勧めします。</p></div>
+<div class="vcard"><img src="../../../images/yousei/avatar21.png" alt=""><p>受講した当初は、ここまで自分が変われると思いませんでした。この講座は、自分自身の成長につながり、今後の生き方の幅が大きく拡がります。多くの皆さんに、傾聴の大切さ、自己理解の重要性を知っていただきたいと思います。</p></div>
+<div class="vcard"><img src="../../../images/yousei/avatar10.png" alt=""><p>面接の体験学習では、同じ目的をもったかけがえのない仲間が出来ました。貴重な期間でした。</p></div>
+<div class="vcard"><img src="../../../images/yousei/avatar03.png" alt=""><p>話を聴く事についての認識が変わりました。話を聴くスキルを身につける事で相手を理解でき、より良い対人関係を築くきっかけとなると思います。</p></div>
+<div class="vcard"><img src="../../../images/yousei/avatar25.png" alt=""><p>受講を終え振り返ってみると、たくさんの苦悩が生まれ、仲間との分かち合いがあり、自分自身ととことん向き合った半年だったと思います。決して楽な講座ではありませんが、ここで学んだことはこの先の人生に大きな意味を持つだろうなと感じています。是非多くの人に体験して欲しいと思います。</p></div>
+<div class="vcard"><img src="../../../images/yousei/avatar08.png" alt=""><p>自分ひとりでは辿りつけなかった。同じ志を持った仲間たちからたくさんの学びがあり、仲間たちと貴重なお時間を過ごせたことは、かけがいのない財産になりました。受講して本当に良かったです。</p></div>
+<div class="vcard"><img src="../../../images/yousei/avatar19.png" alt=""><p>講座の参加メンバーとの異業種間交流になるだけでなく世代間の意識、感覚なども吸収することができて、仕事では経験できないいい出会いの場所でした。</p></div>
+<div class="vcard"><img src="../../../images/yousei/avatar13.png" alt=""><p>傾聴は非常に難しいことですが、一歩踏み出して学びを深め力を蓄えることで、誰かの悩みに寄り添うことができます。また、自己理解するとで、コミュニケーションや今後の仕事の取組み方も良い方向に転換していくような気がします。</p></div>
+<div class="vcard"><img src="../../../images/yousei/avatar17.png" alt=""><p>この講座の良さは、受講しないと分からないと思いますが、受講料以上の、お金では買えない貴重な経験と、仲間と出会え、思いきって受講して良かったと思います。</p></div>
+<div class="vcard"><img src="../../../images/yousei/avatar16.png" alt=""><p>カウンセリング業務をこれまで我流で年数十回行ってきましたが、今回講座を受けてそれは違うものだったということが良くわかりました。傾聴など誰でもできると思いきや、実は奥が深く、大変難しい。講座を通してこれまでの自分の考え方がかなり変化しました。変化していく自分を客観的に見られる贅沢な時間でもありました。</p></div></div>
+  <h3 class="vh">受講をおすすめしたい理由</h3>
+  <div class="voices"><div class="vcard"><img src="../../../images/yousei/avatar22.png" alt=""><p>自分自身について深く考えることができ、また、今後のキャリアや人生についてもじっくりと考えるとても良い機会です。傾聴の基本はカウンセリングだけでなく、子育てであれば子供との会話、会社であれば人との接し方についてもいろいろ気づきが出てくるので、ぜひ、講座を楽しんでください。</p></div>
+<div class="vcard"><img src="../../../images/yousei/avatar18.png" alt=""><p>私は産業カウンセラーとは関係無い業務に正社員や派遣社員として従事してきましたので、今回はバックグラウンドを持たずに受講しました。覚えることや知識を実践することの難しさに凹むことも多かったですが、講師の先生方が暖かく指導してくださいましたし、他の受講メンバーとの面接体験実習を通して、来談者中心療法のプロセスに触れ、実際にその素晴らしさを実感することが出来ました。受講修了したところから、本当のスタートになりますが、仲閒と一緒に成長出来ると思い、ワクワクしています。未経験でも大丈夫と思います。一緒に悩みながら成長していく仲閒になっていただけるのをお待ちしています。</p></div>
+<div class="vcard"><img src="../../../images/yousei/avatar05.png" alt=""><p>自分の周りの人のためにも、自分自身のためにも、この講座を受けてから社会に出たかったな！と思いました。</p></div>
+<div class="vcard"><img src="../../../images/yousei/avatar04.png" alt=""><p>本気で自分の壁を取っ払いたい人、自分と向き合いたい人、生きづらさを抱えている人にはおすすめです。仕事にいかせるというより、今後の自分の生き方に大きく影響してくると感じています。きつかったけど取り組んでよかったと思っています。</p></div>
+<div class="vcard"><img src="../../../images/yousei/avatar26.png" alt=""><p>人事の方には特に、実務上で役立てられる講座だと思います。</p></div>
+<div class="vcard"><img src="../../../images/yousei/avatar24.png" alt=""><p>受講する前と後では感情の向き合い方が変わります。難しいですが、やるだけの価値はあると体感しました。少しでも人の気持ちに寄り添いたい方は勇気を出して挑戦してみてください。</p></div>
+<div class="vcard"><img src="../../../images/yousei/avatar02.png" alt=""><p>産業カウンセラーを目指している方だけでなく、人との円滑な関係構築を望んでいる人にもオススメしたいです。話を聴けるようになるって、円滑なコミュニケーションをするためのスタートラインなのだということを学びました。そして多くの皆様にもそれを実感していただきたいです。体験学習はもちろん、e-Learning（座学）でもいろいろな側面から物事を考えられるようになる力を身につけられました。時間とお金は確かにかかりますが、それだけの価値はあると私は感じました！</p></div>
+<div class="vcard"><img src="../../../images/yousei/avatar20.png" alt=""><p>傾聴スキルを身につけ、会社組織や身辺の悩みやお困りごとを抱えている方々に寄り添うことは社会的意義があると思います。この養成講座はその初歩段階に位置しますが、資格取得後にも多様な研修講座が開催され役に立つと思います。ただ、費用面が高いですが、給付金対象だったりもするので、多少敷居は低くなるのではないでしょうか。</p></div>
+<div class="vcard"><img src="../../../images/yousei/avatar09.png" alt=""><p>コミュニケーション能力や自己理解を深める意味でも、本講座を受講することは非常に有効と感じます。</p></div>
+<div class="vcard"><img src="../../../images/yousei/avatar31.png" alt=""><p>100時間以上の実技講習は、他では得ることのできない貴重な経験です。</p></div>
+<div class="vcard"><img src="../../../images/yousei/avatar06.png" alt=""><p>「資格を活かして今後こうなりたい」と具体的に固まっていない方でも、参加する価値はあると思います。興味のある方はぜひ挑戦してみてはいかがでしょうか。</p></div></div>
+
+  <h2 id="teacher"><small>MESSAGE</small>実技指導者のメッセージ</h2>
+  <p>私たちは、60年の実績とノウハウのもと、独自の「面接の体験学習」カリキュラムに基づく実技指導を提供しております。</p>
+  <div class="cards2 teachercards">
+    <div class="card tcard"><div class="ph"><img src="../../../images/yousei/ph1.png" alt="野村 起世"></div><div class="in"><span class="t">人間の持つ潜在力の大きさに感動</span><span class="k">野村 起世（実技指導歴15年）／民間企業カウンセラー・大学講師・SNSカウンセラー</span><span class="d">「人間の成長へと向かう潜在力を信頼する」これは産業カウンセラーが大切にしている人間観のひとつです。養成講座の受講者さんやカウンセリングを受けられる相談者さんがご自身の悩んでいることや困難なことのひとつひとつを、自らの力で乗り越えられ、成長されていく姿を目の当たりにする度、私は人間の持つ潜在力の大きさに感動しています。「悩んでいる方や迷っている方の潜在力は、たまたま今、発揮できていないだけ」と捉え、私たち産業カウンセラーは、そのような方に対し、基本的態度からの傾聴をし、支援をしています。あなたも、相談者の心の伴走者である産業カウンセラーの仲間になりませんか。</span></div></div>
+    <div class="card tcard"><div class="ph"><img src="../../../images/yousei/ph2.png" alt="葛巻 直樹"></div><div class="in"><span class="t">養成講座が対人支援の考えを変えた</span><span class="k">葛巻 直樹（実技指導歴9年）／民間企業カウンセラー・コーチング研修講師</span><span class="d">私はコーチの資格を活かして『就労支援』の仕事をしていましたが、目標を設定し問題解決を目指すコーチングではうまく支援ができず困っていました。そんな中、出会った養成講座での学びは、表面的な受容と共感しかできていなかった私の未熟さを理解させてくれました。そして「人間尊重の人間観」や実技指導者の体現するカウンセラーとしての態度は、私の対人支援の考え方を大きく変えてくれました。私が目指したいのは、『傾聴』を身につけることが生きる上でいかに大切か、その素晴らしさを自分の言葉でわかりやすく、私らしく、多くの方々に伝えられる、養成講座が大好きな指導者です。</span></div></div>
+  </div>
+
+  <div class="orgbox">
+    <img src="../../../images/yousei/3_activity.png" alt="産業カウンセラーの3つの活動領域">
+    <p>日本産業カウンセラー協会は、1960年の創立以来、「働く人と組織を支えるための活動」を続けています。1971年に始まった「産業カウンセラー」試験から現在まで、約78,000人の産業カウンセラーが誕生しており、カウンセラー養成にも長い歴史と実績があります。産業カウンセラーの呼称を使用して活動できるのは、当協会の資格試験に合格し、資格登録会員となった方のみです。</p>
+  </div>
+
+  <h2 id="schedule"><small>SCHEDULE</small>資格取得までのスケジュール</h2>
+  <p style="text-align:center"><img src="../../../images/yousei/schedule_2026.png" alt="資格取得までのスケジュール" style="border-radius:var(--r);box-shadow:var(--sh);max-width:1000px;width:100%"></p>
+  <div class="note">※新型コロナウイルス感染症拡大防止等の理由により、面接の体験学習について日程変更や一部オンライン化する場合があります。</div>
+
+  <h2><small>EXAM</small>産業カウンセラー試験（予定）</h2>
+  <table class="tbl">
+    <tbody>
+      <tr><th>1月試験</th><td>学科試験　2027年1月24日(日)（予定）<br>実技試験　2027年1月30日(土)・31日(日)（予定)</td></tr>
+      <tr><th>6月・7月試験</th><td>学科試験　2027年6月（予定）<br>実技試験　2027年7月（予定）</td></tr>
+    </tbody>
+  </table>
+  <div class="note">※試験はすべて国内の試験会場で行ないます。（オンラインでの実施はありません）／※試験は全員、学科試験と実技試験を受けていただきます。</div>
+
+  <h2 id="outline"><small>OUTLINE</small>講座概要</h2>
+  <h3 class="cmp-h3">6か月コース と 10か月コース の比較</h3>
+  <div class="cmp">
+    <table>
+      <thead><tr><th>項目</th><th>6か月コース<span class="sub">短期集中で学ぶ</span></th><th>10か月コース<span class="sub">じっくり学ぶ・夜間も選べる</span></th></tr></thead>
+      <tbody>
+        <tr><th>講座期間</th>
+          <td data-c="6か月コース">春講座：4月上旬 〜 9月<br>秋講座：11月 〜 翌年4月</td>
+          <td data-c="10か月コース">春講座：4月中旬 〜 翌年1月<br>冬講座：1月 〜 10月</td></tr>
+        <tr><th>講座実施日</th>
+          <td data-c="6か月コース">土曜のみ／日曜のみ／平日のみ</td>
+          <td data-c="10か月コース">土曜のみ／日曜のみ／平日のみ／<span class="hi">平日夜間のみ</span></td></tr>
+        <tr><th>通学回数</th>
+          <td data-c="6か月コース">15〜16回</td>
+          <td data-c="10か月コース">15〜16回（通常）<br><span class="hi">33〜36回</span>（夜間・短時間教室）</td></tr>
+        <tr><th>面接の体験学習<br>（受講形式）</th>
+          <td class="bothrow" colspan="2">通学コース／オンラインコース／フルオンラインコース から選択（<a href="#style">学習スタイルはこちら</a>）<br>通学：1日6〜7時間程度　／　オンライン：1日3〜7時間程度（一部通学あり）</td></tr>
+        <tr><th>受講料</th>
+          <td class="bothrow" colspan="2"><b>352,000円</b>（教材費を含む・税込）　※<a href="#fee">割引制度・教育訓練給付</a>あり</td></tr>
+        <tr><th>試験の受験時期</th>
+          <td class="bothrow" colspan="2">年2回：1月／6・7月</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="cmp-note">※ 上表は現行サイト「6か月コースと10か月コースの比較」ページの内容を、講座概要のなかに統合したものです。年度ごとの具体的な開講日・申込受付期間は下表および<a href="../../../demo_schedule/index.html">エリア別の会場・日程（63コース）</a>でご確認ください。</p>
+  <table class="tbl outline">
+    <tbody>
+      <tr><th>受講資格（条件）</th><td>産業カウンセラーをめざす、受講開始時点で成人年齢に達している方<br>※この講座を修了すると、産業カウンセラー試験の受験資格が得られます。</td></tr>
+      <tr><th>講座期間<br>＜2026年度＞</th><td>春開講6か月コース：2026年4月1日（水）〜 2026年9月30日（水）<br>春開講10か月コース：2026年4月15日（水）〜 2027年1月31日（日）<br>秋開講6か月コース：2026年11月6日（金）〜 2027年4月30日（金）<br>冬開講10か月コース：2027年1月8日（金）〜 2027年10月31日（日）<br><small>※新型コロナウイルス感染症拡大防止等の理由により、面接の体験学習について日程変更や一部オンライン化する場合があります。</small></td></tr>
+      <tr><th>申込受付期間<br>＜2026年度＞</th><td>春開講6か月コース：受付終了<br>春開講10か月コース：受付終了<br>秋開講6か月コース：8月25日（火）10：00開始<br>冬開講10か月コース：10月27日（火）10：00開始<br><small>※定員に達し次第、受付を終了します。</small></td></tr>
+      <tr><th>修了条件</th><td>・面接の体験学習計104時間中90時間以上出席すること<br>・面接の体験学習に関する課題学習6課題を提出し、このうち4課題についてはABCD4段階評価においてAまたはBの評価を受けること（2課題は評価対象外）<br>・講義動画視聴後、指定された章について「ふりかえり」を提出すること<br>・理解度確認テスト各章において6割以上正答すること（6割未満の場合は再実施）</td></tr>
+      <tr><th>補講</th><td>面接の体験学習にやむを得ず14時間を超えて欠席した場合には、24時間を限度に補講を受けることができます。補講料は6時間あたり11,000円（税込）です。</td></tr>
+      <tr><th>講座内容</th><td>①面接の体験学習104時間(15〜16日）。ただし、短時間コースは26日〜35日<br>②面接の体験学習に関する課題学習6課題　28時間相当　ホームワーク<br>③講義動画視聴　34時間相当　e-Learning<br>④理解度確認テスト　13時間相当　e-Learning</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="vh">理論科目（全23科目）</h3>
+  <ol class="theory"><li><span class="tn">1</span>産業カウンセラーとは</li>
+<li><span class="tn">2</span>コンプライアンスと倫理</li>
+<li><span class="tn">3</span>産業界におけるカウンセリングの歩み</li>
+<li><span class="tn">4</span>カウンセリングとは何か</li>
+<li><span class="tn">5</span>傾聴の意義と技法</li>
+<li><span class="tn">6</span>カウンセリングのプロセスと面接記録</li>
+<li><span class="tn">7</span>カウンセリングのトレーニングの意義と実際</li>
+<li><span class="tn">8</span>逐語記録の作成とその検討</li>
+<li><span class="tn">9</span>事例検討とスーパービジョン</li>
+<li><span class="tn">10</span>カウンセリング理論の源流および主要な理論と方法</li>
+<li><span class="tn">11</span>カウンセリングのさまざまな理論と方法および今日的課題</li>
+<li><span class="tn">12</span>こころのメカニズム</li>
+<li><span class="tn">13</span>パーソナリティ心理学と心理アセスメント</li>
+<li><span class="tn">14</span>精神医学の基本</li>
+<li><span class="tn">15</span>産業組織の心理学</li>
+<li><span class="tn">16</span>コミュニケーションの基本</li>
+<li><span class="tn">17</span>コミュニティ心理学の基本</li>
+<li><span class="tn">18</span>産業社会の動向と働く意識の変化</li>
+<li><span class="tn">19</span>人事労務管理の基礎知識と人材マネジメントの現状</li>
+<li><span class="tn">20</span>産業カウンセラーの支援活動に関わる法</li>
+<li><span class="tn">21</span>職場における人間関係開発・職場環境改善への支援</li>
+<li><span class="tn">22</span>職場におけるメンタルヘルス対策への支援</li>
+<li><span class="tn">23</span>キャリア形成への支援</li></ol>
+
+  <h2 id="fee"><small>FEE</small>受講料・お支払い・教育訓練給付</h2>
+  <div class="pricebox">
+    <div class="p1"><span>受講料</span><b>352,000円</b><small>（教材費を含む・税込）</small></div>
+    <div class="p2">※一定の条件を満たす方は<a href="https://www.counselor.or.jp/portals/0/e-learning/pdf/waribiki_2026s.pdf" target="_blank" rel="noopener" style="color:var(--gd);font-weight:700;text-decoration:underline">受講料の割引制度</a>が適用されます。<br>※講座で、録音機材と提出用の記憶媒体（ICレコーダ、SDカード等）が必要となります。受講料の他に、教材として各自でご用意いただきます。スマホによる録音は、情報漏洩リスクからご使用いただけません。詳細は面接の体験学習の際に実技指導者から説明があります。</div>
+  </div>
+  <table class="tbl">
+    <tbody>
+      <tr><th>申込方法</th><td>ウェブまたは郵送　※オンラインコースはウェブのみとなります。</td></tr>
+      <tr><th>お支払い方法</th><td>１.お振込み(一括)　／　２.<a href="https://www.counselor.or.jp/portals/0/e-learning/entry/2026_loan.pdf" target="_blank" rel="noopener" style="color:var(--gd);font-weight:700;text-decoration:underline">学費ローン制度</a><br><small><a href="https://www.smbc-card.com/loan/alliance/tuition/flow/index.jsp" target="_blank" rel="noopener" style="color:var(--gd);text-decoration:underline">学費ローンお申込サイト</a>のトップページにて「産業カウンセラー」で検索してください。※支払い時の手数料はご負担ください。</small></td></tr>
+      <tr><th>教育訓練給付制度</th><td>当講座は<b>一般教育訓練給付制度指定講座</b>です。（明示書：<a href="https://www.counselor.or.jp/portals/0/e-learning/pdf/meijisho.pdf" target="_blank" rel="noopener" style="color:var(--gd);text-decoration:underline">6か月コース</a>／<a href="https://www.counselor.or.jp/portals/0/e-learning/pdf/meijisho_10.pdf" target="_blank" rel="noopener" style="color:var(--gd);text-decoration:underline">10か月コース</a>）</td></tr>
+      <tr><th>テキスト</th><td>産業カウンセラー養成講座テキスト『産業カウンセリング』Ⅰ・Ⅱ（一般社団法人日本産業カウンセラー協会編）<br><small>※テキストは開講日に発送いたします。※障がいにより紙媒体に印刷されたテキストのご利用が困難な方にはテキストデイジー（DAISY3）版を用意しています。事前にお申込み先支部にご相談ください。</small></td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="vh">e-Learning 学習環境について</h3>
+  <p>・インターネットに接続しているパソコンまたはモバイル端末（タブレット、スマホ）を使用します。<br>・<a href="https://www.kcc.knowledgewing.com/el2/srv/experience/index?cd=jscy&cid=52933&lang=jp" target="_blank" rel="noopener" style="color:var(--gd);font-weight:700;text-decoration:underline">体験版（講義動画、理解度確認テスト）</a>にて事前に正常に動作するかを必ずご確認のうえ、お申込みください。<br>・本表に記載のないものは動作保証外となります。</p>
+  <table class="tbl">
+    <thead><tr><th>■PCの動作環境／OS</th><th>ブラウザ</th></tr></thead>
+    <tbody>
+      <tr><th>Microsoft Windows 11</th><td>Microsoft Edge, Google Chrome</td></tr>
+      <tr><th>macOS 15 Sequoia</th><td>Safari</td></tr>
+    </tbody>
+  </table>
+  <table class="tbl">
+    <thead><tr><th>■モバイル端末（スマホ／タブレット）／OS</th><th>ブラウザ</th></tr></thead>
+    <tbody>
+      <tr><th>Android 15</th><td>Google Chrome, Microsoft Edge</td></tr>
+      <tr><th>iOS (iPhone) 18</th><td>Safari</td></tr>
+      <tr><th>iPadOS (iPad) 18</th><td>Safari</td></tr>
+    </tbody>
+  </table>
+  <div class="note"><b>オンラインコースの学習環境について</b><br>
+  【面接の体験学習】(1)機器等：インターネットに接続しているパソコン (2)アプリケーション：PC用Zoom Workplace　※ChromebookはZoomの機能が制約されるため、ご使用いただけません。<br>
+  【課題学習】(1)機器等：e-Learningシステム利用可能な環境（課題学習の提出は、e-Learningシステムへアップロードする方法を取ります）(2)アプリケーション：Microsoft Word　※教室によってはExcelも使用します。<br>
+  ＊モバイル端末は下記理由により基本的にご使用いただけません。・面接の体験学習で使用するZoomの機能が限られる。・課題学習で、MS Word文書の加工がしにくい。</div>
+
+  <h3 class="vh">その他</h3>
+  <div class="note">・お申込みは先着順です。定員に達した場合は期間内であっても受付を終了いたします。<br>・受講確定後に、会場の変更はできません。<br>・お申込みに際しては、「<a href="https://www.counselor.or.jp/course/tabid/127/Default.aspx" target="_blank" rel="noopener" style="color:var(--gd);text-decoration:underline">受講約款</a>」「<a href="https://www.counselor.or.jp/privacy/tabid/201/Default.aspx" target="_blank" rel="noopener" style="color:var(--gd);text-decoration:underline">個人情報の取り扱いについて</a>」をよくお読みいただき同意のうえ手続きしてください。<br>・オンラインコースをお申込みの際には、「<a href="https://www.counselor.or.jp/portals/0/e-learning/entry/online_agree.html" target="_blank" rel="noopener" style="color:var(--gd);text-decoration:underline">オンラインコースに関わる同意書</a>」をよくお読みのうえお手続きください。<br>・教材等の送付先は日本国内のみとなります。<br>・面接の体験学習は日本時間で実施します。<br>・学科試験および実技試験はすべて日本国内の試験会場で行ないます。（オンラインでの実施はありません）<br>・「緊急事態宣言」等発出時等には、日程の延期、講座の中断、面接の体験学習のオンライン化等の対応を取る場合があります。こうした対応を取る場合には、日本産業カウンセラー協会において決定し、ご連絡いたします。</div>
+
+  <h2 id="faq"><small>FAQ</small>Q&amp;A</h2>
+  <p>産業カウンセラーになってできる仕事やキャリアコンサルタントなど他職業との違い、お申し込み方法やキャンセルなどよくいただく質問に詳しくお答えしています。</p>
+  <p style="text-align:center"><a class="btn btn-g" href="../../faq/">▶ よくある質問をみる →</a></p>
+
+  <h2 id="venue"><small>VENUE</small>会場一覧</h2>
+  <div class="venuegrid"><div class="vn"><b>北海道</b><span>札幌</span></div>
+<div class="vn"><b>東北</b><span>盛岡　仙台</span></div>
+<div class="vn"><b>上信越</b><span>高崎　伊勢崎　長野　松本　新潟</span></div>
+<div class="vn"><b>栃木・埼玉</b><span>浦和　宇都宮　小山</span></div>
+<div class="vn"><b>茨城・千葉</b><span>水戸　柏　市川駅前　千葉</span></div>
+<div class="vn"><b>東京</b><span>代々木　新宿　池袋　新橋　後楽園　町田</span></div>
+<div class="vn"><b>神奈川</b><span>横浜　川崎</span></div>
+<div class="vn"><b>中部</b><span>静岡　名古屋　三重　北陸</span></div>
+<div class="vn"><b>関西</b><span>大阪　京都</span></div>
+<div class="vn"><b>中国</b><span>岡山　広島</span></div>
+<div class="vn"><b>四国</b><span>愛媛　香川　徳島　高知</span></div>
+<div class="vn"><b>九州</b><span>福岡　北九州　佐賀　長崎　熊本　大分　宮崎　鹿児島</span></div>
+<div class="vn"><b>沖縄</b><span>浦添</span></div></div>
+
+  <div class="cta-box"><h3>会場と日程｜お申し込み</h3>
+  <p>全国13支部＋本部受付で合計63コース。会場ごとの日程・受付状況の確認とお申し込みは、講座日程マスタからどうぞ。</p>
+  <div class="bs"><a class="btn btn-y btn-big" href="../../../demo_schedule/index.html">会場と日程・お申し込みへ →</a><a class="btn btn-w" href="../../contact/">資料請求（無料）→</a></div></div>
+
+  <div class="rel"><h3>RELATED ─ 関連ページ</h3><div class="lk">
+    <a href="../../../demo_schedule/index.html">会場と日程（講座日程マスタ）</a><a href="../">資格・講座トップ</a><a href="../career/">キャリアコンサルタント</a><a href="../senior/">シニア産業カウンセラー</a><a href="../../examination/">産業カウンセラー試験</a>
+  </div></div>
+</div></main>
+<div class="sidefix">
+  <a class="sf sf-faq" href="#faq"><b>Q&amp;A</b><span>よくある質問</span></a>
+  <a class="sf sf-req" href="../../contact/"><b>資料請求</b><span>無料</span></a>
+  <a class="sf sf-sch" href="../../../demo_schedule/index.html"><b>会場・日程</b><span>お申し込み</span></a>
+</div>
+<script>
+(function(){
+  var grid=document.getElementById('areaGrid'); if(!grid) return;
+  var store={};
+  try{ store=JSON.parse(localStorage.getItem('jaico_area_links_v1')||'{}'); }catch(e){}
+  // 職員管理ポータルで更新されたリンク先を反映（このLPは表示のみ・書き換え不可）
+  grid.querySelectorAll('li[data-key]').forEach(function(li){
+    var k=li.getAttribute('data-key'), a=li.querySelector('a');
+    if(store[k]) a.href=store[k];
+  });
+})();
+</script>
+<!-- お知らせ（新着情報）は職員管理ポータルの「お知らせ管理」で更新。アーカイブ済みは新着から非表示（アーカイブページに掲載）。 -->
+<script src="../../../news_data.js"></script>
+<script>(function(){
+  var box=document.getElementById('counselorNews'); if(!box||!window.JAICO_NEWS_ITEMS) return;
+  var list=box.querySelector('.cn-list'); if(!list) return;
+  var items=window.JAICO_NEWS_ITEMS('sangyo').filter(function(it){return !it.archived;});
+  if(!items.length){ box.style.display='none'; return; }
+  /* 「2026.4.24」「2026-04-24」いずれの表記も受ける */
+  function toDate(s){ var m=String(s||'').match(/(\d{4})\D+(\d{1,2})\D+(\d{1,2})/); return m? new Date(+m[1],+m[2]-1,+m[3]) : null; }
+  var NEW_DAYS=30, now=new Date();
+  /* 本文の <br> 区切りを見て、「・」で始まる行は箇条書きに組み直す */
+  function bodyHTML(src){
+    var lines=String(src||'').split(/<br\s*\/?>/i).map(function(x){return x.trim();}).filter(Boolean);
+    var out='', bullets=[];
+    function flush(){ if(bullets.length){ out+='<ul class="cn-sub"><li>'+bullets.join('</li><li>')+'</li></ul>'; bullets=[]; } }
+    lines.forEach(function(l){
+      if(/^[・･]/.test(l)){ bullets.push(l.replace(/^[・･]\s*/,'')); }
+      else { flush(); out+='<p>'+l+'</p>'; }
+    });
+    flush();
+    return out || '<p>'+String(src||'')+'</p>';
+  }
+  list.innerHTML='';
+  items.forEach(function(it){
+    var li=document.createElement('li');
+    var t=document.createElement('time'); t.textContent=it.date||'';
+    var d=toDate(it.date);
+    if(d && (now-d)/86400000 <= NEW_DAYS){ var n=document.createElement('span'); n.className='cn-new'; n.textContent='NEW'; t.appendChild(n); }
+    var b=document.createElement('div'); b.className='cn-b'; b.innerHTML=bodyHTML(it.body);
+    li.appendChild(t); li.appendChild(b); list.appendChild(li);
+  });
+})();</script>
+
+
+<footer>
+ <div class="wrap ft-main">
+  <div class="ft-brand">
+    <img src="../../../images/foot_logo.png" alt="JAICO">
+    <p>一般社団法人日本産業カウンセラー協会<br>〒105-0004 東京都港区新橋六丁目17番17号 御成門センタービル6階</p>
+    <div class="pm"><img src="../../../images/pmark.png" alt="プライバシーマーク"><span>当協会はプライバシーマーク取得事業者です</span></div>
+  </div>
+  <div class="ft-col"><h4>相談する</h4>
+    <a href="../../counseling/hotline/">働く人の悩みホットライン</a>
+    <a href="https://harassment.counselor.or.jp/" target="_blank" rel="noopener" class="ex">JAICOハラスメント相談室</a>
+    <a href="../../counseling/sns/">JAICO SNS相談</a>
+    <a href="../../company/">法人向け相談サービス</a>
+  </div>
+  <div class="ft-col"><h4>学ぶ・資格を取る</h4>
+    <a href="../../qualification/counselor/">産業カウンセラー養成講座</a>
+    <a href="../../qualification/career/">キャリアコンサルタント</a>
+    <a href="../../qualification/senior/">シニア産業カウンセラー</a>
+    <a href="../../qualification/kokoro/">こころのアドバイザー</a>
+    <a href="../../examination/">産業カウンセラー試験</a>
+  </div>
+  <div class="ft-col"><h4>協会について</h4>
+    <a href="../../about/">協会概要・役員</a>
+    <a href="../../member/branch/">全国の支部一覧</a>
+    <a href="../../news/">ニュース・活動報告</a>
+    <a href="../../library/">研究・刊行物</a>
+    <a href="../../about/recruit/">採用情報</a>
+  </div>
+  <div class="ft-col"><h4>関連リンク</h4>
+    <a href="https://kokoro.mhlw.go.jp/" target="_blank" rel="noopener" class="ex">こころの耳（厚労省）</a>
+    <a href="../kokoro/">こころのアドバイザー認定講座</a>
+    <a href="../../about/link/">関連団体・行政リンク</a>
+    <a href="../../about/policy/#privacy">プライバシーポリシー</a>
+    <a href="../../soon.html#サイトマップ">サイトマップ</a>
+  </div>
+ </div>
+ <div class="wrap ft-btm">
+   <span>© Japan Industrial Counselors Association（リニューアル構成デモ・プロトタイプ）</span>
+   <span class="lk"><a href="../../about/policy/#privacy">個人情報保護方針</a><a href="../../soon.html#特定商取引法">特定商取引法に基づく表記</a></span>
+ </div>
+</footer>
+
+<script src="../../assets/app.js"></script>
+<script src="../../assets/chatbot.js" defer></script>
+</body>
+</html>

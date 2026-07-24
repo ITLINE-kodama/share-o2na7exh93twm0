@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<!-- JAICO-DEMO-GATE:BEGIN -->
+<script>/* 閲覧用ゲート（関係者限定デモ）。クライアントサイドの簡易ロックです。 */
+(function(){
+  var KEY='jaicoDemoGate2026', SIG='6c4a961c';
+  function hash(s){var v=5381;for(var i=0;i<s.length;i++){v=((v*33)^s.charCodeAt(i))>>>0;}return v.toString(16);}
+  try{ if(localStorage.getItem(KEY)===SIG) return; }catch(e){}
+  document.write('<style id="__gs">html{visibility:hidden!important}#__gate,#__gate *{visibility:visible!important}</style>');
+  function build(){
+    var w=document.createElement('div');
+    w.id='__gate';
+    w.setAttribute('style','position:fixed;inset:0;z-index:2147483647;background:linear-gradient(160deg,#f2f8f3,#e6f2e9);display:flex;align-items:center;justify-content:center;padding:20px;font-family:"Noto Sans JP","Yu Gothic UI",sans-serif');
+    w.innerHTML='<form id="__gf" style="background:#fff;border:1px solid #dbe7dc;border-radius:18px;box-shadow:0 14px 40px rgba(28,124,47,.14);padding:34px 32px;width:100%;max-width:380px;box-sizing:border-box">'
+      +'<div style="font-size:11px;font-weight:800;letter-spacing:.14em;color:#239b3b">CONFIDENTIAL</div>'
+      +'<h1 style="font-size:17px;margin:8px 0 6px;color:#243024;line-height:1.6">ご提案デモサイト<br>閲覧用ログイン</h1>'
+      +'<p style="font-size:12px;line-height:1.9;color:#5c6b63;margin:0 0 20px">関係者限定のプロトタイプです。<br>ご案内済みのID・パスワードを入力してください。</p>'
+      +'<label style="display:block;font-size:12px;font-weight:700;color:#243024;margin-bottom:5px">ID</label>'
+      +'<input id="__gi" type="text" autocomplete="username" autocapitalize="off" autocorrect="off" spellcheck="false" style="width:100%;box-sizing:border-box;font-size:15px;padding:11px 13px;border:1px solid #cfe0d3;border-radius:9px;margin-bottom:14px;font-family:inherit">'
+      +'<label style="display:block;font-size:12px;font-weight:700;color:#243024;margin-bottom:5px">パスワード</label>'
+      +'<input id="__gp" type="password" autocomplete="current-password" style="width:100%;box-sizing:border-box;font-size:15px;padding:11px 13px;border:1px solid #cfe0d3;border-radius:9px;font-family:inherit">'
+      +'<p id="__ge" style="display:none;font-size:12px;color:#c0392b;font-weight:700;margin:12px 0 0">IDまたはパスワードが違います。</p>'
+      +'<button type="submit" style="width:100%;margin-top:20px;background:#239b3b;color:#fff;border:0;border-radius:999px;font-size:15px;font-weight:800;padding:13px;cursor:pointer;font-family:inherit">閲覧する</button>'
+      +'<p style="font-size:10.5px;color:#8a988f;line-height:1.8;margin:16px 0 0">※ 本デモの内容・画面イメージの二次配布はご遠慮ください。</p>'
+      +'</form>';
+    document.body.appendChild(w);
+    var i=document.getElementById('__gi');
+    if(i) i.focus();
+    document.getElementById('__gf').addEventListener('submit',function(ev){
+      ev.preventDefault();
+      var id=(document.getElementById('__gi').value||'').trim();
+      var pw=document.getElementById('__gp').value||'';
+      if(hash(id+':'+pw)===SIG){
+        try{ localStorage.setItem(KEY,SIG); }catch(e){}
+        location.reload();
+      }else{
+        document.getElementById('__ge').style.display='block';
+        document.getElementById('__gp').value='';
+        document.getElementById('__gp').focus();
+      }
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',build); else build();
+})();
+</script>
+<!-- JAICO-DEMO-GATE:END -->
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>標準CMS／キャリアコンサルタント更新講習 講習マスタDBデモ｜一般社団法人日本産業カウンセラー協会</title>
+<style>
+:root{--g:#239b3b;--gd:#1c7c2f;--y:#eab010;--ink:#243024;--sub:#5c6b63;--line:#dbe7dc;--bg:#f3f7f4;--navy:#131b2e;--side:#0f1626;--side2:#1c2946}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Noto Sans JP","Yu Gothic UI","Hiragino Kaku Gothic ProN",sans-serif;color:var(--ink);background:var(--bg);line-height:1.7}
+.topbar{background:#10241a;color:#fff;padding:10px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.topbar .brand{font-weight:800;background:#fff;color:var(--gd);border-radius:8px;padding:3px 10px;font-size:13px}
+.topbar .t{font-size:13px;opacity:.92}
+.mode{margin-left:auto;display:flex;gap:6px}
+.mode button{border:1.5px solid #4a6b55;background:none;color:#cfe3d4;border-radius:999px;padding:6px 16px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit}
+.mode button.on{background:#fff;color:var(--gd);border-color:#fff}
+.adminbar{display:none;background:#fff8e5;border-bottom:1px solid #eadfa8;color:#6b5b12;font-size:12px;padding:8px 20px;line-height:1.7}
+body.admin .adminbar{display:block}
+.mode{display:none!important}
+body.embed .topbar{display:none!important}
+body.embed .adminbar{display:none!important}
+.layout{display:flex;min-height:100vh}
+.side{display:none;flex:0 0 235px;background:var(--side);color:#cdd6e8;padding:18px 0 30px}
+body.admin .side{display:block}
+.side h4{font-size:10.5px;letter-spacing:.15em;color:#7f8db0;padding:12px 18px 6px}
+.sitem{display:flex;align-items:center;gap:9px;width:100%;text-align:left;background:none;border:none;color:#cdd6e8;padding:10px 18px;font-size:12.5px;cursor:pointer;font-family:inherit;border-left:3px solid transparent}
+.sitem:hover{background:var(--side2)}
+.sitem.on{background:var(--side2);border-left-color:var(--g);color:#fff;font-weight:700}
+.sitem.pub{background:#5c4a12;color:#ffe9a8;font-weight:800;margin-top:6px}
+.sitem.pub:hover{background:#6d5915}
+.sitem .n{margin-left:auto;background:#c2323a;color:#fff;border-radius:999px;font-size:10.5px;font-weight:800;padding:1px 8px}
+.sitem .n.zero{background:#3a4a6b}
+.sitem.dim{opacity:.55;cursor:default}
+.main{flex:1;min-width:0;padding:26px 22px 70px;max-width:1320px;margin:0 auto}
+.hero{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 24px;box-shadow:0 6px 20px rgba(28,124,47,.07)}
+.hero h1{font-size:20px;color:var(--gd)}
+.hero .sub{font-size:12.5px;color:var(--sub);margin-top:6px}
+.stats{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap}
+.st{background:#eef7f0;border:1px solid #d6e8dd;border-radius:12px;padding:8px 16px;font-size:11.5px;color:var(--sub)}
+.st b{display:block;font-size:19px;color:var(--gd)}
+.map{background:#f0f6ff;border:1px solid #cfdff5;border-radius:12px;padding:9px 14px;font-size:11.5px;color:#2c4a7a;margin-top:12px}
+.filters{display:flex;gap:8px;margin:20px 0 4px;flex-wrap:wrap;align-items:center}
+.filters .lb{font-size:12px;font-weight:700;color:var(--sub)}
+.chip{border:1.5px solid #c9dccf;background:#fff;border-radius:999px;padding:5px 13px;font-size:12px;cursor:pointer;font-family:inherit;color:#38503f;font-weight:600}
+.chip.on{background:var(--g);border-color:var(--g);color:#fff}
+select.chip{padding:5px 10px}
+input.srch{border:1.5px solid #c9dccf;border-radius:999px;padding:5px 14px;font-size:12px;font-family:inherit;min-width:220px}
+.cnt{margin:8px 2px;font-size:12px;color:var(--sub)}
+.cards{display:block;container-type:inline-size}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px 17px;box-shadow:0 4px 14px rgba(28,124,47,.06)}
+.card .hd{display:flex;align-items:flex-start;gap:8px}
+.card .kind{flex:0 0 auto;font-size:10.5px;font-weight:800;border-radius:6px;padding:3px 8px;margin-top:2px}
+.kind.k1{background:#eef2fb;color:#2b4bab}
+.kind.k2{background:#f3eefb;color:#6a3fb5}
+.kind.k3{background:#eef7f0;color:var(--gd)}
+.kind.k4{background:#fdf3e6;color:#a05c10}
+.card h3{font-size:13.5px;flex:1;line-height:1.55}
+.card h3 .code{display:inline-block;background:#10241a;color:#fff;font-size:10px;border-radius:5px;padding:1px 7px;margin-right:6px;vertical-align:middle}
+.pill{flex:0 0 auto;font-size:11px;font-weight:800;border-radius:999px;padding:4px 12px}
+.pill.ok{background:#e2f2e4;color:var(--gd)}
+.pill.end{background:#eceff0;color:#6a7680}
+.drow{display:flex;gap:8px;align-items:center;background:#f6faf7;border:1px solid #e2eee5;border-radius:9px;padding:7px 11px;margin:10px 0 4px;font-size:12px}
+.drow b{color:var(--gd);flex:0 0 auto}
+.drow input{flex:1;border:none;background:none;font-size:12px;font-family:inherit;color:var(--ink);font-weight:700;min-width:0}
+.drow input:focus{outline:2px solid var(--g);border-radius:5px;background:#fff}
+.meta{font-size:11px;color:var(--sub);margin-top:7px;line-height:1.8}
+.meta b{color:var(--ink)}
+.abtn{display:block;text-align:center;margin-top:11px;background:var(--g);color:#fff;border-radius:10px;padding:9px;font-size:13px;font-weight:800;text-decoration:none}
+.abtn.dis{background:#c6cfc9;pointer-events:none}
+.admbtns{display:none;gap:7px;margin-top:10px;flex-wrap:wrap}
+body.admin .admbtns{display:flex}
+body.admin .abtn{display:none}
+.admbtns button{border:1px solid #ccd6cc;background:#fff;color:#445548;border-radius:9px;padding:7px 12px;font-size:11.5px;font-weight:700;cursor:pointer;font-family:inherit}
+.admbtns button.st3{border-color:#c9d4ec;background:#f3f6fd;color:#2b4bab}
+.admbtns button.del{color:#b3372f;border-color:#e4c0bd}
+.card.draft{outline:2px dashed var(--y);outline-offset:2px}
+.card.deleted{opacity:.45}
+.card.deleted h3{text-decoration:line-through}
+.dbadge{display:none;font-size:10.5px;font-weight:800;color:#7a5d00;background:#fff3c4;border-radius:6px;padding:2px 8px;margin-left:6px}
+.card.draft .dbadge{display:inline-block}
+.newbadge{font-size:10.5px;font-weight:800;color:#1e5aa8;background:#e3edfb;border-radius:6px;padding:2px 8px;margin-left:6px}
+.more{display:block;margin:18px auto 0;border:1.5px solid var(--g);background:#fff;color:var(--gd);border-radius:999px;padding:9px 30px;font-size:13px;font-weight:800;cursor:pointer;font-family:inherit}
+/* ==== 一覧リスト（横スクロールなし・レスポンシブ） ==== */
+.lst{border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:0 4px 14px rgba(28,124,47,.06);overflow:hidden;margin-top:6px}
+.lhead,.rw{display:grid;grid-template-columns:64px minmax(230px,1fr) minmax(150px,195px) minmax(118px,150px) minmax(175px,230px) 104px;gap:0 12px;align-items:center;padding:10px 14px}
+body.admin .lhead,body.admin .rw{grid-template-columns:64px minmax(230px,1fr) minmax(150px,195px) minmax(112px,148px) minmax(175px,225px) 150px}
+.lhead{background:#e9f4ec;color:var(--gd);font-size:11px;font-weight:800;border-bottom:2px solid #bfe0c8;position:sticky;top:0;z-index:2}
+.rw{border-top:1px solid #eef2ee;font-size:12.5px}
+.rw:nth-child(odd){background:#fafcfa}
+.rw:hover{background:#f1f8f3}
+.rw.draft{background:#fffdf3;box-shadow:inset 0 0 0 2px var(--y)}
+.rw.deleted{opacity:.45}
+.rw.deleted .nm{text-decoration:line-through}
+.tpill{display:inline-block;font-size:10.5px;font-weight:800;border-radius:999px;padding:3px 10px;white-space:nowrap}
+.tpill.ok{background:#e2f2e4;color:var(--gd)}.tpill.end{background:#eceff0;color:#6a7680}
+.c-main{min-width:0}
+.c-main .tags{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.kd{display:inline-block;font-size:10px;font-weight:800;border-radius:6px;padding:1px 7px;white-space:nowrap}
+.kd.k1{background:#eef2fb;color:#2b4bab}.kd.k2{background:#f3eefb;color:#6a3fb5}.kd.k3{background:#eef7f0;color:var(--gd)}.kd.k4{background:#fdf3e6;color:#a05c10}
+.mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11px;color:#5c6b63}
+.newbadge2{display:inline-block;font-size:9.5px;font-weight:800;color:#1e5aa8;background:#e3edfb;border-radius:5px;padding:0 5px}
+.dbadge2{display:inline-block;font-size:9.5px;font-weight:800;color:#7a5d00;background:#fff3c4;border-radius:5px;padding:0 5px}
+.nm{font-weight:700;line-height:1.55;margin-top:1px}
+.vn{font-size:11px;color:#48564b;margin-top:1px}
+.vn .pf{display:inline-block;font-size:10px;font-weight:700;color:#2c4a7a;background:#eef4fc;border-radius:5px;padding:0 6px;margin-left:4px}
+.c-date .lb2{display:none}
+.tdate{font-weight:700;line-height:1.55;display:block}
+.tinp{width:100%;border:1px solid #cdd8cf;border-radius:7px;padding:6px 8px;font-size:12px;font-family:inherit;font-weight:700;color:var(--ink);background:#fff}
+.tinp:focus{outline:2px solid var(--g);border-color:var(--g)}
+.c-fee{display:flex;flex-direction:column;gap:1px;font-size:12px;white-space:nowrap}
+.c-fee .f1{font-weight:800;color:#243024}
+.c-fee .f2{color:#48564b}
+.c-fee .f3{font-size:10.5px;color:var(--sub)}
+.c-app{display:flex;flex-direction:column;gap:1px;font-size:11px;color:var(--sub);min-width:0}
+.c-app span{white-space:normal;line-height:1.55;word-break:break-word}
+.tabtn{display:inline-block;font-size:11.5px;font-weight:800;border-radius:8px;padding:7px 12px;text-decoration:none;background:var(--g);color:#fff;white-space:nowrap;text-align:center}
+.tabtn.dis{background:#c6cfc9;pointer-events:none}
+.c-act{display:flex;flex-wrap:wrap;gap:4px;justify-content:flex-end}
+.c-act button{border:1px solid #ccd6cc;background:#fff;color:#445548;border-radius:7px;padding:5px 9px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit}
+.c-act button.st3{border-color:#c9d4ec;background:#f3f6fd;color:#2b4bab}
+.c-act button.del{color:#b3372f;border-color:#e4c0bd}
+@container (max-width:980px){
+  .lhead{display:none}
+  .rw,body.admin .rw{grid-template-columns:auto 1fr;grid-template-areas:"st act" "main main" "date date" "fee fee" "app app";gap:7px 10px;padding:14px}
+  .c-st{grid-area:st}.c-act{grid-area:act;justify-content:flex-end}.c-main{grid-area:main}.c-date{grid-area:date}.c-fee{grid-area:fee}.c-app{grid-area:app}
+  .c-date .lb2{display:inline-block;font-size:10.5px;font-weight:800;color:var(--gd);margin-right:6px;white-space:nowrap;flex:0 0 auto}
+  .c-date{display:flex;align-items:center}
+  .c-fee{flex-direction:row;gap:12px;flex-wrap:wrap;white-space:normal}
+  .c-app span{white-space:normal;overflow:visible}
+  .tabtn{padding:8px 18px}
+}
+@media(max-width:940px){
+  input.srch{min-width:0;flex:1}
+  .main{padding:18px 12px 60px}
+}
+.note{margin-top:24px;font-size:11px;color:var(--sub);border-top:1px dashed #c9dbc9;padding-top:12px;line-height:1.9}
+.toast{position:fixed;right:18px;bottom:18px;background:#10241a;color:#fff;border-radius:12px;padding:12px 18px;font-size:12.5px;box-shadow:0 10px 30px rgba(0,0,0,.3);opacity:0;transition:.25s;pointer-events:none;max-width:340px;line-height:1.7;z-index:60}
+.toast.show{opacity:1}
+.mwrap{position:fixed;inset:0;background:rgba(10,16,30,.5);display:none;align-items:center;justify-content:center;z-index:50}
+.mwrap.show{display:flex}
+.modal{background:#fff;border-radius:16px;width:min(600px,94vw);max-height:92vh;overflow-y:auto;padding:24px 26px;box-shadow:0 24px 70px rgba(0,0,0,.35)}
+.modal h3{font-size:16px;color:var(--navy);margin-bottom:4px}
+.modal .ms{font-size:11.5px;color:var(--sub);margin-bottom:14px}
+.modal label{display:block;font-size:11.5px;font-weight:700;color:#345;margin:11px 0 4px}
+.modal input,.modal select{width:100%;border:1.5px solid #cfd8cf;border-radius:9px;padding:8px 11px;font-size:13px;font-family:inherit}
+.mrow{display:flex;gap:10px}
+.mrow>div{flex:1}
+.mbtns{display:flex;gap:10px;justify-content:flex-end;margin-top:18px}
+.mbtns .cancel{border:1px solid #ccc;background:#fff;color:#666;border-radius:9px;padding:9px 20px;font-size:13px;cursor:pointer;font-family:inherit}
+.mbtns .save{border:none;background:#2b4bab;color:#fff;border-radius:9px;padding:9px 24px;font-size:13px;font-weight:800;cursor:pointer;font-family:inherit}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span class="brand">標準CMS デモ</span>
+  <span class="t">キャリアコンサルタント更新講習｜講習マスタDB（知識講習・技能講習 全国開催日程・現行サイトの実データ）</span>
+  <div class="mode">
+    <button id="mUser" class="on">👁 利用者画面</button>
+    <button id="mAdmin">🔧 職員管理</button>
+  </div>
+</div>
+<div class="adminbar">🔧 職員管理モード（WordPress管理画面のイメージ）— 本デモの<b>登録・編集・受付状況切替・日程修正・下書き→公開はAIなしで動く標準WordPress機能</b>です。変更は下書きに保存され、左メニューの「🌐 更新を公開」で利用者画面（Webサイト）に反映されます。</div>
+
+<div class="layout">
+  <aside class="side">
+    <h4>講習管理</h4>
+    <button class="sitem on">🎓 講習マスタ（この画面）</button>
+    <button class="sitem" id="btnAdd">＋ 新規講習登録</button>
+    <button class="sitem" id="btnImp">📥 Excel取込（一括登録）</button>
+    <button class="sitem" id="btnBulk">🈵 開催済みを一括締切</button>
+    <button class="sitem pub" id="btnPub">🌐 更新を公開<span class="n zero" id="pubN">0</span></button>
+    <h4>その他のマスタ（参考）</h4>
+    <button class="sitem dim">📆 開催回マスタ（LP連動）</button>
+    <button class="sitem dim">📢 お知らせ管理</button>
+    <button class="sitem dim">📄 固定ページ管理</button>
+    <button class="sitem dim">✅ 承認待ち<span class="n">2</span></button>
+    <h4>　</h4>
+    <button class="sitem dim">⚙ 設定・権限</button>
+  </aside>
+
+  <div class="main">
+    <div class="hero">
+      <h1>講習マスタ管理　— キャリアコンサルタント更新講習</h1>
+      <div class="sub">5年ごとの資格更新に必要な知識講習（8時間）・技能講習（計30時間）。<b>現行サイト（jaico.cc/koushin/）の全国開催日程一覧・実データを読み込んでいます。</b></div>
+      <div class="stats" id="stats"></div>
+      <div class="map">💡 <b>現行サイトとの対応：</b>現行の「全国開催日程一覧」4ページ（知識講習Eラーニング／集合視聴型／技能講習オンライン／通学）が、リニューアル後はこの<b>講習マスタDB</b>に統合されます。産業カウンセラー養成講座・キャリコン養成講習・シニア育成講座と<b>同じ管理仕様</b>です。</div>
+    </div>
+
+    <div class="filters"><span class="lb">種別：</span><div id="fKind" style="display:flex;gap:6px;flex-wrap:wrap"></div></div>
+    <div class="filters"><span class="lb">受付状況：</span><div id="fSt" style="display:flex;gap:6px;flex-wrap:wrap"></div>
+      <span class="lb" style="margin-left:6px">都道府県：</span><select class="chip" id="fPref"></select><span class="lb" style="margin-left:6px">市区町村：</span><select class="chip" id="fCity"></select>
+      <input class="srch" id="fQ" placeholder="講習名・コード・会場・都道府県・市区町村で検索（例：傾聴／横浜市／神奈川）"></div>
+    <div class="cnt" id="cnt"></div>
+    <p style="font-size:11.5px;color:#5f6f64;margin:-2px 0 10px">※ オンライン開催・DVD集合視聴型の講習は、現行サイトの表記どおり<b>主催支部の所在地</b>（例：オンライン＝神奈川支部なら神奈川県）で登録しています。会場を問わず受講できます。</p>
+    <div class="cards" id="cards"></div>
+    <button class="more" id="more" style="display:none">さらに表示</button>
+
+    <p class="note">※ 本デモは操作イメージ確認用です。講習・日程・価格・受付状況は現行サイト（2026年7月時点）の掲載内容を読み込んだもので、以後の変更は反映されていません（開催日が過去のものは「締切」表示にしています）。申込ボタンの飛び先は<b>現行サイト掲載の申込先URLをそのまま</b>読み込んでいます（各支部サイト・会員申込システム member.counselor.or.jp 等）。現行サイトで申込先が未掲載の講習（6件）は、<b>ボタンが自動で無効化</b>されます。なお現行サイト側で<b>リンク切れが1件</b>（上信越支部 19T11・2026/7/25）確認されています。<br>
+    ※ 登録・編集・受付状況切替・日程修正・下書き→公開は、AIオプションなしで動く<b>標準WordPress機能</b>のイメージです。</p>
+  </div>
+</div>
+
+<!-- Excel取込モーダル -->
+<div class="mwrap" id="iwrap">
+  <div class="modal" style="width:min(680px,94vw)">
+    <h3>📥 Excel取込（一括登録）</h3>
+    <div class="ms">取込テンプレート形式のExcelを読み込み、<b>自動検証してから一括登録（下書き）</b>します。種別・受付状況の誤りは行番号つきでお知らせします。<br>
+    📄 <a href="./取込テンプレート_サンプル_更新講習.xlsx" download style="color:#2b4bab;font-weight:700">取込テンプレート（サンプル）をダウンロード</a>（正常5行＋わざと誤り1行入り・検証デモ用）</div>
+    <div id="idrop" style="border:2px dashed #b9c8bd;border-radius:12px;padding:26px;text-align:center;font-size:13px;color:#5c6b63;cursor:pointer;background:#f8fbf9">
+      ここにExcelファイルをドラッグ＆ドロップ<br>またはクリックして選択
+      <input type="file" id="ifile" accept=".xlsx,.xls" style="display:none">
+    </div>
+    <div id="ires" style="margin-top:14px;font-size:12px;line-height:1.8;max-height:280px;overflow-y:auto"></div>
+    <div class="mbtns">
+      <button class="cancel" id="iCancel">閉じる</button>
+      <button class="save" id="iReg" style="display:none">0件を一括登録（下書き）</button>
+    </div>
+  </div>
+</div>
+
+<!-- 講習 登録/編集モーダル -->
+<div class="mwrap" id="mwrap">
+  <div class="modal">
+    <h3 id="mTitle">講習を編集</h3>
+    <div class="ms">保存すると下書きに反映されます（利用者画面へは「🌐 更新を公開」で反映）</div>
+    <div class="mrow">
+      <div><label>種別</label><select id="mKind"></select></div>
+      <div><label>講習コード</label><input id="mCode" placeholder="例：JIC25T01"></div>
+    </div>
+    <label>講習名</label><input id="mName" placeholder="例：キャリアコンサルティングに活かす傾聴技法">
+    <label>開催日・時間（Eラーニングは開講コース・受講期間）</label><input id="mDate" placeholder="例：2026/10/17（土） 10:00～17:00">
+    <label>実施会場</label><input id="mVenue" placeholder="例：東京支部 代々木教室／オンライン">
+    <div class="mrow">
+      <div><label>定員</label><input id="mCap" placeholder="20"></div>
+      <div><label>一般価格</label><input id="mFeeG" placeholder="￥20,000"></div>
+      <div><label>会員価格</label><input id="mFeeM" placeholder="￥16,000"></div>
+    </div>
+    <div class="mrow">
+      <div><label>申込期間</label><input id="mApply" placeholder="例：2026/5/1 ～7/16"></div>
+      <div><label>お問い合わせ先</label><input id="mContact" placeholder="例：協会本部 (03-3438-4568)"></div>
+    </div>
+    <label>申込URL（会員申込システム等の申込先）</label><input id="mUrl" placeholder="例：https://member.counselor.or.jp/aspx/sibukoza.aspx">
+    <div style="font-size:11px;color:#7a828c;margin-top:4px;line-height:1.6">※ 現行運用の申込先（member.counselor.or.jp 等）をそのまま貼り付けます。<b>空欄のままだと利用者画面の申込ボタンは自動で無効化</b>され、URLの貼り忘れによる「押せるのに飛べない」を防ぎます。</div>
+    <label>受付状況</label><select id="mSt"><option>受付中</option><option>締切</option></select>
+    <div class="mbtns"><button class="cancel" id="mCancel">キャンセル</button><button class="save" id="mSave">保存（下書き）</button></div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script src="./koushin_data.js"></script>
+<script src="../demo_schedule/xlsx.full.min.js"></script>
+<script>
+const SEED = (window.KOUSHIN_ITEMS || []).map(o=>Object.assign({},o));
+
+const KINDS=['知識講習（Eラーニング）','知識講習（DVD集合視聴型）','技能講習（オンライン開催）','技能講習（通学・対面）'];
+const KC={'知識講習（Eラーニング）':'k1','知識講習（DVD集合視聴型）':'k2','技能講習（オンライン開催）':'k3','技能講習（通学・対面）':'k4'};
+const STS=['受付中','締切'];
+const PC={'受付中':'ok','締切':'end'};
+const KSHORT={'知識講習（Eラーニング）':'知識・EL','知識講習（DVD集合視聴型）':'知識・DVD集合','技能講習（オンライン開催）':'技能・WEB','技能講習（通学・対面）':'技能・通学'};
+const clone=o=>JSON.parse(JSON.stringify(o));
+/* 都道府県コード順（北→南）。プルダウンをこの順に並べる。「全国」は最後に置く。 */
+const PREF_ORDER=['北海道','青森県','岩手県','宮城県','秋田県','山形県','福島県','茨城県','栃木県','群馬県','埼玉県','千葉県','東京都','神奈川県','新潟県','富山県','石川県','福井県','山梨県','長野県','岐阜県','静岡県','愛知県','三重県','滋賀県','京都府','大阪府','兵庫県','奈良県','和歌山県','鳥取県','島根県','岡山県','広島県','山口県','徳島県','香川県','愛媛県','高知県','福岡県','佐賀県','長崎県','熊本県','大分県','宮崎県','鹿児島県','沖縄県','全国'];
+/* 現行サイトで実際にリンク切れ（404）になっている申込先。職員管理画面で警告を出す。
+   2026/07/23 全23URLを実際に開いて確認した結果、下記1本のみNG。 */
+const BAD_URLS=['https://joshinetsu.counselor.or.jp/seminar/20260725jic19t11/'];
+/* 現行運用の申込先（会員申込システム）。1件だけ意図的に未設定にし、「URL未設定なら申込ボタンが自動で無効になる」動きを実演できるようにしています */
+const APPLY_URL='https://member.counselor.or.jp/aspx/sibukoza.aspx';
+/* 申込先は現行サイト掲載の実URL（支部サイト・会員申込システム）をそのまま使用。
+   URL未設定の講習が実際に7件あり、「未設定ならボタンが自動で無効になる」動きはそのまま実演できる。 */
+let published=clone(SEED).map(d=>(d._del=false,d));
+let draft=clone(published);
+let fKind='すべて', fSt='すべて', fPref='すべて', fCity='すべて', fQ='', editing=null, showN=60;
+const $=s=>document.querySelector(s);
+
+function toast(m){const t=$('#toast');t.innerHTML=m;t.classList.add('show');clearTimeout(t._tm);t._tm=setTimeout(()=>t.classList.remove('show'),3800);}
+const admin=()=>document.body.classList.contains('admin');
+function diff(i){return JSON.stringify(draft[i])!==JSON.stringify(published[i]);}
+function pending(){let n=0;for(let i=0;i<Math.max(draft.length,published.length);i++){if(!published[i]&&draft[i])n++;else if(draft[i]&&diff(i))n++;}return n;}
+
+function renderFilters(){
+  const fk=$('#fKind');fk.innerHTML='';
+  ['すべて',...KINDS].forEach(k=>{const b=document.createElement('button');b.className='chip'+(fKind===k?' on':'');b.textContent=k;b.onclick=()=>{fKind=k;showN=40;render();};fk.appendChild(b);});
+  const fs=$('#fSt');fs.innerHTML='';
+  ['すべて',...STS].forEach(s=>{const b=document.createElement('button');b.className='chip'+(fSt===s?' on':'');b.textContent=s;b.onclick=()=>{fSt=s;showN=60;render();};fs.appendChild(b);});
+  const sp=$('#fPref'), sc=$('#fCity');
+  if(sp && !sp.dataset.built){
+    /* 開催のある都道府県だけを、北から南（都道府県コード順）に並べ、件数も出す。
+       ※オンライン開催の講習は主催支部の所在地で登録されている（現行サイトの表記どおり） */
+    const cnt={};SEED.forEach(d=>{if(d.pref&&d.pref!=='—')cnt[d.pref]=(cnt[d.pref]||0)+1;});
+    const prefs=Object.keys(cnt).sort((a,b)=>{
+      const ia=PREF_ORDER.indexOf(a), ib=PREF_ORDER.indexOf(b);
+      return (ia<0?99:ia)-(ib<0?99:ib) || a.localeCompare(b,'ja');
+    });
+    sp.innerHTML='<option value="すべて">すべての都道府県（'+SEED.length+'件）</option>'
+      +'<option value="オンライン">オンライン開催のみ（'+SEED.filter(d=>/オンライン|Eラーニング/.test(d.kind)).length+'件）</option>'
+      +prefs.map(p=>'<option value="'+p+'">'+p+'（'+cnt[p]+'件）</option>').join('');
+    sp.dataset.built='1';
+    sp.onchange=()=>{ fPref=sp.value; fCity='すべて'; showN=60; buildCity(); render(); };
+  }
+  /* 選んだ都道府県に含まれる市区町村だけを出す（連動） */
+  function buildCity(){
+    if(!sc) return;
+    const rows=SEED.filter(d=>fPref==='すべて'||fPref==='オンライン'||d.pref===fPref);
+    const cnt={};rows.forEach(d=>{if(d.city)cnt[d.city]=(cnt[d.city]||0)+1;});
+    const list=Object.keys(cnt).sort((a,b)=>cnt[b]-cnt[a]||a.localeCompare(b,'ja'));
+    sc.innerHTML='<option value="すべて">すべての市区町村</option>'+list.map(c=>'<option value="'+c+'">'+c+'（'+cnt[c]+'件）</option>').join('');
+    sc.value=fCity;
+    sc.disabled=(fPref==='オンライン');
+    sc.onchange=()=>{ fCity=sc.value; showN=60; render(); };
+  }
+  if(sc && !sc.dataset.built){ sc.dataset.built='1'; buildCity(); }
+}
+function renderStats(){
+  const src=(admin()?draft:published).filter(d=>!d._del);
+  $('#stats').innerHTML='<div class="st"><b>'+src.length+'</b>講習開催（4種別）</div>'
+    +'<div class="st"><b>'+src.filter(d=>d.kind.startsWith('知識')).length+'</b>知識講習</div>'
+    +'<div class="st"><b>'+src.filter(d=>d.kind.startsWith('技能')).length+'</b>技能講習</div>'
+    +'<div class="st"><b>'+src.filter(d=>d.status==='受付中').length+'</b>受付中</div>';
+}
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function render(){
+  renderFilters();renderStats();
+  const box=$('#cards');const q=fQ.trim();const A=admin();
+  let n=0,shown=0;
+  let h='<div class="lst"><div class="lhead"><span>受付</span><span>講習（種別・コード・会場）</span><span>開講コース・開催日</span><span>受講料・定員</span><span>申込期間・お問い合わせ</span><span style="text-align:right">'+(A?'操作':'申込')+'</span></div>';
+  draft.forEach((d,i)=>{
+    const pubd=published[i];
+    if(!A){ if(!pubd||pubd._del) return; }
+    if(A&&d._del&&!pubd) return;
+    const view=A?d:pubd;
+    if(fKind!=='すべて'&&view.kind!==fKind)return;
+    if(fSt!=='すべて'&&view.status!==fSt)return;
+    if(fPref==='オンライン'){ if(!/オンライン|Eラーニング/.test(view.kind)) return; }
+    else if(fPref!=='すべて'&&view.pref!==fPref)return;
+    if(fCity!=='すべて'&&view.city!==fCity)return;
+    if(q && !(view.name+view.code+view.venue+(view.pref||'')+(view.city||'')+(view.contact||'')).includes(q))return;
+    n++;
+    if(shown>=showN) return;
+    shown++;
+    const open=view.status==='受付中';
+    const isDraft=A&&diff(i);
+    const pref=(view.area&&view.area!=='—')?view.area:((view.pref&&view.pref!=='—')?view.pref:'');
+    const dateCell=A
+      ? '<input class="tinp" value="'+esc(view.date)+'" data-i="'+i+'">'
+      : '<span class="tdate">'+esc(view.date)+'</span>';
+    h+='<div class="rw'+(isDraft?' draft':'')+(A&&d._del?' deleted':'')+'">'
+      +'<div class="c-st"><span class="tpill '+PC[view.status]+'">'+view.status+'</span></div>'
+      +'<div class="c-main"><div class="tags"><span class="kd '+KC[view.kind]+'">'+(KSHORT[view.kind]||view.kind)+'</span><span class="mono">'+esc(view.code)+'</span>'
+        +(pubd?'<span></span>':'<span class="newbadge2">新規（未公開）</span>')
+        +(isDraft?'<span class="dbadge2">未公開の変更</span>':'')
+      +'</div><div class="nm">'+esc(view.name)+'</div>'
+      +'<div class="vn">'+esc(view.venue)+(pref?'<span class="pf">'+esc(pref)+'</span>':'')+'</div></div>'
+      +'<div class="c-date"><span class="lb2">開催</span>'+dateCell+'</div>'
+      +'<div class="c-fee"><span class="f1">一般 '+esc(view.feeG)+'</span><span class="f2">会員 '+esc(view.feeM)+'</span><span class="f3">'+esc(view.hours)+'時間・定員'+esc(view.cap)+'名</span></div>'
+      +'<div class="c-app"><span>申込：'+esc(view.apply)+'</span><span>問合せ：'+esc(view.contact)+'</span>'
+        +(function(){
+           const hasUrl=!!(view.url&&view.url.trim());
+           if(!A) return '';
+           if(hasUrl){
+             const ng=BAD_URLS.includes(view.url.trim());
+             return '<span style="font-size:10.5px;color:'+(ng?'#b4372f':'#5f6f64')+';word-break:break-all'+(ng?';font-weight:700':'')+'">'
+               +(ng?'⚠ リンク切れ（404）：':'申込先：')+esc(view.url)+'</span>'
+               +(ng?'<span style="font-size:10.5px;color:#b4372f">現行サイト掲載のこのURLは開けません。支部へ確認のうえ差し替えてください。</span>':'');
+           }
+           return '<span style="font-size:10.5px;color:#b4372f;font-weight:700">⚠ 申込URLが未入力のため、利用者画面ではボタンが無効です（現行サイトも申込先の欄が空欄です／✏編集から貼り付け）</span>';
+         })()
+      +'</div>'
+      +(A
+        ? '<div class="c-act">'+(d._del
+            ? '<button onclick="undel('+i+')">↩ 取消</button>'
+            : '<button onclick="openEdit('+i+')">✏ 編集</button><button class="st3" onclick="cyc('+i+')">受付切替</button><button class="del" onclick="del('+i+')">🗑 削除</button>')+'</div>'
+        : '<div class="c-act">'+(function(){
+             const hasUrl=!!(view.url&&view.url.trim());
+             if(!open) return '<a class="tabtn dis" href="#" onclick="return false">締切</a>';
+             /* 申込URLが入っていない回は、勝手に別のページへ飛ばさない。
+                現行サイトも申込先の欄が空欄で、お問い合わせ先へ連絡する運用になっている。 */
+             if(!hasUrl) return '<a class="tabtn dis" href="#" onclick="return false" title="申込URLが未設定です。お問い合わせ先へご連絡ください">申込URL未設定</a>';
+             /* 現行サイトと同じ飛び先。PDF案内の回は、その旨がわかる表記にする。 */
+             const isPdf=/\.pdf($|\?)/i.test(view.url);
+             return '<a class="tabtn" href="'+esc(view.url)+'" target="_blank" rel="noopener">'
+               +(isPdf?'案内PDF（申込方法）↗':'詳細・お申込み ↗')+'</a>';
+           })()+'</div>')
+      +'</div>';
+  });
+  h+='</div>';
+  box.innerHTML=h;
+  $('#cnt').textContent=n+'件が該当（うち'+shown+'件を表示）';
+  $('#more').style.display = n>shown ? 'block':'none';
+  const p=pending();
+  $('#pubN').textContent=p;$('#pubN').classList.toggle('zero',p===0);
+  box.querySelectorAll('.tinp').forEach(inp=>{
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') inp.blur(); });
+    inp.addEventListener('change',()=>{
+      if(draft[+inp.dataset.i].date===inp.value.trim()) return;
+      draft[+inp.dataset.i].date=inp.value.trim();
+      render();
+      toast('開催日程を修正しました（下書き）<br>「🌐 更新を公開」で利用者画面に反映されます');
+    });
+  });
+}
+$('#more').onclick=()=>{showN+=60;render();};
+$('#fQ').addEventListener('input',e=>{fQ=e.target.value;showN=40;render();});
+function cyc(i){const cur=STS.indexOf(draft[i].status);draft[i].status=STS[(cur+1)%2];render();toast('<b>'+draft[i].name.slice(0,22)+'</b> を「'+draft[i].status+'」に変更しました（下書き）');}
+function del(i){draft[i]._del=true;render();toast('<b>'+draft[i].name.slice(0,22)+'</b> を削除しました（下書き・取消可）');}
+function undel(i){draft[i]._del=false;render();}
+
+/* modal */
+function fillKinds(){const s=$('#mKind');s.innerHTML='';KINDS.forEach(a=>{const o=document.createElement('option');o.textContent=a;s.appendChild(o);});}
+function openEdit(i){
+  editing=i;fillKinds();
+  $('#mTitle').textContent='講習を編集';
+  const d=draft[i];
+  $('#mKind').value=d.kind;$('#mCode').value=d.code;$('#mName').value=d.name;
+  $('#mDate').value=d.date;$('#mVenue').value=d.venue;
+  $('#mCap').value=d.cap;$('#mFeeG').value=d.feeG;$('#mFeeM').value=d.feeM;
+  $('#mApply').value=(d.apply==='—'?'':d.apply);$('#mContact').value=d.contact;
+  $('#mUrl').value=d.url||'';
+  $('#mSt').value=d.status;
+  $('#mwrap').classList.add('show');
+}
+$('#btnAdd').onclick=()=>{
+  editing=null;fillKinds();
+  $('#mTitle').textContent='新規講習を登録';
+  $('#mKind').value=KINDS[2];$('#mCode').value='';$('#mName').value='';
+  $('#mDate').value='';$('#mVenue').value='オンライン';
+  $('#mCap').value='20';$('#mFeeG').value='￥20,000';$('#mFeeM').value='￥16,000';
+  $('#mApply').value='';$('#mContact').value='協会本部 (03-3438-4568)';
+  $('#mUrl').value='';
+  $('#mSt').value='受付中';
+  $('#mwrap').classList.add('show');
+};
+$('#mCancel').onclick=()=>$('#mwrap').classList.remove('show');
+$('#mwrap').addEventListener('click',e=>{if(e.target.id==='mwrap')$('#mwrap').classList.remove('show');});
+$('#mSave').onclick=()=>{
+  const name=$('#mName').value.trim();
+  if(!name){toast('講習名を入力してください');return;}
+  const o={kind:$('#mKind').value,code:$('#mCode').value.trim()||'—',name:name,
+    date:$('#mDate').value.trim()||'（日程調整中）',venue:$('#mVenue').value.trim()||'（会場調整中）',
+    pref:'—',hours:$('#mKind').value.startsWith('知識')?'8':'6',
+    cap:$('#mCap').value.trim()||'20',feeG:$('#mFeeG').value.trim(),feeM:$('#mFeeM').value.trim(),
+    apply:$('#mApply').value.trim()||'—',contact:$('#mContact').value.trim()||'協会本部 (03-3438-4568)',
+    url:$('#mUrl').value.trim(),status:$('#mSt').value,_del:false};
+  if(editing===null){draft.push(o);toast('<b>'+name.slice(0,22)+'</b> を新規登録しました（下書き）<br>「🌐 更新を公開」で利用者画面に掲載されます');}
+  else{o.pref=draft[editing].pref;draft[editing]=o;toast('<b>'+name.slice(0,22)+'</b> を更新しました（下書き）');}
+  $('#mwrap').classList.remove('show');render();
+};
+
+/* 一括・公開 */
+$('#btnBulk').onclick=()=>{
+  let n=0;
+  draft.forEach(d=>{
+    if(d._del||d.status!=='受付中')return;
+    const m=d.date.match(/(20\d{2})\/(\d{1,2})\/(\d{1,2})/);
+    if(m && (+m[1]<2026 || (+m[1]===2026 && (+m[2]<7 || (+m[2]===7 && +m[3]<18))))){ d.status='締切'; n++; }
+  });
+  render();toast('開催日が過去の講習 <b>'+n+'件</b> を締切にしました（下書き）');
+};
+$('#btnPub').onclick=()=>{
+  const n=pending();if(!n){toast('未公開の変更はありません');return;}
+  draft=draft.filter(d=>!d._del);
+  published=clone(draft);
+  render();
+  toast('🌐 <b>'+n+'件</b>の変更を公開しました。利用者画面（Webサイト）に反映されています');
+};
+
+/* ==== Excel取込 ==== */
+let impRows=[];
+$('#btnImp').onclick=()=>{ impRows=[]; $('#ires').innerHTML=''; $('#iReg').style.display='none'; $('#iwrap').classList.add('show'); };
+$('#iCancel').onclick=()=>$('#iwrap').classList.remove('show');
+$('#iwrap').addEventListener('click',e=>{if(e.target.id==='iwrap')$('#iwrap').classList.remove('show');});
+const idrop=$('#idrop'), ifile=$('#ifile');
+idrop.onclick=()=>ifile.click();
+['dragenter','dragover'].forEach(ev=>idrop.addEventListener(ev,e=>{e.preventDefault();idrop.style.background='#e9f5ee';}));
+['dragleave','drop'].forEach(ev=>idrop.addEventListener(ev,e=>{e.preventDefault();idrop.style.background='#f8fbf9';}));
+idrop.addEventListener('drop',e=>{const f=e.dataTransfer.files[0]; if(f) readXlsx(f);});
+ifile.addEventListener('change',()=>{ if(ifile.files[0]) readXlsx(ifile.files[0]); ifile.value=''; });
+function readXlsx(file){
+  const fr=new FileReader();
+  fr.onload=()=>{
+    let wb;
+    try{ wb=XLSX.read(new Uint8Array(fr.result),{type:'array'}); }
+    catch(e){ $('#ires').innerHTML='⚠️ Excelとして読み込めませんでした：'+e.message; return; }
+    const ws=wb.Sheets[wb.SheetNames[0]];
+    const arr=XLSX.utils.sheet_to_json(ws,{header:1,defval:''});
+    validateRows(arr, file.name);
+  };
+  fr.readAsArrayBuffer(file);
+}
+function validateRows(arr, fname){
+  impRows=[];
+  const head=(arr[0]||[]).map(String);
+  const need=['種別','講習名'];
+  if(!need.every(k=>head.some(h=>h.includes(k)))){
+    $('#ires').innerHTML='⚠️ 1行目の見出しに「種別」「講習名」が見つかりません。テンプレート形式（種別／講習コード／講習名／開催日／実施会場／定員／一般価格／会員価格／受付状況）でご用意ください。';
+    $('#iReg').style.display='none'; return;
+  }
+  const col=k=>head.findIndex(h=>h.includes(k));
+  const ci={kind:col('種別'),code:col('講習コード'),name:col('講習名'),date:col('開催日'),venue:col('実施会場'),cap:col('定員'),feeG:col('一般価格'),feeM:col('会員価格'),st:col('受付状況')};
+  let html='<b>📄 '+fname+'</b> の検証結果：<table style="width:100%;border-collapse:collapse;margin-top:6px;font-size:11.5px">'
+    +'<tr><th style="border:1px solid #dde;padding:4px 8px;background:#eef7f0">行</th><th style="border:1px solid #dde;padding:4px 8px;background:#eef7f0">種別</th><th style="border:1px solid #dde;padding:4px 8px;background:#eef7f0">講習名</th><th style="border:1px solid #dde;padding:4px 8px;background:#eef7f0">判定</th></tr>';
+  for(let r=1;r<arr.length;r++){
+    const row=arr[r]; if(!row || row.every(c=>String(c).trim()==='')) continue;
+    const g=i=>i>=0?String(row[i]).trim():'';
+    const kind=g(ci.kind), name=g(ci.name), st=g(ci.st)||'受付中';
+    let ng=[];
+    if(!name) ng.push('講習名が未入力');
+    if(!KINDS.includes(kind)) ng.push('種別「'+kind+'」は不正（'+KINDS.join('／')+'から指定）');
+    if(!STS.includes(st)) ng.push('受付状況「'+st+'」は不正（受付中／締切）');
+    const ok=ng.length===0;
+    if(ok) impRows.push({kind:kind,code:g(ci.code)||'—',name:name,
+      date:g(ci.date)||'（日程調整中）',venue:g(ci.venue)||'（会場調整中）',pref:'—',
+      hours:kind.startsWith('知識')?'8':'6',cap:g(ci.cap)||'20',
+      feeG:g(ci.feeG)||'￥20,000',feeM:g(ci.feeM)||'￥16,000',
+      apply:'—',contact:'協会本部 (03-3438-4568)',status:st,_del:false});
+    html+='<tr><td style="border:1px solid #dde;padding:4px 8px">'+(r+1)+'</td><td style="border:1px solid #dde;padding:4px 8px">'+kind+'</td><td style="border:1px solid #dde;padding:4px 8px">'+name.slice(0,20)+'</td>'
+      +'<td style="border:1px solid #dde;padding:4px 8px;color:'+(ok?'#1c7c2f':'#b3372f')+';font-weight:700">'+(ok?'✅ OK':'✖ '+ng.join('／'))+'</td></tr>';
+  }
+  html+='</table><div style="margin-top:8px">✅ 正常 <b>'+impRows.length+'</b>件　／　✖ エラー行はExcelを直してもう一度お取り込みください。</div>';
+  $('#ires').innerHTML=html;
+  $('#iReg').textContent=impRows.length+'件を一括登録（下書き）';
+  $('#iReg').style.display=impRows.length?'inline-block':'none';
+}
+$('#iReg').onclick=()=>{
+  if(!impRows.length) return;
+  impRows.forEach(o=>draft.push(clone(o)));
+  const n=impRows.length; impRows=[];
+  $('#iwrap').classList.remove('show');
+  render();
+  toast('📥 <b>'+n+'件</b>を一括登録しました（下書き）。<br>「🌐 更新を公開」で利用者画面に掲載されます');
+};
+
+/* mode */
+$('#mUser').onclick=()=>{document.body.classList.remove('admin');$('#mUser').classList.add('on');$('#mAdmin').classList.remove('on');render();};
+$('#mAdmin').onclick=()=>{document.body.classList.add('admin');$('#mAdmin').classList.add('on');$('#mUser').classList.remove('on');render();};
+if(location.hash==='#admin'){document.body.classList.add('admin');$('#mAdmin').classList.add('on');$('#mUser').classList.remove('on');}
+if(new URLSearchParams(location.search).has('embed')){document.body.classList.add('embed');}
+
+/* LPの「全国開催日程一覧」の各ボタンから種別を指定して開けるようにする（?kind=k1〜k4／?pref=／?q=） */
+(function(){
+  const p=new URLSearchParams(location.search);
+  const k=p.get('kind');
+  if(k){
+    const hit=KINDS.find(x=>KC[x]===k||x===k);
+    if(hit) fKind=hit;
+  }
+  if(p.get('pref')) fPref=p.get('pref');
+  if(p.get('q')) { fQ=p.get('q'); const el=$('#fQ'); if(el) el.value=fQ; }
+})();
+render();
+</script>
+<script src="../demo_navbar.js" data-crumb="講習・会場一覧" data-back="qualification/career/renewal/" data-back-label="キャリアコンサルタント更新講習"></script>
+</body>
+</html>

@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<!-- JAICO-DEMO-GATE:BEGIN -->
+<script>/* 閲覧用ゲート（関係者限定デモ）。クライアントサイドの簡易ロックです。 */
+(function(){
+  var KEY='jaicoDemoGate2026', SIG='6c4a961c';
+  function hash(s){var v=5381;for(var i=0;i<s.length;i++){v=((v*33)^s.charCodeAt(i))>>>0;}return v.toString(16);}
+  try{ if(localStorage.getItem(KEY)===SIG) return; }catch(e){}
+  document.write('<style id="__gs">html{visibility:hidden!important}#__gate,#__gate *{visibility:visible!important}</style>');
+  function build(){
+    var w=document.createElement('div');
+    w.id='__gate';
+    w.setAttribute('style','position:fixed;inset:0;z-index:2147483647;background:linear-gradient(160deg,#f2f8f3,#e6f2e9);display:flex;align-items:center;justify-content:center;padding:20px;font-family:"Noto Sans JP","Yu Gothic UI",sans-serif');
+    w.innerHTML='<form id="__gf" style="background:#fff;border:1px solid #dbe7dc;border-radius:18px;box-shadow:0 14px 40px rgba(28,124,47,.14);padding:34px 32px;width:100%;max-width:380px;box-sizing:border-box">'
+      +'<div style="font-size:11px;font-weight:800;letter-spacing:.14em;color:#239b3b">CONFIDENTIAL</div>'
+      +'<h1 style="font-size:17px;margin:8px 0 6px;color:#243024;line-height:1.6">ご提案デモサイト<br>閲覧用ログイン</h1>'
+      +'<p style="font-size:12px;line-height:1.9;color:#5c6b63;margin:0 0 20px">関係者限定のプロトタイプです。<br>ご案内済みのID・パスワードを入力してください。</p>'
+      +'<label style="display:block;font-size:12px;font-weight:700;color:#243024;margin-bottom:5px">ID</label>'
+      +'<input id="__gi" type="text" autocomplete="username" autocapitalize="off" autocorrect="off" spellcheck="false" style="width:100%;box-sizing:border-box;font-size:15px;padding:11px 13px;border:1px solid #cfe0d3;border-radius:9px;margin-bottom:14px;font-family:inherit">'
+      +'<label style="display:block;font-size:12px;font-weight:700;color:#243024;margin-bottom:5px">パスワード</label>'
+      +'<input id="__gp" type="password" autocomplete="current-password" style="width:100%;box-sizing:border-box;font-size:15px;padding:11px 13px;border:1px solid #cfe0d3;border-radius:9px;font-family:inherit">'
+      +'<p id="__ge" style="display:none;font-size:12px;color:#c0392b;font-weight:700;margin:12px 0 0">IDまたはパスワードが違います。</p>'
+      +'<button type="submit" style="width:100%;margin-top:20px;background:#239b3b;color:#fff;border:0;border-radius:999px;font-size:15px;font-weight:800;padding:13px;cursor:pointer;font-family:inherit">閲覧する</button>'
+      +'<p style="font-size:10.5px;color:#8a988f;line-height:1.8;margin:16px 0 0">※ 本デモの内容・画面イメージの二次配布はご遠慮ください。</p>'
+      +'</form>';
+    document.body.appendChild(w);
+    var i=document.getElementById('__gi');
+    if(i) i.focus();
+    document.getElementById('__gf').addEventListener('submit',function(ev){
+      ev.preventDefault();
+      var id=(document.getElementById('__gi').value||'').trim();
+      var pw=document.getElementById('__gp').value||'';
+      if(hash(id+':'+pw)===SIG){
+        try{ localStorage.setItem(KEY,SIG); }catch(e){}
+        location.reload();
+      }else{
+        document.getElementById('__ge').style.display='block';
+        document.getElementById('__gp').value='';
+        document.getElementById('__gp').focus();
+      }
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',build); else build();
+})();
+</script>
+<!-- JAICO-DEMO-GATE:END -->
+
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>キャリアコンサルタント更新講習｜日本産業カウンセラー協会（リニューアル構成デモ）</title>
+<meta name="description" content="5年ごとの資格更新に必要な知識講習・技能講習をご案内します。">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../assets/style.css">
+</head>
+<body>
+
+<div class="notice">リニューアル構成デモ｜リニューアル後の画面イメージ（プロトタイプ）— 文言・日程・数値にはサンプルを含みます</div>
+<div class="topbar"><div class="wrap">
+  <span class="tg">働く人と組織を支える 一般社団法人日本産業カウンセラー協会</span>
+  <span class="sp"><a href="../../../about/link/">全国の支部サイト ↗</a><a href="../../../soon.html#会員ログイン">会員ログイン</a><a href="../../../access/">アクセス</a><a href="../../../soon.html#English">English</a></span>
+</div></div>
+<header class="hd"><div class="wrap">
+  <a class="logo" href="../../../index.html"><img src="../../../../images/logo.png" alt="一般社団法人日本産業カウンセラー協会"></a>
+  <nav><ul><li><a href="../../../counseling/">相談する</a><div class="mega"><div class="mg-side"><span class="t">相談する</span><span class="en">COUNSELING</span><a class="go" href="../../../counseling/" aria-label="相談するトップへ">→</a></div><div class="mg-list"><a href="../../../counseling/">相談・カウンセリング トップ</a><a href="../../../counseling/first/">はじめての方へ</a><a href="../../../counseling/hotline/">働く人の悩みホットライン</a><a href="../../../counseling/sns/">SNS相談</a><a href="../../../counseling/room/">全国の相談室</a><a href="../../../counseling/reserve/">予約方法・担当</a><a href="../../../counseling/entry/">相談のお申し込み</a><a href="../../../counseling/for-company/">企業・団体の方</a></div><div class="mg-right"></div></div></li><li><a href="../../../qualification/" class="on">資格・講座</a><div class="mega"><div class="mg-side"><span class="t">資格・講座</span><span class="en">QUALIFICATIONS</span><a class="go" href="../../../qualification/" aria-label="資格・講座トップへ">→</a></div><div class="mg-list"><a href="../../../qualification/">資格・講座トップ</a><div class="mg-item"><a class="mg-p" href="../../../qualification/counselor/">産業カウンセラー養成講座</a><button class="mg-tgl" type="button" data-sub="qualification-counselor" aria-label="産業カウンセラー養成講座の下層を開閉">＋</button></div><div class="mg-item"><a class="mg-p" href="../../../qualification/career/">キャリアコンサルタント</a><button class="mg-tgl" type="button" data-sub="qualification-career" aria-label="キャリアコンサルタントの下層を開閉">＋</button></div><div class="mg-item"><a class="mg-p" href="../../../qualification/senior/">シニア産業カウンセラー</a><button class="mg-tgl" type="button" data-sub="qualification-senior" aria-label="シニア産業カウンセラーの下層を開閉">＋</button></div><a href="../../../qualification/kokoro/">こころのアドバイザー</a><a href="../../../qualification/calendar/">講座カレンダー</a><a href="../../../qualification/training/">専門研修（フォローアップ）</a><a href="../../../qualification/supervision/">スーパービジョン</a><a href="../../../qualification/renewal/">資格更新のご案内</a><a href="../../../qualification/voice/">受講者の声</a><a href="../../../qualification/kyufukin/">教育訓練給付制度</a></div><div class="mg-right"><div class="mg-sub" data-panel="qualification-counselor"><a href="../../../qualification/counselor/#schedule">日程・会場・お申し込み</a><a href="../../../qualification/counselor/#fee">受講料・教育訓練給付金</a><a href="../../../qualification/counselor/#style">受講スタイル（通学・オンライン）</a><a href="../../../qualification/counselor/#area">エリア別 無料説明会</a></div><div class="mg-sub" data-panel="qualification-career"><a href="../../../qualification/career/course/">養成講習</a><a href="../../../qualification/career/renewal/">更新講習</a><a href="../../../qualification/career/exam-prep/">試験対策</a><a href="../../../qualification/career/moshi/">模擬試験</a></div><div class="mg-sub" data-panel="qualification-senior"><a href="../../../qualification/senior/flow/">受験までの流れ・フォローアップ</a></div></div></div></li><li><a href="../../../examination/">試験情報</a><div class="mega"><div class="mg-side"><span class="t">試験情報</span><span class="en">EXAMINATION</span><a class="go" href="../../../examination/" aria-label="試験情報トップへ">→</a></div><div class="mg-list"><a href="../../../examination/">試験情報トップ</a><div class="mg-item"><a class="mg-p" href="../../../examination/grade2/">産業カウンセラー試験 2級</a><button class="mg-tgl" type="button" data-sub="examination-grade2" aria-label="産業カウンセラー試験 2級の下層を開閉">＋</button></div><a href="../../../examination/grade1/">産業カウンセラー試験 1級</a><a href="../../../examination/career/">キャリアコンサルタント国家試験</a><a href="../../../examination/certificate/">合格証の発送・再発行（2級・1級）</a><a href="../../../examination/faq/">よくある質問</a></div><div class="mg-right"><div class="mg-sub" data-panel="examination-grade2"><a href="../../../examination/grade2/apply/">受検申請・受検上の配慮</a><a href="../../../examination/grade2/results/">合否結果</a></div></div></div></li><li><a href="../../../company/">法人向け</a><div class="mega"><div class="mg-side"><span class="t">法人向け</span><span class="en">FOR BUSINESS</span><a class="go" href="../../../company/" aria-label="法人向けトップへ">→</a></div><div class="mg-list"><a href="../../../company/">法人向けサービス トップ</a><a href="../../../company/mental/">メンタルヘルス対策支援</a><a href="../../../company/training/">企業研修</a><a href="../../../company/stresscheck/">ストレスチェック</a><a href="../../../company/eap/">外部相談窓口・EAP</a><a href="../../../company/case/">導入事例</a><a href="../../../company/contact/">法人お問い合わせ</a></div><div class="mg-right"></div></div></li><li><a href="../../../member/">会員・入会</a><div class="mega"><div class="mg-side"><span class="t">会員・入会</span><span class="en">MEMBERSHIP</span><a class="go" href="../../../member/" aria-label="会員・入会トップへ">→</a></div><div class="mg-list"><a href="../../../member/">会員・入会 トップ</a><div class="mg-item"><a class="mg-p" href="../../../member/join/">入会案内</a><button class="mg-tgl" type="button" data-sub="member-join" aria-label="入会案内の下層を開閉">＋</button></div><a href="../../../member/benefit/">会員特典</a><a href="../../../member/card/">会員証</a><a href="../../../member/procedure/">各種手続き</a><a href="../../../member/branch/">全国支部・拠点一覧</a><a href="../../../member/mypage/">会員マイページ</a><a href="../../../member/news/">会員向けお知らせ</a><a href="../../../member/job/">求人情報</a></div><div class="mg-right"><div class="mg-sub" data-panel="member-join"><a href="../../../member/join/entry/">入会手続き・申込フォーム</a></div></div></div></li><li><a href="../../../about/">協会について</a><div class="mega"><div class="mg-side"><span class="t">協会について</span><span class="en">ABOUT US</span><a class="go" href="../../../about/" aria-label="協会についてトップへ">→</a></div><div class="mg-list"><a href="../../../about/">協会について トップ</a><a href="../../../about/message/">会長メッセージ</a><a href="../../../about/policy/">理念・行動指針</a><a href="../../../about/activity/">3つの活動領域</a><a href="../../../about/organization/">組織図</a><a href="../../../about/adr/">ADR（紛争解決）</a><a href="../../../about/conference/">全国研究大会</a><a href="../../../about/disclosure/">情報公開</a><a href="../../../about/link/">リンク集・関連団体</a><a href="../../../about/recruit/">採用情報</a></div><div class="mg-right"></div></div></li><li><a href="../../../news/">ニュース</a><div class="mega"><div class="mg-side"><span class="t">ニュース</span><span class="en">NEWS</span><a class="go" href="../../../news/" aria-label="ニューストップへ">→</a></div><div class="mg-list"><a href="../../../news/">お知らせ一覧</a><a href="../../../news/important/">重要なお知らせ</a><a href="../../../news/report/">活動報告</a><a href="../../../news/archive/">年度別アーカイブ</a><a href="../../../news/mailmagazine/">メールマガジン</a></div><div class="mg-right"></div></div></li><li><a href="../../../library/">研究・刊行物</a><div class="mega"><div class="mg-side"><span class="t">研究・刊行物</span><span class="en">LIBRARY</span><a class="go" href="../../../library/" aria-label="研究・刊行物トップへ">→</a></div><div class="mg-list"><a href="../../../library/">研究・刊行物 トップ</a><div class="mg-item"><a class="mg-p" href="../../../library/institute/">産業カウンセリング研究所</a><button class="mg-tgl" type="button" data-sub="library-institute" aria-label="産業カウンセリング研究所の下層を開閉">＋</button></div><a href="../../../library/books/">書籍・教材</a><a href="../../../library/column/">コラム</a><a href="../../../library/movie/">動画ライブラリ</a><div class="mg-item"><a class="mg-p" href="../../../library/magazine/">広報誌</a><button class="mg-tgl" type="button" data-sub="library-magazine" aria-label="広報誌の下層を開閉">＋</button></div><a href="../../../library/kokorolab/">働く人の心ラボ</a></div><div class="mg-right"><div class="mg-sub" data-panel="library-institute"><a href="../../../library/research/">調査・研究</a><a href="../../../library/journal/">学術誌「産業カウンセリング研究」</a><a href="../../../library/event/">イベント・セミナー</a></div><div class="mg-sub" data-panel="library-magazine"><a href="../../../library/magazine/ad/">広告掲載のお申し込み</a></div></div></div></li></ul></nav>
+  <div class="cta">
+    <a class="srch" href="../../../soon.html#サイト内検索" aria-label="サイト内検索"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg></a>
+    <a class="btn btn-y" href="../../../member/join/">入会案内</a>
+    <a class="btn btn-g" href="../../../contact/">お問い合わせ</a>
+  </div>
+  <button class="menu-btn" aria-label="メニュー"><span></span><span></span><span></span></button>
+</div></header>
+<div class="mnav"><button class="x">×</button><a href="../../../counseling/">相談する</a><a href="../../../qualification/">資格・講座</a><a href="../../../examination/">試験情報</a><a href="../../../company/">法人向け</a><a href="../../../member/">会員・入会</a><a href="../../../about/">協会について</a><a href="../../../news/">ニュース</a><a href="../../../library/">研究・刊行物</a>
+  <a href="../../../member/join/">入会案内</a><a href="../../../contact/">お問い合わせ</a>
+</div>
+
+<div class="crumb"><div class="wrap"><ol><li><a href="../../../index.html">トップ</a></li><li><a href="../../">資格・講座</a></li><li><a href="../">キャリアコンサルタント</a></li><li>更新講習</li></ol></div></div>
+<div class="p-hero"><div class="wrap"><span class="en">RENEWAL COURSE</span><h1>キャリアコンサルタント更新講習</h1><p class="ld">5年ごとの資格更新に必要な知識講習・技能講習をご案内します。</p></div></div>
+<main class="sub"><div class="wrap prose">
+<style>
+/* ページ固有CSS（更新講習）— 共有style.cssは編集しない */
+.kx-lead{text-align:center;font-size:14px;line-height:2.1;margin:6px 0 8px}
+.kx-check{background:#fff;border:1px solid var(--line);border-left:5px solid var(--y,#e8b931);border-radius:8px;padding:14px 18px;font-size:13px;margin:18px 0}
+.kx-check a,.kx-el a,.kx-branches a,.kx-newslist a,.kacc .kbody a{color:var(--gd);font-weight:700;text-decoration:underline}
+.kx-el{background:var(--mist);border:2px solid var(--g);border-radius:10px;padding:16px 20px;text-align:center;font-size:13.5px;font-weight:700;margin:18px 0}
+.kx-yt{display:flex;gap:18px;align-items:center;justify-content:center;flex-wrap:wrap;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--sh);padding:18px;margin:18px 0}
+.kx-yt img{width:280px;max-width:100%;border-radius:8px;display:block}
+.kx-yt .cap{font-size:13px;font-weight:700;line-height:2;text-align:left}
+.kx-listbox{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.kx-lbtn{display:block;border-radius:10px;padding:14px 16px;font-size:13.5px;font-weight:700;color:#fff !important;text-align:center;box-shadow:var(--sh);transition:.2s}
+.kx-lbtn:hover{opacity:.88;transform:translateY(-2px)}
+.kx-lbtn b{display:inline-block;margin:0 7px;font-size:12px;background:rgba(255,255,255,.24);border-radius:999px;padding:2px 10px}
+.kx-lbtn.or{background:#e07b1f}
+.kx-lbtn.gr{background:var(--g)}
+.kx-lbtn.bl{background:#2f6fb0}
+.kx-red{color:#c62828;font-weight:700;font-size:14px;text-align:center;margin:8px 0}
+.kx-upd{font-size:12px;color:var(--sub);text-align:center;margin:10px 0}
+.kx-center{text-align:center;font-size:13.5px;line-height:2.1}
+.kx-map{text-align:center;margin:20px 0 8px}
+.kx-map img{max-width:450px;width:100%}
+.kx-online{display:inline-block;background:var(--pale);border:1px solid var(--g);border-radius:999px;color:var(--gd);font-weight:700;font-size:12.5px;padding:6px 18px;margin:8px 0 14px}
+.kx-branches{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:14px 0}
+.kx-branches a{display:inline-block;border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 16px;font-size:12.5px;font-weight:700;color:var(--gd);text-decoration:none;transition:.2s}
+.kx-branches a:hover{background:var(--pale);border-color:var(--g)}
+.kx-branches a.hb{background:var(--gd);color:#fff;border-color:var(--gd)}
+.kx-newslist{list-style:none;margin:14px 0;padding:0}
+.kx-newslist li{display:flex;gap:16px;align-items:flex-start;border-bottom:1px dashed var(--line);padding:12px 4px;font-size:13px;line-height:1.9}
+.kx-newslist time{flex:0 0 84px;font-weight:700;color:var(--gd);font-variant-numeric:tabular-nums}
+.kx-grp{display:flex;justify-content:center;margin:34px 0 14px}
+.kx-grp span{background:var(--gd);color:#fff;font-weight:900;letter-spacing:.3em;font-size:16px;border-radius:999px;padding:10px 46px;box-shadow:var(--sh)}
+details.kacc{background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:var(--sh);margin:10px 0;overflow:hidden}
+details.kacc>summary{list-style:none;cursor:pointer;padding:14px 44px 14px 18px;font-size:13.5px;font-weight:700;line-height:1.8;position:relative;background:linear-gradient(120deg,#fff,var(--mist))}
+details.kacc>summary::-webkit-details-marker{display:none}
+details.kacc>summary::after{content:"▼";position:absolute;right:16px;top:50%;transform:translateY(-50%);color:var(--g);font-size:11px;transition:.2s}
+details.kacc[open]>summary::after{transform:translateY(-50%) rotate(180deg)}
+details.kacc>summary:hover{background:var(--pale)}
+.kacc .tdtitle{display:inline-block;background:var(--mist);border:1px solid var(--line);border-radius:4px;color:var(--sub);font-size:11px;font-weight:700;padding:2px 8px;margin-right:6px;vertical-align:middle}
+.kacc .new{display:inline-block;background:#c62828;color:#fff;font-size:10.5px;font-weight:900;border-radius:4px;padding:2px 8px;margin-right:6px;vertical-align:middle}
+.kacc .code{color:var(--gd);font-size:12px;font-weight:700;white-space:nowrap}
+.kacc .oldname{display:block;font-size:11px;color:var(--sub);font-weight:500;margin-top:4px}
+.kacc .kbody{padding:14px 16px 18px}
+.kacc .kbody .tbl{margin:0}
+.kacc .kbody .tbl small{font-weight:400}
+.tw{overflow-x:auto}
+.tw .tbl{min-width:520px}
+/* 追従バナー（右側固定・現行サイト補完）— kokoro .fixbanner 準拠、本ページ限定スコープ */
+.kx-fixbanner{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:60;display:flex;flex-direction:column;gap:7px;align-items:flex-end}
+.kx-fixbanner a{display:flex;align-items:center;justify-content:center;text-align:center;min-width:66px;max-width:90px;padding:10px 10px;border-radius:12px 0 0 12px;color:#fff !important;font-size:11px;font-weight:800;line-height:1.35;box-shadow:-2px 3px 12px rgba(0,0,0,.25);text-decoration:none;transition:.18s}
+.kx-fixbanner a:hover{padding-right:16px;opacity:.95}
+.kx-fixbanner .fb-master{background:#e8710d}
+.kx-fixbanner .fb-el{background:#2f6fb0}
+.kx-fixbanner .fb-contact{background:var(--g)}
+@media(max-width:860px){
+  .kx-fixbanner{top:auto;bottom:0;left:0;right:0;flex-direction:row;transform:none;gap:0;align-items:stretch}
+  .kx-fixbanner a{flex:1;min-width:0;max-width:none;border-radius:0;padding:10px 3px;font-size:11px}
+  .kx-fixbanner a:hover{padding-right:3px}
+  body{padding-bottom:52px}
+}
+@media(max-width:760px){
+  .kx-listbox{grid-template-columns:1fr}
+  .kx-yt .cap{text-align:center}
+  .kx-newslist li{flex-direction:column;gap:2px}
+  .tw .tbl{min-width:480px}
+}
+</style>
+
+  <!-- 追従バナー（右側固定・現行サイトに無い重要導線の補完）— PC:右端固定 / SP(860px以下):下部バー -->
+  <div class="kx-fixbanner" id="fixBanner">
+    <a class="fb-master" href="../../../../demo_schedule_koushin/index.html">日程マスタ</a>
+    <a class="fb-el" href="../../../../demo_schedule_koushin/index.html">Eラーニング申込</a>
+    <a class="fb-contact" href="https://www.counselor.or.jp/contact/tabid/288/Default.aspx" target="_blank" rel="noopener">お問い合わせ</a>
+  </div>
+
+  <div class="anchor-nav">
+    <a href="#kaisai">開催情報</a><a href="#nittei">全国開催日程一覧</a><a href="#news">新着情報</a><a href="#list">更新講習一覧</a><a href="#attention">留意事項</a>
+  </div>
+
+  <p class="kx-lead">国家資格キャリアコンサルタントの登録を継続するためには、厚生労働大臣の指定する更新講習を更新期間内に一定時間数以上受講し修了する必要があります。<br>当協会では資格更新に向けて、知識・スキル向上を図る目的で様々な指定講習をご用意しております。</p>
+
+  <h2 id="kaisai"><small>SCHEDULE</small>開催情報</h2>
+  <div class="kx-check">お申込み前に<a href="https://www.jaico.cc/koushin/support/agreement/index2.html" target="_blank" rel="noopener">受講約款</a>・<a href="https://www.counselor.or.jp/privacy/tabid/201/Default.aspx" target="_blank" rel="noopener">個人情報のお取扱いについて</a>・<a href="https://www.jaico.cc/koushin/attention.html" target="_blank" rel="noopener">注意事項</a>を必ずご確認ください。</div>
+
+  <div class="kx-el">更新知識講習（Eラーニング）申込み受付中。<br><a href="../../../../demo_schedule_koushin/index.html">詳細・申込みはコチラ</a></div>
+
+  <div class="kx-yt">
+    <a href="https://youtu.be/tcEcs7gWtX8" target="_blank" rel="noopener"><img src="../../../../images/koushin/itsuki_thumbnail_yt.jpg" alt="宮城まり子先生"></a>
+    <p class="cap">更新知識講習（Eラーニング）監修<br>宮城まり子 先生<br>（キャリア心理学研究所 代表）</p>
+  </div>
+
+  <h3 id="nittei" class="vh" style="text-align:center;font-size:17px;font-weight:900;margin:34px 0 6px">更新講習　全国開催日程一覧</h3>
+  <div class="kx-listbox">
+    <a class="kx-lbtn or" href="../../../../demo_schedule_koushin/index.html?kind=k1">知識講習（Eラーニング）<b>7件</b>&gt;&gt;</a>
+    <a class="kx-lbtn or" href="../../../../demo_schedule_koushin/index.html?kind=k2">知識講習（DVD集合視聴型）<b>12件</b>&gt;&gt;</a>
+    <a class="kx-lbtn gr" href="../../../../demo_schedule_koushin/index.html?kind=k3">技能講習（オンライン開催）<b>147件</b>&gt;&gt;</a>
+    <a class="kx-lbtn bl" href="../../../../demo_schedule_koushin/index.html?kind=k4">技能講習（通学・対面）<b>148件</b>&gt;&gt;</a>
+  </div>
+  <p class="kx-red">ご希望の講習のボタンを押してください</p>
+  <p class="kx-center" style="font-size:12.5px">全314件をまとめて見る場合は<a href="../../../../demo_schedule_koushin/index.html" style="color:var(--gd);font-weight:700;text-decoration:underline">更新講習 講習マスタ（全国日程一覧）</a>へ。都道府県・市区町村・受付状況でしぼり込めます。</p>
+
+  <div class="cta-box" style="margin-top:26px"><h3>更新講習 講習マスタ（全国日程・お申し込み）</h3>
+  <p>リニューアル後は、現行サイトで4ページに分かれている開催日程一覧（知識講習Eラーニング／DVD集合視聴型／技能講習オンライン／通学）を、1つの「講習マスタDB」に統合。都道府県・市区町村・受付状況で横断検索し、そのままお申し込みいただけます。</p>
+  <div class="bs"><a class="btn btn-y btn-big" href="../../../../demo_schedule_koushin/index.html">全国日程を検索・お申し込み →</a><a class="btn btn-w" href="../../calendar/">講座カレンダー</a></div></div>
+
+  <p class="kx-upd">2026.6.16更新</p>
+  <p class="kx-center">上記一覧は随時更新しますが、最新の情報は<br>下記の支部ページからご確認ください。</p>
+
+  <div class="kx-map"><img src="../../../../images/koushin/zenkoku.png" alt="更新講習情報"><br><span class="kx-online">オンラインでも受けられる更新講習があります</span></div>
+
+  <p class="kx-center">お申込み・お問合わせは各会場を管轄する<a href="http://www.counselor.or.jp/about/tabid/104/Default.aspx" target="_blank" rel="noopener" style="color:var(--gd);font-weight:700;text-decoration:underline">支部</a>にて受け付けています。<br>※オンライン更新講習は全国どこからでも受けられます。</p>
+
+  <div class="kx-branches">
+    <a class="hb" href="../../../../demo_schedule_koushin/index.html">更新知識講習（Ｅラーニング）</a>
+    <a href="https://hokkaido.counselor.or.jp/carreer_kosin/" target="_blank" rel="noopener">北海道支部</a>
+    <a href="https://tohoku.counselor.or.jp/skillup/carreer_kosin/" target="_blank" rel="noopener">東北支部</a>
+    <a href="https://joshinetsu.counselor.or.jp/career_koshin/" target="_blank" rel="noopener">上信越支部</a>
+    <a href="https://kitakanto.counselor.or.jp/career_koshin/" target="_blank" rel="noopener">北関東支部</a>
+    <a href="https://www.co-higashikanto.jp/career_menu/renew_license/" target="_blank" rel="noopener">東関東支部</a>
+    <a href="https://www.counselor-tokyo.jp/course/category/CC更新研修" target="_blank" rel="noopener">東京支部</a>
+    <a href="https://kanagawa.counselor.or.jp/career_kosin/" target="_blank" rel="noopener">神奈川支部</a>
+    <a href="https://chubu.counselor.or.jp/skillup/career_kosin/" target="_blank" rel="noopener">中部支部</a>
+    <a href="https://kansai.counselor.or.jp/carreer_kosin/" target="_blank" rel="noopener">関西支部</a>
+    <a href="https://chugoku.counselor.or.jp/learning/career_kosin/" target="_blank" rel="noopener">中国支部</a>
+    <a href="https://shikoku.counselor.or.jp/skillup/career_koshin/" target="_blank" rel="noopener">四国支部</a>
+    <a href="https://kyushu.counselor.or.jp/skillup/carreer_kosin/" target="_blank" rel="noopener">九州支部</a>
+    <a href="https://okinawa.counselor.or.jp/skillup/career-koza/" target="_blank" rel="noopener">沖縄支部</a>
+  </div>
+
+  <h2 id="news"><small>NEWS</small>新着情報</h2>
+  <ul class="kx-newslist" id="newsList">
+    <li><time class="date">2026.6.16</time><span class="txt">開催情報を更新しました。</span></li>
+    <li><time class="date">2021.6.15</time><span class="txt">修了証の発行を6月15日開催講習より原則PDFによりメール送付する方式に変更しました。<br><a href="https://www.jaico.cc/koushin/pdf/2106_newsletter.pdf" target="_blank" rel="noopener">詳細はコチラ</a></span></li>
+  </ul>
+  <p style="text-align:right;margin:2px 0 8px"><a href="../../../../news-archive/index.html?lp=koushin" style="color:var(--gd);font-weight:700;text-decoration:underline">過去のお知らせ（アーカイブ）→</a></p>
+  <p style="text-align:center"><a class="btn btn-g" href="https://www.jaico.cc/koushin/news.html" target="_blank" rel="noopener">一覧を見る ↗</a></p>
+
+  <h2 id="list"><small>COURSES</small>更新講習一覧</h2>
+
+  <div class="kx-grp"><span>知識講習</span></div>
+
+  <details class="kacc">
+    <summary><span class="tdtitle">【ＪＡＩＣＯ】</span>更新知識講習（Ｅラーニング）<span class="code">【講習コード：JIC20K01】</span></summary>
+    <div class="kbody"><div class="tw"><table class="tbl">
+      <tbody>
+        <tr><th>講習コード</th><td>JIC20K01</td></tr>
+        <tr><th>受講対象</th><td>国家資格キャリアコンサルタント有資格者<br>キャリアコンサルティング/キャリアカウンセリングに関する資格をお持ちの方</td></tr>
+        <tr><th>実施形態<br>(時間数)</th><td>通信（8時間）</td></tr>
+        <tr><th>受講料</th><td>　会員：12,000円<br>非会員：15,000円<br><small>※受講料はいずれも非課税です。</small></td></tr>
+        <tr><th>会員ポイント</th><td>7ポイント</td></tr>
+        <tr><th>内容</th><td>キャリア心理学研究所代表の宮城まり子先生（監修）を初めとした各分野スペシャリストの講師陣により、質の高いキャリアコンサルティングに繋がる最新知識が身につきます。<br><br>
+        <p style="padding-left:1em;margin:0">Ⅰ　職業能力の開発の知識（リカレント教育を含む）／講師：宮城まり子（キャリア心理学研究所代表）<br>
+        Ⅱ　企業におけるキャリア形成支援の知識　／講師：宮城まり子（キャリア心理学研究所代表）<br>
+        Ⅲ　労働市場 の知識　／講師：久保賢太郎（弁護士）<br>
+        Ⅳ　労働政策　労働関係法令　社会保障制度 の知識　／講師：久保賢太郎（弁護士）<br>
+        Ⅴ　学校教育制度及びキャリア教育 の知識　／講師：坂柳恒夫（愛知教育大学名誉教授）<br>
+        Ⅵ　メンタルヘルスの知識　／講師：永島昭司（医学博士・労働衛生コンサルタント）<br>
+        Ⅶ　中高年齢期を展望するライフステージ及び発達課題の知識　<br>　　／講師：宮城まり子（キャリア心理学研究所代表）<br>
+        Ⅷ　個人の多様な特性の知識　／講師：石川邦子（21世紀職業財団客員講師）<br>
+        Ⅸ　その他キャリアコンサルティングを適正に実施するために維持を図ることが必要な知識　<br>　　／講師：石川邦子（21世紀職業財団客員講師）</p></td></tr>
+      </tbody>
+    </table></div></div>
+  </details>
+
+  <div class="kx-grp"><span>技能講習</span></div>
+
+  <details class="kacc">
+    <summary><span class="tdtitle">【ＪＡＩＣＯ】</span><span class="new">New!</span>キャリア形成支援に活かす「構成的グループエンカウンター」(技能講習)<span class="code">【講習コード JIC25T01】</span></summary>
+    <div class="kbody"><div class="tw"><table class="tbl">
+      <tbody>
+        <tr><th>講習コード</th><td>JIC25T01</td></tr>
+        <tr><th>受講対象</th><td>国家資格キャリアコンサルタント有資格者<br>キャリアコンサルティング/キャリアカウンセリングに関する資格をお持ちの方</td></tr>
+        <tr><th>実施形態<br>(時間数)</th><td>通学のみ(6時間)</td></tr>
+        <tr><th>定員</th><td>20名</td></tr>
+        <tr><th>受講料</th><td>　会員：16,000円<br>非会員：20,000円<br><small>※受講料はいずれも非課税です。</small></td></tr>
+        <tr><th>会員ポイント</th><td>5ポイント</td></tr>
+        <tr><th>内容</th><td>IT技術・AIが発達する一方で、職場でのコミュニケーションや人間関係づくりに困難を抱える方も増えています。この講習では人間関係づくり、自己発見・他者理解を効果的に行える構成的グループエンカウンター(SGE)の知識およびスキルを身につけていただき、キャリア形成支援・復職支援の場面でSGEを有効に活用できるようになることを目指します。</td></tr>
+        <tr><th>講師</th><td>当協会キャリアコンサルタント養成講習講師</td></tr>
+      </tbody>
+    </table></div></div>
+  </details>
+
+  <details class="kacc">
+    <summary><span class="tdtitle">【ＪＡＩＣＯ】</span><span class="new">New!</span>事例と演習で学ぶ「身体障害の理解と対応」(技能講習)<span class="code">【講習コード JIC25T02】</span></summary>
+    <div class="kbody"><div class="tw"><table class="tbl">
+      <tbody>
+        <tr><th>講習コード</th><td>JIC25T02</td></tr>
+        <tr><th>受講対象</th><td>国家資格キャリアコンサルタント有資格者<br>キャリアコンサルティング/キャリアカウンセリングに関する資格をお持ちの方</td></tr>
+        <tr><th>実施形態<br>(時間数)</th><td>在宅(1時間)<br>通学またはオンライン(6時間)</td></tr>
+        <tr><th>定員</th><td>20名</td></tr>
+        <tr><th>受講料</th><td>　会員：16,000円<br>非会員：20,000円<br><small>※受講料はいずれも非課税です。</small></td></tr>
+        <tr><th>会員ポイント</th><td>7ポイント</td></tr>
+        <tr><th>内容</th><td>障害者雇用をめぐっては人手不足の労働市場、法定雇用率の引き上げの状況の中で、障害の有無にかかわらず、キャリア形成を行える環境を整えていく必要があります。キャリアコンサルタントとして、身体障害者の特性等を理解し、キャリアコンサルティングを行うために有効な視点や考え方を身につけていただきます。</td></tr>
+        <tr><th>講師</th><td>当協会キャリアコンサルタント養成講習講師</td></tr>
+      </tbody>
+    </table></div></div>
+  </details>
+
+  <details class="kacc">
+    <summary><span class="tdtitle">【ＪＡＩＣＯ】</span><span class="new">New!</span>実践スキル習得「問題を見立てる力を事例から学ぼう」(技能講習)<span class="code">【講習コード JIC25T03】</span></summary>
+    <div class="kbody"><div class="tw"><table class="tbl">
+      <tbody>
+        <tr><th>講習コード</th><td>JIC25T03</td></tr>
+        <tr><th>受講対象</th><td>国家資格キャリアコンサルタント有資格者<br>キャリアコンサルティング/キャリアカウンセリングに関する資格をお持ちの方</td></tr>
+        <tr><th>実施形態<br>(時間数)</th><td>通学またはオンライン（6時間）</td></tr>
+        <tr><th>定員</th><td>20名</td></tr>
+        <tr><th>受講料</th><td>　会員：16,000円<br>非会員：20,000円<br><small>※受講料はいずれも非課税です。</small></td></tr>
+        <tr><th>会員ポイント</th><td>5ポイント</td></tr>
+        <tr><th>内容</th><td>キャリアコンサルタントとして、相談者が問題解決に向けて進んでいけるよう支援するため、カウンセリングスキル、プロセス、情報整理などの観点から、クライエントの問題を見立てる力を習得していただきます。</td></tr>
+        <tr><th>講師</th><td>当協会キャリアコンサルタント養成講習講師</td></tr>
+      </tbody>
+    </table></div></div>
+  </details>
+
+  <details class="kacc">
+    <summary><span class="tdtitle">【ＪＡＩＣＯ】</span>シニア層のキャリア支援～50代からのキャリアデザイン～（キャリアコンサルティング事例検討・技能講習）<span class="code">【講習コード JIC22T03】</span></summary>
+    <div class="kbody"><div class="tw"><table class="tbl">
+      <tbody>
+        <tr><th>講習コード</th><td>JIC22T03</td></tr>
+        <tr><th>受講対象</th><td>国家資格キャリアコンサルタント有資格者<br>キャリアコンサルティング/キャリアカウンセリングに関する資格をお持ちの方</td></tr>
+        <tr><th>実施形態<br>(時間数)</th><td>通学またはオンライン（6時間）</td></tr>
+        <tr><th>定員</th><td>20名</td></tr>
+        <tr><th>受講料</th><td>　会員：16,000円<br>非会員：20,000円<br><small>※受講料はいずれも非課税です。</small></td></tr>
+        <tr><th>会員ポイント</th><td>5ポイント</td></tr>
+        <tr><th>内容</th><td>この講習は、シニア層の中でも組織内で中年後期となり、今後の人生を再構築していく50代以降にフォーカスした事例を検討します。それを通じてシニア層におけるキャリア発達の課題や環境変化による心理的側面への理解を深め、専門家にふさわしい見識と実践力を身につけていただきます。</td></tr>
+        <tr><th>講師</th><td>当協会キャリアコンサルタント養成講習講師</td></tr>
+      </tbody>
+    </table></div></div>
+  </details>
+
+  <details class="kacc">
+    <summary><span class="tdtitle">【ＪＡＩＣＯ】</span>「キャリアデザイン研修」企画・構築編 （技能講習）<span class="code">【講習コード JIC22T04】</span></summary>
+    <div class="kbody"><div class="tw"><table class="tbl">
+      <tbody>
+        <tr><th>講習コード</th><td>JIC22T04</td></tr>
+        <tr><th>受講対象</th><td>国家資格キャリアコンサルタント有資格者<br>キャリアコンサルティング/キャリアカウンセリングに関する資格をお持ちの方</td></tr>
+        <tr><th>実施形態<br>(時間数)</th><td>在宅（1時間）<br>通学またはオンライン（6時間）（計7時間）</td></tr>
+        <tr><th>定員</th><td>20名</td></tr>
+        <tr><th>受講料</th><td>　会員：16,000円<br>非会員：20,000円<br><small>※受講料はいずれも非課税です。</small></td></tr>
+        <tr><th>会員ポイント</th><td>7ポイント</td></tr>
+        <tr><th>内容</th><td>企業・組織の中で活動するキャリアコンサルタントには、個人に対する支援に加え、個人を取り巻く環境へ働きかける役割も求められます。例えば、組織内におけるキャリア形成にかかわる理解の必要性を啓蒙していくこともその一つです。<br>この講習では「企業・組織の問題解決のためにキャリアデザインに関する研修やワークショップをどのように構築するか」、その基本的な考え方・運営のポイントについて、講義と演習を繰り返しながら学び、研修やワークショップを企画・構築する力を身につけていただきます。<br>（当講習は、受講前に在宅課題（1時間）があります）</td></tr>
+        <tr><th>講師</th><td>当協会キャリアコンサルタント養成講習講師</td></tr>
+      </tbody>
+    </table></div></div>
+  </details>
+
+  <details class="kacc">
+    <summary><span class="tdtitle">【ＪＡＩＣＯ】</span>キャリアコンサルティング事例・記録の書き方・事例検討の進め方(技能講習)<span class="code">【講習コード JIC22T01】</span></summary>
+    <div class="kbody"><div class="tw"><table class="tbl">
+      <tbody>
+        <tr><th>講習コード</th><td>JIC22T01</td></tr>
+        <tr><th>受講対象</th><td>国家資格キャリアコンサルタント有資格者<br>キャリアコンサルティング/キャリアカウンセリングに関する資格をお持ちの方</td></tr>
+        <tr><th>実施形態<br>(時間数)</th><td>通学またはオンライン（6時間）</td></tr>
+        <tr><th>定員</th><td>20名</td></tr>
+        <tr><th>受講料</th><td>　会員：16,000円<br>非会員：20,000円<br><small>※受講料はいずれも非課税です。</small></td></tr>
+        <tr><th>会員ポイント</th><td>5ポイント</td></tr>
+        <tr><th>内容</th><td>キャリアコンサルタントの自己研鑽のため事例検討やスーパービジョンを受けることが大切ですが、それを有効にするためにはベースとなる面接記録、事例報告をどう書くかがたいへん重要です。本講習ではライブ面接も行いながら面接記録・事例報告を実際に書いてもらい、これらを書くうえでのポイントを学習、さらに事例検討の進め方についても学びます。<br><br>
+        <small>★当講習は以前開講していた”キャリアコンサルティングの「事例の書き方・記録の取り方」（旧講習コードJIC17T04）”を全面的に刷新し、新たな講習（講習コードJIC22T01）としたものです。過去JIC17T04を受講された方も、あらためて当講習を受講修了すれば、更新条件の技能講習修了時間に加算されます</small></td></tr>
+        <tr><th>講師</th><td>当協会キャリアコンサルタント養成講習講師</td></tr>
+      </tbody>
+    </table></div></div>
+  </details>
+
+  <details class="kacc">
+    <summary><span class="tdtitle">【ＪＡＩＣＯ】</span>キャリアコンサルティング・プロセス毎のかかわり（技能講習）<span class="code">【講習コード：JIC22T02】</span></summary>
+    <div class="kbody"><div class="tw"><table class="tbl">
+      <tbody>
+        <tr><th>講習コード</th><td>JIC22T02</td></tr>
+        <tr><th>受講対象</th><td>国家資格キャリアコンサルタント有資格者<br>キャリアコンサルティング/キャリアカウンセリングに関する資格をお持ちの方</td></tr>
+        <tr><th>実施形態<br>(時間数)</th><td>通学またはオンライン（6時間）</td></tr>
+        <tr><th>定員</th><td>20名</td></tr>
+        <tr><th>受講料</th><td>　会員：16,000円<br>非会員：20,000円<br><small>※受講料はいずれも非課税です。</small></td></tr>
+        <tr><th>会員ポイント</th><td>5ポイント</td></tr>
+        <tr><th>内容</th><td>キャリアコンサルタントには相談過程全体をマネジメントできるスキル、つまり、相談者の抱える問題の把握を的確に行い、相談過程のどの段階にいるかを把握し各段階に応じた適切な進行・管理ができること、が求められています。この講習ではキャリアコンサルティングのプロセスについて多種多様な考え方・とらえ方を知り、コンサルタントとして相談者にどのようにかかわっていくか、事例も通してプロセス毎のかかわり方を理解し、プロセス・マネジメント・スキルを身につけていきます。<br><br>
+        ★当講習は以前開講していた”キャリアコンサルティング・プロセス理解（旧講習コードJIC17T05）”を全面的に刷新し、新たな講習（講習コードJIC22T02）としたものです。過去JIC17T05を受講された方も、あらためて当講習を受講修了すれば、更新条件の技能講習修了時間に加算されます。</td></tr>
+        <tr><th>講師</th><td>当協会キャリアコンサルタント養成講習講師 他</td></tr>
+      </tbody>
+    </table></div></div>
+  </details>
+
+  <details class="kacc">
+    <summary><span class="tdtitle">【ＪＡＩＣＯ】</span>事例検討「がん治療と就労の両立支援」＜アドバンス＞（技能講習）<span class="code">【講習コード JIC21T02】</span></summary>
+    <div class="kbody"><div class="tw"><table class="tbl">
+      <tbody>
+        <tr><th>講習コード</th><td>JIC21T02</td></tr>
+        <tr><th>受講対象</th><td>国家資格キャリアコンサルタント有資格者<br>キャリアコンサルティング/キャリアカウンセリングに関する資格をお持ちの方</td></tr>
+        <tr><th>実施形態<br>(時間数)</th><td>通学またはオンライン（6時間）</td></tr>
+        <tr><th>定員</th><td>20名</td></tr>
+        <tr><th>受講料</th><td>　会員：16,000円<br>非会員：20,000円<br><small>※受講料はいずれも非課税です。</small></td></tr>
+        <tr><th>会員ポイント</th><td>5ポイント</td></tr>
+        <tr><th>内容</th><td>企業の人事等でがんサバイバーへの支援を経験している方、既にある技能講習「がん治療と就労の両立支援」（JIC19T03）を受講した方が、さらに有効な支援を行い企業内でのサポート体制を築いていくために、有効な視点や考え方を身につけていただきます。刻々と変化するがん患者を取り巻く状況や国の最新施策も織り込み、個人・組織の両面から支援策を学んでいただきます。</td></tr>
+        <tr><th>講師</th><td>当協会キャリアコンサルタント養成講習講師でがんキャリア相談支援の対応経験豊富な講師が登壇します。</td></tr>
+      </tbody>
+    </table></div></div>
+  </details>
+
+  <details class="kacc">
+    <summary><span class="tdtitle">【ＪＡＩＣＯ】</span>「実践に役立つ」ライフキャリアの事例で学ぶキャリアコンサルティング（技能講習）<span class="code">【講習コード：JIC21T01】</span></summary>
+    <div class="kbody"><div class="tw"><table class="tbl">
+      <tbody>
+        <tr><th>講習コード</th><td>JIC21T01</td></tr>
+        <tr><th>受講対象</th><td>国家資格キャリアコンサルタント有資格者<br>キャリアコンサルティング/キャリアカウンセリングに関する資格をお持ちの方</td></tr>
+        <tr><th>実施形態<br>(時間数)</th><td>在宅（5時間）<br>通学またはオンライン（7時間）</td></tr>
+        <tr><th>定員</th><td>20名</td></tr>
+        <tr><th>受講料</th><td>　会員：28,000円<br>非会員：35,000円<br><small>※１）受講料はいずれも非課税です。<br>※２）受講料には、開講前に配布される在宅学習教材DVD「実践に役立つ！ライフキャリアの事例で学ぶキャリアコンサルティング」の費用が含まれています。（協会取扱い書籍にあるものと同じですので、ご注意ください）<br>※３）教材送付後にキャンセルのお申し出があった場合、それに伴う受講料の返還にあたっては、受講約款第3条2に規定の控除額に加え、DVD教材の販売価格（協会取扱い書籍の販売価格）を控除することになります。</small></td></tr>
+        <tr><th>会員ポイント</th><td>7ポイント</td></tr>
+        <tr><th>内容</th><td>学生・労働者・家庭人という一人のライフサイクルを通して、個人の生涯発達の視点を踏まえ各々の役割と発達課題を検討・考察するとともに、キャリアコンサルティング活動の３分野（教育、企業、需給調整）其々の事例について、相談者が抱える問題、キャリアコンサルタント視点から捉えた相談者の問題、さらにキャリアコンサルタントのかかわり方の課題等、様々な視点で検討し、この一講習でキャリアコンサルティング実践力が総合的に向上する講習となっています。<br>通学前の在宅学習（5時間）では事前に送られたDVDを視聴してレポートを作成、通学（1日・7時間）では、講義において事例検討の進め方や生涯発達・ライフサイクルに関して、グループ検討を通じさらに掘り下げて理解を深めます。<br>★DVDの詳細、再生上のご注意等は<a href="https://www.counselor.or.jp/books/tabid/156/pdid/A042/Default.aspx" target="_blank" rel="noopener">コチラ</a></td></tr>
+        <tr><th>講師</th><td>当協会キャリアコンサルタント養成講習講師 他</td></tr>
+      </tbody>
+    </table></div></div>
+  </details>
+
+  <details class="kacc">
+    <summary><span class="tdtitle">【ＪＡＩＣＯ】</span>オンラインキャリアコンサルティングのスキル習得（技能講習）<span class="code">【講習コード：JIC20T03】</span></summary>
+    <div class="kbody"><div class="tw"><table class="tbl">
+      <tbody>
+        <tr><th>講習コード</th><td>JIC20T03</td></tr>
+        <tr><th>受講対象</th><td>国家資格キャリアコンサルタント有資格者<br>キャリアコンサルティング/キャリアカウンセリングに関する資格をお持ちの方</td></tr>
+        <tr><th>実施形態<br>(時間数)</th><td>通学またはオンライン（6時間）</td></tr>
+        <tr><th>定員</th><td>20名</td></tr>
+        <tr><th>受講料</th><td>　会員：16,000円<br>非会員：20,000円<br><small>受講料はいずれも非課税です。</small></td></tr>
+        <tr><th>会員ポイント</th><td>5ポイント</td></tr>
+        <tr><th>内容</th><td>「コロナ禍」を契機に職場では否応なくオンラインコミュニケーションが浸透し、キャリアコンサルタントも相談者の環境変化に適応した支援方法が求められています。この講習では、こうした変化に適応できるよう、オンラインによるキャリアコンサルティングに必要な知識とスキルを身に付けていただけます。Zoom初心者向けの体験重視の講習です。</td></tr>
+        <tr><th>講師</th><td>当協会キャリアコンサルタント養成講習講師 他</td></tr>
+      </tbody>
+    </table></div></div>
+  </details>
+
+  <details class="kacc">
+    <summary><span class="tdtitle">【ＪＡＩＣＯ】</span>ＬＧＢＴの相談者理解と対応を学ぶ（技能講習）<span class="code">【講習コード：JIC20T02】</span></summary>
+    <div class="kbody"><div class="tw"><table class="tbl">
+      <tbody>
+        <tr><th>講習コード</th><td>JIC20T02</td></tr>
+        <tr><th>受講対象</th><td>国家資格キャリアコンサルタント有資格者<br>キャリアコンサルティング/キャリアカウンセリングに関する資格をお持ちの方</td></tr>
+        <tr><th>実施形態<br>(時間数)</th><td>通学またはオンライン（6時間）</td></tr>
+        <tr><th>定員</th><td>20名</td></tr>
+        <tr><th>受講料</th><td>　会員：16,000円<br>非会員：20,000円<br><small>※受講料はいずれも非課税です。</small></td></tr>
+        <tr><th>会員ポイント</th><td>5ポイント</td></tr>
+        <tr><th>内容</th><td>LGBTに関する基礎的な知識からとりまく労働問題等について理解を深め、演習を通じてLGBTを相談者として対応する際の留意点を理解していただきます。</td></tr>
+        <tr><th>講師</th><td>当協会キャリアコンサルタント養成講習講師 他</td></tr>
+      </tbody>
+    </table></div></div>
+  </details>
+
+  <details class="kacc">
+    <summary><span class="tdtitle">一般社団法人日本産業カウンセラー協会</span>ＶＰＩを用いたキャリアコンサルティング（技能講習）<span class="code">【講習コード：JIC19T11】</span></summary>
+    <div class="kbody"><div class="tw"><table class="tbl">
+      <tbody>
+        <tr><th>講習コード</th><td>JIC19T11</td></tr>
+        <tr><th>受講対象</th><td>国家資格キャリアコンサルタント有資格者<br>キャリアコンサルティング/キャリアカウンセリングに関する資格をお持ちの方</td></tr>
+        <tr><th>実施形態<br>(時間数)</th><td>在宅（1時間）<br>通学またはオンライン（6時間）</td></tr>
+        <tr><th>定員</th><td>20名</td></tr>
+        <tr><th>受講料</th><td>　会員：16,000円<br>非会員：20,000円<br><small>※受講料はいずれも非課税です。</small></td></tr>
+        <tr><th>会員ポイント</th><td>7ポイント</td></tr>
+        <tr><th>内容</th><td>ＶＰＩ職業興味検査を実際のキャリアコンサルティングでどう生かし、クライエントの自己理解を支援していくか。演習やグループワークで体験的に学び、VPIの活用スキルを身につけていただきます。</td></tr>
+        <tr><th>講師</th><td>当協会キャリアコンサルタント養成講習講師 他</td></tr>
+      </tbody>
+    </table></div></div>
+  </details>
+
+  <details class="kacc">
+    <summary><span class="tdtitle">一般社団法人日本産業カウンセラー協会</span>事例検討と演習で学ぶ「中年期以降の転機への支援」（技能講習）<span class="code">【講習コード：JIC19T12】</span></summary>
+    <div class="kbody"><div class="tw"><table class="tbl">
+      <tbody>
+        <tr><th>講習コード</th><td>JIC19T12</td></tr>
+        <tr><th>受講対象</th><td>国家資格キャリアコンサルタント有資格者<br>キャリアコンサルティング/キャリアカウンセリングに関する資格をお持ちの方</td></tr>
+        <tr><th>実施形態<br>(時間数)</th><td>通学またはオンライン（6時間）</td></tr>
+        <tr><th>定員</th><td>20名</td></tr>
+        <tr><th>受講料</th><td>　会員：16,000円<br>非会員：20,000円<br><small>※受講料はいずれも非課税です。</small></td></tr>
+        <tr><th>会員ポイント</th><td>5ポイント</td></tr>
+        <tr><th>内容</th><td>「中年期の危機」とも呼ばれるライフステージの転機。この転機に直面した相談者のキャリア支援のための講座です。中年期の危機の特徴やキャリア上の課題を学習し、事例検討と演習を通じて相談者の課題解決に繋げるスキルが身につきます。</td></tr>
+        <tr><th>講師</th><td>当協会キャリアコンサルタント養成講習講師 他</td></tr>
+      </tbody>
+    </table></div></div>
+  </details>
+
+  <details class="kacc">
+    <summary><span class="tdtitle">一般社団法人日本産業カウンセラー協会</span>事例に学ぶ「メンタルヘルスの理解と対応」（技能講習）<span class="code">【講習コード：JIC19T01】</span></summary>
+    <div class="kbody"><div class="tw"><table class="tbl">
+      <tbody>
+        <tr><th>講習コード</th><td>JIC19T01</td></tr>
+        <tr><th>受講対象</th><td>国家資格キャリアコンサルタント有資格者<br>キャリアコンサルティング/キャリアカウンセリングに関する資格をお持ちの方</td></tr>
+        <tr><th>実施形態<br>(時間数)</th><td>通学またはオンライン（6時間）</td></tr>
+        <tr><th>定員</th><td>20名</td></tr>
+        <tr><th>受講料</th><td>　会員：16,000円<br>非会員：20,000円<br><small>※受講料はいずれも非課税です。</small></td></tr>
+        <tr><th>会員ポイント</th><td>5ポイント</td></tr>
+        <tr><th>内容</th><td>メンタルヘルスの問題と対応についてより深く理解し、キャリアコンサルティングの専門家にふさわしい見識と実践的な力を身につけます。</td></tr>
+        <tr><th>講師</th><td>当協会キャリアコンサルタント養成講習講師 他</td></tr>
+      </tbody>
+    </table></div></div>
+  </details>
+
+  <details class="kacc">
+    <summary><span class="tdtitle">一般社団法人日本産業カウンセラー協会</span>事例に学ぶ「発達障害の理解と対応」（技能講習）<span class="code">【講習コード：JIC19T02】</span></summary>
+    <div class="kbody"><div class="tw"><table class="tbl">
+      <tbody>
+        <tr><th>講習コード</th><td>JIC19T02</td></tr>
+        <tr><th>受講対象</th><td>国家資格キャリアコンサルタント有資格者<br>キャリアコンサルティング/キャリアカウンセリングに関する資格をお持ちの方</td></tr>
+        <tr><th>実施形態<br>(時間数)</th><td>通学またはオンライン（6時間）</td></tr>
+        <tr><th>定員</th><td>20名</td></tr>
+        <tr><th>受講料</th><td>　会員：16,000円<br>非会員：20,000円<br><small>※受講料はいずれも非課税です。</small></td></tr>
+        <tr><th>会員ポイント</th><td>5ポイント</td></tr>
+        <tr><th>内容</th><td>発達障害の問題と対応についてより深く理解し、キャリアコンサルティングの専門家にふさわしい見識と実践的な力を身につけます。</td></tr>
+        <tr><th>講師</th><td>当協会キャリアコンサルタント養成講習講師 他</td></tr>
+      </tbody>
+    </table></div></div>
+  </details>
+
+  <details class="kacc">
+    <summary><span class="tdtitle">一般社団法人日本産業カウンセラー協会</span>事例検討「がん治療と就労の両立支援」（技能講習）<span class="code">【講習コード：JIC19T03】</span></summary>
+    <div class="kbody"><div class="tw"><table class="tbl">
+      <tbody>
+        <tr><th>講習コード</th><td>JIC19T03</td></tr>
+        <tr><th>受講対象</th><td>国家資格キャリアコンサルタント有資格者<br>キャリアコンサルティング/キャリアカウンセリングに関する資格をお持ちの方</td></tr>
+        <tr><th>実施形態<br>(時間数)</th><td>通学またはオンライン（6時間）</td></tr>
+        <tr><th>定員</th><td>20名</td></tr>
+        <tr><th>受講料</th><td>　会員：16,000円<br>非会員：20,000円<br><small>※受講料はいずれも非課税です。</small></td></tr>
+        <tr><th>会員ポイント</th><td>5ポイント</td></tr>
+        <tr><th>内容</th><td>「がん治療と就労の両立支援」が企業等に求められている昨今、がん患者が相談者である事例を検討することにより、治療と就労の両立をキャリアコンサルタントとしてどう支援していけばよいかを学習します。</td></tr>
+        <tr><th>講師</th><td>当協会キャリアコンサルタント養成講習講師 他</td></tr>
+      </tbody>
+    </table></div></div>
+  </details>
+
+  <details class="kacc">
+    <summary><span class="tdtitle">一般社団法人日本産業カウンセラー協会</span>理論を活用した事例検討「実践で活かすキャリア理論」（技能講習）<span class="code">【講習コード：JIC19T04】</span></summary>
+    <div class="kbody"><div class="tw"><table class="tbl">
+      <tbody>
+        <tr><th>講習コード</th><td>JIC19T04</td></tr>
+        <tr><th>受講対象</th><td>国家資格キャリアコンサルタント有資格者<br>キャリアコンサルティング/キャリアカウンセリングに関する資格をお持ちの方</td></tr>
+        <tr><th>実施形態<br>(時間数)</th><td>通学またはオンライン（6時間）</td></tr>
+        <tr><th>定員</th><td>20名</td></tr>
+        <tr><th>受講料</th><td>　会員：16,000円<br>非会員：20,000円<br><small>※受講料はいずれも非課税です。</small></td></tr>
+        <tr><th>会員ポイント</th><td>5ポイント</td></tr>
+        <tr><th>内容</th><td>理論に対する苦手意識を払拭し、クライエント理解や課題の見立て、方策の検討等に理論を実践的に活用できるスキルを身につけます。</td></tr>
+        <tr><th>講師</th><td>当協会キャリアコンサルタント養成講習講師 他</td></tr>
+      </tbody>
+    </table></div></div>
+  </details>
+
+  <details class="kacc">
+    <summary><span class="tdtitle">一般社団法人日本産業カウンセラー協会</span>キャリアコンサルティングの実践的事例検討「キャリアチェンジ」（技能講習）<span class="code">【講習コード：JIC19T05】</span></summary>
+    <div class="kbody"><div class="tw"><table class="tbl">
+      <tbody>
+        <tr><th>講習コード</th><td>JIC19T05</td></tr>
+        <tr><th>受講対象</th><td>国家資格キャリアコンサルタント有資格者<br>キャリアコンサルティング/キャリアカウンセリングに関する資格をお持ちの方</td></tr>
+        <tr><th>実施形態<br>(時間数)</th><td>通学またはオンライン（6時間）</td></tr>
+        <tr><th>定員</th><td>20名</td></tr>
+        <tr><th>受講料</th><td>　会員：16,000円<br>非会員：20,000円<br><small>※受講料はいずれも非課税です。</small></td></tr>
+        <tr><th>会員ポイント</th><td>5ポイント</td></tr>
+        <tr><th>内容</th><td>キャリアチェンジ（主に転職・再就職のケース）を対象としたキャリアコンサルティングの場面での事例を検討することにより、キャリアチェンジの抱える課題を理解し、キャリアコンサルティングの専門家にふさわしい見識と実践的な力を身につけます。</td></tr>
+        <tr><th>講師</th><td>当協会キャリアコンサルタント養成講習講師 他</td></tr>
+      </tbody>
+    </table></div></div>
+  </details>
+
+  <details class="kacc">
+    <summary><span class="tdtitle">一般社団法人日本産業カウンセラー協会</span>キャリアコンサルティングに必要な「グループアプローチの技能・基礎編」（技能講習）<span class="code">【講習コード：JIC19T07】</span></summary>
+    <div class="kbody"><div class="tw"><table class="tbl">
+      <tbody>
+        <tr><th>講習コード</th><td>JIC19T07</td></tr>
+        <tr><th>受講対象</th><td>国家資格キャリアコンサルタント有資格者<br>キャリアコンサルティング/キャリアカウンセリングに関する資格をお持ちの方</td></tr>
+        <tr><th>実施形態<br>(時間数)</th><td>通学またはオンライン（6時間）</td></tr>
+        <tr><th>定員</th><td>20名</td></tr>
+        <tr><th>受講料</th><td>　会員：16,000円<br>非会員：20,000円<br><small>※受講料はいずれも非課税です。</small></td></tr>
+        <tr><th>会員ポイント</th><td>5ポイント</td></tr>
+        <tr><th>内容</th><td>グループを活用したキャリアコンサルティングの意義、有効性、進め方の留意点等について理解し、それらを踏まえてグループアプローチを実践できる事を目的とします。</td></tr>
+        <tr><th>講師</th><td>当協会キャリアコンサルタント養成講習講師 他</td></tr>
+      </tbody>
+    </table></div></div>
+  </details>
+
+  <details class="kacc">
+    <summary><span class="tdtitle">一般社団法人日本産業カウンセラー協会</span>教育機関における環境への働きかけとネットワーク（技能講習）<span class="code">【講習コード：JIC19T08】</span></summary>
+    <div class="kbody"><div class="tw"><table class="tbl">
+      <tbody>
+        <tr><th>講習コード</th><td>JIC19T08</td></tr>
+        <tr><th>受講対象</th><td>国家資格キャリアコンサルタント有資格者<br>キャリアコンサルティング/キャリアカウンセリングに関する資格をお持ちの方</td></tr>
+        <tr><th>実施形態<br>(時間数)</th><td>通学またはオンライン（6時間）</td></tr>
+        <tr><th>定員</th><td>20名</td></tr>
+        <tr><th>受講料</th><td>　会員：16,000円<br>非会員：20,000円<br><small>※受講料はいずれも非課税です。</small></td></tr>
+        <tr><th>会員ポイント</th><td>5ポイント</td></tr>
+        <tr><th>内容</th><td>教育機関領域において、教員と協働してキャリアガイダンスを実施するために必要な、環境への働きかけ・ネットワークの視点・考え方を、事例を通して身につけます。</td></tr>
+        <tr><th>講師</th><td>当協会キャリアコンサルタント養成講習講師 他</td></tr>
+      </tbody>
+    </table></div></div>
+  </details>
+
+  <details class="kacc">
+    <summary><span class="tdtitle">一般社団法人日本産業カウンセラー協会</span>自己理解演習「セルフキャリアデザイン」（技能講習）<span class="code">【講習コード：JIC19T09】</span></summary>
+    <div class="kbody"><div class="tw"><table class="tbl">
+      <tbody>
+        <tr><th>講習コード</th><td>JIC19T09</td></tr>
+        <tr><th>受講対象</th><td>国家資格キャリアコンサルタント有資格者<br>キャリアコンサルティング/キャリアカウンセリングに関する資格をお持ちの方</td></tr>
+        <tr><th>実施形態<br>(時間数)</th><td>在宅（1時間）<br>通学またはオンライン（6時間）</td></tr>
+        <tr><th>定員</th><td>20名</td></tr>
+        <tr><th>受講料</th><td>　会員：16,000円<br>非会員：20,000円<br><small>※受講料はいずれも非課税です。</small></td></tr>
+        <tr><th>会員ポイント</th><td>7ポイント</td></tr>
+        <tr><th>内容</th><td>キャリアを支援していく専門家として、自身のキャリアを振り返り、肯定的に受け止め、自己理解を深め、将来に興味・関心を持つことが重要であり、そのプロセスを体験学習する。また、演習を通して、他者の経験を傾聴し、承認していくプロセスを学びます。</td></tr>
+        <tr><th>講師</th><td>当協会キャリアコンサルタント養成講習講師 他</td></tr>
+        <tr><th>事前学習</th><td>自身のキャリアの棚卸をしてくる。</td></tr>
+      </tbody>
+    </table></div></div>
+  </details>
+
+  <details class="kacc">
+    <summary><span class="tdtitle">一般社団法人日本産業カウンセラー協会</span>ロールプレイ演習「実践的なキャリアコンサルティングのプロセスを学ぶ」（技能講習）<span class="code">【講習コード：JIC19T10】</span></summary>
+    <div class="kbody"><div class="tw"><table class="tbl">
+      <tbody>
+        <tr><th>講習コード</th><td>JIC19T10</td></tr>
+        <tr><th>受講対象</th><td>国家資格キャリアコンサルタント有資格者<br>キャリアコンサルティング/キャリアカウンセリングに関する資格をお持ちの方</td></tr>
+        <tr><th>実施形態<br>(時間数)</th><td>通学またはオンライン（6時間）</td></tr>
+        <tr><th>定員</th><td>18名</td></tr>
+        <tr><th>受講料</th><td>　会員：18,000円<br>非会員：21,000円<br><small>※受講料はいずれも非課税です。</small></td></tr>
+        <tr><th>会員ポイント</th><td>5ポイント</td></tr>
+        <tr><th>内容</th><td>国家資格取得後、キャリアコンサルタントとしてさらなるスキル向上を目指す方を対象に、プロセスの変化やマネジメントスキルを意識したロールプレイ演習で実践力を磨きます。</td></tr>
+        <tr><th>講師</th><td>当協会キャリアコンサルタント養成講習講師 他</td></tr>
+      </tbody>
+    </table></div></div>
+  </details>
+
+  <details class="kacc">
+    <summary><span class="tdtitle">一般社団法人日本産業カウンセラー協会</span>キャリアコンサルティングの関係構築に役立つ傾聴スキルの習得（技能講習）<span class="code">【講習コード：JIC18T02】</span></summary>
+    <div class="kbody"><div class="tw"><table class="tbl">
+      <tbody>
+        <tr><th>講習コード</th><td>JIC18T02</td></tr>
+        <tr><th>受講対象</th><td>国家資格キャリアコンサルタント有資格者<br>キャリアコンサルティング/キャリアカウンセリングに関する資格をお持ちの方</td></tr>
+        <tr><th>実施形態<br>(時間数)</th><td>通学またはオンライン（6時間）</td></tr>
+        <tr><th>定員</th><td>20名</td></tr>
+        <tr><th>受講料</th><td>　会員：16,000円<br>非会員：20,000円<br><small>※受講料はいずれも非課税です。</small></td></tr>
+        <tr><th>会員ポイント</th><td>5ポイント</td></tr>
+        <tr><th>内容</th><td>キャリアコンサルティングは、関係構築ができて初めてコンサルティングの成功があります。安心して相談者が語れるためにはコンサルタントとの信頼関係を築く必要があります。相談者が親身になって聴いてもらえた、気持ちがわかってもらえたと思う共感的理解・感情への応答を基礎から学べる講座です。感情への応答スキルの特徴と留意点をライブとロールプレイを通じて身につけます。</td></tr>
+        <tr><th>講師</th><td>当協会キャリアコンサルタント養成講習講師 他</td></tr>
+      </tbody>
+    </table></div></div>
+  </details>
+
+  <details class="kacc">
+    <summary><span class="tdtitle">一般社団法人 日本産業カウンセラー協会</span>「企業領域」編（ロールプレイ演習・技能講習）<span class="code">【講習コード：JIC16T01】</span><span class="oldname">旧講習名：一般社団法人日本産業カウンセラー協会　技能講習・企業領域編</span></summary>
+    <div class="kbody"><div class="tw"><table class="tbl">
+      <tbody>
+        <tr><th>講習コード</th><td>JIC16T01</td></tr>
+        <tr><th>受講対象</th><td>国家資格キャリアコンサルタント有資格者<br>キャリアコンサルティング/キャリアカウンセリングに関する資格をお持ちの方</td></tr>
+        <tr><th>実施形態<br>(時間数)</th><td>通学またはオンライン（8時間）</td></tr>
+        <tr><th>受講料</th><td>　会員：20,000円<br>非会員：22,000円<br><small>※受講料はいずれも非課税です。</small></td></tr>
+        <tr><th>会員ポイント</th><td>7ポイント</td></tr>
+        <tr><th>内容</th><td>多様なキャリア相談に対応する企業領域のキャリアコンサルタントとして、実践的な対応力を身につける講習です。講義では、組織の視点や環境への働きかけ・ライフステージ上の課題・関係者との連携などのスキルを習得、演習では6人一組のグループ毎に1名の演習講師が入ったロールプレイを行い、キャリアコンサルティングの実践に役立つ面談力を身につけます。</td></tr>
+        <tr><th>講師</th><td>当協会キャリアコンサルタント養成講習講師 他</td></tr>
+      </tbody>
+    </table></div></div>
+  </details>
+
+  <details class="kacc">
+    <summary><span class="tdtitle">一般社団法人日本産業カウンセラー協会</span>キャリアコンサルタント技能講習・需給調整領域編<span class="code">【講習コード：JIC16T02】</span></summary>
+    <div class="kbody"><div class="tw"><table class="tbl">
+      <tbody>
+        <tr><th>講習コード</th><td>JIC16T02</td></tr>
+        <tr><th>受講対象</th><td>国家資格キャリアコンサルタント有資格者<br>キャリアコンサルティング/キャリアカウンセリングに関する資格をお持ちの方</td></tr>
+        <tr><th>実施形態<br>(時間数)</th><td>在宅（1時間）<br>通学またはオンライン（7時間）</td></tr>
+        <tr><th>受講料</th><td>　会員：20,000円<br>非会員：22,000円<br><small>※受講料はいずれも非課税です。</small></td></tr>
+        <tr><th>会員ポイント</th><td>7ポイント</td></tr>
+        <tr><th>内容</th><td>就職希望者が自らの適性、能力、経験などに応じて職業生活を設計し、効果的に職業選択や能力開発を行なうことや個別にキャリアデザインの相談を行なうことを理解します。同時に、需給調整領域のキャリアコンサルティングにおける就職活動にポイントを絞り、キャリアコンサルタントの姿勢やスキル、特徴と留意点を学びます。6人の受講生に一人の指導者がつき、事例やロールプレイを通じて丁寧に指導します。</td></tr>
+        <tr><th>講師</th><td>当協会キャリアコンサルタント養成講習講師 他</td></tr>
+        <tr><th>事前学習</th><td>需給調整領域のケース事例を読み、３つの設問に解答する。</td></tr>
+      </tbody>
+    </table></div></div>
+  </details>
+
+  <details class="kacc">
+    <summary><span class="tdtitle">一般社団法人日本産業カウンセラー協会</span>キャリアコンサルタント技能講習・教育機関領域編<span class="code">【講習コード：JIC16T03】</span></summary>
+    <div class="kbody"><div class="tw"><table class="tbl">
+      <tbody>
+        <tr><th>講習コード</th><td>JIC16T03</td></tr>
+        <tr><th>受講対象</th><td>国家資格キャリアコンサルタント有資格者<br>キャリアコンサルティング/キャリアカウンセリングに関する資格をお持ちの方</td></tr>
+        <tr><th>実施形態<br>(時間数)</th><td>在宅（1時間）<br>通学またはオンライン（7時間）</td></tr>
+        <tr><th>受講料</th><td>　会員：20,000円<br>非会員：22,000円<br><small>※受講料はいずれも非課税です。</small></td></tr>
+        <tr><th>会員ポイント</th><td>7ポイント</td></tr>
+        <tr><th>内容</th><td>学生へのキャリアコンサルティングは、単なる就職活動の支援にとどまらず、キャリア教育やキャリアデザインの構築を支援する活動と言えます。この講習では、学生へのキャリアコンサルティングにおける就職活動にポイントを絞り、キャリアコンサルタントの姿勢やスキル、特徴と留意点を学びます。6人の受講生に一人の指導者がつき、事例やロールプレイを通じて丁寧に指導します。</td></tr>
+        <tr><th>講師</th><td>当協会キャリアコンサルタント養成講習講師 他</td></tr>
+      </tbody>
+    </table></div></div>
+  </details>
+
+  <details class="kacc">
+    <summary><span class="tdtitle">一般社団法人日本産業カウンセラー協会</span>事例に学ぶ学生へのキャリアコンサルティング基礎編（技能講習）<span class="code">【講習コード：JIC17T01】</span></summary>
+    <div class="kbody"><div class="tw"><table class="tbl">
+      <tbody>
+        <tr><th>講習コード</th><td>JIC17T01</td></tr>
+        <tr><th>受講対象</th><td>国家資格キャリアコンサルタント有資格者<br>キャリアコンサルティング/キャリアカウンセリングに関する資格をお持ちの方</td></tr>
+        <tr><th>実施形態<br>(時間数)</th><td>通学またはオンライン（6時間）</td></tr>
+        <tr><th>受講料</th><td>　会員：16,000円<br>非会員：20,000円<br><small>※受講料はいずれも非課税です。</small></td></tr>
+        <tr><th>会員ポイント</th><td>5ポイント</td></tr>
+        <tr><th>内容</th><td>各年代の学生へのキャリアコンサルティングにおける支援（姿勢とスキル）の特徴と留意点を、事例ワークやロールプレイを通じて身につけます。</td></tr>
+        <tr><th>講師</th><td>当協会キャリアコンサルタント養成講習講師 他</td></tr>
+      </tbody>
+    </table></div></div>
+  </details>
+
+  <details class="kacc">
+    <summary><span class="tdtitle">一般社団法人日本産業カウンセラー協会</span>「女性」基礎編（キャリアコンサルティング事例検討・技能講習）<span class="code">【講習コード：JIC17T02】</span><span class="oldname">旧講習名：一般社団法人日本産業カウンセラー協会 事例に学ぶ女性へのキャリアコンサルティング基礎編（技能講習）</span></summary>
+    <div class="kbody"><div class="tw"><table class="tbl">
+      <tbody>
+        <tr><th>講習コード</th><td>JIC17T02</td></tr>
+        <tr><th>受講対象</th><td>国家資格キャリアコンサルタント有資格者<br>キャリアコンサルティング/キャリアカウンセリングに関する資格をお持ちの方</td></tr>
+        <tr><th>実施形態<br>(時間数)</th><td>通学またはオンライン（6時間）</td></tr>
+        <tr><th>受講料</th><td>　会員：16,000円<br>非会員：20,000円<br><small>※受講料はいずれも非課税です。</small></td></tr>
+        <tr><th>会員ポイント</th><td>5ポイント</td></tr>
+        <tr><th>内容</th><td>結婚・離婚・出産・育児・介護…女性のキャリア形成にはストレスフルなイベントが数多くあります。本講習では、女性を取り巻く環境や抱える課題を客観的に理解した上で、キャリア形成上の課題の見立てと支援が行えるよう、実践的な対応力を身につけます。</td></tr>
+        <tr><th>講師</th><td>当協会キャリアコンサルタント養成講習講師 他</td></tr>
+      </tbody>
+    </table></div></div>
+  </details>
+
+  <details class="kacc">
+    <summary><span class="tdtitle">一般社団法人日本産業カウンセラー協会</span>アセスメント活用のキャリアコンサルティング（技能講習）<span class="code">【講習コード：JIC17T06】</span></summary>
+    <div class="kbody"><div class="tw"><table class="tbl">
+      <tbody>
+        <tr><th>講習コード</th><td>JIC17T06</td></tr>
+        <tr><th>受講対象</th><td>国家資格キャリアコンサルタント有資格者<br>キャリアコンサルティング/キャリアカウンセリングに関する資格をお持ちの方</td></tr>
+        <tr><th>実施形態<br>(時間数)</th><td>通学またはオンライン（6時間）</td></tr>
+        <tr><th>受講料</th><td>　会員：16,000円<br>非会員：20,000円<br><small>※受講料はいずれも非課税です。</small></td></tr>
+        <tr><th>会員ポイント</th><td>5ポイント</td></tr>
+        <tr><th>内容</th><td>アセスメントツールの全般的な体系を知り、相談者の自己理解や仕事理解の支援において、適切なアセスメントツールが選択できるように、その特徴と留意点を、事例ワークやロールプレイを通じて身につけます。</td></tr>
+        <tr><th>講師</th><td>当協会キャリアコンサルタント養成講習講師 他</td></tr>
+      </tbody>
+    </table></div></div>
+  </details>
+
+  <details class="kacc">
+    <summary><span class="tdtitle">一般社団法人日本産業カウンセラー協会</span>キャリアコンサルティング事例検討「若年層」（技能講習）<span class="code">【講習コード：JIC17T07】</span></summary>
+    <div class="kbody"><div class="tw"><table class="tbl">
+      <tbody>
+        <tr><th>講習コード</th><td>JIC17T07</td></tr>
+        <tr><th>受講対象</th><td>国家資格キャリアコンサルタント有資格者<br>キャリアコンサルティング/キャリアカウンセリングに関する資格をお持ちの方</td></tr>
+        <tr><th>実施形態<br>(時間数)</th><td>通学またはオンライン（6時間）</td></tr>
+        <tr><th>受講料</th><td>　会員：16,000円<br>非会員：20,000円<br><small>※受講料はいずれも非課税です。</small></td></tr>
+        <tr><th>会員ポイント</th><td>5ポイント</td></tr>
+        <tr><th>内容</th><td>若年層を対象としたキャリアコンサルティングの場面での事例を検討することにより、若年層の抱える課題を理解し、キャリアコンサルタントの専門家にふさわしい見識と実践的な力を身につけます。</td></tr>
+      </tbody>
+    </table></div></div>
+  </details>
+
+  <details class="kacc">
+    <summary><span class="tdtitle">一般社団法人日本産業カウンセラー協会</span>「女性の組織内キャリア」（キャリアコンサルティング事例検討・技能講習）<span class="code">【講習コード：JIC17T09】</span><span class="oldname">旧講習名：一般社団法人日本産業カウンセラー協会キャリアコンサルティング事例検討「女性」実践編（技能講習）</span></summary>
+    <div class="kbody"><div class="tw"><table class="tbl">
+      <tbody>
+        <tr><th>講習コード</th><td>JIC17T09</td></tr>
+        <tr><th>受講対象</th><td>国家資格キャリアコンサルタント有資格者<br>キャリアコンサルティング/キャリアカウンセリングに関する資格をお持ちの方</td></tr>
+        <tr><th>実施形態<br>(時間数)</th><td>通学またはオンライン（6時間）</td></tr>
+        <tr><th>受講料</th><td>　会員：16,000円<br>非会員：20,000円<br><small>※受講料はいずれも非課税です。</small></td></tr>
+        <tr><th>会員ポイント</th><td>5ポイント</td></tr>
+        <tr><th>内容</th><td>女性を対象としたキャリアコンサルティングの中でも、組織内キャリアを形成する上での課題に焦点を当てた講習です。組織内で女性がキャリアを形成していく上で直面し乗り越えなければならない課題を理解し、キャリア形成上の課題の見立て・キャリアコンサルタントの対応の視点を深め、実践的な対応力を身につけます。</td></tr>
+        <tr><th>講師</th><td>当協会キャリアコンサルタント養成講習講師 他</td></tr>
+      </tbody>
+    </table></div></div>
+  </details>
+
+  <details class="kacc">
+    <summary><span class="tdtitle">一般社団法人日本産業カウンセラー協会</span>ジョブ・カードを用いたキャリアコンサルティング（技能講習）<span class="code">【講習コード：JIC17T11】</span></summary>
+    <div class="kbody"><div class="tw"><table class="tbl">
+      <tbody>
+        <tr><th>講習コード</th><td>JIC17T11</td></tr>
+        <tr><th>受講対象</th><td>国家資格キャリアコンサルタント有資格者<br>キャリアコンサルティング/キャリアカウンセリングに関する資格をお持ちの方</td></tr>
+        <tr><th>実施形態<br>(時間数)</th><td>通学またはオンライン（6時間）</td></tr>
+        <tr><th>受講料</th><td>　会員：16,000円<br>非会員：20,000円<br><small>※受講料はいずれも非課税です。</small></td></tr>
+        <tr><th>会員ポイント</th><td>5ポイント</td></tr>
+        <tr><th>内容</th><td>ジョブ・カードを用いたキャリアコンサルティングにおける支援（姿勢とスキル）の特徴と留意点を、ワークやロールプレイを通じて身につけます。</td></tr>
+        <tr><th>講師</th><td>当協会キャリアコンサルタント養成講習講師 他</td></tr>
+      </tbody>
+    </table></div></div>
+  </details>
+
+  <h2 id="attention"><small>ATTENTION</small>留意事項</h2>
+  <div class="note">
+    ・スクーリングのための交通費・宿泊費は自己負担となります。<br>
+    ・受講確定後に教室・コースの変更はできません。<br>
+    ・スクーリング日程を他の会場に振り替えることはできません。<br>
+    ・キャンセルされる場合の受講料返金等のお取り扱いは「受講約款」をご覧ください。<br>
+    ・受付は先着順です。定員を上回り申込みをお受けできなかった場合、および開催中止の場合には、お支払いいただいた受講料全額を返金いたします。<br>
+    ・定員に満たない場合は開催されないことがあります。<br>
+    ・講習内で知り得たことは、どのようなことでも外部（インターネット、メールを含む）に出すことを厳禁とします。
+  </div>
+
+  <div class="cta-box"><h3>更新期限が近い方は、お早めに。</h3><p>知識講習・技能講習の全国開催日程の確認とお申し込みは、更新講習 日程マスタからどうぞ。</p>
+  <div class="bs"><a class="btn btn-y btn-big" href="../../../../demo_schedule_koushin/index.html">更新講習 日程マスタ（全国日程・お申し込み）→</a><a class="btn btn-w" href="../../calendar/">講座カレンダー</a></div></div>
+
+  <div class="rel"><h3>RELATED ─ 関連ページ</h3><div class="lk"><a href="../../../../demo_schedule_koushin/index.html">更新講習 日程マスタ</a><a href="../">CCトップ</a><a href="../course/">養成講習</a><a href="../../renewal/">産業カウンセラー資格の更新</a></div></div>
+</div>
+
+</main>
+
+<!-- お知らせ（新着情報）は職員管理ポータルの「お知らせ管理」で更新。アーカイブ済みは新着から非表示（アーカイブページに掲載）。 -->
+<script src="../../../../news_data.js"></script>
+<script>(function(){
+  var box=document.getElementById('newsList'); if(!box||!window.JAICO_NEWS_ITEMS) return;
+  var items=window.JAICO_NEWS_ITEMS('koushin').filter(function(it){return !it.archived;});
+  box.innerHTML='';
+  items.forEach(function(it){ var li=document.createElement('li'); var t=document.createElement('time'); t.className='date'; t.textContent=it.date||''; var s=document.createElement('span'); s.className='txt'; s.innerHTML=it.body||''; li.appendChild(t); li.appendChild(s); box.appendChild(li); });
+})();</script>
+
+<footer>
+ <div class="wrap ft-main">
+  <div class="ft-brand">
+    <img src="../../../../images/foot_logo.png" alt="JAICO">
+    <p>一般社団法人日本産業カウンセラー協会<br>〒105-0004 東京都港区新橋六丁目17番17号 御成門センタービル6階</p>
+    <div class="pm"><img src="../../../../images/pmark.png" alt="プライバシーマーク"><span>当協会はプライバシーマーク取得事業者です</span></div>
+  </div>
+  <div class="ft-col"><h4>相談する</h4>
+    <a href="../../../counseling/hotline/">働く人の悩みホットライン</a>
+    <a href="https://harassment.counselor.or.jp/" target="_blank" rel="noopener" class="ex">JAICOハラスメント相談室</a>
+    <a href="../../../counseling/sns/">JAICO SNS相談</a>
+    <a href="../../../company/">法人向け相談サービス</a>
+  </div>
+  <div class="ft-col"><h4>学ぶ・資格を取る</h4>
+    <a href="../../../qualification/counselor/">産業カウンセラー養成講座</a>
+    <a href="../../../qualification/career/">キャリアコンサルタント</a>
+    <a href="../../../qualification/senior/">シニア産業カウンセラー</a>
+    <a href="../../../qualification/kokoro/">こころのアドバイザー</a>
+    <a href="../../../examination/">産業カウンセラー試験</a>
+  </div>
+  <div class="ft-col"><h4>協会について</h4>
+    <a href="../../../about/">協会概要・役員</a>
+    <a href="../../../member/branch/">全国の支部一覧</a>
+    <a href="../../../news/">ニュース・活動報告</a>
+    <a href="../../../library/">研究・刊行物</a>
+    <a href="../../../about/recruit/">採用情報</a>
+  </div>
+  <div class="ft-col"><h4>関連リンク</h4>
+    <a href="https://kokoro.mhlw.go.jp/" target="_blank" rel="noopener" class="ex">こころの耳（厚労省）</a>
+    <a href="../../kokoro/">こころのアドバイザーLP</a>
+    <a href="../../../about/link/">関連団体・行政リンク</a>
+    <a href="../../../about/policy/#privacy">プライバシーポリシー</a>
+    <a href="../../../soon.html#サイトマップ">サイトマップ</a>
+  </div>
+ </div>
+ <div class="wrap ft-btm">
+   <span>© Japan Industrial Counselors Association（リニューアル構成デモ・プロトタイプ）</span>
+   <span class="lk"><a href="../../../about/policy/#privacy">個人情報保護方針</a><a href="../../../soon.html#特定商取引法">特定商取引法に基づく表記</a></span>
+ </div>
+</footer>
+
+<script src="../../../assets/app.js"></script>
+<script src="../../../assets/chatbot.js" defer></script>
+</body>
+</html>

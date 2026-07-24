@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<!-- JAICO-DEMO-GATE:BEGIN -->
+<script>/* 閲覧用ゲート（関係者限定デモ）。クライアントサイドの簡易ロックです。 */
+(function(){
+  var KEY='jaicoDemoGate2026', SIG='6c4a961c';
+  function hash(s){var v=5381;for(var i=0;i<s.length;i++){v=((v*33)^s.charCodeAt(i))>>>0;}return v.toString(16);}
+  try{ if(localStorage.getItem(KEY)===SIG) return; }catch(e){}
+  document.write('<style id="__gs">html{visibility:hidden!important}#__gate,#__gate *{visibility:visible!important}</style>');
+  function build(){
+    var w=document.createElement('div');
+    w.id='__gate';
+    w.setAttribute('style','position:fixed;inset:0;z-index:2147483647;background:linear-gradient(160deg,#f2f8f3,#e6f2e9);display:flex;align-items:center;justify-content:center;padding:20px;font-family:"Noto Sans JP","Yu Gothic UI",sans-serif');
+    w.innerHTML='<form id="__gf" style="background:#fff;border:1px solid #dbe7dc;border-radius:18px;box-shadow:0 14px 40px rgba(28,124,47,.14);padding:34px 32px;width:100%;max-width:380px;box-sizing:border-box">'
+      +'<div style="font-size:11px;font-weight:800;letter-spacing:.14em;color:#239b3b">CONFIDENTIAL</div>'
+      +'<h1 style="font-size:17px;margin:8px 0 6px;color:#243024;line-height:1.6">ご提案デモサイト<br>閲覧用ログイン</h1>'
+      +'<p style="font-size:12px;line-height:1.9;color:#5c6b63;margin:0 0 20px">関係者限定のプロトタイプです。<br>ご案内済みのID・パスワードを入力してください。</p>'
+      +'<label style="display:block;font-size:12px;font-weight:700;color:#243024;margin-bottom:5px">ID</label>'
+      +'<input id="__gi" type="text" autocomplete="username" autocapitalize="off" autocorrect="off" spellcheck="false" style="width:100%;box-sizing:border-box;font-size:15px;padding:11px 13px;border:1px solid #cfe0d3;border-radius:9px;margin-bottom:14px;font-family:inherit">'
+      +'<label style="display:block;font-size:12px;font-weight:700;color:#243024;margin-bottom:5px">パスワード</label>'
+      +'<input id="__gp" type="password" autocomplete="current-password" style="width:100%;box-sizing:border-box;font-size:15px;padding:11px 13px;border:1px solid #cfe0d3;border-radius:9px;font-family:inherit">'
+      +'<p id="__ge" style="display:none;font-size:12px;color:#c0392b;font-weight:700;margin:12px 0 0">IDまたはパスワードが違います。</p>'
+      +'<button type="submit" style="width:100%;margin-top:20px;background:#239b3b;color:#fff;border:0;border-radius:999px;font-size:15px;font-weight:800;padding:13px;cursor:pointer;font-family:inherit">閲覧する</button>'
+      +'<p style="font-size:10.5px;color:#8a988f;line-height:1.8;margin:16px 0 0">※ 本デモの内容・画面イメージの二次配布はご遠慮ください。</p>'
+      +'</form>';
+    document.body.appendChild(w);
+    var i=document.getElementById('__gi');
+    if(i) i.focus();
+    document.getElementById('__gf').addEventListener('submit',function(ev){
+      ev.preventDefault();
+      var id=(document.getElementById('__gi').value||'').trim();
+      var pw=document.getElementById('__gp').value||'';
+      if(hash(id+':'+pw)===SIG){
+        try{ localStorage.setItem(KEY,SIG); }catch(e){}
+        location.reload();
+      }else{
+        document.getElementById('__ge').style.display='block';
+        document.getElementById('__gp').value='';
+        document.getElementById('__gp').focus();
+      }
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',build); else build();
+})();
+</script>
+<!-- JAICO-DEMO-GATE:END -->
+
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>法人向けサービス｜日本産業カウンセラー協会（リニューアル構成デモ）</title>
+<meta name="description" content="メンタルヘルス対策、ハラスメント対応、人材定着、法令対応。企業・団体が抱える「人と組織」の課題を、産業カウンセリングの専門機関としてご支援します。">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<div class="notice">リニューアル構成デモ｜リニューアル後の画面イメージ（プロトタイプ）— 文言・日程・数値にはサンプルを含みます</div>
+<div class="topbar"><div class="wrap">
+  <span class="tg">働く人と組織を支える 一般社団法人日本産業カウンセラー協会</span>
+  <span class="sp"><a href="../about/link/">全国の支部サイト ↗</a><a href="../soon.html#会員ログイン">会員ログイン</a><a href="../access/">アクセス</a><a href="../soon.html#English">English</a></span>
+</div></div>
+<header class="hd"><div class="wrap">
+  <a class="logo" href="../index.html"><img src="../../images/logo.png" alt="一般社団法人日本産業カウンセラー協会"></a>
+  <nav><ul><li><a href="../counseling/">相談する</a><div class="mega"><div class="mg-side"><span class="t">相談する</span><span class="en">COUNSELING</span><a class="go" href="../counseling/" aria-label="相談するトップへ">→</a></div><div class="mg-list"><a href="../counseling/">相談・カウンセリング トップ</a><a href="../counseling/first/">はじめての方へ</a><a href="../counseling/hotline/">働く人の悩みホットライン</a><a href="../counseling/sns/">SNS相談</a><a href="../counseling/room/">全国の相談室</a><a href="../counseling/reserve/">予約方法・担当</a><a href="../counseling/entry/">相談のお申し込み</a><a href="../counseling/for-company/">企業・団体の方</a></div><div class="mg-right"></div></div></li><li><a href="../qualification/">資格・講座</a><div class="mega"><div class="mg-side"><span class="t">資格・講座</span><span class="en">QUALIFICATIONS</span><a class="go" href="../qualification/" aria-label="資格・講座トップへ">→</a></div><div class="mg-list"><a href="../qualification/">資格・講座トップ</a><div class="mg-item"><a class="mg-p" href="../qualification/counselor/">産業カウンセラー養成講座</a><button class="mg-tgl" type="button" data-sub="qualification-counselor" aria-label="産業カウンセラー養成講座の下層を開閉">＋</button></div><div class="mg-item"><a class="mg-p" href="../qualification/career/">キャリアコンサルタント</a><button class="mg-tgl" type="button" data-sub="qualification-career" aria-label="キャリアコンサルタントの下層を開閉">＋</button></div><div class="mg-item"><a class="mg-p" href="../qualification/senior/">シニア産業カウンセラー</a><button class="mg-tgl" type="button" data-sub="qualification-senior" aria-label="シニア産業カウンセラーの下層を開閉">＋</button></div><a href="../qualification/kokoro/">こころのアドバイザー</a><a href="../qualification/calendar/">講座カレンダー</a><a href="../qualification/training/">専門研修（フォローアップ）</a><a href="../qualification/supervision/">スーパービジョン</a><a href="../qualification/renewal/">資格更新のご案内</a><a href="../qualification/voice/">受講者の声</a><a href="../qualification/kyufukin/">教育訓練給付制度</a></div><div class="mg-right"><div class="mg-sub" data-panel="qualification-counselor"><a href="../qualification/counselor/#schedule">日程・会場・お申し込み</a><a href="../qualification/counselor/#fee">受講料・教育訓練給付金</a><a href="../qualification/counselor/#style">受講スタイル（通学・オンライン）</a><a href="../qualification/counselor/#area">エリア別 無料説明会</a></div><div class="mg-sub" data-panel="qualification-career"><a href="../qualification/career/course/">養成講習</a><a href="../qualification/career/renewal/">更新講習</a><a href="../qualification/career/exam-prep/">試験対策</a><a href="../qualification/career/moshi/">模擬試験</a></div><div class="mg-sub" data-panel="qualification-senior"><a href="../qualification/senior/flow/">受験までの流れ・フォローアップ</a></div></div></div></li><li><a href="../examination/">試験情報</a><div class="mega"><div class="mg-side"><span class="t">試験情報</span><span class="en">EXAMINATION</span><a class="go" href="../examination/" aria-label="試験情報トップへ">→</a></div><div class="mg-list"><a href="../examination/">試験情報トップ</a><div class="mg-item"><a class="mg-p" href="../examination/grade2/">産業カウンセラー試験 2級</a><button class="mg-tgl" type="button" data-sub="examination-grade2" aria-label="産業カウンセラー試験 2級の下層を開閉">＋</button></div><a href="../examination/grade1/">産業カウンセラー試験 1級</a><a href="../examination/career/">キャリアコンサルタント国家試験</a><a href="../examination/certificate/">合格証の発送・再発行（2級・1級）</a><a href="../examination/faq/">よくある質問</a></div><div class="mg-right"><div class="mg-sub" data-panel="examination-grade2"><a href="../examination/grade2/apply/">受検申請・受検上の配慮</a><a href="../examination/grade2/results/">合否結果</a></div></div></div></li><li><a href="../company/" class="on">法人向け</a><div class="mega"><div class="mg-side"><span class="t">法人向け</span><span class="en">FOR BUSINESS</span><a class="go" href="../company/" aria-label="法人向けトップへ">→</a></div><div class="mg-list"><a href="../company/">法人向けサービス トップ</a><a href="../company/mental/">メンタルヘルス対策支援</a><a href="../company/training/">企業研修</a><a href="../company/stresscheck/">ストレスチェック</a><a href="../company/eap/">外部相談窓口・EAP</a><a href="../company/case/">導入事例</a><a href="../company/contact/">法人お問い合わせ</a></div><div class="mg-right"></div></div></li><li><a href="../member/">会員・入会</a><div class="mega"><div class="mg-side"><span class="t">会員・入会</span><span class="en">MEMBERSHIP</span><a class="go" href="../member/" aria-label="会員・入会トップへ">→</a></div><div class="mg-list"><a href="../member/">会員・入会 トップ</a><div class="mg-item"><a class="mg-p" href="../member/join/">入会案内</a><button class="mg-tgl" type="button" data-sub="member-join" aria-label="入会案内の下層を開閉">＋</button></div><a href="../member/benefit/">会員特典</a><a href="../member/card/">会員証</a><a href="../member/procedure/">各種手続き</a><a href="../member/branch/">全国支部・拠点一覧</a><a href="../member/mypage/">会員マイページ</a><a href="../member/news/">会員向けお知らせ</a><a href="../member/job/">求人情報</a></div><div class="mg-right"><div class="mg-sub" data-panel="member-join"><a href="../member/join/entry/">入会手続き・申込フォーム</a></div></div></div></li><li><a href="../about/">協会について</a><div class="mega"><div class="mg-side"><span class="t">協会について</span><span class="en">ABOUT US</span><a class="go" href="../about/" aria-label="協会についてトップへ">→</a></div><div class="mg-list"><a href="../about/">協会について トップ</a><a href="../about/message/">会長メッセージ</a><a href="../about/policy/">理念・行動指針</a><a href="../about/activity/">3つの活動領域</a><a href="../about/organization/">組織図</a><a href="../about/adr/">ADR（紛争解決）</a><a href="../about/conference/">全国研究大会</a><a href="../about/disclosure/">情報公開</a><a href="../about/link/">リンク集・関連団体</a><a href="../about/recruit/">採用情報</a></div><div class="mg-right"></div></div></li><li><a href="../news/">ニュース</a><div class="mega"><div class="mg-side"><span class="t">ニュース</span><span class="en">NEWS</span><a class="go" href="../news/" aria-label="ニューストップへ">→</a></div><div class="mg-list"><a href="../news/">お知らせ一覧</a><a href="../news/important/">重要なお知らせ</a><a href="../news/report/">活動報告</a><a href="../news/archive/">年度別アーカイブ</a><a href="../news/mailmagazine/">メールマガジン</a></div><div class="mg-right"></div></div></li><li><a href="../library/">研究・刊行物</a><div class="mega"><div class="mg-side"><span class="t">研究・刊行物</span><span class="en">LIBRARY</span><a class="go" href="../library/" aria-label="研究・刊行物トップへ">→</a></div><div class="mg-list"><a href="../library/">研究・刊行物 トップ</a><div class="mg-item"><a class="mg-p" href="../library/institute/">産業カウンセリング研究所</a><button class="mg-tgl" type="button" data-sub="library-institute" aria-label="産業カウンセリング研究所の下層を開閉">＋</button></div><a href="../library/books/">書籍・教材</a><a href="../library/column/">コラム</a><a href="../library/movie/">動画ライブラリ</a><div class="mg-item"><a class="mg-p" href="../library/magazine/">広報誌</a><button class="mg-tgl" type="button" data-sub="library-magazine" aria-label="広報誌の下層を開閉">＋</button></div><a href="../library/kokorolab/">働く人の心ラボ</a></div><div class="mg-right"><div class="mg-sub" data-panel="library-institute"><a href="../library/research/">調査・研究</a><a href="../library/journal/">学術誌「産業カウンセリング研究」</a><a href="../library/event/">イベント・セミナー</a></div><div class="mg-sub" data-panel="library-magazine"><a href="../library/magazine/ad/">広告掲載のお申し込み</a></div></div></div></li></ul></nav>
+  <div class="cta">
+    <a class="srch" href="../soon.html#サイト内検索" aria-label="サイト内検索"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg></a>
+    <a class="btn btn-y" href="../member/join/">入会案内</a>
+    <a class="btn btn-g" href="../contact/">お問い合わせ</a>
+  </div>
+  <button class="menu-btn" aria-label="メニュー"><span></span><span></span><span></span></button>
+</div></header>
+<div class="mnav"><button class="x">×</button><a href="../counseling/">相談する</a><a href="../qualification/">資格・講座</a><a href="../examination/">試験情報</a><a href="../company/">法人向け</a><a href="../member/">会員・入会</a><a href="../about/">協会について</a><a href="../news/">ニュース</a><a href="../library/">研究・刊行物</a>
+  <a href="../member/join/">入会案内</a><a href="../contact/">お問い合わせ</a>
+</div>
+
+<div class="crumb"><div class="wrap"><ol><li><a href="../index.html">トップ</a></li><li>法人向けサービス</li></ol></div></div>
+<div class="p-hero"><div class="wrap"><span class="en">FOR COMPANY</span><h1>法人向けサービス</h1><p class="ld">メンタルヘルス対策、ハラスメント対応、人材定着、法令対応。企業・団体が抱える「人と組織」の課題を、産業カウンセリングの専門機関としてご支援します。</p></div></div>
+<main class="sub"><div class="wrap prose">
+<p class="lead2">1960年の創立以来、当協会は「働く人の心の健康」を支える専門機関として活動してきました。全国13支部のネットワークと有資格カウンセラーの実践知を活かし、人事・総務・健康経営のご担当者さまと一緒に、それぞれの職場に合った対策を設計します。</p>
+
+<h2 id="issue"><small>BY ISSUE</small>課題から探す</h2>
+<p>「何から手を付ければよいか分からない」という段階でも大丈夫です。まずは、いま職場で起きている課題に近いものをお選びください。</p>
+<div class="cards4">
+  <a class="card" href="../company/mental/">
+    <div class="in"><span class="k">MENTAL HEALTH</span><span class="t">メンタルヘルス不調者が増えている</span><span class="d">休職・復職対応や不調の未然防止を、体制づくりから支援します。</span><span class="bdg g">対策支援</span></div>
+  </a>
+  <a class="card" href="../company/eap/">
+    <div class="in"><span class="k">HARASSMENT</span><span class="t">ハラスメント相談窓口を整備したい</span><span class="d">社外の中立的な相談窓口として、通報・相談の受け皿を受託します。</span><span class="bdg g">外部窓口</span></div>
+  </a>
+  <a class="card" href="../company/training/">
+    <div class="in"><span class="k">RETENTION</span><span class="t">離職を減らし、人材を定着させたい</span><span class="d">傾聴・キャリア・マネジメントの研修で「辞めない職場」をつくります。</span><span class="bdg g">研修</span></div>
+  </a>
+  <a class="card" href="../company/stresscheck/">
+    <div class="in"><span class="k">COMPLIANCE</span><span class="t">ストレスチェックを法令どおり実施したい</span><span class="d">実施者の養成から集団分析の活用まで、制度対応をサポートします。</span><span class="bdg g">法令対応</span></div>
+  </a>
+</div>
+
+<h2 id="service"><small>SERVICES</small>サービス一覧</h2>
+<div class="cards3">
+  <a class="card" href="../company/mental/">
+    <div class="ph"><img src="../../images/hero_main.jpg" alt=""></div>
+    <div class="in"><span class="k">MENTAL SUPPORT</span><span class="t">メンタルヘルス対策支援</span><span class="d">4つのケアを軸に、体制構築・教育・相談対応までを一貫支援。</span></div>
+  </a>
+  <a class="card" href="../company/training/">
+    <div class="in"><span class="k">TRAINING</span><span class="t">企業研修（テーマ別）</span><span class="d">メンタルヘルス・ハラスメント・リスニング・キャリアの各テーマをご用意。</span></div>
+  </a>
+  <a class="card" href="../company/custom/">
+    <div class="in"><span class="k">CUSTOM</span><span class="t">講師派遣・オーダーメイド研修</span><span class="d">貴社の課題に合わせて内容・時間・形式を個別に設計します。</span></div>
+  </a>
+  <a class="card" href="../company/stresscheck/">
+    <div class="in"><span class="k">STRESS CHECK</span><span class="t">ストレスチェック</span><span class="d">実施者養成研修と実施サポートで、制度を「やりっぱなし」にしません。</span></div>
+  </a>
+  <a class="card" href="../company/eap/">
+    <div class="in"><span class="k">EAP</span><span class="t">EAP・外部相談窓口の受託</span><span class="d">ハラスメント相談窓口をはじめ、従業員の社外相談先を受託します。</span></div>
+  </a>
+  <a class="card" href="../company/case/">
+    <div class="in"><span class="k">CASE STUDY</span><span class="t">導入事例</span><span class="d">業種別・課題別の導入イメージをご紹介します。</span></div>
+  </a>
+</div>
+
+<h2 id="why"><small>WHY JAICO</small>当協会が選ばれる理由</h2>
+<div class="cards3">
+  <div class="card"><div class="in"><span class="k">SINCE 1960</span><span class="t">60年余の専門性</span><span class="d">1960年の創立以来、産業カウンセリング一筋。働く現場の心の課題に向き合い続けてきた実績があります。</span></div></div>
+  <div class="card"><div class="in"><span class="k">NATIONWIDE</span><span class="t">全国13支部のネットワーク</span><span class="d">北海道から沖縄まで全国13支部。多拠点展開の企業さまにも、地域ごとに対応できます。</span></div></div>
+  <div class="card"><div class="in"><span class="k">PRIVACY</span><span class="t">プライバシーマーク取得</span><span class="d">JIS Q 15001に基づく個人情報保護体制（プライバシーマーク取得事業者）で、相談内容・従業員情報を厳格に管理します。</span></div></div>
+</div>
+
+<div class="cta-box">
+  <h3>まずは課題をお聞かせください</h3>
+  <p>資料請求・お見積り・導入相談は、法人向け窓口で承ります。「どのサービスが合うか分からない」というご相談も歓迎です。</p>
+  <div class="bs">
+    <a class="btn btn-y btn-big" href="../company/contact/">法人向けお問い合わせ</a>
+    <a class="btn btn-w" href="../company/case/">導入事例を見る</a>
+  </div>
+</div>
+
+<div class="rel"><h3>RELATED ─ 関連ページ</h3><div class="lk">
+  <a href="../counseling/for-company/">従業員向けカウンセリングのご案内</a>
+  <a href="../about/">協会について</a>
+  <a href="../qualification/">資格・養成講座</a>
+</div></div>
+</div></main>
+
+<footer>
+ <div class="wrap ft-main">
+  <div class="ft-brand">
+    <img src="../../images/foot_logo.png" alt="JAICO">
+    <p>一般社団法人日本産業カウンセラー協会<br>〒105-0004 東京都港区新橋六丁目17番17号 御成門センタービル6階</p>
+    <div class="pm"><img src="../../images/pmark.png" alt="プライバシーマーク"><span>当協会はプライバシーマーク取得事業者です</span></div>
+  </div>
+  <div class="ft-col"><h4>相談する</h4>
+    <a href="../counseling/hotline/">働く人の悩みホットライン</a>
+    <a href="https://harassment.counselor.or.jp/" target="_blank" rel="noopener" class="ex">JAICOハラスメント相談室</a>
+    <a href="../counseling/sns/">JAICO SNS相談</a>
+    <a href="../company/">法人向け相談サービス</a>
+  </div>
+  <div class="ft-col"><h4>学ぶ・資格を取る</h4>
+    <a href="../qualification/counselor/">産業カウンセラー養成講座</a>
+    <a href="../qualification/career/">キャリアコンサルタント</a>
+    <a href="../qualification/senior/">シニア産業カウンセラー</a>
+    <a href="../qualification/kokoro/">こころのアドバイザー</a>
+    <a href="../examination/">産業カウンセラー試験</a>
+  </div>
+  <div class="ft-col"><h4>協会について</h4>
+    <a href="../about/">協会概要・役員</a>
+    <a href="../member/branch/">全国の支部一覧</a>
+    <a href="../news/">ニュース・活動報告</a>
+    <a href="../library/">研究・刊行物</a>
+    <a href="../about/recruit/">採用情報</a>
+  </div>
+  <div class="ft-col"><h4>関連リンク</h4>
+    <a href="https://kokoro.mhlw.go.jp/" target="_blank" rel="noopener" class="ex">こころの耳（厚労省）</a>
+    <a href="../qualification/kokoro/">こころのアドバイザー講座</a>
+    <a href="../about/link/">関連団体・行政リンク</a>
+    <a href="../about/policy/#privacy">プライバシーポリシー</a>
+    <a href="../soon.html#サイトマップ">サイトマップ</a>
+  </div>
+ </div>
+ <div class="wrap ft-btm">
+   <span>© Japan Industrial Counselors Association（リニューアル構成デモ・プロトタイプ）</span>
+   <span class="lk"><a href="../about/policy/#privacy">個人情報保護方針</a><a href="../soon.html#特定商取引法">特定商取引法に基づく表記</a></span>
+ </div>
+</footer>
+
+<script src="../assets/app.js"></script>
+<script src="../assets/chatbot.js" defer></script>
+</body>
+</html>

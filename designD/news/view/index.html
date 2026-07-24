@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<!-- JAICO-DEMO-GATE:BEGIN -->
+<script>/* 閲覧用ゲート（関係者限定デモ）。クライアントサイドの簡易ロックです。 */
+(function(){
+  var KEY='jaicoDemoGate2026', SIG='6c4a961c';
+  function hash(s){var v=5381;for(var i=0;i<s.length;i++){v=((v*33)^s.charCodeAt(i))>>>0;}return v.toString(16);}
+  try{ if(localStorage.getItem(KEY)===SIG) return; }catch(e){}
+  document.write('<style id="__gs">html{visibility:hidden!important}#__gate,#__gate *{visibility:visible!important}</style>');
+  function build(){
+    var w=document.createElement('div');
+    w.id='__gate';
+    w.setAttribute('style','position:fixed;inset:0;z-index:2147483647;background:linear-gradient(160deg,#f2f8f3,#e6f2e9);display:flex;align-items:center;justify-content:center;padding:20px;font-family:"Noto Sans JP","Yu Gothic UI",sans-serif');
+    w.innerHTML='<form id="__gf" style="background:#fff;border:1px solid #dbe7dc;border-radius:18px;box-shadow:0 14px 40px rgba(28,124,47,.14);padding:34px 32px;width:100%;max-width:380px;box-sizing:border-box">'
+      +'<div style="font-size:11px;font-weight:800;letter-spacing:.14em;color:#239b3b">CONFIDENTIAL</div>'
+      +'<h1 style="font-size:17px;margin:8px 0 6px;color:#243024;line-height:1.6">ご提案デモサイト<br>閲覧用ログイン</h1>'
+      +'<p style="font-size:12px;line-height:1.9;color:#5c6b63;margin:0 0 20px">関係者限定のプロトタイプです。<br>ご案内済みのID・パスワードを入力してください。</p>'
+      +'<label style="display:block;font-size:12px;font-weight:700;color:#243024;margin-bottom:5px">ID</label>'
+      +'<input id="__gi" type="text" autocomplete="username" autocapitalize="off" autocorrect="off" spellcheck="false" style="width:100%;box-sizing:border-box;font-size:15px;padding:11px 13px;border:1px solid #cfe0d3;border-radius:9px;margin-bottom:14px;font-family:inherit">'
+      +'<label style="display:block;font-size:12px;font-weight:700;color:#243024;margin-bottom:5px">パスワード</label>'
+      +'<input id="__gp" type="password" autocomplete="current-password" style="width:100%;box-sizing:border-box;font-size:15px;padding:11px 13px;border:1px solid #cfe0d3;border-radius:9px;font-family:inherit">'
+      +'<p id="__ge" style="display:none;font-size:12px;color:#c0392b;font-weight:700;margin:12px 0 0">IDまたはパスワードが違います。</p>'
+      +'<button type="submit" style="width:100%;margin-top:20px;background:#239b3b;color:#fff;border:0;border-radius:999px;font-size:15px;font-weight:800;padding:13px;cursor:pointer;font-family:inherit">閲覧する</button>'
+      +'<p style="font-size:10.5px;color:#8a988f;line-height:1.8;margin:16px 0 0">※ 本デモの内容・画面イメージの二次配布はご遠慮ください。</p>'
+      +'</form>';
+    document.body.appendChild(w);
+    var i=document.getElementById('__gi');
+    if(i) i.focus();
+    document.getElementById('__gf').addEventListener('submit',function(ev){
+      ev.preventDefault();
+      var id=(document.getElementById('__gi').value||'').trim();
+      var pw=document.getElementById('__gp').value||'';
+      if(hash(id+':'+pw)===SIG){
+        try{ localStorage.setItem(KEY,SIG); }catch(e){}
+        location.reload();
+      }else{
+        document.getElementById('__ge').style.display='block';
+        document.getElementById('__gp').value='';
+        document.getElementById('__gp').focus();
+      }
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',build); else build();
+})();
+</script>
+<!-- JAICO-DEMO-GATE:END -->
+
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>お知らせ｜日本産業カウンセラー協会（リニューアル構成デモ）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+<style>
+.artpage .a-meta{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:2px 0 10px}
+.artpage .a-meta time{font-size:13px;color:var(--sub);font-weight:700}
+.artpage .a-tag{display:inline-block;font-size:11.5px;font-weight:800;border-radius:6px;padding:2px 10px}
+.artpage h1.a-ttl{font-size:24px;line-height:1.5;color:var(--ink);margin:6px 0 4px}
+.artpage .a-body{font-size:14.5px;line-height:2;color:#2c352d;margin-top:18px;word-break:break-word;border-top:1px solid var(--line);padding-top:20px}
+.artpage .a-body.plain{white-space:pre-wrap}
+.artpage .a-body p{margin:0 0 14px}
+.artpage .a-body:after{content:"";display:block;clear:both}
+.artpage .a-body .art-img{max-width:100%;height:auto;border-radius:10px}
+.artpage .a-body .art-img.center{display:block;float:none;margin:18px auto;clear:both}
+.artpage .a-body .art-img.left{float:left;margin:6px 22px 14px 0}
+.artpage .a-body .art-img.right{float:right;margin:6px 0 14px 22px}
+.artpage .a-body .art-img.sm{width:38%}.artpage .a-body .art-img.md{width:58%}.artpage .a-body .art-img.lg{width:100%;float:none;display:block;margin:18px auto}
+@media(max-width:560px){.artpage .a-body .art-img.left,.artpage .a-body .art-img.right{float:none;display:block;margin:14px auto;width:auto;max-width:100%}}
+.artpage .a-back{display:inline-flex;align-items:center;gap:6px;margin-top:26px;font-size:13.5px;font-weight:700;color:var(--gd);text-decoration:underline}
+.artpage .empty{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:30px;text-align:center;color:var(--sub);font-size:13.5px}
+</style>
+</head>
+<body>
+<div class="notice">リニューアル構成デモ｜リニューアル後の画面イメージ（プロトタイプ）— お知らせは職員管理ポータルの「トップページ管理」から更新します</div>
+<div class="topbar"><div class="wrap">
+  <span class="tg">働く人と組織を支える 一般社団法人日本産業カウンセラー協会</span>
+  <span class="sp"><a href="../../index.html">デモTOP ↗</a></span>
+</div></div>
+<header class="hd"><div class="wrap">
+  <a class="logo" href="../../index.html"><img src="../../../images/logo.png" alt="一般社団法人日本産業カウンセラー協会"></a>
+  <div class="cta"><a class="btn btn-g" href="../../index.html">トップへ戻る</a></div>
+</div></header>
+<div class="crumb"><div class="wrap"><ol><li><a href="../../index.html">トップ</a></li><li><a href="../../news/">ニュース・活動報告</a></li><li id="crumbLast">お知らせ</li></ol></div></div>
+<div class="p-hero"><div class="wrap"><span class="en" id="heroEn">NEWS</span><h1 id="heroTtl">お知らせ</h1></div></div>
+<main class="sub"><div class="wrap prose artpage" id="page">
+  <div id="body"></div>
+</div></main>
+<footer><div class="wrap ft-main" style="padding:26px 0;text-align:center;color:#cfe3d4;font-size:12px">一般社団法人日本産業カウンセラー協会（リニューアル構成デモ）</div></footer>
+<script src="../../news_articles.js"></script>
+<script>
+(function(){
+  var TAGCLR={exam:['#fbe4df','#c0492e'],sys:['#e6eef8','#2b5ea7'],info:['#e7f4ea','#1c7c2f'],
+    t1:['#e7f4ea','#1c7c2f'],t2:['#fdf3d5','#8a6d1a'],t3:['#e8f0fb','#2b5ea7'],t4:['#f3e9f5','#7b3f8f']};
+  var q=new URLSearchParams(location.search), src=q.get('src')||'news', id=q.get('id');
+  (function(){try{var q=location.search;
+    if(/[?&]preview=1/.test(q)) sessionStorage.setItem('jaico_preview','1');
+    if(/[?&]preview=0/.test(q)) sessionStorage.removeItem('jaico_preview');}catch(e){}})();
+  function isPreview(){ try{ return sessionStorage.getItem('jaico_preview')==='1'; }catch(e){ return false; } }
+  function pickCfg(){ var c=null; try{ var r=localStorage.getItem('jaico_toppage_v1'); if(r){ var j=JSON.parse(r);
+    if(isPreview() && j && j.draft) c=j.draft; else if(j && j.published) c=j.published; } }catch(e){} return c; }
+  function previewBar(){ if(!isPreview()) return; if(document.getElementById('jaicoPvBar')) return;
+    var b=document.createElement('div'); b.id='jaicoPvBar';
+    b.style.cssText='position:fixed;left:0;right:0;bottom:0;z-index:9999;background:#8a6d00;color:#fff;font-weight:700;font-size:13px;line-height:1.6;padding:9px 16px;display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;box-shadow:0 -3px 14px rgba(0,0,0,.2)';
+    b.innerHTML='<span>👁 下書きプレビュー中です（この表示は利用者には公開されていません）</span>'
+      +'<a href="?preview=0" style="background:#fff;color:#8a6d00;border-radius:999px;padding:4px 14px;text-decoration:none">公開中の内容を見る</a>';
+    document.body.appendChild(b); }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',previewBar); else previewBar();
+  var cfg=pickCfg();
+  var body=document.getElementById('body');
+  var list=(cfg && cfg[src]) ? cfg[src] : [];
+  var a=null; for(var i=0;i<list.length;i++){ if(String(list[i].id)===String(id)){ a=list[i]; break; } }
+  /* 職員管理側に無ければ、サイトの記事データ（news_articles.js）から探す */
+  if(!a && window.JAICO_ARTICLES){
+    for(var k=0;k<window.JAICO_ARTICLES.length;k++){
+      if(String(window.JAICO_ARTICLES[k].id)===String(id)){ a=window.JAICO_ARTICLES[k]; break; }
+    }
+  }
+  if(!a){ body.innerHTML='<div class="empty">お探しのお知らせが見つかりませんでした。<br><a class="a-back" href="../../index.html">← トップページへ戻る</a></div>'; return; }
+  document.getElementById('heroEn').textContent = src==='important' ? 'IMPORTANT' : 'NEWS';
+  document.getElementById('heroTtl').textContent = src==='important' ? '重要なお知らせ' : 'お知らせ';
+  document.getElementById('crumbLast').textContent = src==='important' ? '重要なお知らせ' : 'お知らせ';
+  document.title=(a.title||'お知らせ')+'｜日本産業カウンセラー協会';
+  var clr=TAGCLR[a.cls]||['#eef2ef','#556'];
+  var raw=a.body && a.body.trim() ? a.body : '';
+  var isHTML=/<(p|img|br|div|h[1-6]|ul|ol|li|b|strong|em)\b/i.test(raw);
+  var bodyHTML, cls='a-body';
+  if(!raw){ bodyHTML='（本文は職員管理ポータルの「トップページ管理 → お知らせ更新」で入力できます。ここに記事の本文が表示されます。）'; cls+=' plain'; }
+  else if(isHTML){ bodyHTML=raw; }
+  else { bodyHTML=raw.replace(/&/g,'&amp;').replace(/</g,'&lt;'); cls+=' plain'; }
+  body.innerHTML='<div class="a-meta"><span class="a-tag" style="background:'+clr[0]+';color:'+clr[1]+'">'+(a.cat||'')+'</span><time>'+(a.date||'')+'</time></div>'
+    +'<h1 class="a-ttl">'+(a.title||'')+'</h1>'
+    +'<div class="'+cls+'">'+bodyHTML+'</div>'
+    +'<a class="a-back" href="../../index.html">← トップページへ戻る</a>';
+})();
+</script>
+</body>
+</html>

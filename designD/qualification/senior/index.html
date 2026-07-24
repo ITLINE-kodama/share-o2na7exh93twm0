@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<!-- JAICO-DEMO-GATE:BEGIN -->
+<script>/* 閲覧用ゲート（関係者限定デモ）。クライアントサイドの簡易ロックです。 */
+(function(){
+  var KEY='jaicoDemoGate2026', SIG='6c4a961c';
+  function hash(s){var v=5381;for(var i=0;i<s.length;i++){v=((v*33)^s.charCodeAt(i))>>>0;}return v.toString(16);}
+  try{ if(localStorage.getItem(KEY)===SIG) return; }catch(e){}
+  document.write('<style id="__gs">html{visibility:hidden!important}#__gate,#__gate *{visibility:visible!important}</style>');
+  function build(){
+    var w=document.createElement('div');
+    w.id='__gate';
+    w.setAttribute('style','position:fixed;inset:0;z-index:2147483647;background:linear-gradient(160deg,#f2f8f3,#e6f2e9);display:flex;align-items:center;justify-content:center;padding:20px;font-family:"Noto Sans JP","Yu Gothic UI",sans-serif');
+    w.innerHTML='<form id="__gf" style="background:#fff;border:1px solid #dbe7dc;border-radius:18px;box-shadow:0 14px 40px rgba(28,124,47,.14);padding:34px 32px;width:100%;max-width:380px;box-sizing:border-box">'
+      +'<div style="font-size:11px;font-weight:800;letter-spacing:.14em;color:#239b3b">CONFIDENTIAL</div>'
+      +'<h1 style="font-size:17px;margin:8px 0 6px;color:#243024;line-height:1.6">ご提案デモサイト<br>閲覧用ログイン</h1>'
+      +'<p style="font-size:12px;line-height:1.9;color:#5c6b63;margin:0 0 20px">関係者限定のプロトタイプです。<br>ご案内済みのID・パスワードを入力してください。</p>'
+      +'<label style="display:block;font-size:12px;font-weight:700;color:#243024;margin-bottom:5px">ID</label>'
+      +'<input id="__gi" type="text" autocomplete="username" autocapitalize="off" autocorrect="off" spellcheck="false" style="width:100%;box-sizing:border-box;font-size:15px;padding:11px 13px;border:1px solid #cfe0d3;border-radius:9px;margin-bottom:14px;font-family:inherit">'
+      +'<label style="display:block;font-size:12px;font-weight:700;color:#243024;margin-bottom:5px">パスワード</label>'
+      +'<input id="__gp" type="password" autocomplete="current-password" style="width:100%;box-sizing:border-box;font-size:15px;padding:11px 13px;border:1px solid #cfe0d3;border-radius:9px;font-family:inherit">'
+      +'<p id="__ge" style="display:none;font-size:12px;color:#c0392b;font-weight:700;margin:12px 0 0">IDまたはパスワードが違います。</p>'
+      +'<button type="submit" style="width:100%;margin-top:20px;background:#239b3b;color:#fff;border:0;border-radius:999px;font-size:15px;font-weight:800;padding:13px;cursor:pointer;font-family:inherit">閲覧する</button>'
+      +'<p style="font-size:10.5px;color:#8a988f;line-height:1.8;margin:16px 0 0">※ 本デモの内容・画面イメージの二次配布はご遠慮ください。</p>'
+      +'</form>';
+    document.body.appendChild(w);
+    var i=document.getElementById('__gi');
+    if(i) i.focus();
+    document.getElementById('__gf').addEventListener('submit',function(ev){
+      ev.preventDefault();
+      var id=(document.getElementById('__gi').value||'').trim();
+      var pw=document.getElementById('__gp').value||'';
+      if(hash(id+':'+pw)===SIG){
+        try{ localStorage.setItem(KEY,SIG); }catch(e){}
+        location.reload();
+      }else{
+        document.getElementById('__ge').style.display='block';
+        document.getElementById('__gp').value='';
+        document.getElementById('__gp').focus();
+      }
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',build); else build();
+})();
+</script>
+<!-- JAICO-DEMO-GATE:END -->
+
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>シニア産業カウンセラー｜日本産業カウンセラー協会（リニューアル構成デモ）</title>
+<meta name="description" content="産業カウンセラーの上位資格。組織支援と後進育成を担う専門家へ。">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+<div class="notice">リニューアル構成デモ｜リニューアル後の画面イメージ（プロトタイプ）— 文言・日程・数値にはサンプルを含みます</div>
+<div class="topbar"><div class="wrap">
+  <span class="tg">働く人と組織を支える 一般社団法人日本産業カウンセラー協会</span>
+  <span class="sp"><a href="../../about/link/">全国の支部サイト ↗</a><a href="../../soon.html#会員ログイン">会員ログイン</a><a href="../../access/">アクセス</a><a href="../../soon.html#English">English</a></span>
+</div></div>
+<header class="hd"><div class="wrap">
+  <a class="logo" href="../../index.html"><img src="../../../images/logo.png" alt="一般社団法人日本産業カウンセラー協会"></a>
+  <nav><ul><li><a href="../../counseling/">相談する</a><div class="mega"><div class="mg-side"><span class="t">相談する</span><span class="en">COUNSELING</span><a class="go" href="../../counseling/" aria-label="相談するトップへ">→</a></div><div class="mg-list"><a href="../../counseling/">相談・カウンセリング トップ</a><a href="../../counseling/first/">はじめての方へ</a><a href="../../counseling/hotline/">働く人の悩みホットライン</a><a href="../../counseling/sns/">SNS相談</a><a href="../../counseling/room/">全国の相談室</a><a href="../../counseling/reserve/">予約方法・担当</a><a href="../../counseling/entry/">相談のお申し込み</a><a href="../../counseling/for-company/">企業・団体の方</a></div><div class="mg-right"></div></div></li><li><a href="../../qualification/" class="on">資格・講座</a><div class="mega"><div class="mg-side"><span class="t">資格・講座</span><span class="en">QUALIFICATIONS</span><a class="go" href="../../qualification/" aria-label="資格・講座トップへ">→</a></div><div class="mg-list"><a href="../../qualification/">資格・講座トップ</a><div class="mg-item"><a class="mg-p" href="../../qualification/counselor/">産業カウンセラー養成講座</a><button class="mg-tgl" type="button" data-sub="qualification-counselor" aria-label="産業カウンセラー養成講座の下層を開閉">＋</button></div><div class="mg-item"><a class="mg-p" href="../../qualification/career/">キャリアコンサルタント</a><button class="mg-tgl" type="button" data-sub="qualification-career" aria-label="キャリアコンサルタントの下層を開閉">＋</button></div><div class="mg-item"><a class="mg-p" href="../../qualification/senior/">シニア産業カウンセラー</a><button class="mg-tgl" type="button" data-sub="qualification-senior" aria-label="シニア産業カウンセラーの下層を開閉">＋</button></div><a href="../../qualification/kokoro/">こころのアドバイザー</a><a href="../../qualification/calendar/">講座カレンダー</a><a href="../../qualification/training/">専門研修（フォローアップ）</a><a href="../../qualification/supervision/">スーパービジョン</a><a href="../../qualification/renewal/">資格更新のご案内</a><a href="../../qualification/voice/">受講者の声</a><a href="../../qualification/kyufukin/">教育訓練給付制度</a></div><div class="mg-right"><div class="mg-sub" data-panel="qualification-counselor"><a href="../../qualification/counselor/#schedule">日程・会場・お申し込み</a><a href="../../qualification/counselor/#fee">受講料・教育訓練給付金</a><a href="../../qualification/counselor/#style">受講スタイル（通学・オンライン）</a><a href="../../qualification/counselor/#area">エリア別 無料説明会</a></div><div class="mg-sub" data-panel="qualification-career"><a href="../../qualification/career/course/">養成講習</a><a href="../../qualification/career/renewal/">更新講習</a><a href="../../qualification/career/exam-prep/">試験対策</a><a href="../../qualification/career/moshi/">模擬試験</a></div><div class="mg-sub" data-panel="qualification-senior"><a href="../../qualification/senior/flow/">受験までの流れ・フォローアップ</a></div></div></div></li><li><a href="../../examination/">試験情報</a><div class="mega"><div class="mg-side"><span class="t">試験情報</span><span class="en">EXAMINATION</span><a class="go" href="../../examination/" aria-label="試験情報トップへ">→</a></div><div class="mg-list"><a href="../../examination/">試験情報トップ</a><div class="mg-item"><a class="mg-p" href="../../examination/grade2/">産業カウンセラー試験 2級</a><button class="mg-tgl" type="button" data-sub="examination-grade2" aria-label="産業カウンセラー試験 2級の下層を開閉">＋</button></div><a href="../../examination/grade1/">産業カウンセラー試験 1級</a><a href="../../examination/career/">キャリアコンサルタント国家試験</a><a href="../../examination/certificate/">合格証の発送・再発行（2級・1級）</a><a href="../../examination/faq/">よくある質問</a></div><div class="mg-right"><div class="mg-sub" data-panel="examination-grade2"><a href="../../examination/grade2/apply/">受検申請・受検上の配慮</a><a href="../../examination/grade2/results/">合否結果</a></div></div></div></li><li><a href="../../company/">法人向け</a><div class="mega"><div class="mg-side"><span class="t">法人向け</span><span class="en">FOR BUSINESS</span><a class="go" href="../../company/" aria-label="法人向けトップへ">→</a></div><div class="mg-list"><a href="../../company/">法人向けサービス トップ</a><a href="../../company/mental/">メンタルヘルス対策支援</a><a href="../../company/training/">企業研修</a><a href="../../company/stresscheck/">ストレスチェック</a><a href="../../company/eap/">外部相談窓口・EAP</a><a href="../../company/case/">導入事例</a><a href="../../company/contact/">法人お問い合わせ</a></div><div class="mg-right"></div></div></li><li><a href="../../member/">会員・入会</a><div class="mega"><div class="mg-side"><span class="t">会員・入会</span><span class="en">MEMBERSHIP</span><a class="go" href="../../member/" aria-label="会員・入会トップへ">→</a></div><div class="mg-list"><a href="../../member/">会員・入会 トップ</a><div class="mg-item"><a class="mg-p" href="../../member/join/">入会案内</a><button class="mg-tgl" type="button" data-sub="member-join" aria-label="入会案内の下層を開閉">＋</button></div><a href="../../member/benefit/">会員特典</a><a href="../../member/card/">会員証</a><a href="../../member/procedure/">各種手続き</a><a href="../../member/branch/">全国支部・拠点一覧</a><a href="../../member/mypage/">会員マイページ</a><a href="../../member/news/">会員向けお知らせ</a><a href="../../member/job/">求人情報</a></div><div class="mg-right"><div class="mg-sub" data-panel="member-join"><a href="../../member/join/entry/">入会手続き・申込フォーム</a></div></div></div></li><li><a href="../../about/">協会について</a><div class="mega"><div class="mg-side"><span class="t">協会について</span><span class="en">ABOUT US</span><a class="go" href="../../about/" aria-label="協会についてトップへ">→</a></div><div class="mg-list"><a href="../../about/">協会について トップ</a><a href="../../about/message/">会長メッセージ</a><a href="../../about/policy/">理念・行動指針</a><a href="../../about/activity/">3つの活動領域</a><a href="../../about/organization/">組織図</a><a href="../../about/adr/">ADR（紛争解決）</a><a href="../../about/conference/">全国研究大会</a><a href="../../about/disclosure/">情報公開</a><a href="../../about/link/">リンク集・関連団体</a><a href="../../about/recruit/">採用情報</a></div><div class="mg-right"></div></div></li><li><a href="../../news/">ニュース</a><div class="mega"><div class="mg-side"><span class="t">ニュース</span><span class="en">NEWS</span><a class="go" href="../../news/" aria-label="ニューストップへ">→</a></div><div class="mg-list"><a href="../../news/">お知らせ一覧</a><a href="../../news/important/">重要なお知らせ</a><a href="../../news/report/">活動報告</a><a href="../../news/archive/">年度別アーカイブ</a><a href="../../news/mailmagazine/">メールマガジン</a></div><div class="mg-right"></div></div></li><li><a href="../../library/">研究・刊行物</a><div class="mega"><div class="mg-side"><span class="t">研究・刊行物</span><span class="en">LIBRARY</span><a class="go" href="../../library/" aria-label="研究・刊行物トップへ">→</a></div><div class="mg-list"><a href="../../library/">研究・刊行物 トップ</a><div class="mg-item"><a class="mg-p" href="../../library/institute/">産業カウンセリング研究所</a><button class="mg-tgl" type="button" data-sub="library-institute" aria-label="産業カウンセリング研究所の下層を開閉">＋</button></div><a href="../../library/books/">書籍・教材</a><a href="../../library/column/">コラム</a><a href="../../library/movie/">動画ライブラリ</a><div class="mg-item"><a class="mg-p" href="../../library/magazine/">広報誌</a><button class="mg-tgl" type="button" data-sub="library-magazine" aria-label="広報誌の下層を開閉">＋</button></div><a href="../../library/kokorolab/">働く人の心ラボ</a></div><div class="mg-right"><div class="mg-sub" data-panel="library-institute"><a href="../../library/research/">調査・研究</a><a href="../../library/journal/">学術誌「産業カウンセリング研究」</a><a href="../../library/event/">イベント・セミナー</a></div><div class="mg-sub" data-panel="library-magazine"><a href="../../library/magazine/ad/">広告掲載のお申し込み</a></div></div></div></li></ul></nav>
+  <div class="cta">
+    <a class="srch" href="../../soon.html#サイト内検索" aria-label="サイト内検索"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg></a>
+    <a class="btn btn-y" href="../../member/join/">入会案内</a>
+    <a class="btn btn-g" href="../../contact/">お問い合わせ</a>
+  </div>
+  <button class="menu-btn" aria-label="メニュー"><span></span><span></span><span></span></button>
+</div></header>
+<div class="mnav"><button class="x">×</button><a href="../../counseling/">相談する</a><a href="../../qualification/">資格・講座</a><a href="../../examination/">試験情報</a><a href="../../company/">法人向け</a><a href="../../member/">会員・入会</a><a href="../../about/">協会について</a><a href="../../news/">ニュース</a><a href="../../library/">研究・刊行物</a>
+  <a href="../../member/join/">入会案内</a><a href="../../contact/">お問い合わせ</a>
+</div>
+
+<div class="crumb"><div class="wrap"><ol><li><a href="../../index.html">トップ</a></li><li><a href="../">資格・講座</a></li><li>シニア産業カウンセラー</li></ol></div></div>
+<div class="p-hero"><div class="wrap"><span class="en">SENIOR INDUSTRIAL COUNSELOR</span><h1>シニア産業カウンセラー</h1><p class="ld">産業カウンセラーの上位資格。組織支援と後進育成を担う専門家へ。</p></div></div>
+<main class="sub senior"><div class="wrap prose">
+  <style>
+  /* ▼このページ固有スタイル（style.cssは共有のため編集しない） */
+  .redtx{color:#c00}
+  .scrollx{overflow-x:auto;margin:20px 0;-webkit-overflow-scrolling:touch}
+  .scrollx .tbl{margin:0;min-width:660px}
+  .newsbox{background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh);padding:18px 22px;margin:16px 0}
+  .newsbox p{font-size:13px;margin:0 0 12px;line-height:1.9}
+  .newsbox p:last-child{margin-bottom:0}
+  .newsbox b{color:var(--gd)}
+  .doclist{margin:16px 0}
+  .doclist p{font-size:13.5px;margin:0 0 8px}
+  .doclist a{color:var(--gd);font-weight:700;text-decoration:underline}
+  .doclist a::after{content:" ↗";font-size:11px}
+  .condtbl th,.condtbl td{text-align:center;vertical-align:middle;font-size:12.5px}
+  .condtbl td.lf{text-align:left}
+  .sched{margin:18px 0;display:grid;gap:12px}
+  .sched details{background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh);overflow:hidden}
+  .sched summary{padding:16px 20px;font-weight:800;font-size:14.5px;cursor:pointer;list-style:none;position:relative;background:var(--mist);padding-right:48px}
+  .sched summary::-webkit-details-marker{display:none}
+  .sched summary::after{content:"＋";position:absolute;right:18px;top:50%;transform:translateY(-50%);color:var(--sub);font-weight:400}
+  .sched details[open] summary::after{content:"−"}
+  .sched summary small{font-weight:600;color:#c00;font-size:11.5px}
+  .sched .bd{padding:18px 20px}
+  .sched .bd>p.terms{font-size:12.5px;color:var(--sub);line-height:2}
+  .sched h3.vh{margin-top:26px}
+  .sched .bd h3.vh:first-of-type{margin-top:14px}
+  .schtbl th{width:34%;font-size:12.5px}
+  .schtbl td{font-size:12.5px;line-height:1.9}
+  .schtbl td.stc,.schtbl td.btc{white-space:nowrap;vertical-align:middle;text-align:center}
+  .st{display:inline-block;border-radius:999px;padding:4px 14px;font-size:11.5px;font-weight:700;white-space:nowrap}
+  .st-ok{background:#e7f7ea;color:#1b7c33;border:1px solid #9fd8ab}
+  .st-end{background:#f1f1f1;color:#888;border:1px solid #ddd}
+  .applybtn{display:inline-block;background:var(--gd);color:#fff !important;border-radius:999px;padding:8px 16px;font-size:11.5px;font-weight:700;text-decoration:none;transition:.2s}
+  .applybtn:hover{opacity:.85}
+  .pastnews{max-height:480px;overflow-y:auto}
+  .pastnews p{font-size:12.5px;margin:0 0 12px;line-height:1.9}
+  .pastnews a{color:var(--gd);font-weight:700;text-decoration:underline}
+  /* ▼追従バナー（右側固定・現行サイトに無い常時導線を補完。kokoroの.fixbannerに準拠） */
+  .senior .fixbanner{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:60;display:flex;flex-direction:column;gap:7px;align-items:flex-end}
+  .senior .fixbanner a{display:flex;align-items:center;justify-content:center;text-align:center;min-width:64px;max-width:84px;padding:10px 11px;border-radius:12px 0 0 12px;color:#fff;font-size:11px;font-weight:800;line-height:1.4;box-shadow:-2px 3px 12px rgba(0,0,0,.25);text-decoration:none;transition:.18s}
+  .senior .fixbanner a:hover{padding-right:17px}
+  .senior .fixbanner .fb-apply{background:#e8710d}
+  .senior .fixbanner .fb-sched{background:var(--gd)}
+  .senior .fixbanner .fb-contact{background:var(--g)}
+  @media(max-width:860px){
+    .senior .fixbanner{top:auto;bottom:0;left:0;right:0;flex-direction:row;transform:none;gap:0;align-items:stretch}
+    .senior .fixbanner a{flex:1;min-width:0;max-width:none;border-radius:0;padding:10px 3px;font-size:10px}
+    .senior .fixbanner a:hover{padding-right:3px}
+  }
+  body.embed .senior .fixbanner{display:none}
+  </style>
+
+  <!-- 追従バナー（右側固定：募集要項／科目・日程／お問い合わせ） -->
+  <div class="fixbanner" aria-label="シニア育成講座 主要リンク">
+    <a class="fb-apply" href="../../../demo_schedule_senior/index.html">募集要項・<br>お申し込み</a>
+    <a class="fb-sched" href="../../../demo_schedule_senior/index.html">科目・<br>日程マスタ</a>
+    <a class="fb-contact" href="https://www.counselor.or.jp/contact/tabid/288/Default.aspx" target="_blank" rel="noopener">お問い合わせ</a>
+  </div>
+
+  <div class="anchor-nav">
+    <a href="#content01">シニア産業カウンセラーとは</a><a href="#content02">受講申込みの前に</a><a href="#content07">受講条件</a><a href="#content03">講座概要</a><a href="#content04">講座のお申込みについて</a><a href="#links">お申し込み・関連資料</a><a href="#content05">募集中の講座</a><a href="#content06">過去のニュース</a>
+  </div>
+  <p style="margin:4px 0 0"><a href="https://www.counselor.or.jp/examination/tabid/398/Default.aspx" target="_blank" rel="noopener" style="color:var(--gd);font-weight:700;text-decoration:underline">シニア産業カウンセラー試験について ↗</a></p>
+
+  <div class="lead-vis"><img src="../../../images/senior/mv.jpg" alt="シニア産業カウンセラー育成講座"></div>
+
+  <h2><small>NEWS</small>新着情報</h2>
+  <div class="newsbox" id="newsList">
+    <p><b>2026.7.1</b><br><a href="#content05" style="color:var(--gd);font-weight:700;text-decoration:underline">2026年7月募集開始分 を追加しました。</a></p>
+    <p><b>2026.6.1</b><br>2026年6月募集開始分 を追加しました。</p>
+    <p><b>2026.5.7</b><br><a href="https://www.counselor.or.jp/tabid/101/Default.aspx?itemid=720&amp;dispmid=436" target="_blank" rel="noopener" style="color:var(--gd);font-weight:700;text-decoration:underline">厚生労働省団体検定認定に伴うシニア産業カウンセラー試験について ↗</a></p>
+    <p><b>2026.5.1</b><br>2026年5月募集開始分 を追加しました。</p>
+  </div>
+  <p style="text-align:right;margin:2px 0 8px"><a href="../../../news-archive/index.html?lp=senior" style="color:var(--gd);font-weight:700;text-decoration:underline">過去のお知らせ（アーカイブ）→</a></p>
+
+  <h2 id="content01"><small>ABOUT</small>シニア産業カウンセラーとは</h2>
+  <p>産業カウンセラーに必要な技能や能力としては、まず基本として1 対1 の対面によるカウンセリング力が必須です。さらに企業という限定された場だけではなく、様々な「働く現場」で必要とされている専門性の高い、実務経験に基づく対応ができる人材であることが求められます。日本産業カウンセラー協会ではそのような人材の育成を推進し、一定のレベルに到達したと認められた方に、産業カウンセラーの上位資格として「シニア産業カウンセラー」の資格を付与しています。<br>
+  シニア産業カウンセラー育成講座（以下、シニア育成講座）では、実践的な内容で経験を深め新たな気づきを得ることで、実力をさらに伸ばす一助となるような講座を目指しています。産業カウンセラーとしての実践力を向上し、より専門的な知識を高めるため、本講座をぜひご活用ください。</p>
+
+  <h2 id="content02"><small>BEFORE YOU APPLY</small>シニア育成講座受講申込みの前に</h2>
+  <p>受講申し込みの前に、必ず「シニア産業カウンセラー育成講座 受講約款」（以下「受講約款」といいます）をお読み下さい。<br>
+  尚、オンライン講座を受講される方は、必ず「オンライン研修 受講約款」（以下「オンライン受講約款」といいます）をお読みください。</p>
+  <p>なお、受講に先立ちましては、必ず「守秘義務に関する誓約書」（以下「守秘義務誓約書」といいます）をご提出いただく必要があります。<br>
+  もちろん、受講者の方は、受講に際して日本産業カウンセラー協会が定める「倫理綱領」を守っていただくことは、言うまでもありません。<br>
+  受講契約に関しまして、いくつかの重要なポイントにつきまして、ご説明させていただきますので、ご確認下さい。</p>
+  <p>・守秘義務、個人情報保護、プライバシー権の尊重 ほか<br>
+  （倫理綱領 第６条、守秘義務誓約書、受講約款 第９条、オンライン受講約款 第５条）</p>
+  <p>シニア育成講座では、事例報告や逐語記録や事前課題を持ち寄り、検討し合うワークを行なう場合があります。<br>
+  上記の各条項に違反しないことはもちろん、検討素材は所有者（提出者）に返却することを原則としています。</p>
+  <p>また、逐語記録作成のために録音を録る場合には、クライエントから必ず「承諾書」（科目「11-1逐語記録・事例報告の作成と検討（１期）」受講時に詳しくご説明します）を入手するとともに、受講者は承諾書に書かれている内容を誠実に履行する義務がありますので、講座終了後は資料等を破棄して下さい。</p>
+  <p>また、守秘義務誓約書に違反して、個人情報や事例を漏洩したり、プライバシー権・肖像権を侵害する行為は、倫理綱領に基づく処分や法令に基づく罰則や法的措置（訴訟など）の対象となる可能性があります。</p>
+  <p>・著作権<br>
+  （受講約款 第６条、オンライン受講約款 第６条・第３条）</p>
+  <p>講座で使用されるレジュメ、ワークシート、事前課題 等の著作権は、当協会または作成者に帰属します。許可なくコピー・撮影・録画・録音・送信することはできません。複写したものを、許可なく他で転用することはできません。</p>
+  <p>受講申し込みは、会員マイページからしていただきます。お申込みがありましたら、上記の各受講約款に同意いただいたものとみなし、改めて受講料の振込み口座等のご案内を、メールでさせていただきます。</p>
+  <p>ご入金が確認できました時点で受講契約が成立致しますので、当協会より受講確定メールをお送りさせていただきます。</p>
+  <div class="doclist">
+    <p>・<a href="../../soon.html#シニア産業カウンセラー育成講座・概要PDF">シニア産業カウンセラー育成講座・概要（PDF）</a></p>
+    <p>・<a href="../../soon.html#シニア産業カウンセラー育成講座受講約款PDF">シニア産業カウンセラー育成講座 受講約款（PDF）</a></p>
+    <p>・<a href="https://www.counselor.or.jp/Portals/0/resources/pdfs/20200901-online-jyukoyakkan.pdf" target="_blank" rel="noopener">オンライン研修 受講約款（PDF）</a></p>
+    <p>・<a href="https://www.counselor.or.jp/Portals/0/resources/pdfs/140516seiyakusyo.pdf" target="_blank" rel="noopener">守秘義務等に関する誓約書（PDF）</a></p>
+    <p>・<a href="https://www.counselor.or.jp/about/tabid/107/Default.aspx" target="_blank" rel="noopener">倫理綱領</a></p>
+    <p>・<a href="https://www.counselor.or.jp/privacy/tabid/201/Default.aspx" target="_blank" rel="noopener">個人情報保護方針・個人情報の取り扱いについて</a></p>
+  </div>
+  <p class="redtx" style="font-weight:700">必ず「個人情報保護方針」「個人情報お取り扱いについて」を読み、同意の上お申し込み下さい。</p>
+
+  <h2 id="content07"><small>REQUIREMENTS</small>受講条件</h2>
+  <h3 class="vh">会員以外の方も科目履修していただけるようになりました。</h3>
+  <p>受講条件を拡大し、以下のいずれかの条件を満たしている方にも、受講していただくことが可能となりました。（2022年8月1日申込開始分より）</p>
+  <div class="scrollx">
+  <table class="tbl condtbl">
+    <tbody>
+      <tr><th rowspan="2" style="width:40%;vertical-align:middle">受講対象者</th><th colspan="4">その他</th></tr>
+      <tr><th style="width:16%">産業カウンセラー資格登録</th><th style="width:16%">キャリアコンサルタント資格登録</th><th style="width:12%">シニア受験</th><th style="width:12%">受講料</th></tr>
+      <tr><td class="lf" rowspan="2">(1)産業カウンセラー資格を有し協会に資格登録をしている会員であること。</td><td rowspan="2">あり</td><td>あり</td><td rowspan="2">可</td><td rowspan="2">優待価格</td></tr>
+      <tr><td>なし</td></tr>
+      <tr><td class="lf">(2)産業カウンセラー試験に合格している方。</td><td>なし</td><td>なし</td><td>不可</td><td>一般価格</td></tr>
+      <tr><td class="lf" rowspan="2">(3)国家資格キャリアコンサルタント資格を有していること。</td><td rowspan="2">なし</td><td>あり</td><td rowspan="2">不可</td><td rowspan="2">一般価格</td></tr>
+      <tr><td>なし</td></tr>
+      <tr><td class="lf" rowspan="2">(4)国家資格公認心理師資格を有していること。</td><td rowspan="2">なし</td><td>あり</td><td rowspan="2">不可</td><td rowspan="2">一般価格</td></tr>
+      <tr><td>なし</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>すでにシニア産業カウンセラーの資格をお持ちの方もご受講いただけます。</p>
+
+  <h2 id="content03"><small>OUTLINE</small>講座概要</h2>
+  <p class="redtx">産業カウンセラー試験の合格者の方で、シニア産業カウンセラーを目指す方は、本講座が受講対象となります。<br>
+  シニア産業カウンセラー受験を目指さなくとも、受講は可能です。（受講資格参照）<br>
+  ※シニア産業カウンセラーの資格をお持ちの方も受講可能です。</p>
+  <div class="scrollx"><table class="tbl">
+    <tbody>
+      <tr><th>受講資格</th><td>受講条件を満たし、学びを継続しながら今後産業カウンセラーとして実践活動することを目指し能力向上に意欲を持って取り組める者。</td></tr>
+      <tr><th>修了認定条件</th><td>シニア育成講座では各科目とも、実習・グループ討議を非常に重要視していますので、全日程・全時間の連続した出席が必須となります。<br>
+      事前課題について期日までの事前提出もしくは当日の持参（設定科目の場合）、講座への連続した全時間の出席、講座の到達目標の修得、修了レポートの完了をもって修了となります。<br>
+      前述の条件を満たさない場合、または講師による最終的な評価が一定の基準に達していない場合は未修了となります。<br>
+      その場合、当該科目を修了するためには再受講が必要になります。</td></tr>
+      <tr><th>科目編成<br>（2019年度～）</th><td><span class="redtx">※2019年度4月以降に受講を開始された方は下記の編成となります。</span><br>
+      全23科目を受講し、修了することでシニア産業カウンセラー育成講座を修了する。<br>
+      分野Ⅰ：カウンセリング能力（12科目）<br>
+      分野Ⅱ：人間関係・組織開発を援助する能力（6科目）<br>
+      分野Ⅲ：組織に働きかける能力（2科目）<br>
+      分野Ⅳ：シニア産業カウンセラーとしての素養的能力（3科目）</td></tr>
+      <tr><th>科目編成<br>（2014年度～2018年度）</th><td><span class="redtx">※2018年度3月末までに受講を開始された方は下記の編成となります。</span><br>
+      全20科目（うち2科目（科目No.3または5）は1科目を選択）より19科目を受講し、修了することでシニア産業カウンセラー育成講座を修了する。<br>
+      分野Ⅰ：カウンセリング能力（13科目、そのうち3科目については1科目を選択）<br>
+      分野Ⅱ：人間関係・組織開発を援助する能力（6科目）<br>
+      分野Ⅲ：組織に働きかける能力（2科目）<br>
+      ※科目No.5『ソリューション・フォーカスト・アプローチ』は2019年度より『ブリーフ・セラピー』と名称変更しましたが、読み替えるものとします。<br>
+      ※科目No.4『ゲシュタルト療法』を2018年度末までに受講済みの方はそのまま有効です。<br>
+      なお2019年度より同科目は選択いただけません。</td></tr>
+      <tr><th>受講ペースの目安</th><td>シニア産業カウンセラー育成講座は、各科目の受講の後で修了レポート等の課題を作成していただきます。最終的にはABCDで評価され、C評価以上で修了となります。<br>
+      全科目において事前の課題と事後の修了レポートの提出がありますので、一気にまとめて受講するのではなく、最短でも1ヶ月に1科目程度の受講を推奨しています。<br>
+      また、本講座は3年から5年程度の時間をかけてじっくりと学んでいただくことを想定して構築されています。<br>
+      ただし学習への取り組み方等々は個人差がありますので、必須事項ではございません。</td></tr>
+      <tr><th>課題図書について</th><td>各科目において必読の課題図書および参考図書などが提示されますが、.心理系の図書においては発行部数が少ないものもあります。<br>
+      事前に図書名を公開したところ、受講予定者が購入できなかった事例も発生したことから、科目によっては受講が確定し開講案内送付の際に図書名をお知らせするものもございますことをご了承ください。</td></tr>
+      <tr><th>守秘義務の遵守について</th><td>シニア育成講座では実習やグループ討議において受講者の自己開示がなされたり実際のケースを扱う場合があり、その内容を講座外で公表することは禁止します。また各科目の講座内容はすべて日本産業カウンセラー協会の著作物であり、写真撮影、録画、録音およびWEB、SNS、Facebook、Twitter等への記載・転載、さらに二次利用は禁止します。安全な場を確保するため、守秘義務に関する誓約書に署名捺印の上、ご提出いただきます。<br>
+      なお受講時に許可無く撮影、録音された場合は、記録媒体を回収の上で直ちにご退出いただき、当該科目は未修了となります。<br>
+      本講座において許可無く録音、録画、PCの使用はできません。講座中は、一部の科目および講師からの許可がある場合を除き携帯電話、スマートフォン、タブレット、PCはバッグ等に入れていただきます。</td></tr>
+    </tbody>
+  </table></div>
+  <div class="doclist">
+    <p><a href="https://www.counselor.or.jp/course/guide/tabid/397/Default.aspx" target="_blank" rel="noopener">※シニア産業カウンセラー育成講座　科目別解説について</a></p>
+    <p><a href="../../soon.html#JAICO産業カウンセリング2025年5-6月号">JAICO産業カウンセリング2025年5-6月号「No.11逐語記録・事例報告の作成と検討」を受ける方へ</a></p>
+  </div>
+
+  <h2 id="content04"><small>APPLICATION</small>講座のお申込みについて</h2>
+  <div class="scrollx"><table class="tbl">
+    <tbody>
+      <tr><th>申し込み方法</th><td>(1)会員マイページまたはWEB申し込みページからの申し込みとなります。<br>
+      郵送・FAXでの申し込みは原則として受け付けません。<br>
+      申込先は開催を主催する本部または支部になります。<br>
+      なお申込書式は協会ホームページからダウンロードしてください。<br>
+      (2)受講確認メールを受信後に、振込先へ受講料を振り込んでください。<br>
+      (3)受講料の入金を確認した時点で申し込み完了メールを発信し、受講が確定します。<br><br>
+      実施の約3ヶ月前(11-2は6ヶ月前）に当ホームページにて、具体的な申し込み方法や修了条件などをご案内いたします。<br>
+      募集期間をご確認の上、1科目ごとに申し込みください。<br>
+      定員を超えた場合は抽選となります。<br>
+      定員に満たない場合は募集期間を延長する場合があります。その際はホームページにて告知しますので、ご確認ください。</td></tr>
+      <tr><th>申し込み先</th><td>原則としてWEB申し込みにて会員マイページよりお申し込み下さい</td></tr>
+      <tr><th>振込先</th><td>受講確認メールに記載されます。ただし講座によっては振込先通知前に、再度受講の条件について了承の確認をさせていただく場合があります。</td></tr>
+      <tr><th>キャンセル</th><td>受講料入金確認をもって受講申込み完了となります。キャンセルについては受講約款をご参照ください。<br>
+      ・お振り込み後のキャンセルについては、当方の都合による場合を除き、他講座・他日程への振替えができかねますのでご注意ください。詳細については受講約款をご参照ください。<br>
+      ・キャンセルや欠席をされた場合、講座当日以降に配布されるレジュメ・資料の配付はございません。</td></tr>
+      <tr><th>受講条件</th><td>次の条件に満たない場合は受講をお断りする場合があります。<br>
+      ・協会とメールの送受信ができること。<br>
+      　レポート等のやりとりのため、データファイルの送受信可能なアドレスをご用意ください。（ケータイ・スマホ用アドレスは不可）<br>
+      ・期日までに受講申込みおよび入金が完了されていること。<br>
+      ・事前学習で必須に指定されている図書については読了していること。<br>
+      ・事前課題（設定科目の場合）の作業が、事前提出の場合は期日までに提出されていること、もしくは当日持参の場合は講座開始前に指定どおり完了していること。<br>
+      ・守秘義務に関する誓約書に署名し受講前に提出していること。</td></tr>
+      <tr><th>受講料</th><td>
+        <div class="scrollx" style="margin:0">
+        <table class="tbl" style="min-width:420px">
+          <thead><tr><th>科目</th><th>優待価格</th><th>一般価格</th></tr></thead>
+          <tbody>
+            <tr><th>科目No.23-1</th><td>3,850円(税込）</td><td>4,235円(税込）</td></tr>
+            <tr><th>３時間の科目</th><td>8,250円(税込）</td><td>9,075円(税込）</td></tr>
+            <tr><th>６時間の科目</th><td>16,500円(税込）</td><td>18,150円(税込）</td></tr>
+            <tr><th>12時間の科目</th><td>31,900円(税込）</td><td>35,090円(税込）</td></tr>
+            <tr><th>18時間の科目</th><td>47,300円(税込）</td><td>52,030円(税込）</td></tr>
+          </tbody>
+        </table></div>
+        </div>
+        ※総受講時間数は2019年度以前、以後共に216時間になります。</td></tr>
+      <tr><th>資格登録制度</th><td>1日あたりのポイント数は以下のとおりとなります。<br>
+      3時間の科目3ポイント/日<br>
+      6時間の科目5ポイント/日<br>
+      6時間以上の科目7ポイント/日</td></tr>
+      <tr><th>その他</th><td>・ご不明な点は協会本部 産業カウンセラー養成事業部・シニア講座担当者（電話：03-3438-4568）までお問い合わせください。<br>
+      ・欠席された場合、開催当日以降に配布されるテキスト等についての再配布はございません。また出席された場合であっても紛失等による再配布は行いませんのでご注意ください。<br>
+      ・調整中の講座については、日程が確定次第、順次当ホームページにて公開していきます。<br>
+      ・お申し込みは原則として会員マイページにて受け付けます。またデータファイルの送受信が必要になります。</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="links"><small>APPLY</small>お申し込み・関連資料</h2>
+  <p class="lead2">募集要項のご確認・お申し込み、受講にあたっての関連資料はこちらからご覧いただけます。</p>
+  <style>#seniorLinks li .an{flex:0 0 auto;min-width:11em}#seniorLinks li .am{font-size:12.5px}</style>
+  <ul class="areagrid" id="seniorLinks">
+    <li data-key="募集要項・お申し込み"><a href="../../../demo_schedule_senior/index.html"><span class="an">募集要項・お申し込み</span><span class="am">シニア育成講座 開講の募集について</span></a></li>
+    <li data-key="オンライン研修 受講約款"><a href="https://www.counselor.or.jp/Portals/0/resources/pdfs/20200901-online-jyukoyakkan.pdf" target="_blank" rel="noopener"><span class="an">受講約款（オンライン研修）</span><span class="am">お申し込み前にご確認ください（PDF）</span></a></li>
+    <li data-key="守秘義務等に関する誓約書"><a href="https://www.counselor.or.jp/Portals/0/resources/pdfs/140516seiyakusyo.pdf" target="_blank" rel="noopener"><span class="an">守秘義務等に関する誓約書</span><span class="am">受講時に提出（PDF）</span></a></li>
+    <li data-key="講座資料（デジタルブック）"><a href="https://jaico-counselor.meclib.jp/418/book/" target="_blank" rel="noopener"><span class="an">講座資料（デジタルブック）</span><span class="am">講座案内パンフレット</span></a></li>
+  </ul>
+  <script>
+  (function(){
+    /* 関連リンクは職員管理ポータル「募集要項・リンク管理（シニア）」で更新（LPは表示のみ） */
+    var store={}; try{ store=JSON.parse(localStorage.getItem('jaico_area_links_senior_v1')||'{}'); }catch(e){}
+    document.querySelectorAll('#seniorLinks li[data-key]').forEach(function(li){
+      var k=li.getAttribute('data-key'); if(store[k]) li.querySelector('a').href=store[k];
+    });
+  })();
+  </script>
+
+  <h2 id="content05"><small>OPEN COURSES</small>募集中の講座</h2>
+
+  <div class="cta-box" style="margin:10px 0 26px"><h3>科目・日程の確認とお申し込み</h3>
+  <p>募集中の講座の科目・日程・会場・受付状況は、シニア育成講座の講座日程マスタで一覧できます。各科目の「詳細・お申込みはこちら」からもご覧いただけます。</p>
+  <div class="bs"><a class="btn btn-y btn-big" href="../../../demo_schedule_senior/index.html">科目・日程マスタを見る →</a><a class="btn btn-w" href="../../../demo_schedule_senior/index.html">募集要項を確認する ↗</a></div></div>
+
+  <div class="sched">
+
+  <details open>
+  <summary>2026年7月募集の講座</summary>
+  <div class="bd">
+  <p class="terms"><b>【応募期間】<br>2026年7月1日(水)～7月10日(金)</b><br>
+  ※募集期間中は先着順ではありません。<br>
+  ※毎月10日時点で一旦締め切り、その時点までにご応募いただいた方へ（応募者多数の場合は抽選の上）参加確定のご連絡をいたします。<br>
+  ※定員に満たない場合は募集期間を延長します。延長時の先着順で参加確定とし、定員に達し次第よりキャンセル待ちとさせていただきます。<br>
+  ※なお、参加確定となっていても、最少催行人数に達しない場合、開催を中止させていただく場合がございますのでご了承ください。</p>
+
+  <h3 class="vh">北関東支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.11<br>逐語記録・事例報告の作成と検討（1期）</th><td>2026年10月24日(土)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br><span class="redtx">※インターネット回線を使用したZOOMのみの開催となりますのでご注意ください</span></td><td class="stc"><span class="st st-ok">受付中</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.15<br>多文化と価値観の多様性(ダイバーシティ)へのアプローチ</th><td>2026年10月25日(日)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>埼玉会館（浦和区高砂3-1-4）</td><td class="stc"><span class="st st-ok">受付中</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">東京支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.1<br>認知行動療法</th><td>2026年10月3日(土),4日(日)・2日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>東京支部 中野坂上教室（中野区本町1-32-2 ハーモニータワー）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.8<br>危機介入等の実践的理解</th><td>2026年10月12日(月祝)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>東京支部 中野坂上教室（中野区本町1-32-2 ハーモニータワー）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.11<br>逐語記録・事例報告の作成と検討（3期）</th><td>2026年10月11日(日),12日(月祝)・2日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>東京支部 中野坂上教室（中野区本町1-32-2 ハーモニータワー）</td><td class="stc"><span class="st st-ok">受付中</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.20<br>メンタルヘルス支援体制構築の実践的理解</th><td>2026年10月24日(土),25日(日),31日(土)・3日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>東京支部 中野坂上教室（中野区本町1-32-2 ハーモニータワー）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">神奈川支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.10<br>心理アセスメントの実践的理解</th><td>2026年10月24日(土)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>神奈川支部研修室（横浜市中区桜木町3-8　横浜塩業ビル）</td><td class="stc"><span class="st st-ok">受付中</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.11<br>逐語記録・事例報告の作成と検討（3期）</th><td>2026年10月17日(土),18日(日)・2日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>神奈川支部研修室（横浜市中区桜木町3-8　横浜塩業ビル）</td><td class="stc"><span class="st st-ok">受付中</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.13<br>自己理解の深度化＜BEG体験＞</th><td>2026年10月3日(土),4日(日)・2日間<br>8:30開場、9:00開始、19:00終了（昼食1時間・両日とも）<br>※本科目のみ、1日あたり休憩込10時間となります<br>神奈川支部研修室（横浜市中区桜木町3-8　横浜塩業ビル）</td><td class="stc"><span class="st st-ok">受付中</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">中部支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.11<br>逐語記録・事例報告の作成と検討（2期）</th><td>2027年1月10日(日),11日(月)・2日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>中部支部研修室（名古屋市東区東桜1-9-26 IKKOパーク栄ビル）</td><td class="stc"><span class="st st-ok">受付中</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.11<br>逐語記録・事例報告の作成と検討（3期）</th><td>2026年10月17日(土),18日(日)・2日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>中部支部研修室（名古屋市東区東桜1-9-26 IKKOパーク栄ビル）</td><td class="stc"><span class="st st-ok">受付中</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.18<br>ファシリテーションとグループ・ワークの実践的理解</th><td>2026年10月3日(土),4日(日)・2日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>中部支部研修室（名古屋市東区東桜1-9-26 IKKOパーク栄ビル）</td><td class="stc"><span class="st st-ok">受付中</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.22<br>レポート・報告書作成の研究的視点と実践的理解</th><td>2026年10月24日(土)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br><span class="redtx">※インターネット回線を使用したZOOMのみの開催となりますのでご注意ください</span></td><td class="stc"><span class="st st-ok">受付中</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">関西支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.9<br>キャリア形成支援の事例検討および実習</th><td>2026年10月25日(日),11月14日(土),15日(日)・３日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）３日間とも<br><span class="redtx">※インターネット回線を使用したZOOMのみの開催となりますのでご注意ください</span></td><td class="stc"><span class="st st-ok">受付中</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.20<br>メンタルヘルス支援体制構築の実践的理解</th><td>2026年10月10日(土),11日(日),12日(月祝)・3日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>エル･おおさか（大阪府大阪市中央区北浜東3-14）</td><td class="stc"><span class="st st-ok">受付中</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">四国支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.11<br>逐語記録・事例報告の作成と検討（3期）</th><td>2026年10月3日(土),4日(日)・2日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>四国支部研修室（愛媛県松山市味酒町1-3四国ガス第3ビル）</td><td class="stc"><span class="st st-ok">受付中</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">九州支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.2<br>アサーション</th><td>2026年10月3日(土)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br><span class="redtx">※インターネット回線を使用したZOOMのみの開催となりますのでご注意ください</span></td><td class="stc"><span class="st st-ok">受付中</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.12<br>セルフキャリア開発</th><td>2026年10月24日(土)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br><span class="redtx">※インターネット回線を使用したZOOMのみの開催となりますのでご注意ください</span></td><td class="stc"><span class="st st-ok">受付中</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">沖縄支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.5<br>ブリーフ・セラピー</th><td>2026年10月24日(土)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br><span class="redtx">※インターネット回線を使用したZOOMのみの開催となりますのでご注意ください</span></td><td class="stc"><span class="st st-ok">受付中</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+  </div>
+  </details>
+
+  <details>
+  <summary>2026年6月募集の講座</summary>
+  <div class="bd">
+  <p class="terms"><b>【応募期間】<br>2026年6月1日(月)～6月10日(水)</b><br>
+  ※募集期間中は先着順ではありません。<br>
+  ※毎月10日時点で一旦締め切り、その時点までにご応募いただいた方へ（応募者多数の場合は抽選の上）参加確定のご連絡をいたします。<br>
+  ※定員に満たない場合は募集期間を延長します。延長時の先着順で参加確定とし、定員に達し次第よりキャンセル待ちとさせていただきます。<br>
+  ※なお、参加確定となっていても、最少催行人数に達しない場合、開催を中止させていただく場合がございますのでご了承ください。</p>
+
+  <h3 class="vh">上信越支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.17<br>人間関係形成の実践的理解</th><td>2026年9月5日(土)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>上信越支部群馬研修室（群馬県高崎市問屋町3-10-3 問屋町センター第2ビル3階）</td><td class="stc"><span class="st st-ok">受付中</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.20<br>メンタルヘルス支援体制構築の実践的理解</th><td>2026年9月19日(土),20日(日),21日(月祝)・3日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>上信越支部長野事務所会議室（長野県長野市南県町1041-3新建新聞社第３ビル）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">北関東支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.3<br>TA（交流分析）</th><td>2026年9月12日(土),13日(日)・2日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br><span class="redtx">※インターネット回線を使用したZOOMのみの開催となりますのでご注意ください</span></td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">東関東支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.18<br>ファシリテーションとグループ・ワークの実践的理解</th><td>2026年9月26日(土),27日(日)・2日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>東関東支部柏研修室（柏市柏2-6-17　染谷エステートビル3F）</td><td class="stc"><span class="st st-ok">受付中</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">東京支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.19<br>教育研修指導法の実践的理解</th><td>2026年9月26日(土)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>東京支部 中野坂上教室（中野区本町1-32-2 ハーモニータワー）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">神奈川支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.11<br>逐語記録・事例報告の作成と検討（1期）</th><td>2026年9月27日(日)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>神奈川支部研修室（横浜市中区桜木町3-8　横浜塩業ビル）</td><td class="stc"><span class="st st-ok">受付中</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.11<br>逐語記録・事例報告の作成と検討（2期）</th><td>2026年12月5日(土),6日(日)・2日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>神奈川支部研修室（横浜市中区桜木町3-8　横浜塩業ビル）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.16<br>職場のグループダイナミクスの実践的理解</th><td>2026年9月26日(土)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>神奈川支部研修室（横浜市中区桜木町3-8　横浜塩業ビル）</td><td class="stc"><span class="st st-ok">受付中</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">中部支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.11<br>逐語記録・事例報告の作成と検討（1期）</th><td>2026年9月12日(土)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br><span class="redtx">※インターネット回線を使用したZOOMのみの開催となりますのでご注意ください</span></td><td class="stc"><span class="st st-ok">受付中</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">関西支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.6<br>臨床精神医学・心身医学の実務</th><td>2026年9月13日(日)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br><span class="redtx">※インターネット回線を使用したZOOMのみの開催となりますのでご注意ください</span></td><td class="stc"><span class="st st-ok">受付中</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.12<br>セルフキャリア開発</th><td>2026年9月27日(日)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br><span class="redtx">※インターネット回線を使用したZOOMのみの開催となりますのでご注意ください</span></td><td class="stc"><span class="st st-ok">受付中</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">四国支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.5<br>ブリーフ・セラピー</th><td>2026年9月26日(土)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br><span class="redtx">※インターネット回線を使用したZOOMのみの開催となりますのでご注意ください</span></td><td class="stc"><span class="st st-ok">受付中</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">九州支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.22<br>レポート・報告書作成の研究的視点と実践的理解</th><td>2026年9月19日(土)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br><span class="redtx">※インターネット回線を使用したZOOMのみの開催となりますのでご注意ください</span></td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+  </div>
+  </details>
+
+  <details>
+  <summary>2026年5月募集の講座</summary>
+  <div class="bd">
+  <p class="terms"><b>【応募期間】<br>2026年5月1日(金)～5月10日(日)</b><br>
+  ※募集期間中は先着順ではありません。<br>
+  ※毎月10日時点で一旦締め切り、その時点までにご応募いただいた方へ（応募者多数の場合は抽選の上）参加確定のご連絡をいたします。<br>
+  ※定員に満たない場合は募集期間を延長します。延長時の先着順で参加確定とし、定員に達し次第よりキャンセル待ちとさせていただきます。<br>
+  ※なお、参加確定となっていても、最少催行人数に達しない場合、開催を中止させていただく場合がございますのでご了承ください。</p>
+
+  <h3 class="vh">上信越支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.11<br>逐語記録・事例報告の作成と検討（2期）</th><td>2026年11月14日(土)、15日(日)・2日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>上信越支部群馬研修室（群馬県高崎市問屋町3-10-3 問屋町センター第2ビル3階）</td><td class="stc"><span class="st st-ok">受付中</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">北関東支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.2<br>アサーション</th><td>2026年8月23日(日)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br><span class="redtx">※インターネット回線を使用したZOOMのみの開催となりますのでご注意ください</span></td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.6<br>臨床精神医学・心身医学の実務</th><td>2026年8月9日(日)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br><span class="redtx">※インターネット回線を使用したZOOMのみの開催となりますのでご注意ください</span></td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.18<br>ファシリテーションとグループ・ワークの実践的理解</th><td>2026年8月15日(土)、16日(日)・2日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>さいたま共済会館（さいたま市浦和区岸町7丁目5-14）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">東京支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.9<br>キャリア形成支援の事例検討および実習</th><td>2026年8月15日(土)、16日(日)、29日(土)・３日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）３日間とも<br><span class="redtx">※インターネット回線を使用したZOOMのみの開催となりますのでご注意ください</span></td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.10<br>心理アセスメントの実践的理解</th><td>2026年8月8日(土)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>東京支部 中野坂上教室（中野区本町1-32-2 ハーモニータワー）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.11<br>逐語記録・事例報告の作成と検討（1期）</th><td>2026年8月1日(土)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>東京支部 中野坂上教室（中野区本町1-32-2 ハーモニータワー）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">神奈川支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.22<br>レポート・報告書作成の研究的視点と実践的理解</th><td>2026年8月23日(日)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>神奈川支部研修室（横浜市中区桜木町3-8 横浜塩業ビル）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">関西支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.10<br>心理アセスメントの実践的理解</th><td>2026年8月2日(日)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>エル･おおさか（大阪府大阪市中央区北浜東3-14）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.16<br>職場のグループダイナミクスの実践的理解</th><td>2026年8月30日(日)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>エル･おおさか（大阪府大阪市中央区北浜東3-14）</td><td class="stc"><span class="st st-ok">受付中</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">九州支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.7<br>パーソナリティの病理</th><td>2026年8月23日(日)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br><span class="redtx">※インターネット回線を使用したZOOMのみの開催となりますのでご注意ください</span></td><td class="stc"><span class="st st-ok">受付中</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.23-1<br>シニア産業カウンセラーの理解（受講ガイダンス）</th><td>2026年8月1日(土)・0.5日間<br>13:30開場、14:00開始、17:00終了<br><span class="redtx">※インターネット回線を使用したZOOMのみの開催となりますのでご注意ください</span></td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.23-2<br>産業カウンセラー倫理の実践的理解</th><td>2026年8月1日(土)・0.5日間<br>9:30開場、10:00開始、13:00終了<br><span class="redtx">※インターネット回線を使用したZOOMのみの開催となりますのでご注意ください</span></td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+  </div>
+  </details>
+
+  <details>
+  <summary>2026年4月募集の講座 <small>※受付はすべて終了しています</small></summary>
+  <div class="bd">
+  <p class="terms"><b>【応募期間】<br>2026年4月1日(水)～4月10日(金)</b><br>
+  ※募集期間中は先着順ではありません。<br>
+  ※毎月10日時点で一旦締め切り、その時点までにご応募いただいた方へ（応募者多数の場合は抽選の上）参加確定のご連絡をいたします。<br>
+  ※定員に満たない場合は募集期間を延長します。延長時の先着順で参加確定とし、定員に達し次第よりキャンセル待ちとさせていただきます。<br>
+  ※なお、参加確定となっていても、最少催行人数に達しない場合、開催を中止させていただく場合がございますのでご了承ください。</p>
+
+  <h3 class="vh">上信越支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.10<br>心理アセスメントの実践的理解</th><td>2026年7月11日(土)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>新潟市万代市民会館（新潟市中央区東万代町9番1号）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">北関東支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.11<br>逐語記録・事例報告の作成と検討（3期）</th><td>2026年7月18日(土)、19(日)・2日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>埼玉教育会館（さいたま市浦和区高砂3-12-24）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.19<br>教育研修指導法の実践的理解</th><td>2026年7月25日(土)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>埼玉教育会館（さいたま市浦和区高砂3-12-24）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">東京支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.7<br>パーソナリティの病理</th><td>2026年7月26日(日)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br><span class="redtx">※インターネット回線を使用したZOOMのみの開催となりますのでご注意ください</span></td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.17<br>人間関係形成の実践的理解</th><td>2026年7月18日(土)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>東京支部代々木教室（渋谷区千駄ヶ谷4-2-12菱化代々木ビル）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.21<br>働きやすい職場づくりの実践的理解</th><td>2026年7月11日(土)、12日(日)・2日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>東京支部代々木教室（渋谷区千駄ヶ谷4-2-12菱化代々木ビル）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">神奈川支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.5<br>ブリーフ・セラピー</th><td>2026年7月11日(土)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>神奈川支部研修室（横浜市中区桜木町3-8 横浜塩業ビル）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.14<br>コミュニティ・アプローチ</th><td>2026年7月12日（日)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>神奈川支部研修室（横浜市中区桜木町3-8 横浜塩業ビル）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">関西支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.1<br>認知行動療法</th><td>2026年7月4日(土)、5日(日)・2日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>エル･おおさか（大阪府大阪市中央区北浜東3-14）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.11<br>逐語記録・事例報告の作成と検討（2期）</th><td>2026年10月31日(土)、11月1日(日)・2日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>エル･おおさか（大阪府大阪市中央区北浜東3-14）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.13<br>自己理解の深度化＜BEG体験＞</th><td>2026年7月18日(土)、19日(日)・2日間<br>8:30開場、9:00開始、19:00終了（昼食1時間・両日とも）<br>※本科目のみ、1日あたり休憩込10時間となります<br>エル･おおさか（大阪府大阪市中央区北浜東3-14）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">九州支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.9<br>キャリア形成支援の事例検討および実習</th><td>2026年7月4日(土)、5日(日)、18日(土)・３日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）３日間とも<br><span class="redtx">※インターネット回線を使用したZOOMのみの開催となりますのでご注意ください</span></td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.11<br>逐語記録・事例報告の作成と検討（1期）</th><td>2026年7月11日(土)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br><span class="redtx">※インターネット回線を使用したZOOMのみの開催となりますのでご注意ください</span></td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.15<br>多文化と価値観の多様性(ダイバーシティ)へのアプローチ</th><td>2026年7月26日（日)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>九州支部会議室（福岡市博多区博多駅南1-2-15 事務機ビル6階）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+  </div>
+  </details>
+
+  <details>
+  <summary>2026年3月募集の講座 <small>※受付はすべて終了しています</small></summary>
+  <div class="bd">
+  <p class="terms"><b>【応募期間】<br>2026年3月1日(日)～3月10日(火)</b><br>
+  ※募集期間中は先着順ではありません。<br>
+  ※毎月10日時点で一旦締め切り、その時点までにご応募いただいた方へ（応募者多数の場合は抽選の上）参加確定のご連絡をいたします。<br>
+  ※定員に満たない場合は募集期間を延長します。延長時の先着順で参加確定とし、定員に達し次第よりキャンセル待ちとさせていただきます。<br>
+  ※なお、参加確定となっていても、最少催行人数に達しない場合、開催を中止させていただく場合がございますのでご了承ください。</p>
+
+  <h3 class="vh">東北支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.11<br>逐語記録・事例報告の作成と検討（2期）</th><td>2026年9月12日(土)、13日(日)・2日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>本町スクエア（仙台市青葉区本町２丁目１）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">北関東支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.11<br>逐語記録・事例報告の作成と検討（2期）</th><td>2026年9月19日(土)、20日(日)・2日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>埼玉教育会館（さいたま市浦和区高砂3-12-24）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">東京支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.11<br>逐語記録・事例報告の作成と検討（2期）</th><td>2026年9月22日(火祝)、23日(水祝)・2日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>東京支部　中野坂上教室（中野区本町1-32-2 ハーモニータワー）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.12<br>セルフキャリア開発</th><td>2026年6月6日(土)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br><span class="redtx">※インターネット回線を使用したZOOMのみの開催となりますのでご注意ください</span></td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.13<br>自己理解の深度化＜BEG体験＞</th><td>2026年6月20日(土)、21日（日)・2日間<br>8:30開場、9:00開始、19:00終了（昼食1時間・両日とも）<br>※本科目のみ、1日あたり休憩込10時間となります<br>東京支部代々木教室（渋谷区千駄ヶ谷4-2-12菱化代々木ビル）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.23-1<br>シニア産業カウンセラーの理解（受講ガイダンス）</th><td>2026年6月27日(土)・0.5日間<br>9:30開場、10:00開始、13:00終了<br><span class="redtx">※インターネット回線を使用したZOOMのみの開催となりますのでご注意ください</span></td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.23-2<br>産業カウンセラー倫理の実践的理解</th><td>2026年6月27日(土)・0.5日間<br>13:30開場、14:00開始、17:00終了<br><span class="redtx">※インターネット回線を使用したZOOMのみの開催となりますのでご注意ください</span></td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">神奈川支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.1<br>認知行動療法</th><td>2026年6月6日(土)、7日(日)・2日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>神奈川支部研修室（横浜市中区桜木町3-8 横浜塩業ビル）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">関西支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.2<br>アサーション</th><td>2026年6月21日(日)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br><span class="redtx">※インターネット回線を使用したZOOMのみの開催となりますのでご注意ください</span></td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.7<br>パーソナリティの病理</th><td>2026年6月28日(日)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br><span class="redtx">※インターネット回線を使用したZOOMのみの開催となりますのでご注意ください</span></td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">中国支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.11<br>逐語記録・事例報告の作成と検討（2期）</th><td>2026年9月26日(土)、27日(日)・2日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>中国支部岡山研修室（岡山市北区野田屋町2-11-13 旧岡山あおば生命ビル）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">九州支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.3<br>TA（交流分析）</th><td>2026年6月6日(土)、7日(日)・2日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br><span class="redtx">※インターネット回線を使用したZOOMのみの開催となりますのでご注意ください</span></td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.5<br>ブリーフ・セラピー</th><td>2026年6月21日(日)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br><span class="redtx">※インターネット回線を使用したZOOMのみの開催となりますのでご注意ください</span></td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">沖縄支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.11<br>逐語記録・事例報告の作成と検討（1期）</th><td>2026年6月28日(日)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br><span class="redtx">※インターネット回線を使用したZOOMのみの開催となりますのでご注意ください</span></td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+  </div>
+  </details>
+
+  <details>
+  <summary>2026年2月募集の講座 <small>※受付はすべて終了しています</small></summary>
+  <div class="bd">
+  <p class="terms"><b>【応募期間】<br>2026年2月1日(日)～2月10日(火)</b><br>
+  ※募集期間中は先着順ではありません。<br>
+  ※毎月10日時点で一旦締め切り、その時点までにご応募いただいた方へ（応募者多数の場合は抽選の上）参加確定のご連絡をいたします。<br>
+  ※定員に満たない場合は募集期間を延長します。延長時の先着順で参加確定とし、定員に達し次第よりキャンセル待ちとさせていただきます。<br>
+  ※なお、参加確定となっていても、最少催行人数に達しない場合、開催を中止させていただく場合がございますのでご了承ください。</p>
+
+  <h3 class="vh">東北支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.8<br>危機介入等の実践的理解</th><td>2026年5月16日(土)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br><span class="redtx">※インターネット回線を使用したZOOMのみの開催となりますのでご注意ください</span></td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">北関東支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.9<br>キャリア形成支援の事例検討および実習</th><td>2026年5月9日(土)、10日(日)、31日(日)・３日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）３日間とも<br><span class="redtx">※インターネット回線を使用したZOOMのみの開催となりますのでご注意ください</span></td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.17<br>人間関係形成の実践的理解</th><td>2026年5月9日(土)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>埼玉教育会館（さいたま市浦和区高砂3-12-24）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">東京支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.11<br>逐語記録・事例報告の作成と検討（3期）</th><td>2026年5月4日(月祝)、5日(火祝)・2日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>東京支部代々木教室（渋谷区千駄ヶ谷4-2-12菱化代々木ビル）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.18<br>ファシリテーションとグループ・ワークの実践的理解</th><td>2026年5月2日(土)、3日(日)・2日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>東京支部代々木教室（渋谷区千駄ヶ谷4-2-12菱化代々木ビル）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">神奈川支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.13<br>自己理解の深度化＜BEG体験＞</th><td>2026年5月16日(土)、17日(日)・2日間<br>8:30開場、9:00開始、19:00終了（昼食1時間・両日とも）<br>※本科目のみ、1日あたり休憩込10時間となります<br>神奈川支部研修室（横浜市中区桜木町3-8 横浜塩業ビル）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">四国支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.11<br>逐語記録・事例報告の作成と検討（1期）</th><td>2026年5月16日(土)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br><span class="redtx">※インターネット回線を使用したZOOMのみの開催となりますのでご注意ください</span></td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">九州支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.6<br>臨床精神医学・心身医学の実務</th><td>2026年5月10日(日)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br><span class="redtx">※インターネット回線を使用したZOOMのみの開催となりますのでご注意ください</span></td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.10<br>心理アセスメントの実践的理解</th><td>2026年5月2日(土)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>九州支部会議室（福岡市博多区博多駅南1-2-15 事務機ビル6階）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.23-1<br>シニア産業カウンセラーの理解（受講ガイダンス）</th><td>2026年5月8日(金)・0.5日間<br>18:00開場、18:30開始、21:30終了<br><span class="redtx">※インターネット回線を使用したZOOMのみの開催となりますのでご注意ください</span></td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">沖縄支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.18<br>ファシリテーションとグループ・ワークの実践的理解</th><td>2026年5月23日(土)、24日(日)・2日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>沖縄県建設会館（沖縄県浦添市牧港5丁目6番8号）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+  </div>
+  </details>
+
+  <details>
+  <summary>2026年1月募集の講座 <small>※受付はすべて終了しています</small></summary>
+  <div class="bd">
+  <p class="terms"><b>【応募期間】<br>2026年1月5日(月)～1月15日(木)</b><br>
+  ※募集期間中は先着順ではありません。<br>
+  ※毎月10日時点で一旦締め切り、その時点までにご応募いただいた方へ（応募者多数の場合は抽選の上）参加確定のご連絡をいたします。<br>
+  ※定員に満たない場合は募集期間を延長します。延長時の先着順で参加確定とし、定員に達し次第よりキャンセル待ちとさせていただきます。<br>
+  ※なお、参加確定となっていても、最少催行人数に達しない場合、開催を中止させていただく場合がございますのでご了承ください。</p>
+
+  <h3 class="vh">東北支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.5<br>ブリーフ・セラピー</th><td>2026年4月19日(日)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>東北支部研修室（仙台市青葉区本町2-6-15 チコウビル5階）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">北関東支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.16<br>職場のグループダイナミクスの実践的理解</th><td>2026年4月4日(土)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>埼玉県県民健康センター（さいたま市浦和区仲町3-5-1）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.23-1<br>シニア産業カウンセラーの理解（受講ガイダンス）</th><td>2026年4月18日(土)・0.5日間<br>8:30開場、9:00開始、12:00終了<br><span class="redtx">※インターネット回線を使用したZOOMのみの開催となりますのでご注意ください</span></td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">東京支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.15<br>多文化と価値観の多様性(ダイバーシティ)へのアプローチ</th><td>2026年4月29日(水祝)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>東京支部代々木教室（渋谷区千駄ヶ谷4-2-12菱化代々木ビル）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.22<br>レポート・報告書作成の研究的視点と実践的理解</th><td>2026年4月19日(日)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>東京支部代々木教室（渋谷区千駄ヶ谷4-2-12菱化代々木ビル）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">神奈川支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.11<br>逐語記録・事例報告の作成と検討（2期）</th><td>2026年6月13日(土)、14日(日)・2日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>神奈川支部研修室（横浜市中区桜木町3-8 横浜塩業ビル）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.18<br>ファシリテーションとグループ・ワークの実践的理解</th><td>2026年4月18日(土)、19日(日)・2日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>神奈川支部研修室（横浜市中区桜木町3-8 横浜塩業ビル）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">中部支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.18<br>ファシリテーションとグループ・ワークの実践的理解</th><td>2026年4月18日(土)、19日(日)・2日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>中部支部研修室（名古屋市東区東桜1-9-26 IKKOパーク栄ビル）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">関西支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.18<br>ファシリテーションとグループ・ワークの実践的理解</th><td>2026年4月11日(土)、12日(日)・2日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br>エル･おおさか（大阪府大阪市中央区北浜東3-14）</td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+
+  <h3 class="vh">九州支部</h3>
+  <div class="scrollx"><table class="tbl schtbl"><tbody>
+    <tr><th>科目No.2<br>アサーション</th><td>2026年4月25日(土)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br><span class="redtx">※インターネット回線を使用したZOOMのみの開催となりますのでご注意ください</span></td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+    <tr><th>科目No.12<br>セルフキャリア開発</th><td>2026年4月11日(土)・1日間<br>9:30開場、10:00開始、17:00終了（昼食1時間）<br><span class="redtx">※インターネット回線を使用したZOOMのみの開催となりますのでご注意ください</span></td><td class="stc"><span class="st st-end">受付終了</span></td><td class="btc"><a class="applybtn" href="../../../demo_schedule_senior/index.html">詳細・お申込みはこちら</a></td></tr>
+  </tbody></table></div>
+  </div>
+  </details>
+
+  </div>
+
+  <h2><small>SCHEDULE LIST</small>年間開催予定表</h2>
+  <div class="sched">
+    <details>
+    <summary>2026年度 年間開催予定表</summary>
+    <div class="bd"><p style="text-align:center;margin:6px 0"><a class="btn btn-g btn-big" href="../../../demo_schedule_senior/index.html">2026年度の全科目・日程を講座日程マスタで見る →</a></p></div>
+    </details>
+    <details>
+    <summary>2025年度 年間開催予定表</summary>
+    <div class="bd"><p style="text-align:center;margin:6px 0"><a class="btn btn-g" href="../../soon.html#2025年度年間開催予定表">2025年度 年間開催予定表を見る</a></p></div>
+    </details>
+  </div>
+
+  <h2 id="content06"><small>NEWS ARCHIVE</small>過去のニュース</h2>
+  <div class="newsbox pastnews">
+    <p><b>2026.4.1</b><br>2026年4月募集開始分 を追加しました。</p>
+    <p><b>2026.3.1</b><br>2026年3月募集開始分 を追加しました。</p>
+    <p><b>2026.2.1</b><br>2026年2月募集開始分 を追加しました。</p>
+    <p><b>2026.1.26</b><br>2025年8月募集を再開しました。<br>2026年2/28～3/1開講　「No.11　逐語記録・事例報告の作成と検討（2期）」　（愛媛県松山市開催）</p>
+    <p><b>2026.1.5</b><br>2026年1月募集開始分 を追加しました。</p>
+    <p><b>2025.12.1</b><br>2025年12月募集開始分 を追加しました。</p>
+    <p><b>2025.11.17</b><br><a href="https://www.counselor.or.jp/tabid/101/Default.aspx?itemid=685&amp;dispmid=436" target="_blank" rel="noopener">シニア受講者必修！「ＴＡ１０１」講座　受講者募集中。</a></p>
+    <p><b>2025.11.1</b><br>2025年11月募集開始分 を追加しました。</p>
+    <p><b>2025.10.1</b><br>2025年10月募集開始分 を追加しました。</p>
+    <p><b>2025.9.1</b><br>2025年9月募集開始分 を追加しました。</p>
+    <p><b>2025.8.5</b><br><a href="https://www.counselor.or.jp/tabid/101/Default.aspx?itemid=666&amp;dispmid=436" target="_blank" rel="noopener">第54回全国研究大会―シンポジスト6名募集</a></p>
+    <p><b>2025.8.1</b><br>2025年8月募集開始分 を追加しました。<br><a href="https://www.counselor.or.jp/tabid/101/Default.aspx?itemid=657&amp;dispmid=436" target="_blank" rel="noopener">産業カウンセラー養成講座テキスト 「産業カウンセリングⅠ・Ⅱ 」（第8版1刷） 特別価格での限定販売のご案内</a></p>
+    <p><b>2025.7.1</b><br>2025年7月募集開始分 を追加しました。</p>
+    <p><b>2025.6.1</b><br>2025年6月募集開始分 を追加しました。</p>
+    <p><b>2025.5.15</b><br>会報「ＪＡＩＣＯ」２０２５年５－６月号に協会ニュース<br>【シニア産業カウンセラー育成講座】「№１１逐語記録・事例報告の作成と検討」を受ける方へが掲載されました。<br>ご受講される方は、ご一読ください。<br><a href="https://jaico-counselor.meclib.jp/418/book/" target="_blank" rel="noopener">https://jaico-counselor.meclib.jp/418/book/</a></p>
+    <p><b>2025.5.1</b><br>2025年5月募集開始分 を追加しました。</p>
+    <p><b>2025.4.1</b><br>2025年4月募集開始分 を追加しました。</p>
+    <p><b>2025.3.1</b><br>2025年3月募集開始分 を追加しました。</p>
+    <p><b>2025.2.1</b><br>2025年2月募集開始分 を追加しました。</p>
+    <p><b>2025.1.6</b><br>2025年1月募集開始分 を追加しました。</p>
+    <p><b>2024.12.1</b><br>2024年12月募集開始分 を追加しました。</p>
+    <p><b>2024.11.1</b><br>2024年11月募集開始分 を追加しました。</p>
+    <p><b>2024.10.1</b><br>2024年10月募集開始分 を追加しました。</p>
+    <p><b>2024.9.1</b><br>2024年9月募集開始分 を追加しました。</p>
+    <p><b>2024.8.1</b><br>TA101　オンライン講座を開講します。<br>詳しくは<a href="https://www.counselor.or.jp/tabid/101/Default.aspx?itemid=594&amp;dispmid=436" target="_blank" rel="noopener">こちら</a></p>
+    <p><b>2024.8.1</b><br>2024年8月募集開始分 を追加しました。</p>
+    <p><b>2024.7.12</b><br>《夏季休業のお知らせ》<br>誠に勝手ながら下記のとおり夏季休業とさせていただきます。<br>■8/13（火）～ 8/16（金）<br><br>8月募集（8/10〆切分）に関するお問合せは、開催支部（営業日）にお願いいたします。<br>その他のお問合せについては、営業開始日以降に順次回答させていただきますので<br>「<a href="mailto:senior@counselor.or.jp">senior@counselor.or.jp</a>」へお送りください。<br>皆さまには大変ご不便をおかけいたしますが、何卒ご理解の程お願いいたします。</p>
+    <p><b>2024.7.5</b><br>「日本ブリーフセラピー協会第16回学術会議（2424年8月31日・9月1日開催）のご案内」を<a href="https://www.counselor.or.jp/tabid/321/Default.aspx" target="_blank" rel="noopener">関連団体情報</a>に掲載しました。</p>
+    <p><b>2024.7.1</b><br>2024年7月募集開始分 を追加しました。</p>
+    <p><b>2024.6.1</b><br>2024年6月募集開始分 を追加しました。</p>
+    <p><b>2024.5.1</b><br>2024年5月募集開始分 を追加しました。</p>
+    <p><b>2024.4.1</b><br>2024年4月募集開始分 を追加しました。</p>
+    <p><b>2024.3.26</b><br><a href="../../soon.html#シニア産業カウンセラー育成講座受講約款PDF">「シニア産業カウンセラー育成講座受講約款」</a>を改定しました。</p>
+    <p><b>2024.3.1</b><br>2024年3月募集開始分 を追加しました。</p>
+    <p><b>2024.2.21</b><br><a href="../../soon.html#産業カウンセリング実力向上のすすめPDF">「産業カウンセリング実力向上のすすめ」</a>をアップデートしました。</p>
+    <p><b>2024.2.1</b><br>2024年2月募集開始分 を追加しました。</p>
+    <p><b>2024.1.5</b><br>2024年1月募集開始分 を追加しました。</p>
+    <p><b>2023.12.1</b><br>2023年12月募集開始分 を追加しました。</p>
+    <p><b>2023.11.1</b><br>2023年11月募集開始分 を追加しました。</p>
+    <p><b>2023.10.1</b><br>2023年10月募集開始分 を追加しました。</p>
+    <p><b>2023.9.1</b><br>2023年9月募集開始分 を追加しました。</p>
+    <p><b>2023.8.1</b><br>2023年8月募集開始分 を追加しました。</p>
+    <p><b>2023.7.1</b><br>2023年7月募集開始分 を追加しました。</p>
+    <p><b>2023.6.1</b><br>2023年6月募集開始分 を追加しました。</p>
+    <p><b>2023.5.1</b><br>2023年5月募集開始分 を追加しました。</p>
+    <p><b>2023.4.1</b><br>2023年4月募集開始分 を追加しました。</p>
+    <p><b>2023.3.1</b><br>2023年3月募集開始分 を追加しました。</p>
+    <p><b>2023.2.1</b><br>2023年2月募集開始分 を追加しました。</p>
+    <p><b>2023.1.5</b><br>2023年1月募集開始分 を追加しました。</p>
+    <p><b>2022.12.1</b><br>2022年12月募集開始分 を追加しました。</p>
+    <p><b>2022.11.1</b><br>2022年11月募集開始分 を追加しました。</p>
+    <p><b>2022.10.1</b><br>2022年10月募集開始分 を追加しました。</p>
+    <p><b>2022.9.1</b><br>2022年9月募集開始分 を追加しました。</p>
+    <p><b>2022.8.1</b><br>受講条件が拡大されました。<br><br>2022年8月募集開始分 を追加しました。</p>
+    <p><b>2022.7.1</b><br>2022年7月募集開始分 を追加しました。</p>
+    <p><b>2022.6.1</b><br>2022年6月募集開始分 を追加しました。</p>
+    <p><b>2022.5.1</b><br>2022年5月募集開始分 を追加しました。</p>
+    <p><b>2022.4.1</b><br>2022年4月募集開始分 を追加しました。</p>
+    <p><b>2022.3.1</b><br>2022年3月募集開始分 を追加しました。</p>
+    <p><b>2022.2.1</b><br>2022年2月募集開始分 を追加しました。</p>
+    <p><b>2022.1.5</b><br>2022年1月募集開始分 を追加しました。</p>
+    <p><b>2021.12.1</b><br>2021年12月募集開始分 を追加しました。</p>
+    <p><b>2021.11.1</b><br>2021年11月募集開始分 を追加しました。</p>
+    <p><b>2021.10.4</b><br>2021年10月募集開始分 を追加しました。</p>
+    <p><b>2021.9.1</b><br><a href="../../../demo_schedule_senior/index.html">シニア育成講座開講の募集について（9月募集開始分）</a></p>
+    <p><b>2021.8.1</b><br><a href="https://www.counselor.or.jp/course/newcourse/tabid/562/Default.aspx" target="_blank" rel="noopener">修了証書式改訂について</a></p>
+    <p><b>2021.7.23</b><br><a href="../../../demo_schedule_senior/index.html">シニア育成講座開講の募集について（8月募集開始分）</a></p>
+    <p><b>2020.10.27</b><br><a href="https://www.counselor.or.jp/course/newcourse/tabid/545/Default.aspx" target="_blank" rel="noopener">修了証シール廃止について</a></p>
+  </div>
+
+  <div class="cta-box"><h3>科目・日程｜お申し込み</h3>
+  <p>募集中の科目・日程・受付状況の確認は、シニア育成講座の講座日程マスタからどうぞ。募集要項のご確認もお忘れなく。</p>
+  <div class="bs"><a class="btn btn-y btn-big" href="../../../demo_schedule_senior/index.html">科目・日程マスタへ →</a><a class="btn btn-w" href="../../../demo_schedule_senior/index.html">募集要項・お申し込み ↗</a></div></div>
+
+  <div class="rel"><h3>RELATED ─ 関連ページ</h3><div class="lk"><a href="../../../demo_schedule_senior/index.html">科目・日程（講座日程マスタ）</a><a href="flow/">受験までの流れ・フォローアップ研修</a><a href="https://www.counselor.or.jp/examination/tabid/398/Default.aspx" target="_blank" rel="noopener">シニア産業カウンセラー試験について ↗</a><a href="../">資格・講座トップ</a><a href="../counselor/">産業カウンセラー養成講座</a><a href="../renewal/">資格更新のご案内</a></div></div>
+
+</div></main>
+
+<!-- 新着情報は職員管理ポータルの「お知らせ管理」で更新。アーカイブ済み(archived:true)は新着から非表示（アーカイブページに掲載）。全LP共通の news_data.js 経由に一本化。 -->
+<script src="../../../news_data.js"></script>
+<script>(function(){
+  var box=document.getElementById('newsList'); if(!box||!window.JAICO_NEWS_ITEMS) return;
+  var items=window.JAICO_NEWS_ITEMS('senior').filter(function(it){return !it.archived;});
+  box.innerHTML='';
+  items.forEach(function(it){
+    var p=document.createElement('p');
+    var b=document.createElement('b'); b.textContent=it.date||''; // 日付（強調・左・テキスト）
+    p.appendChild(b); p.appendChild(document.createElement('br'));
+    p.insertAdjacentHTML('beforeend', it.body||''); // 本文HTML（<br>・<a>を保持）
+    box.appendChild(p);
+  });
+})();</script>
+
+<footer>
+ <div class="wrap ft-main">
+  <div class="ft-brand">
+    <img src="../../../images/foot_logo.png" alt="JAICO">
+    <p>一般社団法人日本産業カウンセラー協会<br>〒105-0004 東京都港区新橋六丁目17番17号 御成門センタービル6階</p>
+    <div class="pm"><img src="../../../images/pmark.png" alt="プライバシーマーク"><span>当協会はプライバシーマーク取得事業者です</span></div>
+  </div>
+  <div class="ft-col"><h4>相談する</h4>
+    <a href="../../counseling/hotline/">働く人の悩みホットライン</a>
+    <a href="https://harassment.counselor.or.jp/" target="_blank" rel="noopener" class="ex">JAICOハラスメント相談室</a>
+    <a href="../../counseling/sns/">JAICO SNS相談</a>
+    <a href="../../company/">法人向け相談サービス</a>
+  </div>
+  <div class="ft-col"><h4>学ぶ・資格を取る</h4>
+    <a href="../../qualification/counselor/">産業カウンセラー養成講座</a>
+    <a href="../../qualification/career/">キャリアコンサルタント</a>
+    <a href="../../qualification/senior/">シニア産業カウンセラー</a>
+    <a href="../../qualification/kokoro/">こころのアドバイザー</a>
+    <a href="../../examination/">産業カウンセラー試験</a>
+  </div>
+  <div class="ft-col"><h4>協会について</h4>
+    <a href="../../about/">協会概要・役員</a>
+    <a href="../../member/branch/">全国の支部一覧</a>
+    <a href="../../news/">ニュース・活動報告</a>
+    <a href="../../library/">研究・刊行物</a>
+    <a href="../../about/recruit/">採用情報</a>
+  </div>
+  <div class="ft-col"><h4>関連リンク</h4>
+    <a href="https://kokoro.mhlw.go.jp/" target="_blank" rel="noopener" class="ex">こころの耳（厚労省）</a>
+    <a href="../kokoro/">こころのアドバイザーLP</a>
+    <a href="../../about/link/">関連団体・行政リンク</a>
+    <a href="../../about/policy/#privacy">プライバシーポリシー</a>
+    <a href="../../soon.html#サイトマップ">サイトマップ</a>
+  </div>
+ </div>
+ <div class="wrap ft-btm">
+   <span>© Japan Industrial Counselors Association（リニューアル構成デモ・プロトタイプ）</span>
+   <span class="lk"><a href="../../about/policy/#privacy">個人情報保護方針</a><a href="../../soon.html#特定商取引法">特定商取引法に基づく表記</a></span>
+ </div>
+</footer>
+
+<script src="../../assets/app.js"></script>
+<script src="../../assets/chatbot.js" defer></script>
+</body>
+</html>
